@@ -1,13 +1,76 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/** @format */
+
+:root {
+  --primary: #cc026a;
+  --primary-dark: #cc026a;
+  --secondary: #0e182a;
+  --white: #ffffff;
+  --warning: #f2be03;
+  --error: D96464;
+  --text: #212121;
+  --success: #4fab2f;
+  --info: #418aec;
+  --grey-8: #fafafa;
+  --grey-7: #919191;
+  --grey-5: #e0e0e0;
+  --grey-4: #bdbdbd;
+  --grey-3: #7b7f82;
+  --placeholder: #7b7f82;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  --bg: #ffffff;
+  --bg-sub: #fafafa;
+  --text: #212121;
+}
+html[data-theme='dark'] {
+  --bg: #0e182a;
+  --bg-sub: #3f3d56;
+  --text: #ffffff;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Be Vietnam', sans-serif;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: local('Be Vietnam'),
+    url(./assets/fonts/BeVietnam-Regular.ttf) format('ttf');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Be Vietnam';
+  src: local('Be Vietnam'),
+    url(./assets/fonts/BeVietnam-SemiBold.ttf) format('ttf');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Be Vietnam';
+  src: local('Be Vietnam'), url(./assets/fonts/BeVietnam-Bold.ttf) format('ttf');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Be Vietnam';
+  src: local('Be Vietnam'),
+    url(./assets/fonts/BeVietnam-ExtraBold.ttf) format('ttf');
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
 }
