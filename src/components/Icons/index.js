@@ -20,3 +20,5 @@ export { default as Up } from './Up';
 export { default as Us } from './Us';
 export { default as Vietnam } from './Vietnam';
 export { default as Search } from './Search';
+export { default as Cancel } from './Cancel';
+export { default as ConnectSuccess } from './ConnectSuccess';

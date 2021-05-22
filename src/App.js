@@ -1,22 +1,20 @@
 /** @format */
 
-import Typography, { TypographyVariants } from '@/components/Typography';
-import Button, { ButtonSizes, ButtonVariants } from './components/Button';
-import { Cart } from './components/Icons';
-import Input from './components/Input';
+import { Route, Router } from 'react-router';
+
+import Hello from '@/pages';
+import history from './helpers/history';
+import NetWorkProvider from './providers/NetworkProvider';
+import AlertProvider from './providers/AlertProvider';
 
 function App() {
   return (
-    <div className='App'>
-      <Typography variant={TypographyVariants.Title3}>Hello world</Typography>
-      <Button
-        size={ButtonSizes.Small}
-        suffix={<Cart />}
-        variant={ButtonVariants.Solid}>
-        Hello world
-      </Button>
-      <Input textarea placeholder='Type your name' label='Name' />
-    </div>
+    <NetWorkProvider>
+      <Router history={history}>
+        <Route path='/' exact component={Hello} />
+      </Router>
+      <AlertProvider />
+    </NetWorkProvider>
   );
 }
 
