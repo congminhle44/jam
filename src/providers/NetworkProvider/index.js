@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { useAtom } from 'jotai';
+import useToggle from '@/hooks/useToggglle';
 
 import useNetwork from '@/hooks/useNetwork';
 
@@ -14,7 +15,17 @@ import ReconnectedAlert from './components/ReconnectedAlert';
 const NetWorkProvider = ({ children }) => {
   const network = useNetwork();
 
+  const canShow = useToggle(false);
+
   const [, showAlert] = useAtom(showAlertAtom);
+
+  // Prevent network reconnect alert at the begining of app
+  useEffect(() => {
+    setTimeout(() => {
+      canShow.setActive();
+    }, 500);
+    // eslint-disable-next-line
+  }, []);
 
   useEffect(() => {
     const renderLostConnectionAlert = () => {
@@ -34,7 +45,8 @@ const NetWorkProvider = ({ children }) => {
       });
     };
     if (!network) renderLostConnectionAlert();
-    else renderConnectionConnected();
+    else if (network && canShow.active) renderConnectionConnected();
+    // eslint-disable-next-line
   }, [network, showAlert]);
 
   return <>{children}</>;

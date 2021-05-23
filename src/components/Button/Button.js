@@ -24,7 +24,7 @@ const Button = ({ children, suffix, variant, size, className, ...others }) => (
       className
     )}
     {...others}>
-    <div className={styles.icon}>{suffix}</div>
+    {suffix && <div className={styles.icon}>{suffix}</div>}
     <Typography variant={getFontSize(size)}>{children}</Typography>
   </button>
 );

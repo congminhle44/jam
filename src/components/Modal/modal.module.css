@@ -1,0 +1,36 @@
+/** @format */
+
+.container {
+  max-width: 38.75rem;
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  animation: appear 0.3s ease;
+}
+
+.header {
+  margin-bottom: 1.3125rem;
+  text-align: center;
+}
+
+.footer {
+  margin-top: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.cancel {
+  margin-right: 1.5rem;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(-30%) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
