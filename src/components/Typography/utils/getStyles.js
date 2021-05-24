@@ -22,6 +22,12 @@ const getStyle = (type) => {
         lineHeight: 'calc(68/48)',
         fontWeight: 700,
       };
+    case TypographyVariants.H4:
+      return {
+        fontSize: '2.25rem',
+        lineHeight: 'calc(52/36)',
+        fontWeight: 700,
+      };
     case TypographyVariants.H5:
       return {
         fontSize: '1.5rem',

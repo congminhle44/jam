@@ -7,7 +7,10 @@ import { Search } from '../Icons';
 import styles from './styles.module.css';
 
 const Input = forwardRef(
-  ({ children, placeholder, label, search, textarea, ...others }, ref) => {
+  (
+    { children, placeholder, label, search, textarea, className, ...others },
+    ref
+  ) => {
     const toggleFocus = useToggle(false);
 
     const { disabled } = { ...others };
@@ -19,7 +22,8 @@ const Input = forwardRef(
           toggleFocus.active && styles.focus,
           search && styles.search,
           textarea && styles.text,
-          disabled && styles.disabled
+          disabled && styles.disabled,
+          className
         )}>
         {search && (
           <div className={styles.searchIco}>

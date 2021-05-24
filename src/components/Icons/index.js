@@ -22,3 +22,4 @@ export { default as Vietnam } from './Vietnam';
 export { default as Search } from './Search';
 export { default as Cancel } from './Cancel';
 export { default as ConnectSuccess } from './ConnectSuccess';
+export { default as Menu } from './Menu';
