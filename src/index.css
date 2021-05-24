@@ -40,6 +40,9 @@ body {
   box-sizing: border-box;
   font-family: 'Be Vietnam', sans-serif;
 }
+p {
+  margin: 0;
+}
 @font-face {
   font-family: 'Be Vietnam';
   src: local('Be Vietnam'),

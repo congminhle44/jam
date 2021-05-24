@@ -1,6 +1,6 @@
 /** @format */
 
-import useToggle from '@/hooks/useToggglle';
+import useToggle from '@/hooks/useToggle';
 import clsx from 'clsx';
 import { forwardRef } from 'react';
 import { Search } from '../Icons';

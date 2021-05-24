@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { useAtom } from 'jotai';
-import useToggle from '@/hooks/useToggglle';
+import useToggle from '@/hooks/useToggle';
 
 import useNetwork from '@/hooks/useNetwork';
 
