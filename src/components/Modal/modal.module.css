@@ -1,5 +1,11 @@
 /** @format */
 
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .container {
   max-width: 38.75rem;
   padding: 2rem;

@@ -16,8 +16,8 @@
   box-sizing: border-box;
   display: block;
   position: absolute;
-  width: 15rem;
-  height: 15rem;
+  width: 10rem;
+  height: 10rem;
   margin: 0.5rem;
   border: 0.5rem solid var(--primary);
   border-radius: 50%;
@@ -36,8 +36,8 @@
 }
 
 .brand {
-  width: 10rem;
-  height: 10rem;
+  width: 5rem;
+  height: 5rem;
 }
 
 @keyframes rotate {

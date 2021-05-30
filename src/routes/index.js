@@ -6,7 +6,7 @@ import { Switch } from 'react-router-dom';
 import PublicRoute, { publicRoutes } from '@/routes/public';
 
 import Spinner from '@/components/Spinner';
-// import NotFound from '@/screens/NotFound';
+// import NotFound from '@/pages/NotFound';
 
 const Routes = () => (
   <Suspense fallback={<Spinner />}>

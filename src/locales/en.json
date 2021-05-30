@@ -1,0 +1,14 @@
+{
+    "common.languages":"Languages",
+    "common.english":"English",
+    "common.vietnam":"Vietnamese",
+
+    "header.about":"About Us",
+    "header.categories":"Categories",
+    "header.signin":"Sign In",
+    "banner.title":"welcome to jam academy",
+    "banner.description":"Your future is depending on what you've learnt today",
+    "banner.button":"Discover now",
+    "footer.term":"Terms and Privacy",
+    "footer.contact":"Contact Us"
+}

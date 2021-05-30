@@ -1,0 +1,84 @@
+/** @format */
+
+.container {
+  position: relative;
+  padding: 0.75rem 1.5rem;
+  color: var(--text);
+}
+
+.wrapper {
+  max-width: 45.625rem;
+  margin: 0 auto;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.conversations {
+  margin-top: 0.75rem;
+}
+
+.conversation {
+  display: flex;
+  margin-bottom: 1rem;
+}
+.conversation:nth-child(2) {
+  text-align: right;
+  flex-direction: row-reverse;
+}
+.conversation:nth-child(2) .speech {
+  text-align: left;
+  border-radius: 0.5rem 0 0.5rem 0.5rem;
+}
+.conversation:nth-child(2) .content {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+.conversation:last-child {
+  margin-bottom: 0;
+}
+
+.ava {
+  width: 4.75rem;
+  height: 4.75rem;
+  border-radius: 50%;
+}
+
+.content {
+  margin-left: 0.5rem;
+}
+
+.speech {
+  max-width: 15.0625rem;
+  background-color: var(--grey-4);
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0 0.5rem 0.5rem 0.5rem;
+  color: var(--black);
+}
+
+@media (min-width: 1280px) {
+  .wrapper {
+    max-width: 69.0625rem;
+  }
+  .ava {
+    width: 7rem;
+    height: 7rem;
+  }
+  .name {
+    font-size: 2rem !important;
+  }
+  .speech {
+    max-width: 20rem;
+  }
+  .mainspeech {
+    font-size: 1rem !important;
+  }
+}

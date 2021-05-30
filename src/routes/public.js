@@ -1,7 +1,9 @@
 /** @format */
 
+import config from '@/config';
 import { lazy } from 'react';
 import { Route } from 'react-router';
+import Footer from './components/Footer';
 
 import Header from './components/Header';
 
@@ -9,18 +11,19 @@ const LandingLayout = ({ children }) => {
   return (
     <div>
       <Header />
-      <div>{children}</div>
+      <div style={{ minHeight: '90vh' }}>{children}</div>
+      <Footer />
     </div>
   );
 };
 
-const PublicRoute = ({ component: Component, props, ...others }) => {
+const PublicRoute = ({ component: Component, withProps, ...others }) => {
   return (
     <Route
       {...others}
-      render={(props) => (
+      render={(childProps) => (
         <LandingLayout>
-          <Component {...props} />
+          <Component {...childProps} {...withProps} />
         </LandingLayout>
       )}
     />
@@ -29,9 +32,14 @@ const PublicRoute = ({ component: Component, props, ...others }) => {
 
 export const publicRoutes = [
   {
-    path: '/',
+    path: config.paths.landing,
     exact: true,
     component: lazy(() => import('@/pages/Landing')),
+  },
+  {
+    path: config.paths.login,
+    exact: false,
+    component: lazy(() => import('@/pages/Login')),
   },
 ];
 

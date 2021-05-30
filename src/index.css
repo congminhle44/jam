@@ -7,11 +7,11 @@
   --white: #ffffff;
   --warning: #f2be03;
   --error: #d96464;
-  --text: #212121;
+  --black: #212121;
   --success: #4fab2f;
   --info: #418aec;
-  --grey-8: #fafafa;
   --grey-7: #919191;
+  --grey-6: #fafafa;
   --grey-5: #e0e0e0;
   --grey-4: #bdbdbd;
   --grey-3: #7b7f82;
@@ -23,15 +23,15 @@
 }
 
 html {
-  --bg: #ffffff;
-  --bg-sub: #fafafa;
-  --text: #212121;
-}
-html[data-theme='dark'] {
   --bg: #0e182a;
   --bg-sub: #3f3d56;
   --text: #ffffff;
   scroll-behavior: smooth;
+}
+html[data-theme='light'] {
+  --bg: #ffffff;
+  --bg-sub: #fafafa;
+  --text: #212121;
 }
 
 body {
@@ -39,6 +39,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: 'Be Vietnam', sans-serif;
+  background-color: var(--bg);
 }
 p {
   margin: 0;

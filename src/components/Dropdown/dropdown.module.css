@@ -6,7 +6,7 @@
 }
 
 .container {
-  background-color: var(--grey-8);
+  background-color: var(--grey-6);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -27,7 +27,7 @@
 .dropIco {
   width: 1.5rem;
   height: 1.5rem;
-  color: var(--text);
+  color: var(--black);
   transform: rotate(-180deg);
   transition: all 0.3s;
 }

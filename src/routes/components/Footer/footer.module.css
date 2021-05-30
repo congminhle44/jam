@@ -1,0 +1,77 @@
+/** @format */
+
+.container {
+  margin-top: 2rem;
+  border-top: 1px solid var(--grey-4);
+  padding: 1.5rem;
+}
+
+.wrapper {
+  max-width: 45.625rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  width: 3rem;
+  height: 3rem;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  color: var(--text);
+}
+
+.license {
+  margin-left: 0.875rem;
+}
+
+.name,
+.term {
+  margin-bottom: 0.5rem;
+}
+
+.lang {
+  display: none;
+}
+
+.linkList {
+  text-align: right;
+}
+
+.linkItem {
+  color: var(--text);
+  text-decoration: none;
+}
+
+@media (min-width: 1024px) {
+  .lang {
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+  .brand {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+  .linkList {
+    display: flex;
+    align-items: center;
+  }
+  .term {
+    margin-bottom: 0;
+    margin-right: 0.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .wrapper {
+    max-width: 69.0625rem;
+  }
+  .brand {
+    width: 4.3rem;
+    height: 4.3rem;
+  }
+}

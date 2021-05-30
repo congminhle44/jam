@@ -2,12 +2,12 @@
 
 const config = {
   app: {
-    apiHost: process.env.API_HOST,
+    apiHost: process.env.REACT_APP_API_HOST,
     env: process.env.NODE_ENV || 'development',
-    lang: process.env.LANG || 'en',
   },
   paths: {
     landing: '/',
+    login: '/login',
   },
   apis: {},
 };
