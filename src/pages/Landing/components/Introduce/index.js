@@ -1,76 +1,99 @@
 /** @format */
-import Topping from '@/assets/Images/topping.png';
+import Slider from 'react-slick';
+
 import Jenny from '@/assets/Images/jenny.jpg';
 import Josh from '@/assets/Images/josh.jpg';
 import James from '@/assets/Images/james.jpg';
 
-import Typography, { TypographyVariants } from '@/components/Typography';
 import styles from './style.module.css';
+import Typography, { TypographyVariants } from '@/components/Typography';
+import { Quote } from '@/components/Icons';
 
 const Introduce = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    className: styles.testominal,
+    dotsClass: 'dots',
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <img className={styles.background} src={Topping} alt='Topping' />
-        <Typography variant={TypographyVariants.Title3}>
-          What are our leaners talk about us ?
-        </Typography>
-        <div className={styles.conversations}>
-          <div className={styles.conversation}>
-            <img className={styles.ava} src={Jenny} alt='Jenny' />
-            <div className={styles.content}>
-              <Typography
-                className={styles.name}
-                variant={TypographyVariants.Body2}>
-                Jenny
-              </Typography>
-              <div className={styles.speech}>
-                <Typography
-                  className={styles.mainspeech}
-                  variant={TypographyVariants.Label1}>
-                  This program is very good for those who is losing their basic
-                  to get back their knowledge
-                </Typography>
-              </div>
-            </div>
-          </div>
-          <div className={styles.conversation}>
-            <img className={styles.ava} src={Josh} alt='Josh' />
-            <div className={styles.content}>
-              <Typography
-                className={styles.name}
-                variant={TypographyVariants.Body2}>
-                Josh
-              </Typography>
-              <div className={styles.speech}>
-                <Typography
-                  className={styles.mainspeech}
-                  variant={TypographyVariants.Label1}>
-                  This program is very good for those who is losing their basic
-                  to get back their knowledge
-                </Typography>
-              </div>
-            </div>
-          </div>
-          <div className={styles.conversation}>
-            <img className={styles.ava} src={James} alt='James' />
-            <div className={styles.content}>
-              <Typography
-                className={styles.name}
-                variant={TypographyVariants.Body2}>
-                James
-              </Typography>
-              <div className={styles.speech}>
-                <Typography
-                  className={styles.mainspeech}
-                  variant={TypographyVariants.Label1}>
-                  This program is very good for those who is losing their basic
-                  to get back their knowledge
-                </Typography>
-              </div>
-            </div>
-          </div>
+        <div className={styles.quote}>
+          <Quote />
         </div>
+        <Slider {...settings}>
+          <div className={styles.card}>
+            <div className={styles.avaWrap}>
+              <img className={styles.ava} src={Jenny} alt='Jenny' />
+            </div>
+            <div className={styles.information}>
+              <Typography
+                className={styles.name}
+                variant={TypographyVariants.Title2}>
+                Jenny Anthony
+              </Typography>
+              <Typography variant={TypographyVariants.Body1}>
+                Visual Designer
+              </Typography>
+            </div>
+            <div className={styles.speech}>
+              <Typography variant={TypographyVariants.Body1}>
+                This program is very good for those who is losing their basic to
+                get back their knowledge
+              </Typography>
+            </div>
+          </div>
+          <div className={styles.card}>
+            <div className={styles.avaWrap}>
+              <img className={styles.ava} src={Josh} alt='Josh' />
+            </div>
+            <div className={styles.information}>
+              <Typography
+                className={styles.name}
+                variant={TypographyVariants.Title2}>
+                Jenny Thompson
+              </Typography>
+              <Typography variant={TypographyVariants.Body1}>
+                Computer Science
+              </Typography>
+            </div>
+            <div className={styles.speech}>
+              <Typography variant={TypographyVariants.Body1}>
+                This program is very good for those who is losing their basic to
+                get back their knowledge
+              </Typography>
+            </div>
+          </div>
+          <div className={styles.card}>
+            <div className={styles.avaWrap}>
+              <img className={styles.ava} src={James} alt='James' />
+            </div>
+            <div className={styles.information}>
+              <Typography
+                className={styles.name}
+                variant={TypographyVariants.Title2}>
+                James Johnson
+              </Typography>
+              <Typography variant={TypographyVariants.Body1}>
+                Business Analysis
+              </Typography>
+            </div>
+            <div className={styles.speech}>
+              <Typography variant={TypographyVariants.Body1}>
+                This program is very good for those who is losing their basic to
+                get back their knowledge
+              </Typography>
+            </div>
+          </div>
+        </Slider>
       </div>
     </div>
   );

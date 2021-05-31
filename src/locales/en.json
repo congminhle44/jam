@@ -7,8 +7,12 @@
     "header.categories":"Categories",
     "header.signin":"Sign In",
     "banner.title":"welcome to jam academy",
+    "getstart.title":"Finding some good courses?",
+    "getstart.description":"One more step and you will be able to purchase many good courses from Jam",
+    "getstart.button":"Get Started",
     "banner.description":"Your future is depending on what you've learnt today",
     "banner.button":"Discover now",
+    "introduce.title":"What are our leaners talk about us ?",
     "footer.term":"Terms and Privacy",
     "footer.contact":"Contact Us"
 }

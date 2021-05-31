@@ -24,12 +24,14 @@
 
 html {
   --bg: #0e182a;
+  --bg-lighter: #121f36;
   --bg-sub: #3f3d56;
   --text: #ffffff;
   scroll-behavior: smooth;
 }
 html[data-theme='light'] {
   --bg: #ffffff;
+  --bg-lighter: #fae4ef;
   --bg-sub: #fafafa;
   --text: #212121;
 }
@@ -44,6 +46,55 @@ body {
 p {
   margin: 0;
 }
+a {
+  text-decoration: none;
+}
+/* Slick carousel library */
+.slick-list {
+  padding-top: 3.75rem !important;
+}
+
+.dots {
+  display: block;
+  position: absolute;
+  bottom: -25px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  color: var(--primary);
+}
+
+.dots li {
+  position: relative;
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.dots li button {
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  color: transparent;
+  border: 0;
+  outline: none;
+  background-color: var(--primary);
+}
+.dots li.slick-active button {
+  opacity: 0.5;
+}
+
 @font-face {
   font-family: 'Be Vietnam';
   src: local('Be Vietnam'),

@@ -1,6 +1,7 @@
 /** @format */
 import { useEffect, useRef } from 'react';
 import { FormattedMessage } from 'react-intl';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
 import Typography, { TypographyVariants } from '@/components/Typography';
@@ -21,7 +22,7 @@ const Banner = () => {
   const handleScroll = (e) => {
     let scrollPos = window.pageYOffset;
     if (imgref.current && !imgref.current.contains(e.target)) {
-      imgref.current.style.transform = `translateY(-${scrollPos * 0.3}px)`;
+      imgref.current.style.transform = `translateY(${scrollPos * 0.4}px)`;
     }
   };
 
@@ -37,12 +38,14 @@ const Banner = () => {
           variant={TypographyVariants.Label1}>
           <FormattedMessage id='banner.description' />
         </Typography>
-        <Button
-          className={styles.button}
-          variant={ButtonVariants.Solid}
-          size={ButtonSizes.Small}>
-          <FormattedMessage id='banner.button' />
-        </Button>
+        <AnchorLink offset='100' href='#getstart'>
+          <Button
+            className={styles.button}
+            variant={ButtonVariants.Solid}
+            size={ButtonSizes.Small}>
+            <FormattedMessage id='banner.button' />
+          </Button>
+        </AnchorLink>
       </div>
     </div>
   );

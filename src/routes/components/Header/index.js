@@ -11,15 +11,15 @@ import { DesktopNav, HeaderFeature, MobileMenu, MobileNav } from './components';
 import styles from './header.module.css';
 
 const Header = () => {
-  const background = useToggle(false);
+  const transparent = useToggle(false);
 
   const menuOpen = useToggle(false);
 
   const handleScroll = () => {
     if (window.pageYOffset === 0) {
-      background.setActive();
+      transparent.setInActive();
     } else {
-      background.setInActive();
+      transparent.setActive();
     }
   };
 
@@ -35,9 +35,8 @@ const Header = () => {
     <div
       className={clsx(
         styles.container,
-        window.location.pathname === '/' &&
-          background.active &&
-          styles.transparent
+        (window.location.pathname !== '/' || transparent.active) &&
+          styles.background
       )}>
       <div className={styles.wrapper}>
         <MobileMenu onOpen={menuOpen.setActive} />

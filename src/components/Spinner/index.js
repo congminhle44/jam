@@ -5,11 +5,15 @@ import styles from './spinner.module.css';
 
 const Spinner = () => (
   <div className={styles.wrapper}>
-    <img className={styles.brand} src={Brand} alt='brand' />
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <div className={styles.container}>
+      <img className={styles.brand} src={Brand} alt='brand' />
+      <div className={styles.dots}>
+        <div className={styles.dot}></div>
+        <div className={styles.dot}></div>
+        <div className={styles.dot}></div>
+        <div className={styles.dot}></div>
+      </div>
+    </div>
   </div>
 );
 
