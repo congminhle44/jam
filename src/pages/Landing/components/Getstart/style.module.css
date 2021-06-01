@@ -6,7 +6,7 @@
   background-size: auto;
   height: 100%;
   padding: 1.5rem;
-  background-color: var(--bg-sub);
+  background-color: var(--secondary-light);
   color: white;
   z-index: -2;
 }

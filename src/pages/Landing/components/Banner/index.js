@@ -30,15 +30,15 @@ const Banner = () => {
     <div className={styles.container}>
       <img ref={imgref} className={styles.img} src={Background} alt='Banner' />
       <div className={styles.content}>
-        <Typography className={styles.title} variant={TypographyVariants.H6}>
+        <Typography className={styles.title} variant={TypographyVariants.H4}>
           <FormattedMessage id='banner.title' />
         </Typography>
         <Typography
           className={styles.describe}
-          variant={TypographyVariants.Label1}>
+          variant={TypographyVariants.Title1}>
           <FormattedMessage id='banner.description' />
         </Typography>
-        <AnchorLink offset='100' href='#getstart'>
+        <AnchorLink className={styles.buttonWrap} offset='100' href='#getstart'>
           <Button
             className={styles.button}
             variant={ButtonVariants.Solid}

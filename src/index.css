@@ -4,6 +4,7 @@
   --primary: #cc026a;
   --primary-dark: #cc026a;
   --secondary: #0e182a;
+  --secondary-light: #3f3d56;
   --white: #ffffff;
   --warning: #f2be03;
   --error: #d96464;
@@ -43,6 +44,17 @@ body {
   font-family: 'Be Vietnam', sans-serif;
   background-color: var(--bg);
 }
+
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *:before,
+html.theme-transition *:after {
+  -webkit-transition: all 500ms !important;
+  transition: all 500ms !important;
+  -webkit-transition-delay: 0 !important;
+  transition-delay: 0 !important;
+}
+
 p {
   margin: 0;
 }
@@ -89,10 +101,11 @@ a {
   color: transparent;
   border: 0;
   outline: none;
+  opacity: 0.5;
   background-color: var(--primary);
 }
 .dots li.slick-active button {
-  opacity: 0.5;
+  opacity: 1;
 }
 
 @font-face {

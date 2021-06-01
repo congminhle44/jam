@@ -2,7 +2,7 @@
 
 .container {
   background-color: var(--bg);
-  width: 60%;
+  width: 70%;
   height: 100%;
   padding: 1.3125rem 0.75rem;
   animation: appear 0.3s;

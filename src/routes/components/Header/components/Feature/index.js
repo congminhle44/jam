@@ -1,20 +1,37 @@
 /** @format */
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 
 import useToggle from '@/hooks/useToggle';
 import useClickOutside from '@/hooks/useClickOutside';
 
 import Input from '@/components/Input';
-import { Search, Sun } from '@/components/Icons';
+import { Moon, Search, Sun } from '@/components/Icons';
 
 import styles from '../../header.module.css';
 
 const HeaderFeature = () => {
+  const defaultTheme = localStorage.getItem('theme');
+
+  const [theme, setTheme] = useState(defaultTheme || 'dark');
   const searchRef = useRef();
   const isSearch = useToggle(false);
 
   useClickOutside(searchRef, isSearch.setInActive);
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    document.documentElement.classList.add('theme-transition');
+    window.setTimeout(function () {
+      document.documentElement.classList.remove('theme-transition');
+    }, 1000);
+  }, [theme, defaultTheme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+    document.documentElement.setAttribute('data-theme', theme);
+  };
 
   return (
     <div className={styles.feature}>
@@ -29,8 +46,8 @@ const HeaderFeature = () => {
           <Input placeholder='Search' search />
         </div>
       </div>
-      <div className={styles.toggleTheme}>
-        <Sun />
+      <div onClick={toggleTheme} className={styles.toggleTheme}>
+        {theme === 'dark' ? <Sun /> : <Moon />}
       </div>
     </div>
   );
