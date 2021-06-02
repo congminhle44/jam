@@ -17,7 +17,6 @@ import { langAtom } from '@/store/lang';
 
 function App() {
   const [language] = useAtom(langAtom);
-  console.log(process.env);
 
   const queryClient = new QueryClient({
     defaultOptions: {
