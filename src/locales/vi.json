@@ -6,14 +6,21 @@
   "header.about":"Về chúng tôi",
   "header.categories":"Thể loại",
   "header.signin":"Đăng nhập",
+
   "banner.title":"Chào mừng bạn đến với Jam academy",
   "banner.description":"Tương lai của bạn phụ thuộc vào những gì bạn đã học được vào ngày hôm nay",
   "banner.button":"Khám phá ngay",
+
   "tutor.title":"Một vài giảng viên dày dặn kinh nghiệm của chúng tôi",
+
+  "categories.title":"Các thể loại khóa học nổi bật",
+
   "getstart.title":"Bạn đang tìm kiếm những khóa học tốt?",
   "getstart.description":"Một bước nữa thôi và bạn sẽ có thể mua được những khóa học chất lượng từ Jam",
   "getstart.button":"Bắt đầu",
+
   "introduce.title":"Các học viên nói gì về chúng tôi ?",
+
   "footer.term":"Điều khoản và quyền riêng tư",
   "footer.contact":"Liên hệ chúng tôi",
 

@@ -6,9 +6,9 @@ import styles from '../../style.module.css';
 
 const InstructorCard = ({ data }) => {
   const renderTutors = () => {
-    return data.map((tutor) => {
+    return data.map((tutor, index) => {
       return (
-        <div className={styles.card}>
+        <div key={index} className={styles.card}>
           <img className={styles.avatar} src={tutor.avatar} alt={tutor.name} />
           <div className={styles.information}>
             <Typography

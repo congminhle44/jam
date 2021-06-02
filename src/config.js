@@ -9,7 +9,13 @@ const config = {
     landing: '/',
     login: '/login',
   },
-  apis: {},
+  apis: {
+    getCategories: {
+      url: (page = '', limit = '', sort = '', keyword = '') =>
+        `/categories?page=${page}&limit=${limit}&keyword=${keyword}&sort=${sort}`,
+      method: 'GET',
+    },
+  },
 };
 
 export default config;

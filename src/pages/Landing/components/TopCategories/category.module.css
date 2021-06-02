@@ -1,0 +1,36 @@
+/** @format */
+
+.container {
+  padding: 1rem 1.5rem;
+}
+
+.wrapper {
+  max-width: 45.625rem;
+  margin: 0 auto;
+}
+
+.title {
+  color: var(--text);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .wrapper {
+    max-width: 69.0625rem;
+  }
+  .list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

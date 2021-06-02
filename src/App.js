@@ -1,5 +1,6 @@
 /** @format */
 import { Router } from 'react-router';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 import NetWorkProvider from './providers/NetworkProvider';
 import AlertProvider from './providers/AlertProvider';
@@ -16,19 +17,30 @@ import { langAtom } from '@/store/lang';
 
 function App() {
   const [language] = useAtom(langAtom);
+  console.log(process.env);
+
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+      },
+    },
+  });
 
   return (
-    <LanguageProvider locale={language} messages={translationMessages}>
-      <LoadingProvider>
-        <NetWorkProvider>
-          <Router history={history}>
-            <Routes />
-          </Router>
-          <AlertProvider />
-          <ModalProvider />
-        </NetWorkProvider>
-      </LoadingProvider>
-    </LanguageProvider>
+    <QueryClientProvider client={queryClient}>
+      <LanguageProvider locale={language} messages={translationMessages}>
+        <LoadingProvider>
+          <NetWorkProvider>
+            <Router history={history}>
+              <Routes />
+            </Router>
+            <AlertProvider />
+            <ModalProvider />
+          </NetWorkProvider>
+        </LoadingProvider>
+      </LanguageProvider>
+    </QueryClientProvider>
   );
 }
 
