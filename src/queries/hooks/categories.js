@@ -4,7 +4,7 @@ import { useQuery } from 'react-query';
 
 import { handleError } from '@/helpers/requests';
 
-import useMakeMutation from '@/hooks/useMakeMutation';
+// import useMakeMutation from '@/hooks/useMakeMutation';
 
 import { getCategories } from '../apis/categories';
 

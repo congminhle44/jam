@@ -1,0 +1,15 @@
+/** @format */
+.container {
+  margin: 2rem 0;
+}
+
+.email {
+  margin-bottom: 1.5rem;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 1.5rem;
+}

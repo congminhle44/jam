@@ -11,7 +11,7 @@ const LandingLayout = ({ children }) => {
   return (
     <div>
       <Header />
-      <div style={{ minHeight: '90vh' }}>{children}</div>
+      {children}
       <Footer />
     </div>
   );

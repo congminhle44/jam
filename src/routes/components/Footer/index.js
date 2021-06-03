@@ -15,7 +15,11 @@ import { setLangAtom } from '@/store/lang';
 import { FormattedMessage } from 'react-intl';
 
 const Footer = () => {
-  const [currValue, setCurValue] = useState('english');
+  const defaultLang = localStorage.getItem('lang');
+
+  const [currValue, setCurValue] = useState(
+    defaultLang === 'en' ? 'english' : 'vietnamese' || 'english'
+  );
   const [, setLang] = useAtom(setLangAtom);
 
   const handleChooseOption = (e) => {
