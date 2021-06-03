@@ -3,7 +3,7 @@
 .container {
   position: relative;
   display: block;
-  background-color: var(--grey-8);
+  background-color: var(--grey-6);
   box-shadow: 0 0 2px var(--grey-4);
   border-radius: 0.5rem;
 }
@@ -63,7 +63,7 @@
   left: 1.5rem;
   font-size: 0.9875rem;
   display: flex;
-  color: var(--text);
+  color: var(--black);
   align-items: center;
   transition: all 0.3s ease;
 }
@@ -74,4 +74,10 @@
   font-size: 0.75rem;
   transform: translateY(-30%);
   color: var(--primary);
+}
+
+.error {
+  color: var(--error);
+  padding-left: 1rem;
+  margin-top: 0.5rem;
 }

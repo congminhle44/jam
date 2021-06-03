@@ -1,0 +1,41 @@
+/** @format */
+
+.container {
+  background-image: url('../../../../assets/Images/uicon.png');
+  background-position: center;
+  background-size: auto;
+  height: 100%;
+  padding: 1.5rem;
+  background-color: var(--secondary-light);
+  color: white;
+  z-index: -2;
+}
+
+.title {
+  margin-bottom: 1rem;
+}
+
+.description {
+  margin-bottom: 2rem;
+}
+
+.content {
+  max-width: 45.625rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    text-align: center;
+    padding: 3rem;
+  }
+  .button {
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1280px) {
+  .content {
+    max-width: 69.0625rem;
+  }
+}

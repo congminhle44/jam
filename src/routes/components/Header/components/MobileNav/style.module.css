@@ -1,0 +1,62 @@
+/** @format */
+
+.container {
+  background-color: var(--bg);
+  width: 70%;
+  height: 100%;
+  padding: 1.3125rem 0.75rem;
+  animation: appear 0.3s;
+}
+
+.search {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--grey-6);
+}
+
+.navitem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: var(--text);
+  margin-top: 1.3125rem;
+}
+
+.right {
+  width: 1.25rem;
+  height: 1.5rem;
+  color: var(--grey-4);
+}
+
+.lang {
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 1.3125rem;
+  text-align: center;
+  color: var(--text);
+}
+
+.langList {
+  display: flex;
+  align-items: center;
+  margin-top: 0.625rem;
+}
+
+.langItem {
+  width: 2.25rem;
+  height: 2.25rem;
+  cursor: pointer;
+}
+
+.langItem:last-child {
+  margin-left: 1rem;
+}
+
+@keyframes appear {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

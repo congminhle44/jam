@@ -1,0 +1,181 @@
+/** @format */
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 0.5rem 1.5rem;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+  z-index: 2000;
+}
+.container.background {
+  background-color: rgba(14, 24, 42, 0.9);
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.brandWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.brand {
+  width: 3rem;
+  height: 3rem;
+}
+
+.menu {
+  position: relative;
+}
+
+.navnoti {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  background-color: var(--primary);
+  width: 1rem;
+  height: 1rem;
+  text-align: center;
+  line-height: 1rem;
+  color: var(--white);
+  border-radius: 50%;
+}
+
+.menu,
+.toggleTheme {
+  color: var(--white);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.navigate,
+.search {
+  display: none;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .brand {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+  .menu,
+  .toggleTheme {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    max-width: 45.625rem;
+    margin: 0 auto;
+    justify-content: space-between;
+  }
+
+  .brandWrap {
+    width: fit-content;
+  }
+  .menu {
+    display: none;
+  }
+  .toggleTheme {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+  .navigate {
+    display: flex;
+    align-items: center;
+    margin-left: 1.5rem;
+    color: var(--white);
+  }
+
+  .search {
+    display: block;
+    overflow: hidden;
+  }
+
+  .searchWrap {
+    display: flex;
+    align-items: center;
+    transform: translateX(90%);
+    transition: all 0.3s;
+  }
+
+  .searchWrap.show {
+    transform: translateX(0);
+  }
+
+  .searchIco {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.5rem;
+    border-radius: 0.5rem;
+    color: var(--white);
+    cursor: pointer;
+  }
+
+  .searchIco.hide {
+    display: none;
+  }
+
+  .navItem {
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .categoriesNav {
+    margin: 0 1rem;
+    cursor: pointer;
+  }
+
+  .navItem,
+  .categoriesNav {
+    white-space: nowrap;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  .searchIco,
+  .toggleTheme {
+    padding: 0.2rem;
+  }
+
+  .categoriesNav:hover,
+  .navItem:hover,
+  .searchIco:hover,
+  .toggleTheme:hover {
+    background-color: var(--primary);
+    color: var(--white);
+  }
+
+  .search {
+    margin-right: 1rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .wrapper {
+    max-width: 69.0625rem;
+    margin: 0 auto;
+  }
+  .brand {
+    width: 4.3rem;
+    height: 4.3rem;
+  }
+}

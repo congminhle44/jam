@@ -4,14 +4,15 @@
   --primary: #cc026a;
   --primary-dark: #cc026a;
   --secondary: #0e182a;
+  --secondary-light: #3f3d56;
   --white: #ffffff;
   --warning: #f2be03;
   --error: #d96464;
-  --text: #212121;
+  --black: #212121;
   --success: #4fab2f;
   --info: #418aec;
-  --grey-8: #fafafa;
   --grey-7: #919191;
+  --grey-6: #fafafa;
   --grey-5: #e0e0e0;
   --grey-4: #bdbdbd;
   --grey-3: #7b7f82;
@@ -23,15 +24,17 @@
 }
 
 html {
-  --bg: #ffffff;
-  --bg-sub: #fafafa;
-  --text: #212121;
-}
-html[data-theme='dark'] {
   --bg: #0e182a;
+  --bg-lighter: #121f36;
   --bg-sub: #3f3d56;
   --text: #ffffff;
   scroll-behavior: smooth;
+}
+html[data-theme='light'] {
+  --bg: #ffffff;
+  --bg-lighter: #fae4ef;
+  --bg-sub: #fafafa;
+  --text: #212121;
 }
 
 body {
@@ -39,7 +42,72 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: 'Be Vietnam', sans-serif;
+  background-color: var(--bg);
 }
+
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *:before,
+html.theme-transition *:after {
+  -webkit-transition: all 500ms !important;
+  transition: all 500ms !important;
+  -webkit-transition-delay: 0 !important;
+  transition-delay: 0 !important;
+}
+
+p {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+/* Slick carousel library */
+.slick-list {
+  padding-top: 3.75rem !important;
+}
+
+.dots {
+  display: block;
+  position: absolute;
+  bottom: -25px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  color: var(--primary);
+}
+
+.dots li {
+  position: relative;
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.dots li button {
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  color: transparent;
+  border: 0;
+  outline: none;
+  opacity: 0.5;
+  background-color: var(--primary);
+}
+.dots li.slick-active button {
+  opacity: 1;
+}
+
 @font-face {
   font-family: 'Be Vietnam';
   src: local('Be Vietnam'),

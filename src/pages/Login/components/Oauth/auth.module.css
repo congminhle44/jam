@@ -1,0 +1,25 @@
+/** @format */
+
+.container {
+  text-align: center;
+  color: var(--text);
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.option {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-top: 0.75rem;
+  border-radius: 50%;
+  box-shadow: 0px 0px 4px var(--grey-4);
+  cursor: pointer;
+}
+
+.option:first-child {
+  margin-right: 1rem;
+}

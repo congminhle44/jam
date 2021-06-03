@@ -1,0 +1,69 @@
+/** @format */
+
+.container {
+  background-image: url('../../../../assets/Images/topping.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  padding: 5rem 1.5rem;
+  background-color: var(--bg-lighter);
+  color: var(--text);
+}
+
+.quote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4.75rem;
+  color: var(--primary);
+}
+
+.wrapper {
+  max-width: 45.625rem;
+  margin: 0 auto;
+}
+
+.testominal {
+  max-width: 46.3125rem;
+  margin: 0 auto;
+}
+
+.card {
+  position: relative;
+  background-color: var(--bg-sub);
+  padding: 2.5rem 1.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  cursor: grab;
+}
+
+.avaWrap {
+  position: absolute;
+  top: -25%;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ava {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+}
+
+.name {
+  margin-bottom: 0.2rem;
+}
+
+.information {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 1280px) {
+  .wrapper {
+    max-width: 69.0625rem;
+  }
+}

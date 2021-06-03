@@ -45,6 +45,7 @@ const Modal = ({ header, body, okText, isOpen, onClose, onOk }) => {
     <>
       {isOpen && (
         <Overlay
+          className={styles.overlay}
           onClick={handleOverlayClick}
           onMouseDown={handleOverlayMouseDown}>
           <div className={styles.container}>

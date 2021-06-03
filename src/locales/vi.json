@@ -1,0 +1,38 @@
+{
+  "common.languages":"Ngôn ngữ",
+  "common.english":"Tiếng Anh",
+  "common.vietnam":"Tiếng Việt",
+
+  "header.about":"Về chúng tôi",
+  "header.categories":"Thể loại",
+  "header.signin":"Đăng nhập",
+
+  "banner.title":"Chào mừng bạn đến với Jam academy",
+  "banner.description":"Tương lai của bạn phụ thuộc vào những gì bạn đã học được vào ngày hôm nay",
+  "banner.button":"Khám phá ngay",
+
+  "tutor.title":"Một vài giảng viên dày dặn kinh nghiệm của chúng tôi",
+
+  "categories.title":"Các thể loại khóa học nổi bật",
+
+  "getstart.title":"Bạn đang tìm kiếm những khóa học tốt?",
+  "getstart.description":"Một bước nữa thôi và bạn sẽ có thể mua được những khóa học chất lượng từ Jam",
+  "getstart.button":"Bắt đầu",
+
+  "introduce.title":"Các học viên nói gì về chúng tôi ?",
+
+  "footer.term":"Điều khoản và quyền riêng tư",
+  "footer.contact":"Liên hệ chúng tôi",
+
+  "tutor.description.max":"Max đang có quá trình học tập và giảng dạy lâu dài tại trường đại học topnotch trên thế giới, với kinh nghiệm đó, chúng tôi tin rằng anh ấy sẽ mang đến cho bạn trải nghiệm học tập tốt nhất trên trang web của chúng tôi.",
+  "tutor.description.hellen":"Hellen đã có nhiều kinh nghiệm giảng dạy và làm việc trong lĩnh vực Kinh doanh, chúng tôi tin rằng sẽ giúp các bạn có nhiều kiến thức bổ ích. ",
+  "tutor.description.jane":"Jane có tính cách thân thiện, khiến nhiều học viên thích học khóa học của anh ta. Anh cũng có hơn 9 năm kinh nghiệm làm giám đốc marketing nên ông hiểu rõ về lĩnh vực này. ",
+  "tutor.description.lucas":"Lucas có kiến thức vững vàng về chuyên ngành Công nghệ thông tin, anh luôn nghiên cứu những điều mới liên quan đến chuyên ngành của mình để cập nhật kiến thức của mình, đặc biệt là trong lĩnh vực phát triển Web. Nếu bạn học với anh ấy, bạn sẽ đảm bảo rằng kiến thức bạn học được là bản cập nhật mới nhất",
+
+  "login.title":"Đăng nhập với",
+  "login.brand":"Tài khoản Jam của bạn",
+  "login.button":"ĐĂNG NHẬP",
+  "login.oauth":"Hoặc bạn có thể đăng nhập với",
+  "login.register":"Chưa có tài khoản?",
+  "login.forgot":"Quên mật khẩu?"
+}
