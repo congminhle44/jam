@@ -9,6 +9,7 @@ import Oauth from '../Oauth';
 import FormOption from '../Option';
 
 import styles from './styles.module.css';
+import { FormattedMessage } from 'react-intl';
 
 const LoginForm = () => {
   return (
@@ -18,7 +19,10 @@ const LoginForm = () => {
         <Typography
           className={styles.title}
           variant={TypographyVariants.Title2}>
-          sign in to your <span className={styles.brand}>jam account</span>
+          <FormattedMessage id='login.title' />{' '}
+          <span className={styles.brand}>
+            <FormattedMessage id='login.brand' />
+          </span>
         </Typography>
         <Form />
         <Oauth />

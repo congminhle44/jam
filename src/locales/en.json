@@ -28,5 +28,12 @@
     "tutor.description.max":"Max is having a very long-term exprience learning and teaching at the topnotch university on the world, with that experince we believe he will bring you the best experince of learning on our website.",
     "tutor.description.hellen":"Hellen have many experiences in teaching and working in Business field, we believe that she will help you to have many useful knowledge.",
     "tutor.description.jane":"Jane is have a friendly characteristics, which makes many students love to learn his course. He also have over 9 years experiences working as a marketing manager, so that he knows clearly about this field.",
-    "tutor.description.lucas":"Lucas have a strong knowledge on the Information technology major, he always research new things related to his major to update his knowledge, especially in Web development field. If you learn with him, you will ensure that the knowledge that you've learnt is the newest update"
+    "tutor.description.lucas":"Lucas have a strong knowledge on the Information technology major, he always research new things related to his major to update his knowledge, especially in Web development field. If you learn with him, you will ensure that the knowledge that you've learnt is the newest update",
+
+    "login.title":"sign in to your",
+    "login.brand":"jam account",
+    "login.button":"LOGIN",
+    "login.oauth":"Or you can login with",
+    "login.register":"Register instead?",
+    "login.forgot":"Forgot your password?"
 }

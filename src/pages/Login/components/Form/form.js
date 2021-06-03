@@ -2,6 +2,7 @@
 
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
 import Input from '@/components/Input';
+import { FormattedMessage } from 'react-intl';
 import styles from './form.module.css';
 
 const Form = () => {
@@ -14,7 +15,7 @@ const Form = () => {
           type='submit'
           variant={ButtonVariants.Solid}
           size={ButtonSizes.Small}>
-          LOGIN
+          <FormattedMessage id='login.button' />
         </Button>
       </div>
     </form>

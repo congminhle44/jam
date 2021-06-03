@@ -13,7 +13,6 @@
 
 .title {
   text-transform: uppercase;
-  white-space: nowrap;
   color: var(--text);
 }
 
@@ -47,7 +46,7 @@
     display: block;
     object-fit: cover;
     width: 45%;
-    height: 45vh;
+    height: 50vh;
     border-radius: 0.5rem 0 0 0.5rem;
   }
 }
@@ -56,7 +55,7 @@
   .img {
     object-fit: cover;
     width: 45%;
-    height: 56vh;
+    height: 60vh;
     border-radius: 0.5rem 0 0 0.5rem;
   }
 }
@@ -64,11 +63,5 @@
 @media (min-width: 1280px) {
   .container {
     max-width: 50rem;
-  }
-  .img {
-    object-fit: cover;
-    width: 45%;
-    height: 58vh;
-    border-radius: 0.5rem 0 0 0.5rem;
   }
 }
