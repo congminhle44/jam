@@ -1,0 +1,29 @@
+/** @format */
+
+.container {
+  max-width: 45.625rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.title {
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.description {
+  margin-bottom: 1.5rem;
+  color: var(--grey-3);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 2rem 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 69.0625rem;
+  }
+}

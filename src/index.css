@@ -62,9 +62,6 @@ a {
   text-decoration: none;
 }
 /* Slick carousel library */
-.slick-list {
-  padding-top: 3.75rem !important;
-}
 
 .dots {
   display: block;
@@ -106,6 +103,11 @@ a {
 }
 .dots li.slick-active button {
   opacity: 1;
+}
+
+/* Material custom */
+.MuiPaper-elevation4 {
+  box-shadow: none !important;
 }
 
 @font-face {

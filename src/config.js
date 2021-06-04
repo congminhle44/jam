@@ -25,6 +25,10 @@ const config = {
         `/categories?page=${page}&limit=${limit}&keyword=${keyword}&sort=${sort}`,
       method: 'GET',
     },
+    getCourseByCategory: {
+      url: (courseID) => `/categories/${courseID}/courses`,
+      method: 'GET',
+    },
   },
 };
 

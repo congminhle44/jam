@@ -8,7 +8,7 @@ import styles from './style.module.css';
 
 const Getstarted = () => {
   return (
-    <div id='getstart' className={styles.container}>
+    <div className={styles.container}>
       <div className={styles.content}>
         <Typography className={styles.title} variant={TypographyVariants.H4}>
           <FormattedMessage id='getstart.title' />

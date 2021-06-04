@@ -13,7 +13,11 @@
 
   "tutor.title":"Một vài giảng viên dày dặn kinh nghiệm của chúng tôi",
 
-  "categories.title":"Các thể loại khóa học nổi bật",
+  "courses.title":"Nguồn khóa học tuyệt vời",
+  "courses.description":"Ở Jam chúng tôi có hơn 5000 khóa học độc quyền bởi các giảng viên kinh nghiệm và được cập nhật mới vào mỗi tháng",
+  "courses.notfound":"Danh mục này chưa có khóa học nào",
+
+  "categories.title":"Danh mục khóa học nổi bật",
 
   "getstart.title":"Bạn đang tìm kiếm những khóa học tốt?",
   "getstart.description":"Một bước nữa thôi và bạn sẽ có thể mua được những khóa học chất lượng từ Jam",

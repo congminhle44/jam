@@ -14,7 +14,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 4.75rem;
+  margin-bottom: 3.5rem;
   color: var(--primary);
 }
 
@@ -29,19 +29,14 @@
 }
 
 .card {
-  position: relative;
   background-color: var(--bg-sub);
-  padding: 2.5rem 1.5rem;
+  padding: 2rem 1.5rem;
   border-radius: 0.5rem;
   text-align: center;
   cursor: grab;
 }
 
 .avaWrap {
-  position: absolute;
-  top: -25%;
-  left: 0;
-  right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,7 +53,7 @@
 }
 
 .information {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   margin-bottom: 0.75rem;
 }
 

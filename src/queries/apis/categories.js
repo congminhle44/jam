@@ -13,3 +13,13 @@ export const getCategories = async (key) => {
   });
   return data;
 };
+
+export const getCourseByCategory = async (key) => {
+  const { url, method } = config.apis.getCourseByCategory;
+  const { courseID } = key && key.queryKey[1];
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url(courseID)}`,
+    method: method,
+  });
+  return data;
+};

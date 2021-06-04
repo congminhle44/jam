@@ -6,6 +6,7 @@ import Button, { ButtonVariants, ButtonSizes } from '@/components/Button';
 import Typography, { TypographyVariants } from '@/components/Typography';
 
 import styles from './style.module.css';
+import { Fragment } from 'react';
 
 const CategoryItem = ({ data }) => {
   const history = useHistory();
@@ -17,7 +18,7 @@ const CategoryItem = ({ data }) => {
           history.push(`/category/${data._id}`);
         };
         return (
-          <>
+          <Fragment key={data._id}>
             <div
               onClick={redirectToCategoryDetail}
               key={data._id}
@@ -41,7 +42,7 @@ const CategoryItem = ({ data }) => {
               size={ButtonSizes.Small}>
               {data.categoryName}
             </Button>
-          </>
+          </Fragment>
         );
       });
     }
