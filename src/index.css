@@ -24,17 +24,18 @@
 }
 
 html {
+  --bg: #ffffff;
+  --bg-lighter: #fae4ef;
+  --bg-sub: #fafafa;
+  --text: #212121;
+}
+
+html[data-theme='dark'] {
   --bg: #0e182a;
   --bg-lighter: #121f36;
   --bg-sub: #3f3d56;
   --text: #ffffff;
   scroll-behavior: smooth;
-}
-html[data-theme='light'] {
-  --bg: #ffffff;
-  --bg-lighter: #fae4ef;
-  --bg-sub: #fafafa;
-  --text: #212121;
 }
 
 body {

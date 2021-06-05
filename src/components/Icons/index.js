@@ -23,3 +23,5 @@ export { default as Cancel } from './Cancel';
 export { default as ConnectSuccess } from './ConnectSuccess';
 export { default as Menu } from './Menu';
 export { default as Quote } from './Quote';
+export { default as Check } from './Check';
+export { default as Info } from './Info';

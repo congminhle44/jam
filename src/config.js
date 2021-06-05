@@ -18,6 +18,7 @@ const config = {
   paths: {
     landing: '/',
     login: '/login',
+    signup: '/signup',
   },
   apis: {
     getCategories: {
@@ -28,6 +29,10 @@ const config = {
     getCourseByCategory: {
       url: (courseID) => `/categories/${courseID}/courses`,
       method: 'GET',
+    },
+    login: {
+      url: '/users/login',
+      method: 'POST',
     },
   },
 };

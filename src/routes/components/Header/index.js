@@ -13,6 +13,8 @@ import styles from './header.module.css';
 const Header = () => {
   const transparent = useToggle(false);
 
+  const openMenu = useToggle(false);
+
   const menuOpen = useToggle(false);
 
   const handleScroll = () => {
@@ -31,6 +33,10 @@ const Header = () => {
     };
   });
 
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+  };
+
   return (
     <div
       className={clsx(
@@ -40,12 +46,16 @@ const Header = () => {
       )}>
       <div className={styles.wrapper}>
         <MobileMenu onOpen={menuOpen.setActive} />
-        <MobileNav isOpen={menuOpen.active} onClose={menuOpen.setInActive} />
+        <MobileNav
+          handleLogout={handleLogout}
+          isOpen={menuOpen.active}
+          onClose={menuOpen.setInActive}
+        />
         <div className={styles.brandWrap}>
           <Link to='/' exact>
             <img className={styles.brand} src={Brand} alt='Brand' />
           </Link>
-          <DesktopNav />
+          <DesktopNav openMenu={openMenu} handleLogout={handleLogout} />
         </div>
         <HeaderFeature />
       </div>

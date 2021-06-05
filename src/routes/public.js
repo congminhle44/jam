@@ -41,6 +41,11 @@ export const publicRoutes = [
     exact: false,
     component: lazy(() => import('@/pages/Login')),
   },
+  {
+    path: config.paths.signup,
+    exact: false,
+    component: lazy(() => import('@/pages/Signup')),
+  },
 ];
 
 export default PublicRoute;

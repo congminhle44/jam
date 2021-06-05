@@ -1,5 +1,4 @@
 /** @format */
-
 import Banner from './components/Banner';
 import Courses from './components/Courses';
 import Getstarted from './components/Getstart';

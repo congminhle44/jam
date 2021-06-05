@@ -8,6 +8,18 @@
   animation: appear 0.3s;
 }
 
+.info {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
 .search {
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--grey-6);
@@ -20,6 +32,7 @@
   text-decoration: none;
   color: var(--text);
   margin-top: 1.3125rem;
+  cursor: pointer;
 }
 
 .right {

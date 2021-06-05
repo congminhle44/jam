@@ -9,6 +9,7 @@ import Box from '@material-ui/core/Box';
 import styles from './tab.module.css';
 import { useCourseByCategory } from '@/queries/hooks/categories';
 import CourseTabs from '../Course';
+import Skeleton from 'react-loading-skeleton';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -42,7 +43,7 @@ function a11yProps(index) {
   };
 }
 
-const CourseTab = ({ categories }) => {
+const CourseTab = ({ categories, categoryLoading }) => {
   const [tab, setTab] = useState('');
 
   const [categoryID, setCategoryID] = useState(0);
@@ -86,7 +87,13 @@ const CourseTab = ({ categories }) => {
           variant='scrollable'
           scrollButtons='auto'
           aria-label='scrollable auto tabs example'>
-          {renderCategoriesTab()}
+          {categoryLoading ? (
+            <div className={styles.skeleton}>
+              <Skeleton width={88} height={24} />
+            </div>
+          ) : (
+            renderCategoriesTab()
+          )}
         </Tabs>
       </AppBar>
       <TabPanel className={styles.panel} value={value} index={categoryID}>

@@ -8,7 +8,7 @@ import CourseTab from './components/CouseTab';
 import styles from './courses.module.css';
 
 const Courses = () => {
-  const { data } = useCategories(1, '', '', '');
+  const { data, isLoading } = useCategories(1, '', '', '');
 
   return (
     <div id='getstart' className={styles.container}>
@@ -20,7 +20,7 @@ const Courses = () => {
         variant={TypographyVariants.Body1}>
         <FormattedMessage id='courses.description' />
       </Typography>
-      <CourseTab categories={data} />
+      <CourseTab categoryLoading={isLoading} categories={data} />
     </div>
   );
 };

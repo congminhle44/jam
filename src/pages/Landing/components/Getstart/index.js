@@ -18,7 +18,7 @@ const Getstarted = () => {
           variant={TypographyVariants.Title2}>
           <FormattedMessage id='getstart.description' />
         </Typography>
-        <Link to='/login'>
+        <Link className={styles.link} to='/login'>
           <Button
             className={styles.button}
             variant={ButtonVariants.Solid}

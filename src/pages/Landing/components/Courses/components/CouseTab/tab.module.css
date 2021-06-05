@@ -19,3 +19,7 @@
   box-shadow: none !important;
   color: var(--text);
 }
+
+.skeleton {
+  padding: 0.5rem;
+}

@@ -11,7 +11,7 @@ import FormOption from '../Option';
 import styles from './styles.module.css';
 import { FormattedMessage } from 'react-intl';
 
-const LoginForm = () => {
+const LoginForm = ({ handleLogin }) => {
   return (
     <div className={styles.container}>
       <img className={styles.img} src={Login} alt='Login banner' />
@@ -24,7 +24,7 @@ const LoginForm = () => {
             <FormattedMessage id='login.brand' />
           </span>
         </Typography>
-        <Form />
+        <Form handleLogin={handleLogin} />
         <Oauth />
         <FormOption />
       </div>

@@ -1,0 +1,40 @@
+/** @format */
+
+.container {
+  position: relative;
+}
+
+.user {
+  cursor: pointer;
+}
+
+.menu {
+  position: absolute;
+  top: 150%;
+  left: -50%;
+  background-color: var(--white);
+  border-radius: 0.5rem;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  color: var(--black);
+  padding: 0.875rem 1rem;
+  cursor: pointer;
+}
+
+.menuItem:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.75rem;
+}
+
+.text {
+  white-space: nowrap;
+}

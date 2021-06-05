@@ -5,7 +5,7 @@ const Cart = () => (
     <title>cart simple</title>
     <g
       strokeLinecap='square'
-      strokeWidth='2.75'
+      strokeWidth='4'
       fill='none'
       stroke='currentColor'
       strokeLinejoin='miter'

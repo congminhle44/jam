@@ -2,10 +2,15 @@
     "common.languages":"Languages",
     "common.english":"English",
     "common.vietnam":"Vietnamese",
+    "common.logout":"Logout",
+    "common.hi":"Hi",
+
 
     "header.about":"About Us",
     "header.categories":"Categories",
     "header.signin":"Sign In",
+    "header.basket":"Your Basket",
+    "header.profile":"Profile",
 
     "banner.title":"welcome to jam academy",
     "banner.description":"Your future is depending on what you've learnt today",
@@ -36,8 +41,13 @@
 
     "login.title":"sign in to your",
     "login.brand":"jam account",
-    "login.button":"LOGIN",
+    "login.button":"Login",
     "login.oauth":"Or you can login with",
     "login.register":"Register instead?",
-    "login.forgot":"Forgot your password?"
+    "login.forgot":"Forgot your password?",
+
+    "signup.title":"Register new",
+    "signup.brand":"jam account",
+    "signup.button":"Register",
+    "signup.login":"Already have account?"
 }

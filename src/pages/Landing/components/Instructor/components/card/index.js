@@ -9,16 +9,22 @@ const InstructorCard = ({ data }) => {
     return data.map((tutor, index) => {
       return (
         <div key={index} className={styles.card}>
-          <img className={styles.avatar} src={tutor.avatar} alt={tutor.name} />
-          <div className={styles.information}>
-            <Typography
-              className={styles.name}
-              variant={TypographyVariants.Title2}>
-              {tutor.name}
-            </Typography>
-            <Typography variant={TypographyVariants.Body1}>
-              {tutor.major}
-            </Typography>
+          <div className={styles.main}>
+            <img
+              className={styles.avatar}
+              src={tutor.avatar}
+              alt={tutor.name}
+            />
+            <div className={styles.information}>
+              <Typography
+                className={styles.nameMain}
+                variant={TypographyVariants.Title2}>
+                {tutor.name}
+              </Typography>
+              <Typography variant={TypographyVariants.Body1}>
+                {tutor.major}
+              </Typography>
+            </div>
           </div>
           <div className={styles.details}>
             <Typography

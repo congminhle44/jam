@@ -1,5 +1,6 @@
 /** @format */
 
+import clsx from 'clsx';
 import { useHistory } from 'react-router';
 import Slider from 'react-slick';
 
@@ -7,6 +8,7 @@ import ErrorImg from '@/assets/Images/Image-error.jpg';
 
 import styles from './course.module.css';
 import Typography, { TypographyVariants } from '@/components/Typography';
+import RateStar from '../Rating';
 import SkeletonLoad from '../Skeleton';
 import { FormattedMessage } from 'react-intl';
 
@@ -57,7 +59,7 @@ const CourseTabs = ({ isLoading, courses }) => {
           <div
             onClick={() => history.push(`/course/${course._id}`)}
             key={index}
-            className={styles.card}>
+            className={clsx(styles.card, courses.length === 1 && styles.full)}>
             <img
               className={styles.img}
               height={220}
@@ -78,6 +80,7 @@ const CourseTabs = ({ isLoading, courses }) => {
                 variant={TypographyVariants.Label1}>
                 {course.personCreated.fullName}
               </Typography>
+              <RateStar value={course.averageRate} />
               <Typography
                 className={styles.price}
                 variant={TypographyVariants.Paragraph2}>

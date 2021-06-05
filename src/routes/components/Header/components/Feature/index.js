@@ -13,7 +13,7 @@ import styles from '../../header.module.css';
 const HeaderFeature = () => {
   const defaultTheme = localStorage.getItem('theme');
 
-  const [theme, setTheme] = useState(defaultTheme || 'dark');
+  const [theme, setTheme] = useState(defaultTheme || 'light');
   const searchRef = useRef();
   const isSearch = useToggle(false);
 
