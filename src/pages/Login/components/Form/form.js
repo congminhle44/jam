@@ -27,9 +27,10 @@ const Form = ({ handleLogin }) => {
     <form onSubmit={handleSubmit(onSubmit)} className={styles.container}>
       <Input
         className={styles.email}
+        type='email'
         label='Email'
         placeholder='Email'
-        {...register('email', { required: true, minLength: 8, maxLength: 20 })}
+        {...register('email', { required: true, minLength: 8, maxLength: 80 })}
         error={errors.email?.message}
       />
       <Input
@@ -39,8 +40,8 @@ const Form = ({ handleLogin }) => {
         placeholder='Password'
         {...register('password', {
           required: true,
-          minLength: 8,
-          maxLength: 20,
+          minLength: 6,
+          maxLength: 50,
         })}
         error={errors.password?.message}
       />
