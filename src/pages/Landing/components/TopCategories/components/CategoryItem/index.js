@@ -1,5 +1,6 @@
 /** @format */
 import { useHistory } from 'react-router';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import ImageError from '@/assets/Images/Image-error.jpg';
 import Button, { ButtonVariants, ButtonSizes } from '@/components/Button';
@@ -23,8 +24,10 @@ const CategoryItem = ({ data }) => {
               onClick={redirectToCategoryDetail}
               key={data._id}
               className={styles.container}>
-              <img
+              <LazyLoadImage
                 className={styles.thumbnails}
+                effect='opacity'
+                delayTime={500}
                 src={data.thumbnail}
                 onError={(e) => (e.target.src = `${ImageError}`)}
                 alt={data.categoryName}

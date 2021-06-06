@@ -2,6 +2,7 @@
 
 import clsx from 'clsx';
 import { useHistory } from 'react-router';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Slider from 'react-slick';
 
 import ErrorImg from '@/assets/Images/Image-error.jpg';
@@ -60,7 +61,8 @@ const CourseTabs = ({ isLoading, courses }) => {
             onClick={() => history.push(`/course/${course._id}`)}
             key={index}
             className={clsx(styles.card, courses.length === 1 && styles.full)}>
-            <img
+            <LazyLoadImage
+              effect='blur'
               className={styles.img}
               height={220}
               onError={(e) => {

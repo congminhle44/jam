@@ -1,5 +1,6 @@
 /** @format */
 import Slider from 'react-slick';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import Jenny from '@/assets/Images/jenny.jpg';
 import Josh from '@/assets/Images/josh.jpg';
@@ -32,7 +33,12 @@ const Introduce = () => {
         <Slider {...settings}>
           <div className={styles.card}>
             <div className={styles.avaWrap}>
-              <img className={styles.ava} src={Jenny} alt='Jenny' />
+              <LazyLoadImage
+                effect='blur'
+                className={styles.ava}
+                src={Jenny}
+                alt='Jenny'
+              />
             </div>
             <div className={styles.information}>
               <Typography
