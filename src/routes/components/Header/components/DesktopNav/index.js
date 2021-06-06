@@ -6,13 +6,18 @@ import Typography, { TypographyVariants } from '@/components/Typography';
 import styles from '../../header.module.css';
 import { FormattedMessage } from 'react-intl';
 import LoggedInNav from '../LoggedInNav';
+import { useAtom } from 'jotai';
+import { userAtom } from '@/store/login';
 
 const DesktopNav = ({ handleLogout, openMenu }) => {
-  const userInfo = JSON.parse(localStorage.getItem('user'));
+  const [userInfo] = useAtom(userAtom);
 
   return (
     <div className={styles.navigate}>
-      <NavLink className={styles.navItem} to='/about'>
+      <NavLink
+        activeClassName={styles.active}
+        className={styles.navItem}
+        to='/about'>
         <Typography variant={TypographyVariants.Body1}>
           <FormattedMessage id='header.about' />
         </Typography>
@@ -31,7 +36,10 @@ const DesktopNav = ({ handleLogout, openMenu }) => {
           userInfo={userInfo}
         />
       ) : (
-        <NavLink className={styles.navItem} to='/login'>
+        <NavLink
+          activeClassName={styles.active}
+          className={styles.navItem}
+          to='/login'>
           <Typography variant={TypographyVariants.Body1}>
             <FormattedMessage id='header.signin' />
           </Typography>

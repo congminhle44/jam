@@ -8,7 +8,7 @@ import Banner from '@/assets/Images/signup-bg.png';
 import styles from './signupform.module.css';
 import { FormattedMessage } from 'react-intl';
 
-const SignupForm = () => {
+const SignupForm = ({ handleRegister }) => {
   return (
     <div className={styles.container}>
       <div className={styles.form}>
@@ -20,7 +20,7 @@ const SignupForm = () => {
             <FormattedMessage id='signup.brand' />
           </span>
         </Typography>
-        <Form />
+        <Form registerAction={handleRegister} />
       </div>
       <img className={styles.img} src={Banner} alt='Register banner' />
     </div>

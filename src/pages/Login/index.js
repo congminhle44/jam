@@ -1,7 +1,9 @@
 /** @format */
 import { AlertVariants } from '@/components/Alert';
-import { useLogin } from '@/queries/hooks/categories';
+import { useLogin } from '@/queries/hooks/users';
 import { showAlertAtom } from '@/store/alert';
+import { addUserInfoAtom, userAtom } from '@/store/login';
+import { registeredAtom, removeRegisteredEmail } from '@/store/register';
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router';
@@ -10,11 +12,14 @@ import LoginForm from './components/LoginForm';
 import styles from './login.module.css';
 
 const Login = () => {
-  const history = useHistory();
-
   const [, showAlert] = useAtom(showAlertAtom);
 
-  const userLocal = localStorage.getItem('user');
+  const [userLocal] = useAtom(userAtom);
+  const [, addUserInfo] = useAtom(addUserInfoAtom);
+  const [getRegisteredEmail] = useAtom(registeredAtom);
+  const [, removeEmail] = useAtom(removeRegisteredEmail);
+
+  const history = useHistory();
 
   useEffect(() => {
     if (userLocal) history.push('/');
@@ -28,9 +33,10 @@ const Login = () => {
       password: user.password,
     })
       .then((data) => {
-        localStorage.setItem('user', JSON.stringify(data.data));
+        addUserInfo(data.data);
         document.cookie = `sid=${data.accessToken}`;
         history.push('/');
+        removeEmail();
         showAlert({
           component: AlertLogin,
           props: {
@@ -52,7 +58,10 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <LoginForm handleLogin={handleLogin} />
+      <LoginForm
+        getRegisteredEmail={getRegisteredEmail}
+        handleLogin={handleLogin}
+      />
     </div>
   );
 };

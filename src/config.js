@@ -34,6 +34,10 @@ const config = {
       url: '/users/login',
       method: 'POST',
     },
+    signup: {
+      url: '/users/register',
+      method: 'POST',
+    },
   },
 };
 

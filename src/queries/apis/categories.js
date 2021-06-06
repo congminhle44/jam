@@ -23,13 +23,3 @@ export const getCourseByCategory = async (key) => {
   });
   return data;
 };
-
-export const login = async (requestBody) => {
-  const { url, method } = config.apis.login;
-  const { data } = await axios({
-    url: `${config.app.apiHost}${url}`,
-    method: method,
-    data: requestBody,
-  });
-  return data;
-};

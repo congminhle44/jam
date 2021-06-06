@@ -1,12 +1,53 @@
 /** @format */
 
+import { useRegister } from '@/queries/hooks/users';
+import { useAtom } from 'jotai';
+import { useHistory } from 'react-router';
+
+import { showAlertAtom } from '@/store/alert';
+import { setRegisteredEmail } from '@/store/register';
+
+import { AlertVariants } from '@/components/Alert';
+import AlertRegister from './components/AlertRegister';
 import SignupForm from './components/SignupForm';
+
 import styles from './signup.module.css';
 
 const Signup = () => {
+  const history = useHistory();
+
+  const { mutateAsync: signupUser } = useRegister();
+
+  const [, showAlert] = useAtom(showAlertAtom);
+  const [, registeredEmail] = useAtom(setRegisteredEmail);
+
+  const handleRegister = (user) => {
+    return signupUser(user)
+      .then((result) => {
+        registeredEmail(result.email);
+        history.push('/login');
+        showAlert({
+          component: AlertRegister,
+          props: {
+            variant: AlertVariants.Success,
+            children: 'Registered successfully, please sign in to your account',
+          },
+        });
+      })
+      .catch((err) => {
+        showAlert({
+          component: AlertRegister,
+          props: {
+            variant: AlertVariants.Error,
+            children: err.response && err.response.data.message,
+          },
+        });
+      });
+  };
+
   return (
     <div className={styles.container}>
-      <SignupForm />
+      <SignupForm handleRegister={handleRegister} />
     </div>
   );
 };

@@ -6,11 +6,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
 import Input from '@/components/Input';
 
-import { errorSchema } from './error';
+import { errorSchema } from './errors';
 
 import styles from './form.module.css';
 
-const Form = ({ handleLogin }) => {
+const Form = ({ handleLogin, getRegisteredEmail }) => {
   const {
     register,
     handleSubmit,
@@ -29,6 +29,7 @@ const Form = ({ handleLogin }) => {
         className={styles.email}
         type='email'
         label='Email'
+        defaultValue={getRegisteredEmail}
         placeholder='Email'
         {...register('email', { required: true, minLength: 8, maxLength: 80 })}
         error={errors.email?.message}

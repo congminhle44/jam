@@ -162,6 +162,7 @@
 
   .categoriesNav:hover,
   .navItem:hover,
+  .navItem.active,
   .searchIco:hover,
   .toggleTheme:hover {
     background-color: var(--primary);

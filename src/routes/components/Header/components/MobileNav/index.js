@@ -13,9 +13,10 @@ import styles from './style.module.css';
 import { FormattedMessage } from 'react-intl';
 import { useAtom } from 'jotai';
 import { setLangAtom } from '@/store/lang';
+import { userAtom } from '@/store/login';
 
 const MobileNav = ({ isOpen, onClose, handleLogout }) => {
-  const userInfo = JSON.parse(localStorage.getItem('user'));
+  const [userInfo] = useAtom(userAtom);
 
   const [, setLang] = useAtom(setLangAtom);
 

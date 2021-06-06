@@ -13,7 +13,7 @@ const Alert = ({ children, suffix, isOpen, onClose, variant, ...others }) => {
     if (isOpen)
       setTimeout(() => {
         onClose();
-      }, 3000);
+      }, 5000);
   }, [isOpen, onClose]);
 
   const switchAlertIcon = () => {
@@ -26,7 +26,7 @@ const Alert = ({ children, suffix, isOpen, onClose, variant, ...others }) => {
   };
 
   return (
-    <>
+    <div className={styles.superwrap}>
       {isOpen && (
         <div
           className={clsx(
@@ -47,7 +47,7 @@ const Alert = ({ children, suffix, isOpen, onClose, variant, ...others }) => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

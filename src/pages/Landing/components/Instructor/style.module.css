@@ -114,6 +114,11 @@
   .card {
     height: 21rem;
   }
+
+  .name,
+  .major {
+    display: block;
+  }
 }
 
 @media (min-width: 1280px) {
