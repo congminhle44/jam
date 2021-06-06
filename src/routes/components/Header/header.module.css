@@ -68,6 +68,10 @@
   align-items: center;
 }
 
+.user {
+  white-space: nowrap;
+}
+
 @media (min-width: 768px) {
   .brand {
     width: 3.75rem;
@@ -158,6 +162,7 @@
 
   .categoriesNav:hover,
   .navItem:hover,
+  .navItem.active,
   .searchIco:hover,
   .toggleTheme:hover {
     background-color: var(--primary);

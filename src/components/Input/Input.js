@@ -17,6 +17,7 @@ const Input = forwardRef(
       textarea,
       className,
       error,
+      required,
       ...others
     },
     ref
@@ -48,7 +49,7 @@ const Input = forwardRef(
                 textarea && styles.text
               )}
               htmlFor={label}>
-              {label}
+              {label} <span>{required && '*'}</span>
             </label>
           )}
           {!textarea ? (

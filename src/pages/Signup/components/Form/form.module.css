@@ -1,0 +1,26 @@
+/** @format */
+
+.container {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.controler {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.input {
+  margin-bottom: 1.5rem;
+  height: 3.75rem;
+}
+
+.input:last-child {
+  margin-bottom: 0;
+}
+
+.link {
+  color: var(--text);
+}

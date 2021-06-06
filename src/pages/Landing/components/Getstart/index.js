@@ -8,7 +8,7 @@ import styles from './style.module.css';
 
 const Getstarted = () => {
   return (
-    <div id='getstart' className={styles.container}>
+    <div className={styles.container}>
       <div className={styles.content}>
         <Typography className={styles.title} variant={TypographyVariants.H4}>
           <FormattedMessage id='getstart.title' />
@@ -18,7 +18,7 @@ const Getstarted = () => {
           variant={TypographyVariants.Title2}>
           <FormattedMessage id='getstart.description' />
         </Typography>
-        <Link to='/login'>
+        <Link className={styles.link} to='/login'>
           <Button
             className={styles.button}
             variant={ButtonVariants.Solid}

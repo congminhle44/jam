@@ -1,5 +1,6 @@
 /** @format */
 import { useEffect } from 'react';
+import { useAtom } from 'jotai';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 
@@ -7,11 +8,16 @@ import useToggle from '@/hooks/useToggle';
 
 import Brand from '@/assets/Images/brand.png';
 import { DesktopNav, HeaderFeature, MobileMenu, MobileNav } from './components';
+import { removeUserInfoAtom } from '@/store/login';
 
 import styles from './header.module.css';
 
 const Header = () => {
+  const [, removeUserInfo] = useAtom(removeUserInfoAtom);
+
   const transparent = useToggle(false);
+
+  const openMenu = useToggle(false);
 
   const menuOpen = useToggle(false);
 
@@ -31,6 +37,10 @@ const Header = () => {
     };
   });
 
+  const handleLogout = () => {
+    removeUserInfo();
+  };
+
   return (
     <div
       className={clsx(
@@ -40,12 +50,16 @@ const Header = () => {
       )}>
       <div className={styles.wrapper}>
         <MobileMenu onOpen={menuOpen.setActive} />
-        <MobileNav isOpen={menuOpen.active} onClose={menuOpen.setInActive} />
+        <MobileNav
+          handleLogout={handleLogout}
+          isOpen={menuOpen.active}
+          onClose={menuOpen.setInActive}
+        />
         <div className={styles.brandWrap}>
           <Link to='/' exact>
             <img className={styles.brand} src={Brand} alt='Brand' />
           </Link>
-          <DesktopNav />
+          <DesktopNav openMenu={openMenu} handleLogout={handleLogout} />
         </div>
         <HeaderFeature />
       </div>

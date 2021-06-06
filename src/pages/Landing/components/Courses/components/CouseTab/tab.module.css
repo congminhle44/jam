@@ -1,0 +1,25 @@
+/** @format */
+
+.container {
+  flex-grow: 1;
+  width: 100%;
+  background-color: var(--bg-sub);
+  color: var(--text);
+  border-radius: 0.5rem;
+}
+
+.panel {
+  border-radius: 0.5rem;
+  box-shadow: 0 0 4px var(--grey-4);
+  margin-top: 0.125rem;
+}
+
+.tabs {
+  background-color: var(--bg);
+  box-shadow: none !important;
+  color: var(--text);
+}
+
+.skeleton {
+  padding: 0.5rem;
+}

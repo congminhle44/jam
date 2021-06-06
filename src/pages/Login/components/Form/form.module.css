@@ -7,6 +7,11 @@
   margin-bottom: 1.5rem;
 }
 
+.email,
+.password {
+  height: 3.75rem;
+}
+
 .button {
   display: flex;
   justify-content: flex-end;

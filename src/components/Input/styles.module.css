@@ -65,6 +65,7 @@
   display: flex;
   color: var(--black);
   align-items: center;
+  pointer-events: none;
   transition: all 0.3s ease;
 }
 .label.text {

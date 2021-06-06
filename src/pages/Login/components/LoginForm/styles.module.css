@@ -12,6 +12,7 @@
 }
 
 .title {
+  text-align: center;
   text-transform: uppercase;
   color: var(--text);
 }
@@ -21,13 +22,13 @@
 }
 
 .form {
-  text-align: center;
   margin: 0 auto;
   padding: 1.5rem;
 }
 
 .brand {
   color: var(--primary);
+  filter: brightness(1.25);
 }
 
 @keyframes appear {
@@ -42,11 +43,14 @@
 }
 
 @media (min-width: 768px) {
+  .form {
+    width: 55%;
+  }
   .img {
     display: block;
     object-fit: cover;
     width: 45%;
-    height: 50vh;
+    height: 60vh;
     border-radius: 0.5rem 0 0 0.5rem;
   }
 }
@@ -55,7 +59,6 @@
   .img {
     object-fit: cover;
     width: 45%;
-    height: 60vh;
     border-radius: 0.5rem 0 0 0.5rem;
   }
 }

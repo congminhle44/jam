@@ -1,15 +1,51 @@
 /** @format */
+import { FormattedMessage } from 'react-intl';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
 import Input from '@/components/Input';
-import { FormattedMessage } from 'react-intl';
+
+import { errorSchema } from './errors';
+
 import styles from './form.module.css';
 
-const Form = () => {
+const Form = ({ handleLogin, getRegisteredEmail }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(errorSchema),
+  });
+
+  const onSubmit = (data) => {
+    handleLogin(data);
+  };
+
   return (
-    <form className={styles.container}>
-      <Input className={styles.email} label='Email' placeholder='Email' />
-      <Input type='password' label='Password' placeholder='Password' />
+    <form onSubmit={handleSubmit(onSubmit)} className={styles.container}>
+      <Input
+        className={styles.email}
+        type='email'
+        label='Email'
+        defaultValue={getRegisteredEmail}
+        placeholder='Email'
+        {...register('email', { required: true, minLength: 8, maxLength: 80 })}
+        error={errors.email?.message}
+      />
+      <Input
+        type='password'
+        className={styles.password}
+        label='Password'
+        placeholder='Password'
+        {...register('password', {
+          required: true,
+          minLength: 6,
+          maxLength: 50,
+        })}
+        error={errors.password?.message}
+      />
       <div className={styles.button}>
         <Button
           type='submit'

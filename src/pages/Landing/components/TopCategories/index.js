@@ -1,6 +1,7 @@
 /** @format */
 
 import { FormattedMessage } from 'react-intl';
+
 import Typography, { TypographyVariants } from '@/components/Typography';
 
 import { useCategories } from '@/queries/hooks/categories';

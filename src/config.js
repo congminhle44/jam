@@ -18,12 +18,25 @@ const config = {
   paths: {
     landing: '/',
     login: '/login',
+    signup: '/signup',
   },
   apis: {
     getCategories: {
       url: (page = '', limit = '', sort = '', keyword = '') =>
         `/categories?page=${page}&limit=${limit}&keyword=${keyword}&sort=${sort}`,
       method: 'GET',
+    },
+    getCourseByCategory: {
+      url: (courseID) => `/categories/${courseID}/courses`,
+      method: 'GET',
+    },
+    login: {
+      url: '/users/login',
+      method: 'POST',
+    },
+    signup: {
+      url: '/users/register',
+      method: 'POST',
     },
   },
 };

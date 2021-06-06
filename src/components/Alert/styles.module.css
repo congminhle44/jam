@@ -1,11 +1,14 @@
 /** @format */
 
-.container {
+.superwrap {
   position: fixed;
   bottom: 0;
   right: 0;
-  min-width: 25rem;
-  margin: 1.5rem 2rem;
+  width: 100%;
+  padding: 1.5rem 2rem;
+}
+
+.container {
   padding: 1rem 2rem;
   background-color: var(--primary);
   border-radius: 0.5rem;
@@ -31,6 +34,8 @@
 }
 
 .icon {
+  width: 1.5rem;
+  height: 1.5rem;
   margin-right: 1rem;
 }
 
@@ -48,5 +53,14 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .superwrap {
+    width: fit-content;
+  }
+  .container {
+    min-width: 22rem;
   }
 }
