@@ -9,15 +9,28 @@ import Input from '@/components/Input';
 import { Moon, Search, Sun } from '@/components/Icons';
 
 import styles from '../../header.module.css';
+import SearchList from '../SearchList';
 
-const HeaderFeature = () => {
+const HeaderFeature = ({
+  handleTypingKeyword,
+  keyword,
+  courses,
+  isLoading,
+  showInput,
+  hideInput,
+  isActive,
+}) => {
   const defaultTheme = localStorage.getItem('theme');
 
   const [theme, setTheme] = useState(defaultTheme || 'light');
-  const searchRef = useRef();
   const isSearch = useToggle(false);
+  const isKeywordType = useToggle(false);
 
-  useClickOutside(searchRef, isSearch.setInActive);
+  const searchListRef = useRef();
+  const searchRef = useRef();
+
+  useClickOutside(searchListRef, isKeywordType.setInActive);
+  useClickOutside(searchRef, hideInput);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -27,6 +40,9 @@ const HeaderFeature = () => {
       document.documentElement.classList.remove('theme-transition');
     }, 1000);
   }, [theme, defaultTheme]);
+  useEffect(() => {
+    keyword !== '' ? isKeywordType.setActive() : isKeywordType.setInActive();
+  }, [keyword, isKeywordType]);
 
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
@@ -35,16 +51,31 @@ const HeaderFeature = () => {
 
   return (
     <div className={styles.feature}>
-      <div ref={searchRef} className={styles.search}>
-        <div
-          className={clsx(styles.searchWrap, isSearch.active && styles.show)}>
-          <div
-            onClick={isSearch.setActive}
-            className={clsx(styles.searchIco, isSearch.active && styles.hide)}>
-            <Search />
+      <div ref={searchListRef} className={styles.listSearchWrap}>
+        <div ref={searchRef} className={styles.search}>
+          <div className={styles.searchWrap}>
+            {!isActive && (
+              <div
+                onClick={showInput}
+                className={clsx(
+                  styles.searchIco,
+                  isSearch.active && styles.hide
+                )}>
+                <Search />
+              </div>
+            )}
+            {isActive && (
+              <Input
+                onChange={handleTypingKeyword}
+                placeholder='Search'
+                search
+              />
+            )}
           </div>
-          <Input placeholder='Search' search />
         </div>
+        {isKeywordType.active && (
+          <SearchList courses={courses} isLoading={isLoading} />
+        )}
       </div>
       <div onClick={toggleTheme} className={styles.toggleTheme}>
         {theme === 'dark' ? <Sun /> : <Moon />}

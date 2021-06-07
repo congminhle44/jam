@@ -3,6 +3,9 @@
 import { Facebook, Google } from '@/components/Icons';
 import Typography, { TypographyVariants } from '@/components/Typography';
 import { FormattedMessage } from 'react-intl';
+
+import config from '@/config';
+
 import styles from './auth.module.css';
 
 const Oauth = () => {
@@ -12,12 +15,14 @@ const Oauth = () => {
         <FormattedMessage id='login.oauth' />
       </Typography>
       <div className={styles.list}>
-        <div className={styles.option}>
+        <a
+          href={`${config.app.apiHost}/auth/facebook`}
+          className={styles.option}>
           <Facebook />
-        </div>
-        <div className={styles.option}>
+        </a>
+        <a href={`${config.app.apiHost}/auth/google`} className={styles.option}>
           <Google />
-        </div>
+        </a>
       </div>
     </div>
   );

@@ -6,6 +6,11 @@
   height: 100%;
   padding: 1.3125rem 0.75rem;
   animation: appear 0.3s;
+  transition: all 0.3s;
+}
+
+.container.hide {
+  transform: translateX(-100%);
 }
 
 .info {
@@ -20,9 +25,13 @@
   margin-right: 0.5rem;
 }
 
-.search {
+.searchWrap {
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--grey-6);
+}
+
+.search {
+  position: relative;
 }
 
 .navitem {

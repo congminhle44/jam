@@ -9,28 +9,16 @@ import James from '@/assets/Images/james.jpg';
 import styles from './style.module.css';
 import Typography, { TypographyVariants } from '@/components/Typography';
 import { Quote } from '@/components/Icons';
+import { introduceSettings } from './introduceSettings';
 
 const Introduce = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    className: styles.testominal,
-    dotsClass: 'dots',
-  };
-
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.quote}>
           <Quote />
         </div>
-        <Slider {...settings}>
+        <Slider {...introduceSettings}>
           <div className={styles.card}>
             <div className={styles.avaWrap}>
               <LazyLoadImage
@@ -59,7 +47,12 @@ const Introduce = () => {
           </div>
           <div className={styles.card}>
             <div className={styles.avaWrap}>
-              <img className={styles.ava} src={Josh} alt='Josh' />
+              <LazyLoadImage
+                effect='blur'
+                className={styles.ava}
+                src={Josh}
+                alt='Josh'
+              />
             </div>
             <div className={styles.information}>
               <Typography
@@ -80,7 +73,12 @@ const Introduce = () => {
           </div>
           <div className={styles.card}>
             <div className={styles.avaWrap}>
-              <img className={styles.ava} src={James} alt='James' />
+              <LazyLoadImage
+                effect='blur'
+                className={styles.ava}
+                src={James}
+                alt='James'
+              />
             </div>
             <div className={styles.information}>
               <Typography

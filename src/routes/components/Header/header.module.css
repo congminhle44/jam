@@ -109,6 +109,11 @@
     color: var(--white);
   }
 
+  .listSearchWrap {
+    position: relative;
+    margin-right: 1rem;
+  }
+
   .search {
     display: block;
     overflow: hidden;
@@ -117,12 +122,7 @@
   .searchWrap {
     display: flex;
     align-items: center;
-    transform: translateX(90%);
     transition: all 0.3s;
-  }
-
-  .searchWrap.show {
-    transform: translateX(0);
   }
 
   .searchIco {
@@ -133,14 +133,13 @@
     color: var(--white);
     cursor: pointer;
   }
-
-  .searchIco.hide {
-    display: none;
-  }
-
   .navItem {
     color: var(--white);
     text-decoration: none;
+  }
+
+  .categoriesWrap {
+    position: relative;
   }
 
   .categoriesNav {
@@ -167,10 +166,6 @@
   .toggleTheme:hover {
     background-color: var(--primary);
     color: var(--white);
-  }
-
-  .search {
-    margin-right: 1rem;
   }
 }
 

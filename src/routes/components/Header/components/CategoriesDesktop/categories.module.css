@@ -1,0 +1,28 @@
+/** @format */
+
+.list {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  width: 15rem;
+  background-color: var(--white);
+  border-radius: 0.25rem;
+  box-shadow: 0 0 4px var(--grey-4);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  color: var(--black);
+}
+.item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.right {
+  width: 1.5rem;
+  height: 1.5rem;
+}

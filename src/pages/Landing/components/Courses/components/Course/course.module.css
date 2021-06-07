@@ -4,7 +4,6 @@
 }
 
 .card {
-  max-width: 12rem;
   cursor: pointer;
 }
 
@@ -29,4 +28,10 @@
 
 .author {
   margin: 0.5rem 0 0.25rem 0;
+}
+
+@media (min-width: 768px) {
+  .card {
+    max-width: 12.25rem;
+  }
 }

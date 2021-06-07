@@ -23,19 +23,24 @@ const config = {
   apis: {
     getCategories: {
       url: (page = '', limit = '', sort = '', keyword = '') =>
-        `/categories?page=${page}&limit=${limit}&keyword=${keyword}&sort=${sort}`,
+        `/api/categories?page=${page}&limit=${limit}&keyword=${keyword}&sort=${sort}`,
       method: 'GET',
     },
     getCourseByCategory: {
-      url: (courseID) => `/categories/${courseID}/courses`,
+      url: (courseID) => `/api/categories/${courseID}/courses`,
+      method: 'GET',
+    },
+    getPublicCourses: {
+      url: (page = '', limit = '', keyword = '') =>
+        `/api/courses/public?page=${page}&limit=${limit}&keyword=${keyword}`,
       method: 'GET',
     },
     login: {
-      url: '/users/login',
+      url: '/api/users/login',
       method: 'POST',
     },
     signup: {
-      url: '/users/register',
+      url: '/api/users/register',
       method: 'POST',
     },
   },
