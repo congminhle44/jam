@@ -1,0 +1,55 @@
+/** @format */
+
+.searchList {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-height: 20rem;
+  overflow: hidden auto;
+  background-color: var(--white);
+  border-radius: 0.25rem;
+  box-shadow: 0 0 4px var(--grey-4);
+  z-index: 9999;
+  animation: appear 0.5s;
+}
+
+.searchItem {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  color: var(--black);
+}
+.searchItem:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.searchIco {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
+.item {
+  width: 100%;
+  font-size: 0.865rem !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.notfound {
+  text-align: center;
+}
+
+@keyframes appear {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: 100%;
+    opacity: 1;
+  }
+}

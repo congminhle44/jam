@@ -14,11 +14,22 @@ import { FormattedMessage } from 'react-intl';
 import { useAtom } from 'jotai';
 import { setLangAtom } from '@/store/lang';
 import { userAtom } from '@/store/login';
+import CategoriesMobile from '../CategoriesMobile';
+import useToggle from '@/hooks/useToggle';
+import clsx from 'clsx';
 
-const MobileNav = ({ isOpen, onClose, handleLogout }) => {
+const MobileNav = ({
+  isOpen,
+  onClose,
+  handleLogout,
+  handleTypingKeyword,
+  handleBlankKeyword,
+}) => {
   const [userInfo] = useAtom(userAtom);
 
   const [, setLang] = useAtom(setLangAtom);
+
+  const showCategory = useToggle(false);
 
   useEffect(() => {
     if (isOpen) disableScroll();
@@ -31,6 +42,8 @@ const MobileNav = ({ isOpen, onClose, handleLogout }) => {
   const handleOverlayClick = () => {
     if (onClose) {
       onClose();
+      showCategory.setInActive();
+      handleBlankKeyword();
     }
   };
 
@@ -38,10 +51,25 @@ const MobileNav = ({ isOpen, onClose, handleLogout }) => {
     <>
       {isOpen && (
         <Overlay onClick={handleOverlayClick}>
-          <div className={styles.container}>
-            <div className={styles.search}>
-              <Input placeholder='Search' search />
+          {showCategory.active && (
+            <CategoriesMobile hideCategoryMenu={showCategory.setInActive} />
+          )}
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className={clsx(
+              styles.container,
+              showCategory.active && styles.hide
+            )}>
+            <div className={styles.searchWrap}>
+              <div className={styles.search}>
+                <Input
+                  onChange={handleTypingKeyword}
+                  placeholder='Search'
+                  search
+                />
+              </div>
             </div>
+
             <div className={styles.navlist}>
               {userInfo && (
                 <NavLink to='/profile' className={styles.navitem}>
@@ -60,7 +88,7 @@ const MobileNav = ({ isOpen, onClose, handleLogout }) => {
                   </div>
                 </NavLink>
               )}
-              <div className={styles.navitem}>
+              <div onClick={showCategory.setActive} className={styles.navitem}>
                 <Typography variant={TypographyVariants.Body1}>
                   <FormattedMessage id='header.categories' />
                 </Typography>
