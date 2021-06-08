@@ -10,6 +10,7 @@
 .img {
   width: 100%;
   box-shadow: 0 0 4px var(--grey-4);
+  border-radius: 0.5rem;
 }
 
 .information {

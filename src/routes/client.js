@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 
 import Header from './components/Header';
 
-const LandingLayout = ({ children }) => {
+const ClientLayout = ({ children }) => {
   return (
     <div>
       <Header />
@@ -17,20 +17,20 @@ const LandingLayout = ({ children }) => {
   );
 };
 
-const PublicRoute = ({ component: Component, withProps, ...others }) => {
+const ClientRoute = ({ component: Component, withProps, ...others }) => {
   return (
     <Route
       {...others}
       render={(childProps) => (
-        <LandingLayout>
+        <ClientLayout>
           <Component {...childProps} {...withProps} />
-        </LandingLayout>
+        </ClientLayout>
       )}
     />
   );
 };
 
-export const publicRoutes = [
+export const clientRoutes = [
   {
     path: config.paths.landing,
     exact: true,
@@ -46,6 +46,16 @@ export const publicRoutes = [
     exact: false,
     component: lazy(() => import('@/pages/Signup')),
   },
+  {
+    path: config.paths.categoryDetail,
+    exact: false,
+    component: lazy(() => import('@/pages/Category')),
+  },
+  {
+    path: config.paths.courseDetail,
+    exact: false,
+    component: lazy(() => import('@/pages/Course')),
+  },
 ];
 
-export default PublicRoute;
+export default ClientRoute;

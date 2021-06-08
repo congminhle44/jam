@@ -1,0 +1,21 @@
+/** @format */
+
+.container {
+  width: 100%;
+  background-color: var(--bg-sub);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 4px var(--grey-4);
+  padding: 1rem 1.25rem;
+  color: var(--text);
+  margin-top: 1rem;
+}
+
+.comments {
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    margin-top: 0;
+  }
+}

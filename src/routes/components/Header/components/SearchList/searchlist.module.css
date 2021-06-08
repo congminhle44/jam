@@ -12,7 +12,6 @@
   border-radius: 0.25rem;
   box-shadow: 0 0 4px var(--grey-4);
   z-index: 9999;
-  animation: appear 0.5s;
 }
 
 .searchItem {
@@ -41,15 +40,4 @@
 
 .notfound {
   text-align: center;
-}
-
-@keyframes appear {
-  from {
-    height: 0;
-    opacity: 0;
-  }
-  to {
-    height: 100%;
-    opacity: 1;
-  }
 }

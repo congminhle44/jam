@@ -14,7 +14,10 @@ const CategoriesHeaderDesktop = () => {
     if (categories) {
       return categories.map((category) => {
         return (
-          <Link to={category._id} key={category._id} className={styles.item}>
+          <Link
+            to={`/category/${category._id}`}
+            key={category._id}
+            className={styles.item}>
             <Typography variant={TypographyVariants.Body1}>
               {category.categoryName}
             </Typography>

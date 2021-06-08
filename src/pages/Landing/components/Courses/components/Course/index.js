@@ -10,7 +10,7 @@ import ErrorImg from '@/assets/Images/Image-error.jpg';
 
 import styles from './course.module.css';
 import Typography, { TypographyVariants } from '@/components/Typography';
-import RateStar from '../Rating';
+import RateStar from '@/components/Rating';
 import SkeletonLoad from '../Skeleton';
 
 import { courseSettings } from './courseSettings';
@@ -47,7 +47,11 @@ const CourseTabs = ({ isLoading, courses }) => {
                 variant={TypographyVariants.Label1}>
                 {course.personCreated.fullName}
               </Typography>
-              <RateStar value={course.averageRate} />
+              <RateStar
+                showRateInText
+                value={course.averageRate}
+                amount={course.amountOfComments}
+              />
               <Typography
                 className={styles.price}
                 variant={TypographyVariants.Paragraph2}>
