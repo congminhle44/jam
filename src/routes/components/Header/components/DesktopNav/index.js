@@ -15,7 +15,7 @@ import styles from '../../header.module.css';
 import { useRef } from 'react';
 import useClickOutside from '@/hooks/useClickOutside';
 
-const DesktopNav = ({ handleLogout, openMenu }) => {
+const DesktopNav = ({ handleLogout, openMenu, cartItems }) => {
   const categoryListRef = useRef();
 
   const [userInfo] = useAtom(userAtom);
@@ -40,11 +40,14 @@ const DesktopNav = ({ handleLogout, openMenu }) => {
             <FormattedMessage id='header.categories' />
           </Typography>
         </div>
-        {categoryList.active && <CategoriesHeaderDesktop />}
+        {categoryList.active && (
+          <CategoriesHeaderDesktop hideList={categoryList.setInActive} />
+        )}
       </div>
 
       {userInfo ? (
         <LoggedInNav
+          cartItems={cartItems}
           openMenu={openMenu}
           handleLogout={handleLogout}
           userInfo={userInfo}

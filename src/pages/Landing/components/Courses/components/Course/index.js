@@ -12,51 +12,106 @@ import styles from './course.module.css';
 import Typography, { TypographyVariants } from '@/components/Typography';
 import RateStar from '@/components/Rating';
 import SkeletonLoad from '../Skeleton';
+import { useAtom } from 'jotai';
 
 import { courseSettings } from './courseSettings';
+import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
+import { Heart } from '@/components/Icons';
+import { useCartItem } from '@/queries/hooks/courses';
+import { useGetCartItem } from '@/queries/hooks/users';
+import { showAlertAtom } from '@/store/alert';
+import AlertStatus from '../AlertStatus';
+import { AlertVariants } from '@/components/Alert';
 
 const CourseTabs = ({ isLoading, courses }) => {
   const history = useHistory();
+
+  const [, showAlert] = useAtom(showAlertAtom);
+
+  const { refetch: refetchCartList } = useGetCartItem();
+  const { mutateAsync: addItemToCart } = useCartItem();
+
+  const handleAddItemToCart = (courseId) => {
+    return addItemToCart({ courseId })
+      .then((result) => {
+        showAlert({
+          component: AlertStatus,
+          props: {
+            variant: AlertVariants.Success,
+            children: result.message,
+          },
+        });
+        refetchCartList();
+      })
+      .catch((err) => {
+        showAlert({
+          component: AlertStatus,
+          props: {
+            variant: AlertVariants.Error,
+            children: err.response && err.response.data.message,
+          },
+        });
+      });
+  };
 
   const renderCourseByCategory = () => {
     if (Array.isArray(courses) && courses.length > 0) {
       return courses.map((course, index) => {
         return (
-          <div
-            onClick={() => history.push(`/course/${course._id}`)}
-            key={index}
-            className={clsx(styles.card, courses.length === 1 && styles.full)}>
-            <LazyLoadImage
-              effect='blur'
-              className={styles.img}
-              height={220}
-              onError={(e) => {
-                e.target.src = `${ErrorImg}`;
-              }}
-              src={course.courseImage}
-              alt={course.courseName}
-            />
-            <div className={styles.information}>
-              <Typography
-                className={styles.name}
-                variant={TypographyVariants.Body2}>
-                {course.courseName}
-              </Typography>
-              <Typography
-                className={styles.author}
-                variant={TypographyVariants.Label1}>
-                {course.personCreated.fullName}
-              </Typography>
-              <RateStar
-                showRateInText
-                value={course.averageRate}
-                amount={course.amountOfComments}
+          <div className={styles.cardWrap} key={index}>
+            <div
+              key={index}
+              onClick={() => history.push(`/course/${course._id}`)}
+              className={clsx(
+                styles.card,
+                courses.length === 1 && styles.full
+              )}>
+              <LazyLoadImage
+                effect='blur'
+                height={220}
+                className={styles.img}
+                onError={(e) => {
+                  e.target.src = `${ErrorImg}`;
+                }}
+                src={course.courseImage}
+                alt={course.courseName}
               />
-              <Typography
-                className={styles.price}
-                variant={TypographyVariants.Paragraph2}>
-                ${course.cost}
-              </Typography>
+              <div className={styles.information}>
+                <Typography
+                  className={styles.name}
+                  variant={TypographyVariants.Body2}>
+                  {course.courseName}
+                </Typography>
+                <Typography
+                  className={styles.author}
+                  variant={TypographyVariants.Label1}>
+                  {course.personCreated.fullName}
+                </Typography>
+                <RateStar
+                  showRateInText
+                  value={course.averageRate}
+                  amount={course.amountOfComments}
+                />
+                <Typography
+                  className={styles.price}
+                  variant={TypographyVariants.Paragraph2}>
+                  ${course.cost}
+                </Typography>
+              </div>
+            </div>
+            <div className={styles.control}>
+              <Button
+                onClick={() => handleAddItemToCart(course._id)}
+                className={styles.button}
+                variant={ButtonVariants.Solid}
+                size={ButtonSizes.Small}>
+                Add to cart
+              </Button>
+              <div className={styles.wish}>
+                <div className={styles.heart}>
+                  <Heart />
+                </div>
+              </div>
             </div>
           </div>
         );

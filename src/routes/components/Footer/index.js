@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Select from '@/components/Dropdown/Select';
 import Option from '@/components/Dropdown/Option';
 
-import Brand from '@/assets/Images/brand.png';
+import { Brand } from '@/components/Icons';
 
 import Typography, { TypographyVariants } from '@/components/Typography';
 
@@ -32,7 +32,9 @@ const Footer = () => {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.left}>
-          <img className={styles.brand} src={Brand} alt='Jam academy' />
+          <div className={styles.brand}>
+            <Brand />
+          </div>
           <div className={styles.license}>
             <Typography
               className={styles.name}

@@ -8,13 +8,49 @@
 }
 
 .img {
+  min-width: 100%;
   width: 100%;
   box-shadow: 0 0 4px var(--grey-4);
   border-radius: 0.5rem;
 }
 
+.control {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  width: 100%;
+}
+
+.wish {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--success);
+  border: 1px solid var(--success);
+  margin-left: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.wish:hover {
+  background-color: var(--success);
+  color: var(--white);
+}
+
+.heart {
+  width: 20px;
+  height: 20px;
+}
+
 .information {
   padding: 0.5rem 0.25rem;
+}
+
+.courseDetail {
+  display: none;
 }
 
 .name {
@@ -32,7 +68,7 @@
 }
 
 @media (min-width: 768px) {
-  .card {
+  .cardWrap {
     max-width: 12.25rem;
   }
 }

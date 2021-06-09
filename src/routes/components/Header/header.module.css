@@ -46,6 +46,7 @@
   text-align: center;
   line-height: 1rem;
   color: var(--white);
+  font-size: 0.875rem;
   border-radius: 50%;
 }
 

@@ -25,3 +25,5 @@ export { default as Menu } from './Menu';
 export { default as Quote } from './Quote';
 export { default as Check } from './Check';
 export { default as Info } from './Info';
+export { default as Brand } from './Brand';
+export { default as Heart } from './Heart';

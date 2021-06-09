@@ -49,6 +49,14 @@ const config = {
         `/courses/public?page=${page}&limit=${limit}&keyword=${keyword}`,
       method: 'GET',
     },
+    getUserCart: {
+      url: '/users/cart/courses',
+      method: 'GET',
+    },
+    addItemToCart: {
+      url: '/courses/cart/add',
+      method: 'POST',
+    },
     login: {
       url: '/users/login',
       method: 'POST',

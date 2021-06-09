@@ -7,7 +7,7 @@ import Typography, { TypographyVariants } from '@/components/Typography';
 import styles from './categories.module.css';
 import { useCategories } from '@/queries/hooks/categories';
 
-const CategoriesHeaderDesktop = () => {
+const CategoriesHeaderDesktop = ({ hideList }) => {
   const { data: categories, isLoading } = useCategories('', '', '', '');
 
   const renderCategories = () => {
@@ -16,6 +16,7 @@ const CategoriesHeaderDesktop = () => {
         return (
           <Link
             to={`/category/${category._id}`}
+            onClick={hideList}
             key={category._id}
             className={styles.item}>
             <Typography variant={TypographyVariants.Body1}>

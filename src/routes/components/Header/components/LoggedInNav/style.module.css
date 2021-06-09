@@ -4,6 +4,10 @@
   position: relative;
 }
 
+.userWrap {
+  position: relative;
+}
+
 .user {
   cursor: pointer;
 }
@@ -30,6 +34,7 @@
 }
 
 .icon {
+  position: relative;
   width: 1.5rem;
   height: 1.5rem;
   margin-right: 0.75rem;
@@ -37,4 +42,22 @@
 
 .text {
   white-space: nowrap;
+}
+
+.amount {
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  background-color: var(--primary);
+}
+
+.menuItem .amount {
+  color: var(--white);
 }

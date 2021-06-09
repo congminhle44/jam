@@ -17,6 +17,7 @@ import { userAtom } from '@/store/login';
 import CategoriesMobile from '../CategoriesMobile';
 import useToggle from '@/hooks/useToggle';
 import clsx from 'clsx';
+import { useGetCartItem } from '@/queries/hooks/users';
 
 const MobileNav = ({
   isOpen,
@@ -30,6 +31,8 @@ const MobileNav = ({
   const [, setLang] = useAtom(setLangAtom);
 
   const showCategory = useToggle(false);
+
+  const { data: cartItems } = useGetCartItem();
 
   useEffect(() => {
     if (isOpen) disableScroll();
@@ -72,21 +75,35 @@ const MobileNav = ({
 
             <div className={styles.navlist}>
               {userInfo && (
-                <NavLink to='/profile' className={styles.navitem}>
-                  <div className={styles.info}>
-                    <img
-                      className={styles.avatar}
-                      src={userInfo.avatar}
-                      alt={userInfo.fullName}
-                    />
+                <>
+                  <NavLink to='/profile' className={styles.navitem}>
+                    <div className={styles.info}>
+                      <img
+                        className={styles.avatar}
+                        src={userInfo.avatar}
+                        alt={userInfo.fullName}
+                      />
+                      <Typography variant={TypographyVariants.Body1}>
+                        {userInfo.fullName}
+                      </Typography>
+                    </div>
+                    <div className={styles.right}>
+                      <Right />
+                    </div>
+                  </NavLink>
+                  <NavLink to='/checkout' className={styles.navitem}>
                     <Typography variant={TypographyVariants.Body1}>
-                      {userInfo.fullName}
+                      Your Basket
                     </Typography>
-                  </div>
-                  <div className={styles.right}>
-                    <Right />
-                  </div>
-                </NavLink>
+                    <div className={styles.right}>
+                      <Typography
+                        className={styles.basketAmount}
+                        variant={TypographyVariants.Body2}>
+                        {cartItems && cartItems.length}
+                      </Typography>
+                    </div>
+                  </NavLink>
+                </>
               )}
               <div onClick={showCategory.setActive} className={styles.navitem}>
                 <Typography variant={TypographyVariants.Body1}>

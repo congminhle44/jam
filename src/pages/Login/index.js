@@ -34,7 +34,7 @@ const Login = () => {
     })
       .then((data) => {
         addUserInfo(data.data);
-        document.cookie = `sid=${data.accessToken}`;
+        localStorage.setItem('sid', data.accessToken);
         history.push('/');
         removeEmail();
         showAlert({

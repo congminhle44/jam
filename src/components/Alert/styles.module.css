@@ -22,6 +22,9 @@
   background-color: var(--warning);
   color: var(--text);
 }
+.content {
+  width: 100%;
+}
 .container.error {
   background-color: var(--error);
 }

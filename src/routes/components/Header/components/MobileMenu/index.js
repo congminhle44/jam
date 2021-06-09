@@ -3,8 +3,7 @@ import { Menu } from '@/components/Icons';
 
 import styles from '../../header.module.css';
 
-const MobileMenu = ({ onOpen }) => {
-  const notiAmount = 0;
+const MobileMenu = ({ onOpen, notiAmount }) => {
   return (
     <div onClick={onOpen} className={styles.menu}>
       <Menu />

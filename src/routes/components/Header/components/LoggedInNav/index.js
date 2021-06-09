@@ -11,7 +11,7 @@ import styles from './style.module.css';
 import { useRef } from 'react';
 import useClickOutside from '@/hooks/useClickOutside';
 
-const LoggedInNav = ({ userInfo, handleLogout, openMenu }) => {
+const LoggedInNav = ({ userInfo, handleLogout, openMenu, cartItems }) => {
   const containerRef = useRef();
 
   useClickOutside(containerRef, openMenu.setInActive);
@@ -23,12 +23,17 @@ const LoggedInNav = ({ userInfo, handleLogout, openMenu }) => {
 
   return (
     <div ref={containerRef} className={styles.container}>
-      <Typography
-        onClick={() => openMenu.setActive()}
-        className={styles.user}
-        variant={TypographyVariants.Body1}>
-        <FormattedMessage id='common.hi' />, {SlicedName(userInfo.fullName)}!
-      </Typography>
+      <div className={styles.userWrap}>
+        <Typography
+          onClick={() => openMenu.setActive()}
+          className={styles.user}
+          variant={TypographyVariants.Body1}>
+          <FormattedMessage id='common.hi' />, {SlicedName(userInfo.fullName)}!
+        </Typography>
+        {cartItems && cartItems.length > 0 && (
+          <div className={styles.amount}>{cartItems.length}</div>
+        )}
+      </div>
       {openMenu.active && (
         <div className={styles.menu}>
           <Link to='/profile' className={styles.menuItem}>
@@ -41,16 +46,19 @@ const LoggedInNav = ({ userInfo, handleLogout, openMenu }) => {
               <FormattedMessage id='header.profile' />
             </Typography>
           </Link>
-          <div className={styles.menuItem}>
+          <Link to='/checkout' className={styles.menuItem}>
             <div className={styles.icon}>
               <Cart />
+              {cartItems && cartItems.length && (
+                <div className={styles.amount}>{cartItems.length}</div>
+              )}
             </div>
             <Typography
               className={styles.text}
               variant={TypographyVariants.Body1}>
               <FormattedMessage id='header.basket' />
             </Typography>
-          </div>
+          </Link>
           <div onClick={logoutAction} className={styles.menuItem}>
             <div className={styles.icon}>
               <Logout />
