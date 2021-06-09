@@ -49,5 +49,9 @@
     "signup.title":"Register new",
     "signup.brand":"jam account",
     "signup.button":"Register",
-    "signup.login":"Already have account?"
+    "signup.login":"Already have account?",
+
+    "category.title":"{name} courses",
+    "category.courses":"All {name} courses",
+    "category.notfound":"Can not find any courses for this category"
 }

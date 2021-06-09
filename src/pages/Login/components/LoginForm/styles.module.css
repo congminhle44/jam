@@ -50,7 +50,7 @@
     display: block;
     object-fit: cover;
     width: 45%;
-    height: 60vh;
+    height: 50vh;
     border-radius: 0.5rem 0 0 0.5rem;
   }
 }
@@ -59,6 +59,7 @@
   .img {
     object-fit: cover;
     width: 45%;
+    height: 60vh;
     border-radius: 0.5rem 0 0 0.5rem;
   }
 }

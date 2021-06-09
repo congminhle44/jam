@@ -1,9 +1,16 @@
 /** @format */
 
 .container {
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 1.5rem;
+  min-height: 80vh;
+  margin-top: 4.25rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    margin-top: 5rem;
+  }
 }

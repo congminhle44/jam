@@ -7,12 +7,14 @@ import { debounce } from 'lodash';
 
 import useToggle from '@/hooks/useToggle';
 
-import Brand from '@/assets/Images/brand.png';
 import { DesktopNav, HeaderFeature, MobileMenu, MobileNav } from './components';
 import { removeUserInfoAtom } from '@/store/login';
 
 import styles from './header.module.css';
 import { usePublicCourses } from '@/queries/hooks/courses';
+import { useGetCartItem } from '@/queries/hooks/users';
+
+import { Brand } from '@/components/Icons';
 
 const Header = () => {
   const [keyword, setKeyword] = useState('');
@@ -25,6 +27,7 @@ const Header = () => {
   const showSearchInput = useToggle(false);
 
   const { data: courses, isLoading } = usePublicCourses('', '', keyword);
+  const { data: cartItems } = useGetCartItem();
 
   useEffect(() => {
     document.addEventListener('scroll', handleScroll);
@@ -69,7 +72,10 @@ const Header = () => {
           styles.background
       )}>
       <div className={styles.wrapper}>
-        <MobileMenu onOpen={menuOpen.setActive} />
+        <MobileMenu
+          notiAmount={cartItems && cartItems.length}
+          onOpen={menuOpen.setActive}
+        />
         <MobileNav
           handleLogout={handleLogout}
           isOpen={menuOpen.active}
@@ -81,10 +87,11 @@ const Header = () => {
           courses={courses}
         />
         <div className={styles.brandWrap}>
-          <Link to='/' exact>
-            <img className={styles.brand} src={Brand} alt='Brand' />
+          <Link className={styles.brand} to='/' exact>
+            <Brand />
           </Link>
           <DesktopNav
+            cartItems={cartItems}
             handleTypingKeyword={handleTypingKeyword}
             keyword={keyword}
             openMenu={openMenu}

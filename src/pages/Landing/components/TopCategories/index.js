@@ -9,6 +9,7 @@ import { useCategories } from '@/queries/hooks/categories';
 import CategoryItem from './components/CategoryItem';
 
 import styles from './category.module.css';
+import CategoryButton from './components/CategoryButton';
 
 const TopCategories = () => {
   const { data } = useCategories(1, 8, 'desc', '');
@@ -19,9 +20,8 @@ const TopCategories = () => {
         <Typography className={styles.title} variant={TypographyVariants.H6}>
           <FormattedMessage id='categories.title' />
         </Typography>
-        <div className={styles.list}>
-          <CategoryItem data={data} />
-        </div>
+        <CategoryItem data={data} />
+        <CategoryButton data={data} />
       </div>
     </div>
   );

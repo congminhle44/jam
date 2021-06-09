@@ -14,12 +14,24 @@ export const getCategories = async (key) => {
   return data;
 };
 
-export const getCourseByCategory = async (key) => {
-  const { url, method } = config.apis.getCourseByCategory;
-  const { courseID } = key && key.queryKey[1];
+export const getCategoryDetails = async (key) => {
+  const { url, method } = config.apis.getCategoryDetails;
+  const { id } = key && key.queryKey[1];
   const { data } = await axios({
-    url: `${config.app.apiHost}${url(courseID)}`,
+    url: `${config.app.apiHost}${url(id)}`,
     method: method,
   });
   return data;
+};
+
+export const getCourseByCategory = async (key) => {
+  const { url, method } = config.apis.getCourseByCategory;
+  const { courseID } = key && key.queryKey[1];
+  if (courseID) {
+    const { data } = await axios({
+      url: `${config.app.apiHost}${url(courseID)}`,
+      method: method,
+    });
+    return data;
+  }
 };

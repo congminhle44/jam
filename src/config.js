@@ -19,28 +19,50 @@ const config = {
     landing: '/',
     login: '/login',
     signup: '/signup',
+    categoryDetail: '/category/:id',
+    courseDetail: '/course/:id',
   },
   apis: {
     getCategories: {
       url: (page = '', limit = '', sort = '', keyword = '') =>
-        `/api/categories?page=${page}&limit=${limit}&keyword=${keyword}&sort=${sort}`,
+        `/categories?page=${page}&limit=${limit}&keyword=${keyword}&sort=${sort}`,
+      method: 'GET',
+    },
+    getCategoryDetails: {
+      url: (id) => `/categories/${id}`,
       method: 'GET',
     },
     getCourseByCategory: {
-      url: (courseID) => `/api/categories/${courseID}/courses`,
+      url: (courseID) => `/categories/${courseID}/courses`,
+      method: 'GET',
+    },
+    getCourseDetails: {
+      url: (id) => `/courses/${id}`,
+      method: 'GET',
+    },
+    getCommentsInCourse: {
+      url: (id) => `/courses/${id}/comments`,
       method: 'GET',
     },
     getPublicCourses: {
       url: (page = '', limit = '', keyword = '') =>
-        `/api/courses/public?page=${page}&limit=${limit}&keyword=${keyword}`,
+        `/courses/public?page=${page}&limit=${limit}&keyword=${keyword}`,
       method: 'GET',
     },
+    getUserCart: {
+      url: '/users/cart/courses',
+      method: 'GET',
+    },
+    addItemToCart: {
+      url: '/courses/cart/add',
+      method: 'POST',
+    },
     login: {
-      url: '/api/users/login',
+      url: '/users/login',
       method: 'POST',
     },
     signup: {
-      url: '/api/users/register',
+      url: '/users/register',
       method: 'POST',
     },
   },

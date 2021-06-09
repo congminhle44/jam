@@ -3,7 +3,7 @@
 import { Suspense } from 'react';
 import { Switch } from 'react-router-dom';
 
-import PublicRoute, { publicRoutes } from '@/routes/public';
+import ClientRoute, { clientRoutes } from '@/routes/client';
 
 import Spinner from '@/components/Spinner';
 // import NotFound from '@/pages/NotFound';
@@ -11,8 +11,8 @@ import Spinner from '@/components/Spinner';
 const Routes = () => (
   <Suspense fallback={<Spinner />}>
     <Switch>
-      {publicRoutes.map((route, index) => (
-        <PublicRoute key={index} {...route} />
+      {clientRoutes.map((route, index) => (
+        <ClientRoute key={index} {...route} />
       ))}
       {/*<Route component={NotFound} />*/}
     </Switch>

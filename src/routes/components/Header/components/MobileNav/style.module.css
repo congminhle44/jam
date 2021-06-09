@@ -13,6 +13,11 @@
   transform: translateX(-100%);
 }
 
+.basketAmount {
+  color: var(--primary);
+  text-align: center;
+}
+
 .info {
   display: flex;
   align-items: center;

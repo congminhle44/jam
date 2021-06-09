@@ -7,14 +7,18 @@ import Typography, { TypographyVariants } from '@/components/Typography';
 import styles from './categories.module.css';
 import { useCategories } from '@/queries/hooks/categories';
 
-const CategoriesHeaderDesktop = () => {
+const CategoriesHeaderDesktop = ({ hideList }) => {
   const { data: categories, isLoading } = useCategories('', '', '', '');
 
   const renderCategories = () => {
     if (categories) {
       return categories.map((category) => {
         return (
-          <Link to={category._id} key={category._id} className={styles.item}>
+          <Link
+            to={`/category/${category._id}`}
+            onClick={hideList}
+            key={category._id}
+            className={styles.item}>
             <Typography variant={TypographyVariants.Body1}>
               {category.categoryName}
             </Typography>

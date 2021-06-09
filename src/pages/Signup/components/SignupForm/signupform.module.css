@@ -48,7 +48,7 @@
     display: block;
     object-fit: cover;
     width: 45%;
-    height: 65vh;
+    height: 55vh;
     border-radius: 0 0.5rem 0.5rem 0;
   }
   .form {
@@ -61,6 +61,7 @@
   .img {
     object-fit: cover;
     width: 45%;
+    height: 65vh;
   }
 }
 

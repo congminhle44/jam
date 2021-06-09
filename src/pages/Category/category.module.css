@@ -1,0 +1,35 @@
+/** @format */
+
+.container {
+  min-height: 80vh;
+  margin-top: 4.25rem;
+  padding: 1.5rem;
+}
+
+.wrapper {
+  max-width: 45.625rem;
+  margin: 0 auto;
+  color: var(--text);
+}
+
+.subtitle {
+  margin: 1.5rem 0 1rem 0;
+}
+
+@media (min-width: 768px) {
+  .container {
+    margin-top: 5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .wrapper {
+    max-width: 69.0625rem;
+  }
+  .title {
+    font-size: 2.5rem !important;
+  }
+  .subtitle {
+    font-size: 1.25rem !important;
+  }
+}

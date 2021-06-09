@@ -47,5 +47,9 @@
   "signup.title":"Đăng ký",
   "signup.brand":"tài khoản Jam",
   "signup.button":"Đăng ký",
-  "signup.login":"Bạn đã có tài khoản?"
+  "signup.login":"Bạn đã có tài khoản?",
+
+  "category.title":"Danh mục khóa học về {name}",
+  "category.courses":"Tất cả khóa học về {name}",
+  "category.notfound":"Không thể tìm thấy bất kỳ khóa học nào trong danh mục này"
 }
