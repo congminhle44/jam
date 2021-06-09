@@ -3,12 +3,12 @@
 .container {
   display: flex;
   justify-content: space-between;
-  box-shadow: inset 0px -1px 0px var(--grey-4);
+  border-bottom: 1px solid var(--grey-4);
   padding: 1rem 0;
   color: var(--text);
 }
 .container:last-child {
-  box-shadow: none;
+  border-bottom: none;
 }
 
 .left {

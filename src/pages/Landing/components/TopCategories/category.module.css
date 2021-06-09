@@ -13,12 +13,6 @@
   color: var(--text);
 }
 
-.list {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 1rem;
-}
-
 @media (min-width: 1280px) {
   .wrapper {
     max-width: 69.0625rem;

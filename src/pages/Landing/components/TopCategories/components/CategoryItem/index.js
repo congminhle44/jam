@@ -3,11 +3,9 @@ import { useHistory } from 'react-router';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import ImageError from '@/assets/Images/Image-error.jpg';
-import Button, { ButtonVariants, ButtonSizes } from '@/components/Button';
 import Typography, { TypographyVariants } from '@/components/Typography';
 
 import styles from './style.module.css';
-import { Fragment } from 'react';
 
 const CategoryItem = ({ data }) => {
   const history = useHistory();
@@ -19,39 +17,30 @@ const CategoryItem = ({ data }) => {
           history.push(`/category/${data._id}`);
         };
         return (
-          <Fragment key={data._id}>
-            <div
-              onClick={redirectToCategoryDetail}
-              key={data._id}
-              className={styles.container}>
-              <LazyLoadImage
-                className={styles.thumbnails}
-                effect='opacity'
-                delayTime={500}
-                src={data.thumbnail}
-                onError={(e) => (e.target.src = `${ImageError}`)}
-                alt={data.categoryName}
-              />
-              <div className={styles.information}>
-                <Typography variant={TypographyVariants.Body1}>
-                  {data.categoryName}
-                </Typography>
-              </div>
+          <div
+            key={data._id}
+            onClick={redirectToCategoryDetail}
+            className={styles.container}>
+            <LazyLoadImage
+              className={styles.thumbnails}
+              effect='opacity'
+              delayTime={500}
+              src={data.thumbnail}
+              onError={(e) => (e.target.src = `${ImageError}`)}
+              alt={data.categoryName}
+            />
+            <div className={styles.information}>
+              <Typography variant={TypographyVariants.Body1}>
+                {data.categoryName}
+              </Typography>
             </div>
-            <Button
-              onClick={redirectToCategoryDetail}
-              className={styles.button}
-              variant={ButtonVariants.Outline}
-              size={ButtonSizes.Small}>
-              {data.categoryName}
-            </Button>
-          </Fragment>
+          </div>
         );
       });
     }
   };
 
-  return <>{renderCategoryCard()}</>;
+  return <div className={styles.cardWrap}>{renderCategoryCard()}</div>;
 };
 
 export default CategoryItem;

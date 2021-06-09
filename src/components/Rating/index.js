@@ -19,13 +19,13 @@ export default function RateStar({ showRateInText, value, amount }) {
         value={value}
         readOnly
       />
-      {amount && (
+      {amount ? (
         <Typography
           className={styles.amount}
           variant={TypographyVariants.Label1}>
           ({amount})
         </Typography>
-      )}
+      ) : null}
     </div>
   );
 }

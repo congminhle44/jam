@@ -1,32 +1,55 @@
 /** @format */
 
 import styles from './header.module.css';
+import Skeleton from 'react-loading-skeleton';
 
 import ErrorImg from '@/assets/Images/Image-error.jpg';
 import Typography, { TypographyVariants } from '@/components/Typography';
 import RateStar from '@/components/Rating';
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
 
-const CourseHeader = ({ courseInfo }) => {
+const CourseHeader = ({ courseInfo, isCourseLoading }) => {
   return (
     <div className={styles.container}>
-      <img
-        className={styles.thumb}
-        src={courseInfo && courseInfo.courseImage}
-        onError={(e) => (e.target.src = `${ErrorImg}`)}
-        alt={courseInfo && courseInfo.courseName}
-      />
+      {isCourseLoading ? (
+        <Skeleton width={240} height={240} />
+      ) : (
+        <img
+          className={styles.thumb}
+          src={courseInfo && courseInfo.courseImage}
+          onError={(e) => (e.target.src = `${ErrorImg}`)}
+          alt={courseInfo && courseInfo.courseName}
+        />
+      )}
       <div className={styles.info}>
-        <Typography
-          className={styles.title}
-          variant={TypographyVariants.Title2}>
-          {courseInfo && courseInfo.courseName}
-        </Typography>
-        <Typography
-          className={styles.author}
-          variant={TypographyVariants.Body1}>
-          {courseInfo && courseInfo.personCreated.fullName}
-        </Typography>
+        {isCourseLoading ? (
+          <Skeleton
+            style={{ display: 'block' }}
+            className={styles.title}
+            width={100}
+            height={20}
+          />
+        ) : (
+          <Typography
+            className={styles.title}
+            variant={TypographyVariants.Title2}>
+            {courseInfo && courseInfo.courseName}
+          </Typography>
+        )}
+        {isCourseLoading ? (
+          <Skeleton
+            style={{ display: 'block' }}
+            className={styles.author}
+            width={150}
+            height={20}
+          />
+        ) : (
+          <Typography
+            className={styles.author}
+            variant={TypographyVariants.Body1}>
+            {courseInfo && courseInfo.personCreated.fullName}
+          </Typography>
+        )}
         {courseInfo && (
           <RateStar
             showRateInText

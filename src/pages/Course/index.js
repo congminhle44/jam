@@ -9,7 +9,7 @@ import styles from './course.module.css';
 const CourseDetails = ({ match }) => {
   const id = match.params.id;
 
-  const { data: courseInfo } = useCourseDetails(id);
+  const { data: courseInfo, isLoading: isCourseLoading } = useCourseDetails(id);
   const { data: courseComments } = useCommentsInCourse(id);
 
   return (
@@ -22,8 +22,15 @@ const CourseDetails = ({ match }) => {
       />
       <div className={styles.container}>
         <div className={styles.wrapper}>
-          <CourseHeader courseInfo={courseInfo} />
-          <CourseInfoDetail comments={courseComments} courseInfo={courseInfo} />
+          <CourseHeader
+            isCourseLoading={isCourseLoading}
+            courseInfo={courseInfo}
+          />
+          <CourseInfoDetail
+            isCourseLoading={isCourseLoading}
+            comments={courseComments}
+            courseInfo={courseInfo}
+          />
         </div>
       </div>
     </div>
