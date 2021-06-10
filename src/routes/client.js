@@ -56,6 +56,11 @@ export const clientRoutes = [
     exact: false,
     component: lazy(() => import('@/pages/Course')),
   },
+  {
+    path: config.paths.cart,
+    exact: false,
+    component: lazy(() => import('@/pages/Cart')),
+  },
 ];
 
 export default ClientRoute;

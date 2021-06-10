@@ -1,0 +1,23 @@
+/** @format */
+
+.container {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart {
+  width: 12rem;
+  height: 12rem;
+  margin: 0 auto;
+  color: var(--grey-4);
+}
+
+.content {
+  margin: 1.5rem 0 1rem 0;
+}
+
+.button {
+  margin: 0 auto;
+}

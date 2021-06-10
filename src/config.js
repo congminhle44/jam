@@ -21,6 +21,7 @@ const config = {
     signup: '/signup',
     categoryDetail: '/category/:id',
     courseDetail: '/course/:id',
+    cart: '/cart',
   },
   apis: {
     getCategories: {
@@ -55,6 +56,10 @@ const config = {
     },
     addItemToCart: {
       url: '/courses/cart/add',
+      method: 'POST',
+    },
+    removeItemFromCart: {
+      url: '/courses/cart/remove',
       method: 'POST',
     },
     login: {

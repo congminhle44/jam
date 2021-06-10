@@ -15,11 +15,14 @@ import { usePublicCourses } from '@/queries/hooks/courses';
 import { useGetCartItem } from '@/queries/hooks/users';
 
 import { Brand } from '@/components/Icons';
+import { derivedTokenAtom, removeTokenAtom } from '@/store/token';
 
 const Header = () => {
   const [keyword, setKeyword] = useState('');
 
   const [, removeUserInfo] = useAtom(removeUserInfoAtom);
+  const [token] = useAtom(derivedTokenAtom);
+  const [, removeUserToken] = useAtom(removeTokenAtom);
 
   const transparent = useToggle(false);
   const openMenu = useToggle(false);
@@ -27,7 +30,7 @@ const Header = () => {
   const showSearchInput = useToggle(false);
 
   const { data: courses, isLoading } = usePublicCourses('', '', keyword);
-  const { data: cartItems } = useGetCartItem();
+  const { data: cartItems } = useGetCartItem(token);
 
   useEffect(() => {
     document.addEventListener('scroll', handleScroll);
@@ -47,6 +50,7 @@ const Header = () => {
 
   const handleLogout = () => {
     removeUserInfo();
+    removeUserToken();
   };
 
   const handleTypingKeyword = debounce((e) => {
@@ -77,6 +81,7 @@ const Header = () => {
           onOpen={menuOpen.setActive}
         />
         <MobileNav
+          cartItems={cartItems}
           handleLogout={handleLogout}
           isOpen={menuOpen.active}
           onClose={menuOpen.setInActive}

@@ -7,8 +7,9 @@ import ErrorImg from '@/assets/Images/Image-error.jpg';
 import Typography, { TypographyVariants } from '@/components/Typography';
 import RateStar from '@/components/Rating';
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
+import { FormattedMessage } from 'react-intl';
 
-const CourseHeader = ({ courseInfo, isCourseLoading }) => {
+const CourseHeader = ({ courseInfo, isCourseLoading, handleAddItemToCart }) => {
   return (
     <div className={styles.container}>
       {isCourseLoading ? (
@@ -58,21 +59,22 @@ const CourseHeader = ({ courseInfo, isCourseLoading }) => {
           />
         )}
         <Typography className={styles.price} variant={TypographyVariants.H5}>
-          $ {courseInfo && courseInfo.cost}
+          ${courseInfo && courseInfo.cost}
         </Typography>
       </div>
       <div className={styles.control}>
         <Button
+          onClick={() => handleAddItemToCart(courseInfo._id)}
           className={styles.cart}
           variant={ButtonVariants.Solid}
           size={ButtonSizes.Standard}>
-          Add to cart
+          <FormattedMessage id='course.cart' />
         </Button>
         <Button
           className={styles.purchase}
           variant={ButtonVariants.Outline}
           size={ButtonSizes.Standard}>
-          Purchase now
+          <FormattedMessage id='course.purchase' />
         </Button>
       </div>
     </div>

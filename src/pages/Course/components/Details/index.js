@@ -4,6 +4,7 @@ import Typography, { TypographyVariants } from '@/components/Typography';
 import Comments from '../Comments';
 import styles from './detail.module.css';
 import Skeleton from 'react-loading-skeleton';
+import { FormattedMessage } from 'react-intl';
 
 const CourseInfoDetail = ({ courseInfo, comments, isCourseLoading }) => {
   return (
@@ -23,7 +24,8 @@ const CourseInfoDetail = ({ courseInfo, comments, isCourseLoading }) => {
       <Typography
         className={styles.comments}
         variant={TypographyVariants.Title2}>
-        All Comments ({courseInfo && courseInfo.amountOfComments})
+        <FormattedMessage id='course.comments' /> (
+        {courseInfo && courseInfo.amountOfComments})
         <Comments comments={comments} />
       </Typography>
     </div>

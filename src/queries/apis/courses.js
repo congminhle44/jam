@@ -3,9 +3,6 @@ import axios from 'axios';
 
 import config from '@/config';
 
-const token = localStorage.getItem('sid');
-console.log(token);
-
 export const getPublicCourses = async (key) => {
   const { url, method } = config.apis.getPublicCourses;
   const { page, limit, keyword } = key && key.queryKey[1];
@@ -42,7 +39,18 @@ export const addCourseToCart = async (requestBody) => {
     url: `${config.app.apiHost}${url}`,
     method: method,
     data: requestBody,
-    headers: { token: `${token}` },
+    headers: { token: `${requestBody.token}` },
+  });
+  return data;
+};
+
+export const removeItemFromCart = async (requestBody) => {
+  const { url, method } = config.apis.removeItemFromCart;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+    data: requestBody,
+    headers: { token: `${requestBody.token}` },
   });
   return data;
 };

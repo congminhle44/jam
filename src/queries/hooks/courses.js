@@ -7,6 +7,7 @@ import {
   getCommentsInCourse,
   getDetailCourse,
   getPublicCourses,
+  removeItemFromCart,
 } from '../apis/courses';
 import { handleError } from '@/helpers/requests';
 import useMakeMutation from '@/hooks/useMakeMutation';
@@ -28,5 +29,10 @@ export const useCommentsInCourse = (id) =>
 
 export const useCartItem = () => {
   const { mutation } = useMakeMutation(addCourseToCart);
+  return mutation;
+};
+
+export const useRemoveCartItem = () => {
+  const { mutation } = useMakeMutation(removeItemFromCart);
   return mutation;
 };

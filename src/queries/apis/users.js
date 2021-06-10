@@ -3,8 +3,6 @@ import axios from 'axios';
 
 import config from '@/config';
 
-const token = localStorage.getItem('sid');
-
 export const login = async (requestBody) => {
   const { url, method } = config.apis.login;
   const { data } = await axios({
@@ -25,8 +23,9 @@ export const register = async (requestBody) => {
   return data;
 };
 
-export const getCartItem = async () => {
+export const getCartItem = async (key) => {
   const { url, method } = config.apis.getUserCart;
+  const { token } = key && key.queryKey[1];
   const { data } = await axios({
     url: `${config.app.apiHost}${url}`,
     method: method,

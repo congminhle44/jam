@@ -51,5 +51,16 @@
 
   "category.title":"Danh mục khóa học về {name}",
   "category.courses":"Tất cả khóa học về {name}",
-  "category.notfound":"Không thể tìm thấy bất kỳ khóa học nào trong danh mục này"
+  "category.notfound":"Không thể tìm thấy bất kỳ khóa học nào trong danh mục này",
+
+  "course.cart":"Thêm vào giỏ",
+  "course.purchase":"Mua ngay",
+  "course.comments":"Tất cả bình luận",
+
+  "cart.title":"Giỏ hàng của bạn",
+    "cart.list":"{amount} khóa học đang trong giỏ hàng",
+    "cart.remove":"Xóa",
+    "cart.total":"Tổng cộng",
+    "cart.note":"Lưu ý: Để bảo mật thẻ tín dụng của bạn, Jam sẽ không lưu chi tiết thẻ của bạn. Vui lòng nhập chi tiết thẻ của bạn mỗi khi thanh toán để đảm bảo an toàn cho thông tin thẻ của bạn.",
+    "cart.checkout":"Thanh toán"
 }

@@ -46,10 +46,10 @@ const LoggedInNav = ({ userInfo, handleLogout, openMenu, cartItems }) => {
               <FormattedMessage id='header.profile' />
             </Typography>
           </Link>
-          <Link to='/checkout' className={styles.menuItem}>
+          <Link to='/cart' className={styles.menuItem}>
             <div className={styles.icon}>
               <Cart />
-              {cartItems && cartItems.length && (
+              {cartItems && cartItems.length > 0 && (
                 <div className={styles.amount}>{cartItems.length}</div>
               )}
             </div>
