@@ -22,17 +22,19 @@ import { useGetCartItem } from '@/queries/hooks/users';
 import { showAlertAtom } from '@/store/alert';
 import AlertStatus from '../AlertStatus';
 import { AlertVariants } from '@/components/Alert';
+import { derivedTokenAtom } from '@/store/token';
 
 const CourseTabs = ({ isLoading, courses }) => {
   const history = useHistory();
 
   const [, showAlert] = useAtom(showAlertAtom);
+  const [userToken] = useAtom(derivedTokenAtom);
 
-  const { refetch: refetchCartList } = useGetCartItem();
+  const { refetch: refetchCartList } = useGetCartItem(userToken);
   const { mutateAsync: addItemToCart } = useCartItem();
 
   const handleAddItemToCart = (courseId) => {
-    return addItemToCart({ courseId })
+    return addItemToCart({ courseId, token: userToken })
       .then((result) => {
         showAlert({
           component: AlertStatus,

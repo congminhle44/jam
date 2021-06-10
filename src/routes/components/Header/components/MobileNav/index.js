@@ -1,6 +1,7 @@
 /** @format */
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import clsx from 'clsx';
 
 import { disableScroll, enableScroll } from '@/helpers/behaviours';
 
@@ -16,23 +17,19 @@ import { setLangAtom } from '@/store/lang';
 import { userAtom } from '@/store/login';
 import CategoriesMobile from '../CategoriesMobile';
 import useToggle from '@/hooks/useToggle';
-import clsx from 'clsx';
-import { useGetCartItem } from '@/queries/hooks/users';
 
 const MobileNav = ({
   isOpen,
   onClose,
+  cartItems,
   handleLogout,
   handleTypingKeyword,
   handleBlankKeyword,
 }) => {
   const [userInfo] = useAtom(userAtom);
-
   const [, setLang] = useAtom(setLangAtom);
 
   const showCategory = useToggle(false);
-
-  const { data: cartItems } = useGetCartItem();
 
   useEffect(() => {
     if (isOpen) disableScroll();
@@ -91,9 +88,9 @@ const MobileNav = ({
                       <Right />
                     </div>
                   </NavLink>
-                  <NavLink to='/checkout' className={styles.navitem}>
+                  <NavLink to='/cart' className={styles.navitem}>
                     <Typography variant={TypographyVariants.Body1}>
-                      Your Basket
+                      <FormattedMessage id='header.basket' />
                     </Typography>
                     <div className={styles.right}>
                       <Typography

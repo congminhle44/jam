@@ -1,0 +1,27 @@
+/** @format */
+
+.title {
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.list {
+  background-color: var(--bg-sub);
+  border-radius: 0.5rem;
+  color: var(--text);
+  box-shadow: 0 0 4px var(--grey-4);
+}
+
+.amount {
+  padding: 1rem 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    min-width: 29.375rem;
+  }
+  .container.full {
+    width: 100%;
+  }
+}

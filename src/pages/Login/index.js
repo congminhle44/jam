@@ -4,6 +4,7 @@ import { useLogin } from '@/queries/hooks/users';
 import { showAlertAtom } from '@/store/alert';
 import { addUserInfoAtom, userAtom } from '@/store/login';
 import { registeredAtom, removeRegisteredEmail } from '@/store/register';
+import { addNewTokenAtom } from '@/store/token';
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router';
@@ -16,6 +17,7 @@ const Login = () => {
 
   const [userLocal] = useAtom(userAtom);
   const [, addUserInfo] = useAtom(addUserInfoAtom);
+  const [, addUserToken] = useAtom(addNewTokenAtom);
   const [getRegisteredEmail] = useAtom(registeredAtom);
   const [, removeEmail] = useAtom(removeRegisteredEmail);
 
@@ -34,7 +36,7 @@ const Login = () => {
     })
       .then((data) => {
         addUserInfo(data.data);
-        localStorage.setItem('sid', data.accessToken);
+        addUserToken(data.accessToken);
         history.push('/');
         removeEmail();
         showAlert({
