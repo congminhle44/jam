@@ -50,7 +50,9 @@ const CourseTabs = ({ isLoading, courses }) => {
           component: AlertStatus,
           props: {
             variant: AlertVariants.Error,
-            children: err.response && err.response.data.message,
+            children: err.response
+              ? err.response.data.message
+              : 'Can not add item to cart',
           },
         });
       });

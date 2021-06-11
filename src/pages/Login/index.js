@@ -5,6 +5,7 @@ import { showAlertAtom } from '@/store/alert';
 import { addUserInfoAtom, userAtom } from '@/store/login';
 import { registeredAtom, removeRegisteredEmail } from '@/store/register';
 import { addNewTokenAtom } from '@/store/token';
+import { addNewRefreshTokenAtom } from '@/store/refreshToken';
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router';
@@ -18,8 +19,9 @@ const Login = () => {
   const [userLocal] = useAtom(userAtom);
   const [, addUserInfo] = useAtom(addUserInfoAtom);
   const [, addUserToken] = useAtom(addNewTokenAtom);
-  const [getRegisteredEmail] = useAtom(registeredAtom);
+  const [, addRefreshToken] = useAtom(addNewRefreshTokenAtom);
   const [, removeEmail] = useAtom(removeRegisteredEmail);
+  const [getRegisteredEmail] = useAtom(registeredAtom);
 
   const history = useHistory();
 
@@ -35,10 +37,7 @@ const Login = () => {
       password: user.password,
     })
       .then((data) => {
-        addUserInfo(data.data);
-        addUserToken(data.accessToken);
         history.push('/');
-        removeEmail();
         showAlert({
           component: AlertLogin,
           props: {
@@ -46,6 +45,13 @@ const Login = () => {
             children: 'Login success',
           },
         });
+
+        // Save information and token to localstorage and store to use
+        addUserInfo(data.data);
+        addUserToken(data.accessToken);
+        addRefreshToken(data.refreshToken);
+        // This remove will run when user register success and login
+        removeEmail();
       })
       .catch((err) => {
         showAlert({

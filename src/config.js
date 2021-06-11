@@ -66,6 +66,14 @@ const config = {
       url: '/users/login',
       method: 'POST',
     },
+    fetchToken: {
+      url: '/users/token',
+      method: 'POST',
+    },
+    deleteRefreshToken: {
+      url: '/users/token/delete',
+      method: 'DELETE',
+    },
     signup: {
       url: '/users/register',
       method: 'POST',

@@ -1,5 +1,6 @@
 /** @format */
 import { useHistory } from 'react-router';
+import { FormattedMessage } from 'react-intl';
 
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
 import { Cart } from '@/components/Icons';
@@ -18,14 +19,14 @@ const CartEmpty = () => {
         <Typography
           className={styles.content}
           variant={TypographyVariants.Title1}>
-          Your cart is empty. Keep shopping to find a course!
+          <FormattedMessage id='cart.empty.content' />
         </Typography>
         <Button
           onClick={() => history.push('/')}
           className={styles.button}
           variant={ButtonVariants.Solid}
           size={ButtonSizes.Standard}>
-          Keep shopping
+          <FormattedMessage id='cart.empty.button' />
         </Button>
       </div>
     </div>
