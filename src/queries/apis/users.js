@@ -25,11 +25,19 @@ export const register = async (requestBody) => {
 
 export const getCartItem = async (key) => {
   const { url, method } = config.apis.getUserCart;
-  const { token } = key && key.queryKey[1];
   const { data } = await axios({
     url: `${config.app.apiHost}${url}`,
     method: method,
-    headers: { token: `${token}` },
+  });
+  return data;
+};
+
+export const removeRefreshTokenApi = async (requestBody) => {
+  const { url, method } = config.apis.deleteRefreshToken;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+    data: requestBody,
   });
   return data;
 };

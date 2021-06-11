@@ -39,7 +39,6 @@ export const addCourseToCart = async (requestBody) => {
     url: `${config.app.apiHost}${url}`,
     method: method,
     data: requestBody,
-    headers: { token: `${requestBody.token}` },
   });
   return data;
 };
@@ -50,7 +49,6 @@ export const removeItemFromCart = async (requestBody) => {
     url: `${config.app.apiHost}${url}`,
     method: method,
     data: requestBody,
-    headers: { token: `${requestBody.token}` },
   });
   return data;
 };

@@ -12,10 +12,11 @@ import { removeUserInfoAtom } from '@/store/login';
 
 import styles from './header.module.css';
 import { usePublicCourses } from '@/queries/hooks/courses';
-import { useGetCartItem } from '@/queries/hooks/users';
+import { useGetCartItem, useLogout } from '@/queries/hooks/users';
 
 import { Brand } from '@/components/Icons';
 import { derivedTokenAtom, removeTokenAtom } from '@/store/token';
+import { removeRefreshTokenAtom } from '@/store/refreshToken';
 
 const Header = () => {
   const [keyword, setKeyword] = useState('');
@@ -23,6 +24,7 @@ const Header = () => {
   const [, removeUserInfo] = useAtom(removeUserInfoAtom);
   const [token] = useAtom(derivedTokenAtom);
   const [, removeUserToken] = useAtom(removeTokenAtom);
+  const [, removeUserRefreshToken] = useAtom(removeRefreshTokenAtom);
 
   const transparent = useToggle(false);
   const openMenu = useToggle(false);
@@ -31,6 +33,7 @@ const Header = () => {
 
   const { data: courses, isLoading } = usePublicCourses('', '', keyword);
   const { data: cartItems } = useGetCartItem(token);
+  const { mutateAsync: logoutRemoveRefreshToken } = useLogout();
 
   useEffect(() => {
     document.addEventListener('scroll', handleScroll);
@@ -49,8 +52,13 @@ const Header = () => {
   };
 
   const handleLogout = () => {
-    removeUserInfo();
-    removeUserToken();
+    logoutRemoveRefreshToken({
+      refreshToken: JSON.parse(localStorage.getItem('rid')),
+    }).then((result) => {
+      removeUserInfo();
+      removeUserToken();
+      removeUserRefreshToken();
+    });
   };
 
   const handleTypingKeyword = debounce((e) => {
