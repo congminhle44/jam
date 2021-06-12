@@ -4,6 +4,7 @@ import { Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import ClientRoute, { clientRoutes } from '@/routes/client';
+import ProtectedClientRoute, { protectedRoutes } from './protectedClient';
 
 import Spinner from '@/components/Spinner';
 import Notfound from '@/pages/Notfound';
@@ -13,6 +14,9 @@ const Routes = () => (
     <Switch>
       {clientRoutes.map((route, index) => (
         <ClientRoute key={index} {...route} />
+      ))}
+      {protectedRoutes.map((route, index) => (
+        <ProtectedClientRoute key={index} {...route} />
       ))}
       <Route component={Notfound} />
     </Switch>

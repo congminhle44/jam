@@ -1,21 +1,11 @@
 /** @format */
 
-import config from '@/config';
-import { lazy } from 'react';
+import loadable from '@loadable/component';
 import { Route } from 'react-router';
-import Footer from './components/Footer';
 
-import Header from './components/Header';
+import config from '@/config';
 
-const ClientLayout = ({ children }) => {
-  return (
-    <div>
-      <Header />
-      {children}
-      <Footer />
-    </div>
-  );
-};
+import ClientLayout from './layout/client';
 
 const ClientRoute = ({ component: Component, withProps, ...others }) => {
   return (
@@ -34,32 +24,27 @@ export const clientRoutes = [
   {
     path: config.paths.landing,
     exact: true,
-    component: lazy(() => import('@/pages/Landing')),
+    component: loadable(() => import('@/pages/Landing')),
   },
   {
     path: config.paths.login,
     exact: false,
-    component: lazy(() => import('@/pages/Login')),
+    component: loadable(() => import('@/pages/Login')),
   },
   {
     path: config.paths.signup,
     exact: false,
-    component: lazy(() => import('@/pages/Signup')),
+    component: loadable(() => import('@/pages/Signup')),
   },
   {
     path: config.paths.categoryDetail,
     exact: false,
-    component: lazy(() => import('@/pages/Category')),
+    component: loadable(() => import('@/pages/Category')),
   },
   {
     path: config.paths.courseDetail,
     exact: false,
-    component: lazy(() => import('@/pages/Course')),
-  },
-  {
-    path: config.paths.cart,
-    exact: true,
-    component: lazy(() => import('@/pages/Cart')),
+    component: loadable(() => import('@/pages/Course')),
   },
 ];
 

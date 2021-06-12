@@ -31,7 +31,7 @@ const LoggedInNav = ({ userInfo, handleLogout, openMenu, cartItems }) => {
           <FormattedMessage id='common.hi' />, {SlicedName(userInfo.fullName)}!
         </Typography>
         {cartItems && cartItems.length > 0 && (
-          <div className={styles.amount}>{cartItems.length}</div>
+          <div className={styles.haveNoti}></div>
         )}
       </div>
       {openMenu.active && (

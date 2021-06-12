@@ -12,7 +12,7 @@
   z-index: 2000;
 }
 .container.background {
-  background-color: rgba(14, 24, 42, 0.9);
+  background-color: rgba(14, 24, 42, 0.97);
 }
 
 .wrapper {
@@ -38,11 +38,11 @@
 
 .navnoti {
   position: absolute;
-  top: -50%;
-  right: -50%;
+  top: -30%;
+  right: -30%;
   background-color: var(--primary);
-  width: 1rem;
-  height: 1rem;
+  width: 0.5rem;
+  height: 0.5rem;
   text-align: center;
   line-height: 1rem;
   color: var(--white);
@@ -100,8 +100,8 @@
     display: none;
   }
   .toggleTheme {
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 2rem;
+    height: 2rem;
   }
   .navigate {
     display: flex;

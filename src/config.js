@@ -22,6 +22,7 @@ const config = {
     categoryDetail: '/category/:id',
     courseDetail: '/course/:id',
     cart: '/cart',
+    checkout: '/cart/checkout',
   },
   apis: {
     getCategories: {
