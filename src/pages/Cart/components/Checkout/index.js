@@ -11,7 +11,7 @@ import { FormattedMessage } from 'react-intl';
 
 import styles from './checkout.module.css';
 
-const Checkout = ({ cartItems }) => {
+const Checkout = ({ cartItems, handleRedirectCheckout }) => {
   const checkoutRef = useRef();
   const showfullForm = useToggle(false);
 
@@ -48,11 +48,12 @@ const Checkout = ({ cartItems }) => {
         <div className={styles.body}>
           <Typography
             className={styles.note}
-            variant={TypographyVariants.Label1}>
+            variant={TypographyVariants.Label2}>
             <FormattedMessage id='cart.note' />
           </Typography>
         </div>
         <Button
+          onClick={handleRedirectCheckout}
           className={styles.button}
           variant={ButtonVariants.Solid}
           size={ButtonSizes.Large}>

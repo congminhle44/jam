@@ -1,8 +1,10 @@
 /** @format */
 
+import Alert, { AlertVariants } from '@/components/Alert';
 import Typography, { TypographyVariants } from '@/components/Typography';
 import { useRemoveCartItem } from '@/queries/hooks/courses';
 import { useGetCartItem } from '@/queries/hooks/users';
+import { showAlertAtom } from '@/store/alert';
 import { derivedTokenAtom } from '@/store/token';
 import { useAtom } from 'jotai';
 import { FormattedMessage } from 'react-intl';
@@ -11,6 +13,7 @@ import styles from './item.module.css';
 
 const CartItem = ({ cartItem }) => {
   const [userToken] = useAtom(derivedTokenAtom);
+  const [, showAlert] = useAtom(showAlertAtom);
 
   const { refetch: refetchUserCart } = useGetCartItem(userToken);
   const { mutateAsync: removeItem } = useRemoveCartItem(userToken);
@@ -18,7 +21,13 @@ const CartItem = ({ cartItem }) => {
   const handleRemoveItemFromCart = (courseId) => {
     return removeItem({ courseId, token: userToken })
       .then((result) => {
-        console.log(result);
+        showAlert({
+          component: Alert,
+          props: {
+            variant: AlertVariants.Success,
+            children: result.message,
+          },
+        });
         refetchUserCart();
       })
       .catch((err) => console.log(err));

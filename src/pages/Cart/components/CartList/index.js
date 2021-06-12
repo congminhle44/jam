@@ -7,7 +7,7 @@ import CartItem from '../CartItem';
 import CartEmpty from '../CartEmpty';
 
 import styles from './list.module.css';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 
 const CartList = ({ cartItems }) => {
   const intl = useIntl();
@@ -26,9 +26,6 @@ const CartList = ({ cartItems }) => {
         styles.container,
         cartItems && cartItems.length === 0 && styles.full
       )}>
-      <Typography className={styles.title} variant={TypographyVariants.H5}>
-        <FormattedMessage id='cart.title' />
-      </Typography>
       <div className={styles.list}>
         {cartItems && cartItems.length === 0 ? (
           <CartEmpty />

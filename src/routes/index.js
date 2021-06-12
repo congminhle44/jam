@@ -1,12 +1,12 @@
 /** @format */
 
 import { Suspense } from 'react';
-import { Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import ClientRoute, { clientRoutes } from '@/routes/client';
 
 import Spinner from '@/components/Spinner';
-// import NotFound from '@/pages/NotFound';
+import Notfound from '@/pages/Notfound';
 
 const Routes = () => (
   <Suspense fallback={<Spinner />}>
@@ -14,7 +14,7 @@ const Routes = () => (
       {clientRoutes.map((route, index) => (
         <ClientRoute key={index} {...route} />
       ))}
-      {/*<Route component={NotFound} />*/}
+      <Route component={Notfound} />
     </Switch>
   </Suspense>
 );
