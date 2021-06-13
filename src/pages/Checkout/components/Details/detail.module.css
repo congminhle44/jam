@@ -1,0 +1,35 @@
+/** @format */
+
+.container {
+  color: var(--text);
+}
+
+.title {
+  margin-bottom: 1.5rem;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--bg-sub);
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.left {
+  display: flex;
+}
+
+.name {
+  width: 100%;
+  margin-left: 0.5rem;
+}
+
+.thumb {
+  width: 4rem;
+  height: 4rem;
+}

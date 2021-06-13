@@ -14,6 +14,7 @@ const config = {
   app: {
     apiHost: getApiHost(),
     env: process.env.NODE_ENV || 'development',
+    stripePk: process.env.REACT_APP_STRIPE_PK,
   },
   paths: {
     landing: '/',
@@ -77,6 +78,10 @@ const config = {
     },
     signup: {
       url: '/users/register',
+      method: 'POST',
+    },
+    checkout: {
+      url: '/courses/checkout',
       method: 'POST',
     },
   },

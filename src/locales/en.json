@@ -66,5 +66,13 @@
     "cart.note":"Note: For the security of your credit card, Jam will not save your card details. Please enter your card details every time to checkout to ensure the safety of your card.",
     "cart.checkout":"Checkout",
     "cart.empty.content":"Your cart is empty. Keep shopping to find a course!",
-    "cart.empty.button":"Keep shopping"
+    "cart.empty.button":"Keep shopping",
+
+    "checkout.list":"Order Details",
+    "checkout.sum":"Summary",
+    "checkout.total":"Total:",
+    "checkout.note":"Note: if you purchase, all the course that you purchased will not be refunded for any reason",
+    "checkout.button":"Pay",
+    "checkout.subterms":"By completing your purchase you agree to these",
+    "checkout.terms":"Terms of Service"
 }

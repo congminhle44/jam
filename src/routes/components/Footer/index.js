@@ -58,7 +58,7 @@ const Footer = () => {
             </Select>
           </div>
           <div className={styles.linkList}>
-            <Link className={styles.linkItem} to='/termprivacy'>
+            <Link className={styles.linkItem} to='/terms'>
               <Typography
                 className={styles.term}
                 variant={TypographyVariants.Label1}>

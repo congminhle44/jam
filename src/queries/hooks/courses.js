@@ -4,6 +4,7 @@ import { useQuery } from 'react-query';
 
 import {
   addCourseToCart,
+  checkout,
   getCommentsInCourse,
   getDetailCourse,
   getPublicCourses,
@@ -29,6 +30,11 @@ export const useCommentsInCourse = (id) =>
 
 export const useCartItem = () => {
   const { mutation } = useMakeMutation(addCourseToCart);
+  return mutation;
+};
+
+export const useCheckout = () => {
+  const { mutation } = useMakeMutation(checkout);
   return mutation;
 };
 

@@ -1,0 +1,26 @@
+/** @format */
+
+.container {
+  padding: 1.5rem;
+  margin-top: 4.25rem;
+}
+.wrapper {
+  max-width: 45.625rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    position: relative;
+    display: flex;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    margin-top: 5rem;
+  }
+  .wrapper {
+    max-width: 69.0625rem;
+  }
+}

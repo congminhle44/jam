@@ -52,3 +52,13 @@ export const removeItemFromCart = async (requestBody) => {
   });
   return data;
 };
+
+export const checkout = async (requestBody) => {
+  const { url, method } = config.apis.checkout;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+    data: requestBody,
+  });
+  return data;
+};

@@ -1,6 +1,6 @@
 /** @format */
 
-import loadable from '@loadable/component';
+import { lazy } from 'react';
 import { Route } from 'react-router';
 
 import config from '@/config';
@@ -24,27 +24,27 @@ export const clientRoutes = [
   {
     path: config.paths.landing,
     exact: true,
-    component: loadable(() => import('@/pages/Landing')),
+    component: lazy(() => import('@/pages/Landing')),
   },
   {
     path: config.paths.login,
     exact: false,
-    component: loadable(() => import('@/pages/Login')),
+    component: lazy(() => import('@/pages/Login')),
   },
   {
     path: config.paths.signup,
     exact: false,
-    component: loadable(() => import('@/pages/Signup')),
+    component: lazy(() => import('@/pages/Signup')),
   },
   {
     path: config.paths.categoryDetail,
     exact: false,
-    component: loadable(() => import('@/pages/Category')),
+    component: lazy(() => import('@/pages/Category')),
   },
   {
     path: config.paths.courseDetail,
     exact: false,
-    component: loadable(() => import('@/pages/Course')),
+    component: lazy(() => import('@/pages/Course')),
   },
 ];
 

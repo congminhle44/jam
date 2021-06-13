@@ -64,5 +64,13 @@
     "cart.note":"Lưu ý: Để bảo mật thẻ tín dụng của bạn, Jam sẽ không lưu chi tiết thẻ của bạn. Vui lòng nhập chi tiết thẻ của bạn mỗi khi thanh toán để đảm bảo an toàn cho thông tin thẻ của bạn.",
     "cart.checkout":"Thanh toán",
     "cart.empty.content":"Giỏ hàng của bạn đang trống, hãy tiếp tục mua sắm và tìm cho minh khóa học ưng ý!",
-    "cart.empty.button":"Tiếp tục mua sắm"
+    "cart.empty.button":"Tiếp tục mua sắm",
+
+    "checkout.list":"Các đơn hàng của bạn",
+    "checkout.sum":"Tổng kết",
+    "checkout.total":"Tổng cộng:",
+    "checkout.note":"Lưu ý: sau khi thanh toán, tất cả khóa học bạn đã mua sẽ không được hoàn trả với bất kỳ lý do gì.",
+    "checkout.button":"Thanh toán",
+    "checkout.subterms":"Bằng cách hoàn tất việc mua hàng, bạn đồng ý với",
+    "checkout.terms":"Điều khoản dịch vụ"
 }

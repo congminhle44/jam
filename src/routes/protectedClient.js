@@ -1,7 +1,7 @@
 /** @format */
 
 import { useAtom } from 'jotai';
-import loadable from '@loadable/component';
+import { lazy } from 'react';
 import { Redirect, Route } from 'react-router';
 
 import { userAtom } from '@/store/login';
@@ -39,12 +39,12 @@ export const protectedRoutes = [
   {
     path: config.paths.cart,
     exact: true,
-    component: loadable(() => import('@/pages/Cart')),
+    component: lazy(() => import('@/pages/Cart')),
   },
   {
     path: config.paths.checkout,
     exact: true,
-    component: loadable(() => import('@/pages/Checkout')),
+    component: lazy(() => import('@/pages/Checkout')),
   },
 ];
 

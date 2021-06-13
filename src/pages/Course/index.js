@@ -8,8 +8,10 @@ import {
 } from '@/queries/hooks/courses';
 import { useGetCartItem } from '@/queries/hooks/users';
 import { showAlertAtom } from '@/store/alert';
+import { addCheckoutItemsAtom } from '@/store/checkout';
 import { derivedTokenAtom } from '@/store/token';
 import { useAtom } from 'jotai';
+import { useHistory } from 'react-router';
 import AlertStatus from './components/AlertStatus';
 import CourseInfoDetail from './components/Details';
 import CourseHeader from './components/Header';
@@ -19,8 +21,11 @@ import styles from './course.module.css';
 const CourseDetails = ({ match }) => {
   const id = match.params.id;
 
+  const history = useHistory();
+
   const [userToken] = useAtom(derivedTokenAtom);
   const [, showAlert] = useAtom(showAlertAtom);
+  const [, addItemToCheckout] = useAtom(addCheckoutItemsAtom);
 
   const { data: courseInfo, isLoading: isCourseLoading } = useCourseDetails(id);
   const { data: courseComments } = useCommentsInCourse(id);
@@ -50,6 +55,11 @@ const CourseDetails = ({ match }) => {
       });
   };
 
+  const handleCheckout = (item) => {
+    addItemToCheckout([item]);
+    history.push('/cart/checkout');
+  };
+
   return (
     <div className={styles.superWrap}>
       <img
@@ -61,6 +71,7 @@ const CourseDetails = ({ match }) => {
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <CourseHeader
+            addItemToCheckout={handleCheckout}
             handleAddItemToCart={handleAddItemToCart}
             isCourseLoading={isCourseLoading}
             courseInfo={courseInfo}

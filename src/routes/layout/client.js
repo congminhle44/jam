@@ -8,7 +8,7 @@ const ClientLayout = ({ children }) => {
     <div>
       <Header />
       {children}
-      <Footer />
+      {window.location.pathname !== '/cart/checkout' && <Footer />}
     </div>
   );
 };

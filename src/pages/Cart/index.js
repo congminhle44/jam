@@ -5,6 +5,7 @@ import { useHistory } from 'react-router';
 
 import { useGetCartItem } from '@/queries/hooks/users';
 import { derivedTokenAtom } from '@/store/token';
+import { addCheckoutItemsAtom } from '@/store/checkout';
 
 import Typography, { TypographyVariants } from '@/components/Typography';
 import CartList from './components/CartList';
@@ -16,10 +17,12 @@ const Cart = () => {
   const history = useHistory();
 
   const [getUserToken] = useAtom(derivedTokenAtom);
+  const [, addCartToCheckout] = useAtom(addCheckoutItemsAtom);
 
   const { data: cartItems } = useGetCartItem(getUserToken);
 
   const handleRedirectCheckout = () => {
+    addCartToCheckout(cartItems);
     history.push('/cart/checkout');
   };
 
