@@ -24,10 +24,10 @@ const CartList = ({ cartItems }) => {
     <div
       className={clsx(
         styles.container,
-        cartItems && cartItems.length === 0 && styles.full
+        ((cartItems && cartItems.length === 0) || !cartItems) && styles.full
       )}>
       <div className={styles.list}>
-        {cartItems && cartItems.length === 0 ? (
+        {(cartItems && cartItems.length === 0) || !cartItems ? (
           <CartEmpty />
         ) : (
           <Typography

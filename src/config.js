@@ -24,6 +24,7 @@ const config = {
     courseDetail: '/course/:id',
     cart: '/cart',
     checkout: '/cart/checkout',
+    profile: '/profile',
   },
   apis: {
     getCategories: {
@@ -56,9 +57,21 @@ const config = {
       url: '/users/cart/courses',
       method: 'GET',
     },
+    getLibrary: {
+      url: '/users/library/g',
+      method: 'GET',
+    },
+    getProfile: {
+      url: '/users/profile',
+      method: 'GET',
+    },
     addItemToCart: {
       url: '/courses/cart/add',
       method: 'POST',
+    },
+    uploadAvatar: {
+      url: '/users/avatar/upload',
+      method: 'PATCH',
     },
     removeItemFromCart: {
       url: '/courses/cart/remove',

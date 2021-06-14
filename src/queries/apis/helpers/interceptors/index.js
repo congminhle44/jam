@@ -30,24 +30,17 @@ axios.interceptors.response.use(
         url: `${appConfig.app.apiHost}${url}`,
         method: method,
         data: { refreshToken: JSON.parse(localStorage.getItem('rid')) },
-      })
-        .then((response) => {
-          localStorage.removeItem('sid');
-          localStorage.setItem(
-            'sid',
-            JSON.stringify(response && response.data.accessToken)
-          );
-          err.response.config.headers['token'] =
-            response && response.data.accessToken;
-          return axios(err.response.config);
-        })
-        .catch((error) => {
-          localStorage.removeItem('sid');
-          localStorage.removeItem('rid');
-          localStorage.removeItem('user');
-          window.location.path = '/login';
-          return Promise.reject(error);
-        });
+      }).then((response) => {
+        localStorage.removeItem('sid');
+        localStorage.setItem(
+          'sid',
+          JSON.stringify(response && response.data.accessToken)
+        );
+        err.response.config.headers['token'] =
+          response && response.data.accessToken;
+        return axios(err.response.config);
+      });
     }
+    return Promise.reject(err);
   }
 );

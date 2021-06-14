@@ -37,14 +37,9 @@ const ProtectedClientRoute = ({
 
 export const protectedRoutes = [
   {
-    path: config.paths.cart,
+    path: config.paths.profile,
     exact: true,
-    component: lazy(() => import('@/pages/Cart')),
-  },
-  {
-    path: config.paths.checkout,
-    exact: true,
-    component: lazy(() => import('@/pages/Checkout')),
+    component: lazy(() => import('@/pages/Profile')),
   },
 ];
 

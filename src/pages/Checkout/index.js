@@ -40,8 +40,9 @@ const Checkout = () => {
           component: Alert,
           props: {
             variant: AlertVariants.Error,
-            children:
-              'Checkout process failed, please check your card before retry',
+            children: err.response
+              ? err.response.data.message
+              : 'Checkout process failed, try again later',
           },
         });
       });

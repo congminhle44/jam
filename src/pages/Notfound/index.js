@@ -1,5 +1,5 @@
 /** @format */
-import image from '@/assets/Images/404.jpg';
+import image from '@/assets/Images/404.png';
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
 import Typography, { TypographyVariants } from '@/components/Typography';
 import { useHistory } from 'react-router';

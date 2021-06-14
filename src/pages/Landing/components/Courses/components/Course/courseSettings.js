@@ -12,7 +12,7 @@ export const courseSettings = (courses) => ({
   initialSlide: 0,
   responsive: [
     {
-      breakpoint: 1025,
+      breakpoint: 1280,
       // If the item in courses array is equal or less than 1 will return 1 to prevent render 2 lines of items if there is only 1 item
       settings: {
         slidesToShow:
@@ -24,7 +24,7 @@ export const courseSettings = (courses) => ({
       },
     },
     {
-      breakpoint: 480,
+      breakpoint: 680,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,

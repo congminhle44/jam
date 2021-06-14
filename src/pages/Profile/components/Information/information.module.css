@@ -1,0 +1,60 @@
+/** @format */
+
+.container {
+  padding: 20vh 0 0 0;
+}
+
+.avaWrap {
+  position: relative;
+  width: 15.625rem;
+  height: 15.9375rem;
+  border: 4px solid var(--bg);
+  border-radius: 50%;
+  margin: 0 auto 1.5rem auto;
+  overflow: hidden;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  display: none;
+}
+
+.avaWrap:hover .overlay {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.name {
+  display: flex;
+  justify-content: center;
+  color: var(--text);
+  text-align: center;
+}
+
+.description {
+  margin-top: 0.875rem;
+  color: var(--grey-4);
+  text-align: center;
+}
+
+.edit {
+  width: 1rem;
+  height: 1rem;
+  color: var(--text);
+  cursor: pointer;
+  margin-left: 0.25rem;
+}

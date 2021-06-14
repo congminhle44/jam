@@ -23,11 +23,45 @@ export const register = async (requestBody) => {
   return data;
 };
 
-export const getCartItem = async (key) => {
+export const getCartItem = async () => {
   const { url, method } = config.apis.getUserCart;
   const { data } = await axios({
     url: `${config.app.apiHost}${url}`,
     method: method,
+  });
+  return data;
+};
+
+export const getUserInfo = async () => {
+  const { url, method } = config.apis.getProfile;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+  });
+  return data;
+};
+
+export const getUserLibrary = async () => {
+  const { url, method } = config.apis.getLibrary;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+  });
+  return data;
+};
+
+export const uploadAvatar = async (requestBody) => {
+  const { url, method } = config.apis.uploadAvatar;
+  const formData = new FormData();
+
+  for (let item in requestBody) {
+    formData.append(item, requestBody[item]);
+  }
+
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+    data: formData,
   });
   return data;
 };

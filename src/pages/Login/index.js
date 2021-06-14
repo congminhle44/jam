@@ -12,6 +12,7 @@ import { useHistory } from 'react-router';
 import AlertLogin from './components/AlertLogin';
 import LoginForm from './components/LoginForm';
 import styles from './login.module.css';
+import { derivedCheckoutItemsAtom } from '@/store/checkout';
 
 const Login = () => {
   const [, showAlert] = useAtom(showAlertAtom);
@@ -22,6 +23,7 @@ const Login = () => {
   const [, addRefreshToken] = useAtom(addNewRefreshTokenAtom);
   const [, removeEmail] = useAtom(removeRegisteredEmail);
   const [getRegisteredEmail] = useAtom(registeredAtom);
+  const [purchaseItems] = useAtom(derivedCheckoutItemsAtom);
 
   const history = useHistory();
 
@@ -31,13 +33,19 @@ const Login = () => {
 
   const { mutateAsync: userLogin } = useLogin();
 
+  console.log(purchaseItems);
+
   const handleLogin = (user) => {
     return userLogin({
       email: user.email,
       password: user.password,
     })
       .then((data) => {
-        history.push('/');
+        if (purchaseItems.length > 0) {
+          history.push('/cart/checkout');
+        } else {
+          history.push('/');
+        }
         showAlert({
           component: AlertLogin,
           props: {
