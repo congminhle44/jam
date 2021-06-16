@@ -1,0 +1,21 @@
+/** @format */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--secondary-light);
+  padding: 0.5rem 1.5rem;
+  height: 10vh;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.menuItem {
+  color: var(--white);
+  margin-left: 1.5rem;
+  cursor: pointer;
+}

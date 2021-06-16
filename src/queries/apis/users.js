@@ -23,6 +23,16 @@ export const register = async (requestBody) => {
   return data;
 };
 
+export const updateLearningProcess = async (requestBody) => {
+  const { url, method } = config.apis.updatelearningProcess;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+    data: requestBody,
+  });
+  return data;
+};
+
 export const getCartItem = async () => {
   const { url, method } = config.apis.getUserCart;
   const { data } = await axios({
@@ -36,6 +46,16 @@ export const getUserInfo = async () => {
   const { url, method } = config.apis.getProfile;
   const { data } = await axios({
     url: `${config.app.apiHost}${url}`,
+    method: method,
+  });
+  return data;
+};
+
+export const getLearningProcess = async (key) => {
+  const { url, method } = config.apis.getLearningProcess;
+  const { id } = key && key.queryKey[1];
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url(id)}`,
     method: method,
   });
   return data;

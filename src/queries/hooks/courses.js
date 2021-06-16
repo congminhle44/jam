@@ -9,6 +9,8 @@ import {
   getDetailCourse,
   getPublicCourses,
   removeItemFromCart,
+  getLessonsInCourseStudent,
+  getLessonSource,
 } from '../apis/courses';
 import { handleError } from '@/helpers/requests';
 import useMakeMutation from '@/hooks/useMakeMutation';
@@ -25,6 +27,16 @@ export const useCourseDetails = (id) =>
 
 export const useCommentsInCourse = (id) =>
   useQuery(['courseComment', { id }], getCommentsInCourse, {
+    onError: handleError,
+  });
+
+export const useLessonInCourseStudent = (id) =>
+  useQuery(['lessonStudent', { id }], getLessonsInCourseStudent, {
+    onError: handleError,
+  });
+
+export const useLessonSource = (id) =>
+  useQuery(['lessonSource', { id }], getLessonSource, {
     onError: handleError,
   });
 

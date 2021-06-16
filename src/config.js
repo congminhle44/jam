@@ -25,6 +25,7 @@ const config = {
     cart: '/cart',
     checkout: '/cart/checkout',
     profile: '/profile',
+    studentLessons: '/course/:courseId/lesson/:lessonId',
   },
   apis: {
     getCategories: {
@@ -65,6 +66,10 @@ const config = {
       url: '/users/profile',
       method: 'GET',
     },
+    getLessonInCourseStudent: {
+      url: (id) => `/courses/${id}/lessons`,
+      method: 'GET',
+    },
     addItemToCart: {
       url: '/courses/cart/add',
       method: 'POST',
@@ -77,6 +82,14 @@ const config = {
       url: '/courses/cart/remove',
       method: 'POST',
     },
+    getLearningProcess: {
+      url: (id) => `/users/lesson/${id}/process`,
+      method: 'GET',
+    },
+    getLessonSource: {
+      url: (id) => `/courses/lesson/${id}`,
+      method: 'GET',
+    },
     login: {
       url: '/users/login',
       method: 'POST',
@@ -84,6 +97,10 @@ const config = {
     fetchToken: {
       url: '/users/token',
       method: 'POST',
+    },
+    updatelearningProcess: {
+      url: '/users/lesson/process',
+      method: 'PUT',
     },
     deleteRefreshToken: {
       url: '/users/token/delete',

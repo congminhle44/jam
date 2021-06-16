@@ -1,0 +1,48 @@
+/** @format */
+.container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 0.5rem;
+  overflow: hidden auto;
+}
+
+.lesson {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-sub);
+  padding: 1.5rem;
+  margin: 1rem;
+  cursor: pointer;
+  color: var(--text);
+}
+.lesson:last-child {
+  margin-bottom: 0;
+}
+
+.name {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.right {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    box-shadow: inset -1px 0px 0px var(--grey-4);
+    display: block;
+    width: 30%;
+    height: 90vh;
+  }
+  .lesson {
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+}

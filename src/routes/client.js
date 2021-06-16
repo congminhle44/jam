@@ -43,7 +43,7 @@ export const clientRoutes = [
   },
   {
     path: config.paths.courseDetail,
-    exact: false,
+    exact: true,
     component: lazy(() => import('@/pages/Course')),
   },
   {

@@ -1,5 +1,5 @@
 /** @format */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Tab from '@material-ui/core/Tab';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
@@ -48,9 +48,11 @@ const CourseTab = ({ categories, categoryLoading }) => {
 
   const [categoryID, setCategoryID] = useState(0);
 
-  const { data, isLoading } = useCourseByCategory(
-    tab === '' && categories ? categories[0].categoryID : tab
-  );
+  const { data, isLoading } = useCourseByCategory(tab);
+
+  useEffect(() => {
+    if (categories) setTab(categories[0].categoryID);
+  }, [tab, categories]);
 
   const [value, setValue] = useState(0);
 

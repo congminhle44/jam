@@ -1,0 +1,29 @@
+/** @format */
+.container {
+  margin-top: 1rem;
+  animation: dropdown 0.5s;
+}
+
+.name {
+  background-color: #fae4ef;
+  color: var(--black);
+  padding: 1rem 1.5rem;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+@keyframes dropdown {
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

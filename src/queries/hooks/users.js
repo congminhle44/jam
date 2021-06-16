@@ -6,11 +6,13 @@ import useMakeMutation from '@/hooks/useMakeMutation';
 import { handleError } from '@/helpers/requests';
 import {
   getCartItem,
+  getLearningProcess,
   getUserInfo,
   getUserLibrary,
   login,
   register,
   removeRefreshTokenApi,
+  updateLearningProcess,
   uploadAvatar,
 } from '../apis/users';
 
@@ -39,6 +41,11 @@ export const useAvatar = () => {
   return mutation;
 };
 
+export const useUpdateLearningProcess = () => {
+  const { mutation } = useMakeMutation(updateLearningProcess);
+  return mutation;
+};
+
 export const useProfile = () =>
   useQuery(['profile'], getUserInfo, {
     onError: handleError,
@@ -46,5 +53,10 @@ export const useProfile = () =>
 
 export const useLibrary = () =>
   useQuery(['library'], getUserLibrary, {
+    onError: handleError,
+  });
+
+export const useLearningProcess = (id) =>
+  useQuery(['process', { id }], getLearningProcess, {
     onError: handleError,
   });

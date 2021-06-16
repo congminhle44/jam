@@ -8,10 +8,10 @@ import { userAtom } from '@/store/login';
 
 import config from '@/config';
 
-import ClientLayout from './layout/client';
 import Notfound from '@/pages/Notfound';
+import ClientLessonLayout from './layout/lesson';
 
-const ProtectedClientRoute = ({
+const ProtectedClientLesson = ({
   component: Component,
   withProps,
   ...others
@@ -24,9 +24,9 @@ const ProtectedClientRoute = ({
         <Route
           {...others}
           render={(childProps) => (
-            <ClientLayout>
+            <ClientLessonLayout>
               <Component {...childProps} {...withProps} />
-            </ClientLayout>
+            </ClientLessonLayout>
           )}
         />
       ) : (
@@ -36,12 +36,12 @@ const ProtectedClientRoute = ({
   );
 };
 
-export const protectedRoutes = [
+export const clientLessonRoutes = [
   {
-    path: config.paths.profile,
+    path: config.paths.studentLessons,
     exact: true,
-    component: lazy(() => import('@/pages/Profile')),
+    component: lazy(() => import('@/pages/LessonClient')),
   },
 ];
 
-export default ProtectedClientRoute;
+export default ProtectedClientLesson;
