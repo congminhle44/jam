@@ -4,10 +4,13 @@ import { useQuery } from 'react-query';
 
 import {
   addCourseToCart,
+  checkout,
   getCommentsInCourse,
   getDetailCourse,
   getPublicCourses,
   removeItemFromCart,
+  getLessonsInCourseStudent,
+  getLessonSource,
 } from '../apis/courses';
 import { handleError } from '@/helpers/requests';
 import useMakeMutation from '@/hooks/useMakeMutation';
@@ -27,8 +30,23 @@ export const useCommentsInCourse = (id) =>
     onError: handleError,
   });
 
+export const useLessonInCourseStudent = (id) =>
+  useQuery(['lessonStudent', { id }], getLessonsInCourseStudent, {
+    onError: handleError,
+  });
+
+export const useLessonSource = (id) =>
+  useQuery(['lessonSource', { id }], getLessonSource, {
+    onError: handleError,
+  });
+
 export const useCartItem = () => {
   const { mutation } = useMakeMutation(addCourseToCart);
+  return mutation;
+};
+
+export const useCheckout = () => {
+  const { mutation } = useMakeMutation(checkout);
   return mutation;
 };
 

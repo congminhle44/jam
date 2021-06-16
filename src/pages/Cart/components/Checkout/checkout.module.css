@@ -1,12 +1,8 @@
 /** @format */
 
 .wrapper {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
   width: 100%;
-  padding: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .container {
@@ -15,7 +11,7 @@
   box-shadow: 0 0 4px var(--grey-4);
   padding: 1rem;
   color: var(--text);
-  height: 4.1875rem;
+  height: 5.1875rem;
   overflow: hidden;
 }
 .container.show {
@@ -26,15 +22,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-bottom: 1rem;
 }
 
 .up {
   width: 1.5rem;
   height: 1.5rem;
+  transform: rotate(-180deg);
   transition: all 0.3s;
 }
 .up.rotate {
-  transform: rotate(180deg);
+  transform: rotate(0);
 }
 
 .note {
@@ -43,7 +41,7 @@
 }
 
 .button {
-  margin-top: 4rem;
+  margin-top: 3rem;
   width: 100%;
 }
 
@@ -58,8 +56,6 @@
   }
 
   .container {
-    min-width: 15.625rem;
-    max-width: 20rem;
     height: fit-content;
   }
   .up {

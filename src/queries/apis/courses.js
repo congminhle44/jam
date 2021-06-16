@@ -33,6 +33,26 @@ export const getCommentsInCourse = async (key) => {
   return data;
 };
 
+export const getLessonsInCourseStudent = async (key) => {
+  const { url, method } = config.apis.getLessonInCourseStudent;
+  const { id } = key && key.queryKey[1];
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url(id)}`,
+    method: method,
+  });
+  return data;
+};
+
+export const getLessonSource = async (key) => {
+  const { url, method } = config.apis.getLessonSource;
+  const { id } = key && key.queryKey[1];
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url(id)}`,
+    method: method,
+  });
+  return data;
+};
+
 export const addCourseToCart = async (requestBody) => {
   const { url, method } = config.apis.addItemToCart;
   const { data } = await axios({
@@ -45,6 +65,16 @@ export const addCourseToCart = async (requestBody) => {
 
 export const removeItemFromCart = async (requestBody) => {
   const { url, method } = config.apis.removeItemFromCart;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+    data: requestBody,
+  });
+  return data;
+};
+
+export const checkout = async (requestBody) => {
+  const { url, method } = config.apis.checkout;
   const { data } = await axios({
     url: `${config.app.apiHost}${url}`,
     method: method,

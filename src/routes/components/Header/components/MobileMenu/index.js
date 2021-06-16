@@ -7,7 +7,7 @@ const MobileMenu = ({ onOpen, notiAmount }) => {
   return (
     <div onClick={onOpen} className={styles.menu}>
       <Menu />
-      {notiAmount > 0 && <div className={styles.navnoti}>{notiAmount}</div>}
+      {notiAmount > 0 && <div className={styles.navnoti}></div>}
     </div>
   );
 };

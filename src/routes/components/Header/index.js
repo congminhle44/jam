@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useAtom } from 'jotai';
 import clsx from 'clsx';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { debounce } from 'lodash';
 
 import useToggle from '@/hooks/useToggle';
@@ -15,14 +15,14 @@ import { usePublicCourses } from '@/queries/hooks/courses';
 import { useGetCartItem, useLogout } from '@/queries/hooks/users';
 
 import { Brand } from '@/components/Icons';
-import { derivedTokenAtom, removeTokenAtom } from '@/store/token';
+import { removeTokenAtom } from '@/store/token';
 import { removeRefreshTokenAtom } from '@/store/refreshToken';
 
 const Header = () => {
+  const history = useHistory();
   const [keyword, setKeyword] = useState('');
 
   const [, removeUserInfo] = useAtom(removeUserInfoAtom);
-  const [token] = useAtom(derivedTokenAtom);
   const [, removeUserToken] = useAtom(removeTokenAtom);
   const [, removeUserRefreshToken] = useAtom(removeRefreshTokenAtom);
 
@@ -32,7 +32,7 @@ const Header = () => {
   const showSearchInput = useToggle(false);
 
   const { data: courses, isLoading } = usePublicCourses('', '', keyword);
-  const { data: cartItems } = useGetCartItem(token);
+  const { data: cartItems } = useGetCartItem();
   const { mutateAsync: logoutRemoveRefreshToken } = useLogout();
 
   useEffect(() => {
@@ -58,6 +58,7 @@ const Header = () => {
       removeUserInfo();
       removeUserToken();
       removeUserRefreshToken();
+      history.push('/');
     });
   };
 

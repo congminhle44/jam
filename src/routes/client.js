@@ -1,21 +1,11 @@
 /** @format */
 
-import config from '@/config';
 import { lazy } from 'react';
 import { Route } from 'react-router';
-import Footer from './components/Footer';
 
-import Header from './components/Header';
+import config from '@/config';
 
-const ClientLayout = ({ children }) => {
-  return (
-    <div>
-      <Header />
-      {children}
-      <Footer />
-    </div>
-  );
-};
+import ClientLayout from './layout/client';
 
 const ClientRoute = ({ component: Component, withProps, ...others }) => {
   return (
@@ -53,13 +43,18 @@ export const clientRoutes = [
   },
   {
     path: config.paths.courseDetail,
-    exact: false,
+    exact: true,
     component: lazy(() => import('@/pages/Course')),
   },
   {
     path: config.paths.cart,
-    exact: false,
+    exact: true,
     component: lazy(() => import('@/pages/Cart')),
+  },
+  {
+    path: config.paths.checkout,
+    exact: true,
+    component: lazy(() => import('@/pages/Checkout')),
   },
 ];
 

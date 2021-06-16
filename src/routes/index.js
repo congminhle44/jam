@@ -1,12 +1,14 @@
 /** @format */
 
 import { Suspense } from 'react';
-import { Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import ClientRoute, { clientRoutes } from '@/routes/client';
+import ProtectedClientRoute, { protectedRoutes } from './protectedClient';
 
 import Spinner from '@/components/Spinner';
-// import NotFound from '@/pages/NotFound';
+import Notfound from '@/pages/Notfound';
+import ProtectedClientLesson, { clientLessonRoutes } from './lesson';
 
 const Routes = () => (
   <Suspense fallback={<Spinner />}>
@@ -14,7 +16,13 @@ const Routes = () => (
       {clientRoutes.map((route, index) => (
         <ClientRoute key={index} {...route} />
       ))}
-      {/*<Route component={NotFound} />*/}
+      {protectedRoutes.map((route, index) => (
+        <ProtectedClientRoute key={index} {...route} />
+      ))}
+      {clientLessonRoutes.map((route, index) => (
+        <ProtectedClientLesson key={index} {...route} />
+      ))}
+      <Route component={Notfound} />
     </Switch>
   </Suspense>
 );

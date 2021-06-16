@@ -1,0 +1,58 @@
+/** @format */
+
+.container {
+  background-color: var(--bg-sub);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 4px var(--grey-4);
+  color: var(--text);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+.container:last-child {
+  margin-bottom: 0;
+}
+.container.archieved {
+  cursor: no-drop;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.wrapper.archieved {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.course {
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.nameWrap {
+  display: flex;
+  align-items: center;
+}
+.tag {
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 1rem;
+  padding: 0.25rem 0.5rem;
+  margin-left: 1rem;
+  font-size: 0.875rem;
+}
+
+.title {
+  color: var(--grey-7);
+  margin-bottom: 0.75rem;
+}
+
+.arrow {
+  width: 2rem;
+  height: 2rem;
+  transform: rotate(180deg);
+}

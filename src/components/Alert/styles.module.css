@@ -9,12 +9,23 @@
 }
 
 .container {
+  position: relative;
   padding: 1rem 2rem;
   background-color: var(--primary);
   border-radius: 0.5rem;
   color: var(--white);
   animation: appear 0.4s ease-in-out;
 }
+.container::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background-color: var(--white);
+  animation: countdown 5s;
+}
+
 .container.success {
   background-color: var(--success);
 }
@@ -56,6 +67,14 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@keyframes countdown {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
   }
 }
 

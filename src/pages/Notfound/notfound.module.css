@@ -1,0 +1,41 @@
+/** @format */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  text-align: center;
+}
+
+.img {
+  width: 100%;
+}
+
+.content {
+  letter-spacing: 0.25rem;
+  margin: 1.5rem 0 1rem 0;
+  color: var(--text);
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.button:first-child {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .img {
+    width: 45rem;
+    height: 30rem;
+  }
+}

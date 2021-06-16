@@ -1,10 +1,4 @@
 /** @format */
-
-.title {
-  color: var(--white);
-  margin-bottom: 1rem;
-}
-
 .list {
   background-color: var(--bg-sub);
   border-radius: 0.5rem;

@@ -1,0 +1,40 @@
+/** @format */
+.container {
+  border-top: 1px solid var(--grey-4);
+  padding: 1rem 0.5rem;
+  margin-top: 1.5rem;
+  background-color: var(--bg-sub);
+  color: var(--text);
+}
+
+.title {
+  margin-bottom: 1rem;
+}
+
+.note {
+  margin-top: 0.5rem;
+}
+
+.link {
+  color: var(--info);
+}
+
+.total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    position: sticky;
+    top: 0;
+    width: 60%;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 4px var(--grey-4);
+    border-top: none;
+    margin-top: 0;
+  }
+}

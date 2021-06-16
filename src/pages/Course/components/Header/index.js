@@ -9,7 +9,12 @@ import RateStar from '@/components/Rating';
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
 import { FormattedMessage } from 'react-intl';
 
-const CourseHeader = ({ courseInfo, isCourseLoading, handleAddItemToCart }) => {
+const CourseHeader = ({
+  courseInfo,
+  isCourseLoading,
+  handleAddItemToCart,
+  addItemToCheckout,
+}) => {
   return (
     <div className={styles.container}>
       {isCourseLoading ? (
@@ -71,6 +76,7 @@ const CourseHeader = ({ courseInfo, isCourseLoading, handleAddItemToCart }) => {
           <FormattedMessage id='course.cart' />
         </Button>
         <Button
+          onClick={() => addItemToCheckout(courseInfo)}
           className={styles.purchase}
           variant={ButtonVariants.Outline}
           size={ButtonSizes.Standard}>

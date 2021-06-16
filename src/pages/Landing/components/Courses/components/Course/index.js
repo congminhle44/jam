@@ -23,39 +23,45 @@ import { showAlertAtom } from '@/store/alert';
 import AlertStatus from '../AlertStatus';
 import { AlertVariants } from '@/components/Alert';
 import { derivedTokenAtom } from '@/store/token';
+import { userAtom } from '@/store/login';
 
 const CourseTabs = ({ isLoading, courses }) => {
   const history = useHistory();
 
   const [, showAlert] = useAtom(showAlertAtom);
+  const [userInfo] = useAtom(userAtom);
   const [userToken] = useAtom(derivedTokenAtom);
 
   const { refetch: refetchCartList } = useGetCartItem(userToken);
   const { mutateAsync: addItemToCart } = useCartItem();
 
   const handleAddItemToCart = (courseId) => {
-    return addItemToCart({ courseId, token: userToken })
-      .then((result) => {
-        showAlert({
-          component: AlertStatus,
-          props: {
-            variant: AlertVariants.Success,
-            children: result.message,
-          },
+    if (userInfo) {
+      return addItemToCart({ courseId, token: userToken })
+        .then((result) => {
+          showAlert({
+            component: AlertStatus,
+            props: {
+              variant: AlertVariants.Success,
+              children: result.message,
+            },
+          });
+          refetchCartList();
+        })
+        .catch((err) => {
+          showAlert({
+            component: AlertStatus,
+            props: {
+              variant: AlertVariants.Error,
+              children: err.response
+                ? err.response.data.message
+                : 'Can not add item to cart',
+            },
+          });
         });
-        refetchCartList();
-      })
-      .catch((err) => {
-        showAlert({
-          component: AlertStatus,
-          props: {
-            variant: AlertVariants.Error,
-            children: err.response
-              ? err.response.data.message
-              : 'Can not add item to cart',
-          },
-        });
-      });
+    } else {
+      history.push('/login');
+    }
   };
 
   const renderCourseByCategory = () => {

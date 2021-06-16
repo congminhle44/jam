@@ -20,7 +20,7 @@
   filter: brightness(1);
 }
 .button:disabled {
-  filter: blur(0.875);
+  background-color: var(--grey-4);
   cursor: no-drop;
 }
 

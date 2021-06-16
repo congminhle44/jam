@@ -14,6 +14,7 @@ const config = {
   app: {
     apiHost: getApiHost(),
     env: process.env.NODE_ENV || 'development',
+    stripePk: process.env.REACT_APP_STRIPE_PK,
   },
   paths: {
     landing: '/',
@@ -22,6 +23,9 @@ const config = {
     categoryDetail: '/category/:id',
     courseDetail: '/course/:id',
     cart: '/cart',
+    checkout: '/cart/checkout',
+    profile: '/profile',
+    studentLessons: '/course/:courseId/lesson/:lessonId',
   },
   apis: {
     getCategories: {
@@ -54,13 +58,37 @@ const config = {
       url: '/users/cart/courses',
       method: 'GET',
     },
+    getLibrary: {
+      url: '/users/library/g',
+      method: 'GET',
+    },
+    getProfile: {
+      url: '/users/profile',
+      method: 'GET',
+    },
+    getLessonInCourseStudent: {
+      url: (id) => `/courses/${id}/lessons`,
+      method: 'GET',
+    },
     addItemToCart: {
       url: '/courses/cart/add',
       method: 'POST',
     },
+    uploadAvatar: {
+      url: '/users/avatar/upload',
+      method: 'PATCH',
+    },
     removeItemFromCart: {
       url: '/courses/cart/remove',
       method: 'POST',
+    },
+    getLearningProcess: {
+      url: (id) => `/users/lesson/${id}/process`,
+      method: 'GET',
+    },
+    getLessonSource: {
+      url: (id) => `/courses/lesson/${id}`,
+      method: 'GET',
     },
     login: {
       url: '/users/login',
@@ -70,12 +98,20 @@ const config = {
       url: '/users/token',
       method: 'POST',
     },
+    updatelearningProcess: {
+      url: '/users/lesson/process',
+      method: 'PUT',
+    },
     deleteRefreshToken: {
       url: '/users/token/delete',
       method: 'DELETE',
     },
     signup: {
       url: '/users/register',
+      method: 'POST',
+    },
+    checkout: {
+      url: '/courses/checkout',
       method: 'POST',
     },
   },

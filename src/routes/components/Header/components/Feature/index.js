@@ -1,15 +1,16 @@
 /** @format */
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import clsx from 'clsx';
 
 import useToggle from '@/hooks/useToggle';
 import useClickOutside from '@/hooks/useClickOutside';
 
 import Input from '@/components/Input';
-import { Moon, Search, Sun } from '@/components/Icons';
+import { Search } from '@/components/Icons';
 
 import styles from '../../header.module.css';
 import SearchList from '../SearchList';
+import ThemeMode from '../ThemeMode';
 
 const HeaderFeature = ({
   handleTypingKeyword,
@@ -20,34 +21,18 @@ const HeaderFeature = ({
   hideInput,
   isActive,
 }) => {
-  const defaultTheme = localStorage.getItem('theme');
-
-  const [theme, setTheme] = useState(defaultTheme || 'light');
   const isSearch = useToggle(false);
   const isKeywordType = useToggle(false);
 
   const searchListRef = useRef();
   const searchRef = useRef();
 
-  useClickOutside(searchListRef, isKeywordType.setInActive);
-  useClickOutside(searchRef, hideInput);
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-    document.documentElement.classList.add('theme-transition');
-    window.setTimeout(function () {
-      document.documentElement.classList.remove('theme-transition');
-    }, 1000);
-  }, [theme, defaultTheme]);
   useEffect(() => {
     keyword !== '' ? isKeywordType.setActive() : isKeywordType.setInActive();
   }, [keyword, isKeywordType]);
 
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-    document.documentElement.setAttribute('data-theme', theme);
-  };
+  useClickOutside(searchListRef, isKeywordType.setInActive);
+  useClickOutside(searchRef, hideInput);
 
   return (
     <div className={styles.feature}>
@@ -77,9 +62,7 @@ const HeaderFeature = ({
           <SearchList courses={courses} isLoading={isLoading} />
         )}
       </div>
-      <div onClick={toggleTheme} className={styles.toggleTheme}>
-        {theme === 'dark' ? <Sun /> : <Moon />}
-      </div>
+      <ThemeMode />
     </div>
   );
 };
