@@ -68,11 +68,21 @@
     "cart.empty.content":"Your cart is empty. Keep shopping to find a course!",
     "cart.empty.button":"Keep shopping",
 
+    "checkout.checkout":"Checkout",
+    "checkout.card":"Pay with your card",
+    "checkout.momo":"Pay with your Momo E-wallet",
     "checkout.list":"Order Details",
     "checkout.sum":"Summary",
     "checkout.total":"Total:",
     "checkout.note":"Note: if you purchase, all the course that you purchased will not be refunded for any reason",
     "checkout.button":"Pay",
     "checkout.subterms":"By completing your purchase you agree to these",
-    "checkout.terms":"Terms of Service"
+    "checkout.terms":"Terms of Service",
+
+    "profile.title":"My courses",
+    "profile.item.title":"Course",
+    "profile.course.notlearn":"You've learnt nothing",
+    "profile.course.start":"Start",
+    "profile.course.resume":"Resume",
+    "profile.course.learn":"learning"
 }

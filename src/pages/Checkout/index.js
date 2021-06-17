@@ -2,7 +2,7 @@
 
 import Alert, { AlertVariants } from '@/components/Alert';
 import config from '@/config';
-import { useCheckout } from '@/queries/hooks/courses';
+import { useCheckout, useMomoRedirect } from '@/queries/hooks/courses';
 import { showAlertAtom } from '@/store/alert';
 import { derivedCheckoutItemsAtom } from '@/store/checkout';
 import { Elements } from '@stripe/react-stripe-js';
@@ -22,6 +22,7 @@ const Checkout = () => {
   const [, showAlert] = useAtom(showAlertAtom);
 
   const { mutateAsync: checkout } = useCheckout();
+  const { mutateAsync: momoRedirect } = useMomoRedirect();
 
   const handleCheckout = (id, amount, courseIds) => {
     return checkout({ id, amount, courseIds })
@@ -54,11 +55,12 @@ const Checkout = () => {
         <div className={styles.container}>
           <Elements stripe={stripePromise}>
             <div className={styles.wrapper}>
-              <Main checkoutItems={checkoutItems} />
-              <Summary
+              <Main
+                momoRedirect={momoRedirect}
                 handleCheckout={handleCheckout}
                 checkoutItems={checkoutItems}
               />
+              <Summary checkoutItems={checkoutItems} />
             </div>
           </Elements>
         </div>

@@ -2,6 +2,7 @@
 
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
 import Typography, { TypographyVariants } from '@/components/Typography';
+import { FormattedMessage } from 'react-intl';
 import styles from './detail.module.css';
 
 const LibItemDetail = ({ processData, handleRedirectUser, course }) => {
@@ -12,9 +13,11 @@ const LibItemDetail = ({ processData, handleRedirectUser, course }) => {
           <Typography
             className={styles.name}
             variant={TypographyVariants.Body1}>
-            {Object.keys(processData).length > 0
-              ? processData.lesson.title
-              : "You've learnt nothing yet"}
+            {Object.keys(processData).length > 0 ? (
+              processData.lesson.title
+            ) : (
+              <FormattedMessage id='profile.course.notlearn' />
+            )}
           </Typography>
           <div className={styles.button}>
             <Button
@@ -28,8 +31,12 @@ const LibItemDetail = ({ processData, handleRedirectUser, course }) => {
               }
               variant={ButtonVariants.Outline}
               size={ButtonSizes.Small}>
-              {Object.keys(processData).length > 0 ? 'Resume' : 'Start'}{' '}
-              learning
+              {Object.keys(processData).length > 0 ? (
+                <FormattedMessage id='profile.course.resume' />
+              ) : (
+                <FormattedMessage id='profile.course.start' />
+              )}{' '}
+              <FormattedMessage id='profile.course.learn' />
             </Button>
           </div>
         </div>

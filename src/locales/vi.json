@@ -66,11 +66,21 @@
     "cart.empty.content":"Giỏ hàng của bạn đang trống, hãy tiếp tục mua sắm và tìm cho minh khóa học ưng ý!",
     "cart.empty.button":"Tiếp tục mua sắm",
 
+    "checkout.checkout":"Thanh toán",
+    "checkout.card":"Thanh toán bằng thẻ ngân hàng của bạn",
+    "checkout.momo":"Thanh toán bằng ví điện tử Momo của bạn",
     "checkout.list":"Các đơn hàng của bạn",
     "checkout.sum":"Tổng kết",
     "checkout.total":"Tổng cộng:",
     "checkout.note":"Lưu ý: sau khi thanh toán, tất cả khóa học bạn đã mua sẽ không được hoàn trả với bất kỳ lý do gì.",
     "checkout.button":"Thanh toán",
     "checkout.subterms":"Bằng cách hoàn tất việc mua hàng, bạn đồng ý với",
-    "checkout.terms":"Điều khoản dịch vụ"
+    "checkout.terms":"Điều khoản dịch vụ",
+
+    "profile.title":"Tất cả khóa học của tôi",
+    "profile.item.title":"Khóa học",
+    "profile.course.notlearn":"Bạn chưa học được gì",
+    "profile.course.start":"Bắt đầu",
+    "profile.course.resume":"Tiếp tục",
+    "profile.course.learn":"học"
 }

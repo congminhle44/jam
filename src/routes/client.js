@@ -56,6 +56,11 @@ export const clientRoutes = [
     exact: true,
     component: lazy(() => import('@/pages/Checkout')),
   },
+  {
+    path: config.paths.momoRedirect,
+    exact: false,
+    component: lazy(() => import('@/pages/PaymentRedirect')),
+  },
 ];
 
 export default ClientRoute;

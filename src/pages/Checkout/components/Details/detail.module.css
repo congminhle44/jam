@@ -1,7 +1,11 @@
 /** @format */
 
 .container {
+  position: relative;
+  margin-top: 1.5rem;
   color: var(--text);
+  max-height: 20.625rem;
+  overflow: hidden auto;
 }
 
 .title {
@@ -11,9 +15,7 @@
 .item {
   display: flex;
   justify-content: space-between;
-  background-color: var(--bg-sub);
   border-radius: 0.5rem;
-  padding: 1rem 1.5rem;
   margin-bottom: 0.5rem;
 }
 .item:last-child {

@@ -2,6 +2,7 @@
 
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { FormattedMessage } from 'react-intl';
 
 import styles from './form.module.css';
 
@@ -54,9 +55,9 @@ const CheckoutForm = ({ handleCheckout, total, checkoutItems }) => {
         type='submit'
         disabled={!stripe}
         className={styles.button}
-        variant={ButtonVariants.Solid}
+        variant={ButtonVariants.Outline}
         size={ButtonSizes.Standard}>
-        Pay
+        <FormattedMessage id='checkout.button' /> ${total}
       </Button>
     </form>
   );

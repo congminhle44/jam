@@ -1,6 +1,7 @@
 /** @format */
 
 import Typography, { TypographyVariants } from '@/components/Typography';
+import { FormattedMessage } from 'react-intl';
 import LibraryItem from '../LibraryItem';
 import styles from './library.module.css';
 
@@ -31,7 +32,7 @@ const Library = ({
   return (
     <div className={styles.container}>
       <Typography className={styles.title} variant={TypographyVariants.Title3}>
-        My Courses
+        <FormattedMessage id='profile.title' />
       </Typography>
       <div className={styles.list}>{renderLibraryItems()}</div>
     </div>

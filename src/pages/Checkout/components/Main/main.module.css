@@ -2,6 +2,24 @@
 
 .container {
   width: 100%;
+  color: var(--text);
+}
+
+.title {
+  margin-bottom: 1.5rem;
+}
+
+.radio {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  margin-left: 0.5rem;
+}
+
+.button {
+  margin-top: 1rem;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
