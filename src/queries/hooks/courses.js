@@ -11,6 +11,7 @@ import {
   removeItemFromCart,
   getLessonsInCourseStudent,
   getLessonSource,
+  momoRedirectCheckout,
 } from '../apis/courses';
 import { handleError } from '@/helpers/requests';
 import useMakeMutation from '@/hooks/useMakeMutation';
@@ -47,6 +48,11 @@ export const useCartItem = () => {
 
 export const useCheckout = () => {
   const { mutation } = useMakeMutation(checkout);
+  return mutation;
+};
+
+export const useMomoRedirect = () => {
+  const { mutation } = useMakeMutation(momoRedirectCheckout);
   return mutation;
 };
 

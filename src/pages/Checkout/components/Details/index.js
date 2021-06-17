@@ -1,10 +1,21 @@
 /** @format */
 
-import Typography, { TypographyVariants } from '@/components/Typography';
+import PerfectScrollbar from 'perfect-scrollbar';
+import { useEffect, useRef } from 'react';
 import { FormattedMessage } from 'react-intl';
+
+import Typography, { TypographyVariants } from '@/components/Typography';
+
 import styles from './detail.module.css';
 
 const MoreDetails = ({ checkoutItems }) => {
+  const wrapperRef = useRef();
+
+  useEffect(() => {
+    const ps = new PerfectScrollbar(wrapperRef.current);
+    ps.update();
+  }, [wrapperRef]);
+
   const renderCheckoutItems = () => {
     return checkoutItems.map((item) => {
       return (
@@ -32,7 +43,7 @@ const MoreDetails = ({ checkoutItems }) => {
   };
 
   return (
-    <div className={styles.container}>
+    <div ref={wrapperRef} className={styles.container}>
       <Typography className={styles.title} variant={TypographyVariants.H6}>
         <FormattedMessage id='checkout.list' />
       </Typography>

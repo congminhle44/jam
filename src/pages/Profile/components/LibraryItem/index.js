@@ -3,6 +3,7 @@
 import { Up } from '@/components/Icons';
 import Typography, { TypographyVariants } from '@/components/Typography';
 import clsx from 'clsx';
+import { FormattedMessage } from 'react-intl';
 import LibItemDetail from '../ItemDetail';
 import styles from './item.module.css';
 
@@ -29,7 +30,7 @@ const LibraryItem = ({
           <Typography
             className={styles.title}
             variant={TypographyVariants.Title1}>
-            Course
+            <FormattedMessage id='profile.item.title' />
           </Typography>
           <div className={styles.nameWrap}>
             <Typography

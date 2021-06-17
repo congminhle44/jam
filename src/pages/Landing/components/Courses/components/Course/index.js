@@ -27,7 +27,6 @@ import { userAtom } from '@/store/login';
 
 const CourseTabs = ({ isLoading, courses }) => {
   const history = useHistory();
-
   const [, showAlert] = useAtom(showAlertAtom);
   const [userInfo] = useAtom(userAtom);
   const [userToken] = useAtom(derivedTokenAtom);

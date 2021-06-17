@@ -52,7 +52,7 @@ const CourseTab = ({ categories, categoryLoading }) => {
 
   useEffect(() => {
     if (categories) setTab(categories[0].categoryID);
-  }, [tab, categories]);
+  }, [categories]);
 
   const [value, setValue] = useState(0);
 
