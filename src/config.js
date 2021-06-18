@@ -27,6 +27,8 @@ const config = {
     profile: '/profile',
     studentLessons: '/course/:courseId/lesson/:lessonId',
     momoRedirect: '/payment/redirect',
+    successCheckout: '/payment/success',
+    errorCheckout: '/payment/failed',
   },
   apis: {
     getCategories: {
@@ -117,6 +119,10 @@ const config = {
     },
     momoRedirectCheckout: {
       url: '/momo',
+      method: 'POST',
+    },
+    momoCheckout: {
+      url: '/courses/checkout/momo',
       method: 'POST',
     },
   },

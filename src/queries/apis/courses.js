@@ -83,6 +83,16 @@ export const checkout = async (requestBody) => {
   return data;
 };
 
+export const momoCheckout = async (requestBody) => {
+  const { url, method } = config.apis.momoCheckout;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+    data: requestBody,
+  });
+  return data;
+};
+
 export const momoRedirectCheckout = async (requestBody) => {
   const { url, method } = config.apis.momoRedirectCheckout;
   const { data } = await axios({

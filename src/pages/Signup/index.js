@@ -6,12 +6,14 @@ import { useHistory } from 'react-router';
 
 import { showAlertAtom } from '@/store/alert';
 import { setRegisteredEmail } from '@/store/register';
+import { userAtom } from '@/store/login';
 
 import { AlertVariants } from '@/components/Alert';
 import AlertRegister from './components/AlertRegister';
 import SignupForm from './components/SignupForm';
 
 import styles from './signup.module.css';
+import { useEffect } from 'react';
 
 const Signup = () => {
   const history = useHistory();
@@ -20,6 +22,11 @@ const Signup = () => {
 
   const [, showAlert] = useAtom(showAlertAtom);
   const [, registeredEmail] = useAtom(setRegisteredEmail);
+  const [userInfo] = useAtom(userAtom);
+
+  useEffect(() => {
+    if (userInfo) history.push('/');
+  }, [history, userInfo]);
 
   const handleRegister = (user) => {
     return signupUser(user)

@@ -12,6 +12,7 @@ import {
   getLessonsInCourseStudent,
   getLessonSource,
   momoRedirectCheckout,
+  momoCheckout,
 } from '../apis/courses';
 import { handleError } from '@/helpers/requests';
 import useMakeMutation from '@/hooks/useMakeMutation';
@@ -53,6 +54,11 @@ export const useCheckout = () => {
 
 export const useMomoRedirect = () => {
   const { mutation } = useMakeMutation(momoRedirectCheckout);
+  return mutation;
+};
+
+export const useMomo = () => {
+  const { mutation } = useMakeMutation(momoCheckout);
   return mutation;
 };
 

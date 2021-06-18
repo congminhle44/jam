@@ -33,8 +33,6 @@ const Login = () => {
 
   const { mutateAsync: userLogin } = useLogin();
 
-  console.log(purchaseItems);
-
   const handleLogin = (user) => {
     return userLogin({
       email: user.email,
