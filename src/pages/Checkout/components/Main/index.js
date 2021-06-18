@@ -1,14 +1,22 @@
 /** @format */
+import Alert, { AlertVariants } from '@/components/Alert';
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
 import Typography, { TypographyVariants } from '@/components/Typography';
+import { showAlertAtom } from '@/store/alert';
+import { useAtom } from 'jotai';
 import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
+import { useHistory } from 'react-router';
 import CheckoutForm from '../CheckoutForm';
 
 import styles from './main.module.css';
 
 const Main = ({ checkoutItems, handleCheckout, momoRedirect }) => {
+  const history = useHistory();
+
   const [payment, setPayment] = useState('card');
+
+  const [, showAlert] = useAtom(showAlertAtom);
 
   const calcTotal = () => {
     return checkoutItems.reduce((total, course) => total + course.cost, 0);
@@ -22,9 +30,24 @@ const Main = ({ checkoutItems, handleCheckout, momoRedirect }) => {
     return momoRedirect({
       amount: `${calcTotal() * 23000}`,
       courseIds: renderItemId(),
-    }).then((result) => {
-      window.location.href = result.payUrl;
-    });
+    })
+      .then((result) => {
+        window.location.href = result.payUrl;
+      })
+      .catch((err) => {
+        showAlert({
+          component: Alert,
+          props: {
+            variant: AlertVariants.Error,
+            children:
+              err.response &&
+              `${err.response.data.message}, you will be back to hompage in 5s`,
+          },
+        });
+        setTimeout(() => {
+          history.push('/');
+        }, 5000);
+      });
   };
 
   const handleChangePayment = (e) => {

@@ -84,5 +84,16 @@
     "profile.course.notlearn":"You've learnt nothing",
     "profile.course.start":"Start",
     "profile.course.resume":"Resume",
-    "profile.course.learn":"learning"
+    "profile.course.learn":"learning",
+
+    
+    "checkout.common.button":"Go to homepage",
+
+    "checkout.success.title":"thank you",
+    "checkout.success.detail":"Your order has been placed successfully",
+    "checkout.success.thank":"Thank you for your payment!",
+
+    "checkout.error.title":"error",
+    "checkout.error.detail":"Your order has been denied",
+    "checkout.error.thank":"Please try again later or contact us for support"
 }

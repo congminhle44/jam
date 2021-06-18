@@ -42,6 +42,16 @@ export const protectedRoutes = [
     exact: true,
     component: lazy(() => import('@/pages/Profile')),
   },
+  {
+    path: config.paths.successCheckout,
+    exact: false,
+    component: lazy(() => import('@/pages/CheckoutSuccess')),
+  },
+  {
+    path: config.paths.errorCheckout,
+    exact: false,
+    component: lazy(() => import('@/pages/CheckoutError')),
+  },
 ];
 
 export default ProtectedClientRoute;

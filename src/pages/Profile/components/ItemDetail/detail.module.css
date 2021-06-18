@@ -1,7 +1,6 @@
 /** @format */
 .container {
   margin-top: 1rem;
-  animation: dropdown 0.5s;
 }
 
 .name {
@@ -15,15 +14,4 @@
   align-items: center;
   justify-content: flex-end;
   margin-top: 1.5rem;
-}
-
-@keyframes dropdown {
-  from {
-    transform: translateY(-50%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }

@@ -1,0 +1,42 @@
+/** @format */
+
+.container {
+  margin-top: 4.25rem;
+  min-height: 65vh;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text);
+}
+
+.check {
+  width: 10rem;
+  height: 10rem;
+  margin: 0 auto;
+  color: var(--success);
+}
+
+.title {
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+
+.detail {
+  margin-top: 0.5rem;
+}
+
+.thank {
+  margin-top: 0.25rem;
+}
+
+.button {
+  margin: 1rem auto 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    margin-top: 5rem;
+  }
+}

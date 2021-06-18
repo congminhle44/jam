@@ -27,7 +27,7 @@ const Checkout = () => {
   const handleCheckout = (id, amount, courseIds) => {
     return checkout({ id, amount, courseIds })
       .then((result) => {
-        history.push('/');
+        history.push('/payment/success');
         showAlert({
           component: Alert,
           props: {
@@ -41,11 +41,14 @@ const Checkout = () => {
           component: Alert,
           props: {
             variant: AlertVariants.Error,
-            children: err.response
-              ? err.response.data.message
-              : 'Checkout process failed, try again later',
+            children:
+              err.response &&
+              `${err.response.data.message}, we will automatically bring you back to hompage in 5s`,
           },
         });
+        setTimeout(() => {
+          history.push('/');
+        }, 5000);
       });
   };
 

@@ -82,5 +82,15 @@
     "profile.course.notlearn":"Bạn chưa học được gì",
     "profile.course.start":"Bắt đầu",
     "profile.course.resume":"Tiếp tục",
-    "profile.course.learn":"học"
+    "profile.course.learn":"học",
+
+    "checkout.common.button":"Trở về trang chủ",
+
+    "checkout.success.title":"xin cảm ơn",
+    "checkout.success.detail":"Đơn hàng của bạn đã được thực hiện thành công",
+    "checkout.success.notify":"Xin cảm ơn thanh toán của bạn",
+
+    "checkout.error.title":"lỗi",
+    "checkout.error.detail":"Đơn hàng của bạn đã bị từ chối",
+    "checkout.error.notify":"Hãy thử lại sau hoặc liên hệ với chúng tôi để được hỗ trợ"
 }

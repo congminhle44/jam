@@ -1,14 +1,21 @@
 /** @format */
 
+import Alert, { AlertVariants } from '@/components/Alert';
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
+import { showAlertAtom } from '@/store/alert';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { useAtom } from 'jotai';
 import { FormattedMessage } from 'react-intl';
+import { useHistory } from 'react-router';
 
 import styles from './form.module.css';
 
 const CheckoutForm = ({ handleCheckout, total, checkoutItems }) => {
+  const history = useHistory();
   const stripe = useStripe();
   const element = useElements();
+
+  const [, showAlert] = useAtom(showAlertAtom);
 
   const options = {
     style: {
@@ -39,9 +46,7 @@ const CheckoutForm = ({ handleCheckout, total, checkoutItems }) => {
         const { id } = results.paymentMethod;
         handleCheckout(id, total, checkoutItems);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => console.log(err));
   };
 
   return (
