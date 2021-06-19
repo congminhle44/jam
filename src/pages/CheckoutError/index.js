@@ -3,7 +3,7 @@
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
 import { ErrorIco } from '@/components/Icons';
 import Typography, { TypographyVariants } from '@/components/Typography';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useHistory } from 'react-router';
 import styles from './error.module.css';
@@ -13,9 +13,9 @@ const CheckoutSuccess = () => {
 
   const [second, setSecond] = useState(5);
 
-  const handleRedirectToHome = () => {
+  const handleRedirectToHome = useCallback(() => {
     history.push('/');
-  };
+  }, [history]);
 
   useEffect(() => {
     if (second > 0) {

@@ -1,0 +1,68 @@
+/** @format */
+
+.container {
+  background-image: url('../../assets/Images/about.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 1rem 1.5rem;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.wrapper {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: var(--white);
+  max-width: 45.625rem;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin: 0 auto;
+}
+
+.circles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ava {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+}
+
+.ceo,
+.describe,
+.contact {
+  max-width: 40rem;
+  margin: 1.5rem auto;
+}
+
+.phone {
+  margin: 1.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .circle {
+    border: 3px solid var(--primary);
+    border-radius: 50%;
+  }
+  .circle:first-child,
+  .circle:last-child {
+    width: 5rem;
+    height: 5rem;
+  }
+  .circle:nth-child(even) {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    margin-top: 5.5rem;
+  }
+  .wrapper {
+    max-width: 69.0625rem;
+  }
+}

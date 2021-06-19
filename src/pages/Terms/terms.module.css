@@ -1,0 +1,14 @@
+/** @format */
+
+.container {
+  max-width: 45.625rem;
+  padding: 1rem 1.5rem;
+  margin: 4rem auto 0 auto;
+}
+
+@media (min-width: 1280px) {
+  .container {
+    margin-top: 5.5rem;
+    max-width: 69.0625rem;
+  }
+}

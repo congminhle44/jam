@@ -29,6 +29,8 @@ const config = {
     momoRedirect: '/payment/redirect',
     successCheckout: '/payment/success',
     errorCheckout: '/payment/failed',
+    terms: '/terms',
+    about: '/about',
   },
   apis: {
     getCategories: {
