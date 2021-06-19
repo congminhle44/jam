@@ -83,6 +83,16 @@ export const checkout = async (requestBody) => {
   return data;
 };
 
+export const comment = async (requestBody) => {
+  const { url, method } = config.apis.comment;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url(requestBody.courseId)}`,
+    method: method,
+    data: requestBody,
+  });
+  return data;
+};
+
 export const momoCheckout = async (requestBody) => {
   const { url, method } = config.apis.momoCheckout;
   const { data } = await axios({

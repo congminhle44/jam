@@ -97,6 +97,7 @@ const CourseTabs = ({ isLoading, courses }) => {
                   {course.personCreated.fullName}
                 </Typography>
                 <RateStar
+                  readOnly
                   showRateInText
                   value={course.averageRate}
                   amount={course.amountOfComments}

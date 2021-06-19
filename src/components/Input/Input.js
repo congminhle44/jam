@@ -61,6 +61,7 @@ const Input = forwardRef(
               className={clsx(
                 styles.input,
                 toggleFocus.active && styles.focus,
+                label === undefined && styles.showPlaceholder,
                 search && styles.search
               )}
               placeholder={placeholder}

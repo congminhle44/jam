@@ -27,6 +27,7 @@ html {
   --bg: #ffffff;
   --bg-lighter: #fae4ef;
   --bg-sub: #fafafa;
+  --bg-sub-rgb: 250, 250, 250;
   --text: #212121;
 }
 
@@ -34,6 +35,7 @@ html[data-theme='dark'] {
   --bg: #0e182a;
   --bg-lighter: #121f36;
   --bg-sub: #3f3d56;
+  --bg-sub-rgb: 63, 61, 86;
   --text: #ffffff;
   scroll-behavior: smooth;
 }

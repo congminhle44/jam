@@ -61,6 +61,16 @@ export const clientRoutes = [
     exact: false,
     component: lazy(() => import('@/pages/PaymentRedirect')),
   },
+  {
+    path: config.paths.terms,
+    exact: false,
+    component: lazy(() => import('@/pages/Terms')),
+  },
+  {
+    path: config.paths.about,
+    exact: false,
+    component: lazy(() => import('@/pages/About')),
+  },
 ];
 
 export default ClientRoute;

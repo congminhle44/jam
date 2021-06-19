@@ -29,6 +29,8 @@ const config = {
     momoRedirect: '/payment/redirect',
     successCheckout: '/payment/success',
     errorCheckout: '/payment/failed',
+    terms: '/terms',
+    about: '/about',
   },
   apis: {
     getCategories: {
@@ -56,6 +58,10 @@ const config = {
       url: (page = '', limit = '', keyword = '') =>
         `/courses/public?page=${page}&limit=${limit}&keyword=${keyword}`,
       method: 'GET',
+    },
+    comment: {
+      url: (id) => `/courses/${id}/comment`,
+      method: 'PUT',
     },
     getUserCart: {
       url: '/users/cart/courses',

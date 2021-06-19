@@ -58,6 +58,9 @@
     "course.cart":"Add to cart",
     "course.purchase":"Purchase now",
     "course.comments":"All comments",
+    "course.comment.title":"Write a comment to let other people know about your reaction",
+    "course.comment.button":"Send",
+    "course.comment.placeholder":"Type your comment here",
 
     "cart.title":"Your basket",
     "cart.list":"{amount} courses in your cart",

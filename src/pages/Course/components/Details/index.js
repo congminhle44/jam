@@ -1,12 +1,18 @@
-/** @format */ import ReactMarkdown from 'react-markdown';
+/** @format */
+import ReactMarkdown from 'react-markdown';
+import { FormattedMessage } from 'react-intl';
 
 import Typography, { TypographyVariants } from '@/components/Typography';
 import Comments from '../Comments';
 import styles from './detail.module.css';
 import Skeleton from 'react-loading-skeleton';
-import { FormattedMessage } from 'react-intl';
 
-const CourseInfoDetail = ({ courseInfo, comments, isCourseLoading }) => {
+const CourseInfoDetail = ({
+  courseInfo,
+  comments,
+  isCourseLoading,
+  userInfo,
+}) => {
   return (
     <div className={styles.container}>
       <div className={styles.description}>
@@ -26,8 +32,12 @@ const CourseInfoDetail = ({ courseInfo, comments, isCourseLoading }) => {
         variant={TypographyVariants.Title2}>
         <FormattedMessage id='course.comments' /> (
         {courseInfo && courseInfo.amountOfComments})
-        <Comments comments={comments} />
       </Typography>
+      <Comments
+        courseInfo={courseInfo}
+        userInfo={userInfo}
+        comments={comments}
+      />
     </div>
   );
 };
