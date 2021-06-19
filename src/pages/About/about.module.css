@@ -23,12 +23,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 1.5rem;
 }
 
 .ava {
   width: 12rem;
   height: 12rem;
   border-radius: 50%;
+  margin-bottom: 1rem;
 }
 
 .ceo,

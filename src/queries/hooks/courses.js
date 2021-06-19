@@ -13,6 +13,7 @@ import {
   getLessonSource,
   momoRedirectCheckout,
   momoCheckout,
+  comment,
 } from '../apis/courses';
 import { handleError } from '@/helpers/requests';
 import useMakeMutation from '@/hooks/useMakeMutation';
@@ -44,6 +45,11 @@ export const useLessonSource = (id) =>
 
 export const useCartItem = () => {
   const { mutation } = useMakeMutation(addCourseToCart);
+  return mutation;
+};
+
+export const useComment = () => {
+  const { mutation } = useMakeMutation(comment);
   return mutation;
 };
 

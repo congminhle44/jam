@@ -45,6 +45,9 @@
 .input::placeholder {
   color: transparent;
 }
+.input.showPlaceholder::placeholder {
+  color: var(--placeholder);
+}
 .input.focus::placeholder {
   color: var(--placeholder);
 }

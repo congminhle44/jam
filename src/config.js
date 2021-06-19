@@ -59,6 +59,10 @@ const config = {
         `/courses/public?page=${page}&limit=${limit}&keyword=${keyword}`,
       method: 'GET',
     },
+    comment: {
+      url: (id) => `/courses/${id}/comment`,
+      method: 'PUT',
+    },
     getUserCart: {
       url: '/users/cart/courses',
       method: 'GET',

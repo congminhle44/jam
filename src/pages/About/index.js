@@ -14,7 +14,12 @@ const About = () => {
         <div className={styles.circles}>
           <div className={styles.circle}></div>
           <div className={styles.circle}></div>
-          <img className={styles.ava} src={Lucas} alt='lucas' />
+          <div className={styles.avaWrap}>
+            <img className={styles.ava} src={Lucas} alt='lucas' />
+            <Typography variant={TypographyVariants.H6}>
+              Lucas Johnson
+            </Typography>
+          </div>
           <div className={styles.circle}></div>
           <div className={styles.circle}></div>
         </div>

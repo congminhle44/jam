@@ -56,6 +56,9 @@
   "course.cart":"Thêm vào giỏ",
   "course.purchase":"Mua ngay",
   "course.comments":"Tất cả bình luận",
+  "course.comment.title":"Viết bình luận để mọi người biết cảm nhận của bạn về khóa học",
+  "course.comment.button":"Gửi",
+  "course.comment.placeholder":"Nhập bình luận của bạn tại đây",
 
   "cart.title":"Giỏ hàng của bạn",
     "cart.list":"{amount} khóa học đang trong giỏ hàng",

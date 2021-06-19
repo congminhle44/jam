@@ -4,12 +4,12 @@ import styles from './rate.module.css';
 import Rating from '@material-ui/lab/Rating';
 import Typography, { TypographyVariants } from '@/components/Typography';
 
-export default function RateStar({ showRateInText, value, amount }) {
+export default function RateStar({ showRateInText, value, amount, readOnly }) {
   return (
     <div className={styles.container}>
       {showRateInText && (
         <Typography className={styles.value} variant={TypographyVariants.Body1}>
-          {value}
+          {value.toFixed(1)}
         </Typography>
       )}
       <Rating
@@ -17,7 +17,7 @@ export default function RateStar({ showRateInText, value, amount }) {
         size='small'
         precision={0.5}
         value={value}
-        readOnly
+        readOnly={readOnly}
       />
       {amount ? (
         <Typography

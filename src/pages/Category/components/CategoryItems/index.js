@@ -37,6 +37,7 @@ const CategoryItems = ({ course }) => {
             {course.personCreated.fullName}
           </Typography>
           <Rating
+            readOnly
             showRateInText
             value={course.averageRate}
             amount={course.amountOfComments}

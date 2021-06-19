@@ -58,6 +58,7 @@ const CourseHeader = ({
         )}
         {courseInfo && (
           <RateStar
+            readOnly
             showRateInText
             value={courseInfo && courseInfo.averageRate}
             amount={courseInfo && courseInfo.amountOfComments}

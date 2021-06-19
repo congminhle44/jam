@@ -1,14 +1,26 @@
 /** @format */
-
-import styles from './comments.module.css';
+import { useEffect, useRef } from 'react';
+import PerfectScrollbar from 'perfect-scrollbar';
 
 import Typography, { TypographyVariants } from '@/components/Typography';
 import RateStar from '@/components/Rating';
 
+import styles from './comments.module.css';
+
 const Comments = ({ comments }) => {
+  const wrapperRef = useRef();
+
+  useEffect(() => {
+    const ps = new PerfectScrollbar(wrapperRef.current);
+    ps.update();
+  }, [wrapperRef]);
+
   const renderComments = () => {
     if (comments) {
       return comments.map((comment) => {
+        const yy = new Date(comment.createdAt).getFullYear();
+        const mm = new Date(comment.createdAt).getMonth();
+        const dd = new Date(comment.createdAt).getDate();
         return (
           <div key={comment._id} className={styles.item}>
             <img
@@ -23,11 +35,11 @@ const Comments = ({ comments }) => {
                 {comment.author.fullName}
               </Typography>
               <div className={styles.status}>
-                <RateStar value={comment.rate} />
+                <RateStar readOnly value={comment.rate} />
                 <Typography
                   className={styles.time}
                   variant={TypographyVariants.Label1}>
-                  3 months ago
+                  {`${dd} / ${mm} / ${yy}`}
                 </Typography>
               </div>
               <Typography className={styles.comment}>
@@ -40,7 +52,11 @@ const Comments = ({ comments }) => {
     }
   };
 
-  return <div className={styles.container}>{renderComments()}</div>;
+  return (
+    <div ref={wrapperRef} className={styles.container}>
+      {renderComments()}
+    </div>
+  );
 };
 
 export default Comments;
