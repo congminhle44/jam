@@ -1,0 +1,20 @@
+/** @format */
+
+.container {
+  max-width: var(--maxwidth-mobile);
+  margin: 1.25rem auto;
+}
+
+.title {
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: var(--maxwidth-desktop);
+  }
+}

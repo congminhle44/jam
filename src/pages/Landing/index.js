@@ -3,7 +3,7 @@ import { lazy, Suspense } from 'react';
 import { userAtom } from '@/store/login';
 import { useAtom } from 'jotai';
 import Banner from './components/Banner';
-import Typography, { TypographyVariants } from '@/components/Typography';
+import Loader from '@/components/Loader';
 
 const Courses = lazy(() => import('./components/Courses'));
 const Getstarted = lazy(() => import('./components/Getstart'));
@@ -17,10 +17,7 @@ const Landing = () => {
   return (
     <div>
       <Banner />
-      <Suspense
-        fallback={
-          <Typography variant={TypographyVariants.H5}>Loading...</Typography>
-        }>
+      <Suspense fallback={<Loader />}>
         <Courses />
         <Instructor />
         {!userInfo && <Getstarted />}
