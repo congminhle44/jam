@@ -34,7 +34,10 @@
   border-radius: 0.5rem;
   cursor: pointer;
 }
-
+.wish.wished {
+  background-color: var(--success);
+  color: var(--white);
+}
 .wish:hover {
   background-color: var(--success);
   color: var(--white);

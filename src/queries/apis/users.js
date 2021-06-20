@@ -61,6 +61,15 @@ export const getLearningProcess = async (key) => {
   return data;
 };
 
+export const oauthLogout = async () => {
+  const { url, method } = config.apis.oauthLogout;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+  });
+  return data;
+};
+
 export const getUserLibrary = async () => {
   const { url, method } = config.apis.getLibrary;
   const { data } = await axios({

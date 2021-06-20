@@ -71,6 +71,11 @@ export const clientRoutes = [
     exact: false,
     component: lazy(() => import('@/pages/About')),
   },
+  {
+    path: config.paths.oauthRedirect,
+    exact: false,
+    component: lazy(() => import('@/pages/OauthRedirect')),
+  },
 ];
 
 export default ClientRoute;

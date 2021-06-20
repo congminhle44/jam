@@ -48,7 +48,7 @@ const CourseDetails = ({ match }) => {
     data: courseInfo,
     isLoading: isCourseLoading,
     refetch: refetchCourseInfo,
-  } = useCourseDetails(id);
+  } = useCourseDetails(id, userInfo._id);
   const { data: courseComments, refetch: refetchComment } =
     useCommentsInCourse(id);
   const { mutateAsync: addItemToCart } = useCartItem();
@@ -138,7 +138,7 @@ const CourseDetails = ({ match }) => {
               comments={courseComments}
               courseInfo={courseInfo}
             />
-            {courseInfo && userInfo.assignCourse.includes(courseInfo._id) && (
+            {courseInfo && courseInfo.canComment && (
               <form onSubmit={handleComment} className={styles.comment}>
                 <Typography
                   className={styles.commentTitle}

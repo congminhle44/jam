@@ -1,5 +1,6 @@
 /** @format */
 import Brand from '@/assets/Images/Brand.png';
+
 import styles from './spinner.module.css';
 
 const Spinner = () => (

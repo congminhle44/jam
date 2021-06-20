@@ -17,6 +17,8 @@
   --grey-4: #bdbdbd;
   --grey-3: #7b7f82;
   --placeholder: #7b7f82;
+  --maxwidth-mobile: 45.625rem;
+  --maxwidth-desktop: 69.0625rem;
 }
 
 * {
@@ -29,6 +31,7 @@ html {
   --bg-sub: #fafafa;
   --bg-sub-rgb: 250, 250, 250;
   --text: #212121;
+  scroll-behavior: smooth;
 }
 
 html[data-theme='dark'] {
@@ -37,7 +40,6 @@ html[data-theme='dark'] {
   --bg-sub: #3f3d56;
   --bg-sub-rgb: 63, 61, 86;
   --text: #ffffff;
-  scroll-behavior: smooth;
 }
 
 body {

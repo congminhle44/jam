@@ -31,6 +31,7 @@ const config = {
     errorCheckout: '/payment/failed',
     terms: '/terms',
     about: '/about',
+    oauthRedirect: '/oauth/redirect',
   },
   apis: {
     getCategories: {
@@ -43,11 +44,12 @@ const config = {
       method: 'GET',
     },
     getCourseByCategory: {
-      url: (courseID) => `/categories/${courseID}/courses`,
+      url: (courseID, userId = '') =>
+        `/categories/${courseID}/courses?userId=${userId}`,
       method: 'GET',
     },
     getCourseDetails: {
-      url: (id) => `/courses/${id}`,
+      url: (id, userId = '') => `/courses/${id}?userId=${userId}`,
       method: 'GET',
     },
     getCommentsInCourse: {
@@ -56,7 +58,7 @@ const config = {
     },
     getPublicCourses: {
       url: (page = '', limit = '', keyword = '') =>
-        `/courses/public?page=${page}&limit=${limit}&keyword=${keyword}`,
+        `api/courses/public?page=${page}&limit=${limit}&keyword=${keyword}`,
       method: 'GET',
     },
     comment: {
@@ -130,6 +132,22 @@ const config = {
     momoCheckout: {
       url: '/courses/checkout/momo',
       method: 'POST',
+    },
+    getWishlist: {
+      url: '/courses/user/wishlist',
+      method: 'GET',
+    },
+    addWishlist: {
+      url: '/courses/wishlist',
+      method: 'POST',
+    },
+    removeWishlist: {
+      url: '/courses/wishlist/delete',
+      method: 'POST',
+    },
+    oauthLogout: {
+      url: '/logout',
+      method: 'GET',
     },
   },
 };

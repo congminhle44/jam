@@ -15,8 +15,8 @@ export const useCategories = (page, limit, sort, keyword) =>
     onError: handleError,
   });
 
-export const useCourseByCategory = (courseID) =>
-  useQuery(['courseByCategory', { courseID }], getCourseByCategory, {
+export const useCourseByCategory = (courseID, userId) =>
+  useQuery(['courseByCategory', { courseID, userId }], getCourseByCategory, {
     onError: handleError,
   });
 
