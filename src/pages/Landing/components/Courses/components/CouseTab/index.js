@@ -10,6 +10,8 @@ import styles from './tab.module.css';
 import { useCourseByCategory } from '@/queries/hooks/categories';
 import CourseTabs from '../Course';
 import Skeleton from 'react-loading-skeleton';
+import { useAtom } from 'jotai';
+import { userAtom } from '@/store/login';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -45,10 +47,15 @@ function a11yProps(index) {
 
 const CourseTab = ({ categories, categoryLoading }) => {
   const [tab, setTab] = useState('');
-
   const [categoryID, setCategoryID] = useState(0);
 
-  const { data, isLoading } = useCourseByCategory(tab);
+  const [userInfo] = useAtom(userAtom);
+
+  const {
+    data,
+    isLoading,
+    refetch: refetchCourse,
+  } = useCourseByCategory(tab, userInfo._id);
 
   useEffect(() => {
     if (categories) setTab(categories[0].categoryID);
@@ -99,7 +106,11 @@ const CourseTab = ({ categories, categoryLoading }) => {
         </Tabs>
       </AppBar>
       <TabPanel className={styles.panel} value={value} index={categoryID}>
-        <CourseTabs isLoading={isLoading} courses={data} />
+        <CourseTabs
+          refetchCourse={refetchCourse}
+          isLoading={isLoading}
+          courses={data}
+        />
       </TabPanel>
     </div>
   );

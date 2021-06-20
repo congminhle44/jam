@@ -26,10 +26,10 @@ export const getCategoryDetails = async (key) => {
 
 export const getCourseByCategory = async (key) => {
   const { url, method } = config.apis.getCourseByCategory;
-  const { courseID } = key && key.queryKey[1];
+  const { courseID, userId } = key && key.queryKey[1];
   if (courseID) {
     const { data } = await axios({
-      url: `${config.app.apiHost}${url(courseID)}`,
+      url: `${config.app.apiHost}${url(courseID, userId)}`,
       method: method,
     });
     return data;

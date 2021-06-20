@@ -25,6 +25,7 @@ const MobileNav = ({
   handleLogout,
   handleTypingKeyword,
   handleBlankKeyword,
+  wishlistItems,
 }) => {
   const [userInfo] = useAtom(userAtom);
   const [, setLang] = useAtom(setLangAtom);
@@ -86,6 +87,18 @@ const MobileNav = ({
                     </div>
                     <div className={styles.right}>
                       <Right />
+                    </div>
+                  </NavLink>
+                  <NavLink to='/wishlist' className={styles.navitem}>
+                    <Typography variant={TypographyVariants.Body1}>
+                      Your wishlist
+                    </Typography>
+                    <div className={styles.right}>
+                      <Typography
+                        className={styles.basketAmount}
+                        variant={TypographyVariants.Body2}>
+                        {wishlistItems && wishlistItems.length}
+                      </Typography>
                     </div>
                   </NavLink>
                   <NavLink to='/cart' className={styles.navitem}>

@@ -11,7 +11,7 @@ import { DesktopNav, HeaderFeature, MobileMenu, MobileNav } from './components';
 import { removeUserInfoAtom } from '@/store/login';
 
 import styles from './header.module.css';
-import { usePublicCourses } from '@/queries/hooks/courses';
+import { useGetWishlist, usePublicCourses } from '@/queries/hooks/courses';
 import { useGetCartItem, useLogout } from '@/queries/hooks/users';
 
 import { Brand } from '@/components/Icons';
@@ -32,6 +32,7 @@ const Header = () => {
   const showSearchInput = useToggle(false);
 
   const { data: courses, isLoading } = usePublicCourses('', '', keyword);
+  const { data: wishlistItems } = useGetWishlist();
   const { data: cartItems } = useGetCartItem();
   const { mutateAsync: logoutRemoveRefreshToken } = useLogout();
 
@@ -90,6 +91,7 @@ const Header = () => {
           onOpen={menuOpen.setActive}
         />
         <MobileNav
+          wishlistItems={wishlistItems}
           cartItems={cartItems}
           handleLogout={handleLogout}
           isOpen={menuOpen.active}
@@ -105,6 +107,7 @@ const Header = () => {
             <Brand />
           </Link>
           <DesktopNav
+            wishlistItems={wishlistItems}
             cartItems={cartItems}
             handleTypingKeyword={handleTypingKeyword}
             keyword={keyword}

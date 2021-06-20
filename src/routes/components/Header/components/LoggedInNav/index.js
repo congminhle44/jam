@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
 import Typography, { TypographyVariants } from '@/components/Typography';
-import { Cart, Logout, Profile } from '@/components/Icons';
+import { Cart, Heart, Logout, Profile } from '@/components/Icons';
 
 import { SlicedName } from '@/helpers/name';
 
@@ -11,7 +11,13 @@ import styles from './style.module.css';
 import { useRef } from 'react';
 import useClickOutside from '@/hooks/useClickOutside';
 
-const LoggedInNav = ({ userInfo, handleLogout, openMenu, cartItems }) => {
+const LoggedInNav = ({
+  userInfo,
+  handleLogout,
+  openMenu,
+  cartItems,
+  wishlistItems,
+}) => {
   const containerRef = useRef();
 
   useClickOutside(containerRef, openMenu.setInActive);
@@ -44,6 +50,19 @@ const LoggedInNav = ({ userInfo, handleLogout, openMenu, cartItems }) => {
               className={styles.text}
               variant={TypographyVariants.Body1}>
               <FormattedMessage id='header.profile' />
+            </Typography>
+          </Link>
+          <Link to='/wishlist' className={styles.menuItem}>
+            <div className={styles.icon}>
+              <Heart />
+              {wishlistItems && wishlistItems.length > 0 && (
+                <div className={styles.amount}>{wishlistItems.length}</div>
+              )}
+            </div>
+            <Typography
+              className={styles.text}
+              variant={TypographyVariants.Body1}>
+              Your wishlist
             </Typography>
           </Link>
           <Link to='/cart' className={styles.menuItem}>

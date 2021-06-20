@@ -14,6 +14,9 @@ import {
   momoRedirectCheckout,
   momoCheckout,
   comment,
+  getWishlist,
+  addWishlist,
+  deleteWishlist,
 } from '../apis/courses';
 import { handleError } from '@/helpers/requests';
 import useMakeMutation from '@/hooks/useMakeMutation';
@@ -23,8 +26,8 @@ export const usePublicCourses = (page, limit, keyword) =>
     onError: handleError,
   });
 
-export const useCourseDetails = (id) =>
-  useQuery(['courseDetails', { id }], getDetailCourse, {
+export const useCourseDetails = (id, userId) =>
+  useQuery(['courseDetails', { id, userId }], getDetailCourse, {
     onError: handleError,
   });
 
@@ -42,6 +45,21 @@ export const useLessonSource = (id) =>
   useQuery(['lessonSource', { id }], getLessonSource, {
     onError: handleError,
   });
+
+export const useGetWishlist = () =>
+  useQuery(['getWishlist'], getWishlist, {
+    onError: handleError,
+  });
+
+export const useWishlist = () => {
+  const { mutation } = useMakeMutation(addWishlist);
+  return mutation;
+};
+
+export const useRemoveWishlist = () => {
+  const { mutation } = useMakeMutation(deleteWishlist);
+  return mutation;
+};
 
 export const useCartItem = () => {
   const { mutation } = useMakeMutation(addCourseToCart);

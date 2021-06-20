@@ -25,7 +25,7 @@ const Profile = () => {
   const { data: processData } = useLearningProcess(course);
 
   useEffect(() => {
-    if (userLibrary) setCourse(userLibrary[0]._id);
+    if (userLibrary && userLibrary.length > 0) setCourse(userLibrary[0]._id);
   }, [userLibrary]);
 
   const handleSetCourseId = (id) => {

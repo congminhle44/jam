@@ -17,26 +17,32 @@ import { useAtom } from 'jotai';
 import { courseSettings } from './courseSettings';
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
 import { Heart } from '@/components/Icons';
-import { useCartItem } from '@/queries/hooks/courses';
+import {
+  useCartItem,
+  useGetWishlist,
+  useRemoveWishlist,
+  useWishlist,
+} from '@/queries/hooks/courses';
 import { useGetCartItem } from '@/queries/hooks/users';
 import { showAlertAtom } from '@/store/alert';
 import AlertStatus from '../AlertStatus';
 import { AlertVariants } from '@/components/Alert';
-import { derivedTokenAtom } from '@/store/token';
 import { userAtom } from '@/store/login';
 
-const CourseTabs = ({ isLoading, courses }) => {
+const CourseTabs = ({ isLoading, courses, refetchCourse }) => {
   const history = useHistory();
   const [, showAlert] = useAtom(showAlertAtom);
   const [userInfo] = useAtom(userAtom);
-  const [userToken] = useAtom(derivedTokenAtom);
 
-  const { refetch: refetchCartList } = useGetCartItem(userToken);
+  const { refetch: refetchCartList } = useGetCartItem();
+  const { refetch: refetchWishlist } = useGetWishlist();
   const { mutateAsync: addItemToCart } = useCartItem();
+  const { mutateAsync: addItemToWishlist } = useWishlist();
+  const { mutateAsync: removeItemFromWishlist } = useRemoveWishlist();
 
   const handleAddItemToCart = (courseId) => {
     if (userInfo) {
-      return addItemToCart({ courseId, token: userToken })
+      return addItemToCart({ courseId })
         .then((result) => {
           showAlert({
             component: AlertStatus,
@@ -61,6 +67,54 @@ const CourseTabs = ({ isLoading, courses }) => {
     } else {
       history.push('/login');
     }
+  };
+
+  const handleAddItemToWishlist = (courseId) => {
+    return addItemToWishlist({ courseId })
+      .then((result) => {
+        showAlert({
+          component: AlertStatus,
+          props: {
+            variant: AlertVariants.Success,
+            children: result.message,
+          },
+        });
+        refetchWishlist();
+        refetchCourse();
+      })
+      .catch((err) => {
+        showAlert({
+          component: AlertStatus,
+          props: {
+            variant: AlertVariants.Error,
+            children: err.response && err.response.data.message,
+          },
+        });
+      });
+  };
+
+  const handleRemoveItemFromWishlist = (courseId) => {
+    return removeItemFromWishlist({ courseId })
+      .then((result) => {
+        showAlert({
+          component: AlertStatus,
+          props: {
+            variant: AlertVariants.Success,
+            children: result.message,
+          },
+        });
+        refetchWishlist();
+        refetchCourse();
+      })
+      .catch((err) => {
+        showAlert({
+          component: AlertStatus,
+          props: {
+            variant: AlertVariants.Error,
+            children: err.response && err.response.data.message,
+          },
+        });
+      });
   };
 
   const renderCourseByCategory = () => {
@@ -117,7 +171,13 @@ const CourseTabs = ({ isLoading, courses }) => {
                 size={ButtonSizes.Small}>
                 Add to cart
               </Button>
-              <div className={styles.wish}>
+              <div
+                onClick={() => {
+                  course.isWished
+                    ? handleRemoveItemFromWishlist(course._id)
+                    : handleAddItemToWishlist(course._id);
+                }}
+                className={clsx(styles.wish, course.isWished && styles.wished)}>
                 <div className={styles.heart}>
                   <Heart />
                 </div>

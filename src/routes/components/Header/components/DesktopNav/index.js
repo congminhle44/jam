@@ -15,7 +15,7 @@ import styles from '../../header.module.css';
 import { useRef } from 'react';
 import useClickOutside from '@/hooks/useClickOutside';
 
-const DesktopNav = ({ handleLogout, openMenu, cartItems }) => {
+const DesktopNav = ({ handleLogout, openMenu, cartItems, wishlistItems }) => {
   const categoryListRef = useRef();
 
   const [userInfo] = useAtom(userAtom);
@@ -47,6 +47,7 @@ const DesktopNav = ({ handleLogout, openMenu, cartItems }) => {
 
       {userInfo ? (
         <LoggedInNav
+          wishlistItems={wishlistItems}
           cartItems={cartItems}
           openMenu={openMenu}
           handleLogout={handleLogout}

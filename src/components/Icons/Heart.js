@@ -5,7 +5,7 @@ const Heart = () => (
     <title>heart 2</title>
     <g
       strokeLinecap='square'
-      strokeWidth={2.5}
+      strokeWidth='4'
       fill='none'
       stroke='currentColor'
       strokeLinejoin='miter'

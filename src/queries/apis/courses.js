@@ -15,9 +15,9 @@ export const getPublicCourses = async (key) => {
 
 export const getDetailCourse = async (key) => {
   const { url, method } = config.apis.getCourseDetails;
-  const { id } = key && key.queryKey[1];
+  const { id, userId } = key && key.queryKey[1];
   const { data } = await axios({
-    url: `${config.app.apiHost}${url(id)}`,
+    url: `${config.app.apiHost}${url(id, userId)}`,
     method: method,
   });
   return data;
@@ -49,6 +49,35 @@ export const getLessonSource = async (key) => {
   const { data } = await axios({
     url: `${config.app.apiHost}${url(id)}`,
     method: method,
+  });
+  return data;
+};
+
+export const getWishlist = async () => {
+  const { url, method } = config.apis.getWishlist;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+  });
+  return data;
+};
+
+export const addWishlist = async (requestBody) => {
+  const { url, method } = config.apis.addWishlist;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+    data: requestBody,
+  });
+  return data;
+};
+
+export const deleteWishlist = async (requestBody) => {
+  const { url, method } = config.apis.removeWishlist;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+    data: requestBody,
   });
   return data;
 };
