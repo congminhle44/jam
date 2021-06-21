@@ -22,7 +22,8 @@ const Profile = () => {
   const { data: userInfo, refetch: refetUserProfile } = useProfile();
   const { data: userLibrary } = useLibrary();
   const { mutateAsync: uploadAvatar } = useAvatar();
-  const { data: processData } = useLearningProcess(course);
+  const { data: processData, isLoading: isProcessLoading } =
+    useLearningProcess(course);
 
   useEffect(() => {
     if (userLibrary && userLibrary.length > 0) setCourse(userLibrary[0]._id);
@@ -47,6 +48,7 @@ const Profile = () => {
           refetUserProfile={refetUserProfile}
         />
         <Library
+          isProcessLoading={isProcessLoading}
           handleRedirectUser={handleRedirectUser}
           processData={processData}
           courseId={course}

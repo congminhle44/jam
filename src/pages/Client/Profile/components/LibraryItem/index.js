@@ -4,6 +4,7 @@ import { Up } from '@/components/Icons';
 import Typography, { TypographyVariants } from '@/components/Typography';
 import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
+import Skeleton from 'react-loading-skeleton';
 import LibItemDetail from '../ItemDetail';
 import styles from './item.module.css';
 
@@ -13,6 +14,7 @@ const LibraryItem = ({
   courseId,
   processData,
   handleRedirectUser,
+  isProcessLoading,
 }) => {
   return (
     <div
@@ -47,13 +49,25 @@ const LibraryItem = ({
           <Up />
         </div>
       </div>
-      {courseId === userItem._id && (
-        <LibItemDetail
-          handleRedirectUser={handleRedirectUser}
-          course={userItem}
-          processData={processData}
-        />
-      )}
+      {courseId === userItem._id &&
+        (isProcessLoading ? (
+          <div>
+            <Skeleton
+              className={styles.processSkeleton}
+              width='100%'
+              height={53.6}
+            />
+            <div className={styles.skeletonButton}>
+              <Skeleton width={168} height={40} />
+            </div>
+          </div>
+        ) : (
+          <LibItemDetail
+            handleRedirectUser={handleRedirectUser}
+            course={userItem}
+            processData={processData}
+          />
+        ))}
     </div>
   );
 };

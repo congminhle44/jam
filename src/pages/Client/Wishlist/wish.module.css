@@ -12,6 +12,9 @@
   color: var(--text);
   margin-bottom: 1.5rem;
 }
+.empty {
+  color: var(--text);
+}
 
 @media (min-width: 1280px) {
   .container {

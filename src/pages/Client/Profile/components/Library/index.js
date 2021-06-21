@@ -11,6 +11,7 @@ const Library = ({
   courseId,
   processData,
   handleRedirectUser,
+  isProcessLoading,
 }) => {
   const renderLibraryItems = () => {
     if (userLibrary) {
@@ -18,6 +19,7 @@ const Library = ({
         return (
           <LibraryItem
             key={item._id}
+            isProcessLoading={isProcessLoading}
             handleRedirectUser={handleRedirectUser}
             processData={processData}
             courseId={courseId}

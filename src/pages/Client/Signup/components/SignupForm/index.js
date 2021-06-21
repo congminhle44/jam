@@ -1,7 +1,7 @@
 /** @format */
 
 import Typography, { TypographyVariants } from '@/components/Typography';
-import Form from '@/pages/Signup/components/Form';
+import Form from '../Form';
 
 import Banner from '@/assets/Images/signup-bg.png';
 

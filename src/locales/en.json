@@ -102,5 +102,6 @@
     "checkout.error.thank":"Please try again later or contact us for support",
 
     "wish.title":"Your wishlist",
-    "wish.remove":"Remove"
+    "wish.remove":"Remove",
+    "wish.empty":"You don't have any wish"
 }

@@ -1,7 +1,7 @@
 /** @format */
 
 .container {
-  background-image: url('../../../../assets/Images/topping.png');
+  background-image: url('../../../../../assets/Images/topping.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: auto;

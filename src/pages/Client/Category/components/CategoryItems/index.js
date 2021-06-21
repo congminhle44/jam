@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 
 import Typography, { TypographyVariants } from '@/components/Typography';
-import Rating from '../../../../components/Rating';
+import RateStar from '@/components/Rating';
 
 import ErrorImg from '@/assets/Images/Image-error.jpg';
 
@@ -36,7 +36,7 @@ const CategoryItems = ({ course }) => {
             variant={TypographyVariants.Label1}>
             {course.personCreated.fullName}
           </Typography>
-          <Rating
+          <RateStar
             readOnly
             showRateInText
             value={course.averageRate}

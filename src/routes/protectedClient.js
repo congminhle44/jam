@@ -9,7 +9,7 @@ import { userAtom } from '@/store/login';
 import config from '@/config';
 
 import ClientLayout from './layout/client';
-import Notfound from '@/pages/Notfound';
+import Notfound from '@/pages/Client/Notfound';
 
 const ProtectedClientRoute = ({
   component: Component,
@@ -40,22 +40,22 @@ export const protectedRoutes = [
   {
     path: config.paths.profile,
     exact: true,
-    component: lazy(() => import('@/pages/Profile')),
+    component: lazy(() => import('@/pages/Client/Profile')),
   },
   {
     path: config.paths.successCheckout,
     exact: false,
-    component: lazy(() => import('@/pages/CheckoutSuccess')),
+    component: lazy(() => import('@/pages/Client/CheckoutSuccess')),
   },
   {
     path: config.paths.errorCheckout,
     exact: false,
-    component: lazy(() => import('@/pages/CheckoutError')),
+    component: lazy(() => import('@/pages/Client/CheckoutError')),
   },
   {
     path: config.paths.wishlist,
     exact: false,
-    component: lazy(() => import('@/pages/Wishlist')),
+    component: lazy(() => import('@/pages/Client/Wishlist')),
   },
 ];
 

@@ -60,10 +60,14 @@ const CourseDetails = ({ match }) => {
     e.preventDefault();
     return uploadComment({
       courseId: courseInfo._id,
-      content: comment.content,
+      content: comment.content.trim(),
       rate: comment.rate,
     })
       .then(() => {
+        setComment({
+          content: '',
+          rate: 5,
+        });
         refetchComment();
         refetchCourseInfo();
       })
@@ -146,9 +150,10 @@ const CourseDetails = ({ match }) => {
                   <FormattedMessage id='course.comment.title' />
                 </Typography>
                 <Input
+                  value={comment.content}
                   className={styles.input}
                   onChange={(e) =>
-                    setComment({ ...comment, content: e.target.value.trim() })
+                    setComment({ ...comment, content: e.target.value })
                   }
                   placeholder={intl.formatMessage({
                     id: 'course.comment.placeholder',

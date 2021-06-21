@@ -99,5 +99,7 @@
     "checkout.error.notify":"Hãy thử lại sau hoặc liên hệ với chúng tôi để được hỗ trợ",
 
     "wish.title":"Danh sách yêu thích của bạn",
-    "wish.remove":"Xóa"
+    "wish.remove":"Xóa",
+    "wish.empty":"Bạn chưa yêu thích khóa học nào"
+
 }

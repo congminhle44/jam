@@ -59,7 +59,7 @@ const config = {
     },
     getPublicCourses: {
       url: (page = '', limit = '', keyword = '') =>
-        `api/courses/public?page=${page}&limit=${limit}&keyword=${keyword}`,
+        `/courses/public?page=${page}&limit=${limit}&keyword=${keyword}`,
       method: 'GET',
     },
     comment: {
