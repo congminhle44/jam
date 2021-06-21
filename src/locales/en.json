@@ -11,6 +11,7 @@
     "header.signin":"Sign In",
     "header.basket":"Your Basket",
     "header.profile":"Profile",
+    "header.wish":"Your wishlist",
 
     "banner.title":"welcome to jam academy",
     "banner.description":"Your future is depending on what you've learnt today",
@@ -98,5 +99,8 @@
 
     "checkout.error.title":"error",
     "checkout.error.detail":"Your order has been denied",
-    "checkout.error.thank":"Please try again later or contact us for support"
+    "checkout.error.thank":"Please try again later or contact us for support",
+
+    "wish.title":"Your wishlist",
+    "wish.remove":"Remove"
 }

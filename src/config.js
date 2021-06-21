@@ -32,6 +32,7 @@ const config = {
     terms: '/terms',
     about: '/about',
     oauthRedirect: '/oauth/redirect',
+    wishlist: '/wish',
   },
   apis: {
     getCategories: {

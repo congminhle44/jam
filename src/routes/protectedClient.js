@@ -52,6 +52,11 @@ export const protectedRoutes = [
     exact: false,
     component: lazy(() => import('@/pages/CheckoutError')),
   },
+  {
+    path: config.paths.wishlist,
+    exact: false,
+    component: lazy(() => import('@/pages/Wishlist')),
+  },
 ];
 
 export default ProtectedClientRoute;

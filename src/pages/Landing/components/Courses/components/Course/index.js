@@ -57,7 +57,7 @@ const CourseTabs = ({ isLoading, courses, refetchCourse }) => {
           showAlert({
             component: AlertStatus,
             props: {
-              variant: AlertVariants.Error,
+              variant: AlertVariants.Warning,
               children: err.response
                 ? err.response.data.message
                 : 'Can not add item to cart',
@@ -70,27 +70,31 @@ const CourseTabs = ({ isLoading, courses, refetchCourse }) => {
   };
 
   const handleAddItemToWishlist = (courseId) => {
-    return addItemToWishlist({ courseId })
-      .then((result) => {
-        showAlert({
-          component: AlertStatus,
-          props: {
-            variant: AlertVariants.Success,
-            children: result.message,
-          },
+    if (userInfo) {
+      return addItemToWishlist({ courseId })
+        .then((result) => {
+          showAlert({
+            component: AlertStatus,
+            props: {
+              variant: AlertVariants.Success,
+              children: result.message,
+            },
+          });
+          refetchWishlist();
+          refetchCourse();
+        })
+        .catch((err) => {
+          showAlert({
+            component: AlertStatus,
+            props: {
+              variant: AlertVariants.Error,
+              children: err.response && err.response.data.message,
+            },
+          });
         });
-        refetchWishlist();
-        refetchCourse();
-      })
-      .catch((err) => {
-        showAlert({
-          component: AlertStatus,
-          props: {
-            variant: AlertVariants.Error,
-            children: err.response && err.response.data.message,
-          },
-        });
-      });
+    } else {
+      history.push('/login');
+    }
   };
 
   const handleRemoveItemFromWishlist = (courseId) => {

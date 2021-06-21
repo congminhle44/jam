@@ -89,9 +89,9 @@ const MobileNav = ({
                       <Right />
                     </div>
                   </NavLink>
-                  <NavLink to='/wishlist' className={styles.navitem}>
+                  <NavLink to='/wish' className={styles.navitem}>
                     <Typography variant={TypographyVariants.Body1}>
-                      Your wishlist
+                      <FormattedMessage id='header.wish' />
                     </Typography>
                     <div className={styles.right}>
                       <Typography
