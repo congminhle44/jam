@@ -10,6 +10,7 @@
   "header.signin":"Đăng nhập",
   "header.basket":"Giỏ hàng của bạn",
   "header.profile":"Thông tin tài khoản",
+  "header.wish":"Danh sách yêu thích của bạn",
 
   "banner.title":"Chào mừng bạn đến với Jam academy",
   "banner.description":"Tương lai của bạn phụ thuộc vào những gì bạn đã học được vào ngày hôm nay",
@@ -95,5 +96,10 @@
 
     "checkout.error.title":"lỗi",
     "checkout.error.detail":"Đơn hàng của bạn đã bị từ chối",
-    "checkout.error.notify":"Hãy thử lại sau hoặc liên hệ với chúng tôi để được hỗ trợ"
+    "checkout.error.notify":"Hãy thử lại sau hoặc liên hệ với chúng tôi để được hỗ trợ",
+
+    "wish.title":"Danh sách yêu thích của bạn",
+    "wish.remove":"Xóa",
+    "wish.empty":"Bạn chưa yêu thích khóa học nào"
+
 }

@@ -8,7 +8,7 @@ import { userAtom } from '@/store/login';
 
 import config from '@/config';
 
-import Notfound from '@/pages/Notfound';
+import Notfound from '@/pages/Client/Notfound';
 import ClientLessonLayout from './layout/lesson';
 
 const ProtectedClientLesson = ({
@@ -40,7 +40,7 @@ export const clientLessonRoutes = [
   {
     path: config.paths.studentLessons,
     exact: true,
-    component: lazy(() => import('@/pages/LessonClient')),
+    component: lazy(() => import('@/pages/Client/LessonClient')),
   },
 ];
 

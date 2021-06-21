@@ -1,0 +1,25 @@
+/** @format */
+
+.container {
+  margin: 0 auto;
+  margin-top: 4.25rem;
+  min-height: 65vh;
+  padding: 1.5rem;
+  max-width: var(--maxwidth-mobile);
+}
+
+.title {
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+.empty {
+  color: var(--text);
+}
+
+@media (min-width: 1280px) {
+  .container {
+    margin-top: 5rem;
+    max-width: var(--maxwidth-desktop);
+    padding: 1.5rem 0;
+  }
+}

@@ -31,7 +31,7 @@
 }
 .container.warning {
   background-color: var(--warning);
-  color: var(--text);
+  color: var(--black);
 }
 .content {
   width: 100%;

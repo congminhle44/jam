@@ -52,7 +52,7 @@ const LoggedInNav = ({
               <FormattedMessage id='header.profile' />
             </Typography>
           </Link>
-          <Link to='/wishlist' className={styles.menuItem}>
+          <Link to='/wish' className={styles.menuItem}>
             <div className={styles.icon}>
               <Heart />
               {wishlistItems && wishlistItems.length > 0 && (
@@ -62,7 +62,7 @@ const LoggedInNav = ({
             <Typography
               className={styles.text}
               variant={TypographyVariants.Body1}>
-              Your wishlist
+              <FormattedMessage id='header.wish' />
             </Typography>
           </Link>
           <Link to='/cart' className={styles.menuItem}>

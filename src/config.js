@@ -32,6 +32,7 @@ const config = {
     terms: '/terms',
     about: '/about',
     oauthRedirect: '/oauth/redirect',
+    wishlist: '/wish',
   },
   apis: {
     getCategories: {
@@ -58,7 +59,7 @@ const config = {
     },
     getPublicCourses: {
       url: (page = '', limit = '', keyword = '') =>
-        `api/courses/public?page=${page}&limit=${limit}&keyword=${keyword}`,
+        `/courses/public?page=${page}&limit=${limit}&keyword=${keyword}`,
       method: 'GET',
     },
     comment: {
