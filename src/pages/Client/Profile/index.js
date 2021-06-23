@@ -1,6 +1,5 @@
 /** @format */
 import { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
 
 import Background from '@/assets/Images/instructor-background.png';
 import UserCover from '@/assets/Images/user-banner.png';
@@ -16,7 +15,6 @@ import Library from './components/Library';
 import styles from './profile.module.css';
 
 const Profile = () => {
-  const history = useHistory();
   const [course, setCourse] = useState('');
 
   const { data: userInfo, refetch: refetUserProfile } = useProfile();
@@ -34,7 +32,7 @@ const Profile = () => {
   };
 
   const handleRedirectUser = (courseId, lessonId) => {
-    history.push(`/course/${courseId}/lesson/${lessonId}`);
+    window.location.href = `/course/${courseId}/lesson/${lessonId}`;
   };
 
   return (

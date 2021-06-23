@@ -87,7 +87,7 @@ const CourseTabs = ({ isLoading, courses, refetchCourse }) => {
           showAlert({
             component: AlertStatus,
             props: {
-              variant: AlertVariants.Error,
+              variant: AlertVariants.Warning,
               children: err.response && err.response.data.message,
             },
           });

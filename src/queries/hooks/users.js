@@ -5,6 +5,7 @@ import useMakeMutation from '@/hooks/useMakeMutation';
 
 import { handleError } from '@/helpers/requests';
 import {
+  changePassword,
   getCartItem,
   getLearningProcess,
   getUserInfo,
@@ -13,11 +14,22 @@ import {
   register,
   removeRefreshTokenApi,
   updateLearningProcess,
+  updateUser,
   uploadAvatar,
 } from '../apis/users';
 
 export const useLogin = () => {
   const { mutation } = useMakeMutation(login);
+  return mutation;
+};
+
+export const useUpdateProfile = () => {
+  const { mutation } = useMakeMutation(updateUser);
+  return mutation;
+};
+
+export const usePassword = () => {
+  const { mutation } = useMakeMutation(changePassword);
   return mutation;
 };
 

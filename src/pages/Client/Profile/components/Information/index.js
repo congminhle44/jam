@@ -1,5 +1,6 @@
 /** @format */
 import { useAtom } from 'jotai';
+import { useHistory } from 'react-router';
 
 import Alert, { AlertVariants } from '@/components/Alert';
 import { Edit } from '@/components/Icons';
@@ -11,6 +12,8 @@ import styles from './information.module.css';
 import { addUserInfoAtom } from '@/store/login';
 
 const Information = ({ uploadAvatar, userInfo, refetUserProfile }) => {
+  const history = useHistory();
+
   const [, showAlert] = useAtom(showAlertAtom);
   const [, setNewUserInfo] = useAtom(addUserInfoAtom);
 
@@ -51,7 +54,9 @@ const Information = ({ uploadAvatar, userInfo, refetUserProfile }) => {
         <div className={styles.detail}>
           <Typography className={styles.name} variant={TypographyVariants.H5}>
             {userInfo?.fullName}
-            <div className={styles.edit}>
+            <div
+              onClick={() => history.push('/profile/edit/info')}
+              className={styles.edit}>
               <Edit />
             </div>
           </Typography>

@@ -1,0 +1,21 @@
+/** @format */
+
+.container {
+  margin-top: 1.5rem;
+  padding: 0 1.5rem;
+}
+.title {
+  color: var(--text);
+}
+
+@media (min-width: 768px) {
+  .container {
+    min-width: 25rem;
+    margin-top: 0;
+    margin-left: 1.5rem;
+    padding: 1.5rem;
+    background-color: var(--bg-sub);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 4px var(--grey-4);
+  }
+}

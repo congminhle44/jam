@@ -1,0 +1,31 @@
+/** @format */
+
+.container {
+  display: flex;
+  background-color: var(--bg-sub);
+  padding: 1.5rem 0;
+  box-shadow: 0 0 4px var(--grey-4);
+  border-radius: 0.5rem;
+}
+
+.link {
+  display: block;
+  color: var(--text);
+  padding: 0 2rem;
+}
+.link.active {
+  border-left: 5px solid var(--primary);
+  color: var(--primary);
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: block;
+  }
+  .link {
+    margin-bottom: 2rem;
+  }
+  .link:last-child {
+    margin-bottom: 0;
+  }
+}

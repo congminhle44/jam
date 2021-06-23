@@ -1,0 +1,14 @@
+/** @format */
+
+.container {
+  margin-top: 1.5rem;
+}
+.input {
+  height: 5rem;
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}

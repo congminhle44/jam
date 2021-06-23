@@ -23,6 +23,26 @@ export const register = async (requestBody) => {
   return data;
 };
 
+export const updateUser = async (requestBody) => {
+  const { url, method } = config.apis.updateProfile;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+    data: requestBody,
+  });
+  return data;
+};
+
+export const changePassword = async (requestBody) => {
+  const { url, method } = config.apis.changePassword;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+    data: requestBody,
+  });
+  return data;
+};
+
 export const updateLearningProcess = async (requestBody) => {
   const { url, method } = config.apis.updatelearningProcess;
   const { data } = await axios({

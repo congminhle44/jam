@@ -5,6 +5,8 @@
   border-radius: 0.5rem;
   box-shadow: 0px 0px 4px var(--grey-4);
   max-width: 45.625rem;
+  max-height: 30rem;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -50,16 +52,14 @@
     display: block;
     object-fit: cover;
     width: 45%;
-    height: 50vh;
+    height: 70vh;
     border-radius: 0.5rem 0 0 0.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .img {
-    object-fit: cover;
     width: 45%;
-    height: 60vh;
     border-radius: 0.5rem 0 0 0.5rem;
   }
 }

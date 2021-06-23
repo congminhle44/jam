@@ -29,3 +29,4 @@ export { default as Brand } from './Brand';
 export { default as Heart } from './Heart';
 export { default as Edit } from './Edit';
 export { default as ErrorIco } from './ErrorIco';
+export { default as Swap } from './Swap';

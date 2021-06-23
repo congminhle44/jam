@@ -25,6 +25,8 @@ const config = {
     cart: '/cart',
     checkout: '/cart/checkout',
     profile: '/profile',
+    profileEdit: '/profile/edit/info',
+    changePassword: '/profile/edit/password',
     studentLessons: '/course/:courseId/lesson/:lessonId',
     momoRedirect: '/payment/redirect',
     successCheckout: '/payment/success',
@@ -146,9 +148,13 @@ const config = {
       url: '/courses/wishlist/delete',
       method: 'POST',
     },
-    oauthLogout: {
-      url: '/logout',
-      method: 'GET',
+    updateProfile: {
+      url: '/users',
+      method: 'PUT',
+    },
+    changePassword: {
+      url: '/users/changePassword',
+      method: 'PATCH',
     },
   },
 };
