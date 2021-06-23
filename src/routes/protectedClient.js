@@ -57,6 +57,16 @@ export const protectedRoutes = [
     exact: false,
     component: lazy(() => import('@/pages/Client/Wishlist')),
   },
+  {
+    path: config.paths.profileEdit,
+    exact: true,
+    component: lazy(() => import('@/pages/Client/UpdateInfo')),
+  },
+  {
+    path: config.paths.changePassword,
+    exact: true,
+    component: lazy(() => import('@/pages/Client/ChangePassword')),
+  },
 ];
 
 export default ProtectedClientRoute;

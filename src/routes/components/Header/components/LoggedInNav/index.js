@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
 import Typography, { TypographyVariants } from '@/components/Typography';
-import { Cart, Heart, Logout, Profile } from '@/components/Icons';
+import { Cart, Heart, Logout, Profile, Swap } from '@/components/Icons';
 
 import { SlicedName } from '@/helpers/name';
 
@@ -65,6 +65,21 @@ const LoggedInNav = ({
               <FormattedMessage id='header.wish' />
             </Typography>
           </Link>
+          {userInfo.userType === 'tutor' && (
+            <Link to='/tutor/dashboard' className={styles.menuItem}>
+              <div className={styles.icon}>
+                <Swap />
+                {wishlistItems && wishlistItems.length > 0 && (
+                  <div className={styles.amount}>{wishlistItems.length}</div>
+                )}
+              </div>
+              <Typography
+                className={styles.text}
+                variant={TypographyVariants.Body1}>
+                Switch to tutor
+              </Typography>
+            </Link>
+          )}
           <Link to='/cart' className={styles.menuItem}>
             <div className={styles.icon}>
               <Cart />

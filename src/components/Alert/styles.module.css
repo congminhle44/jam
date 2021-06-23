@@ -2,7 +2,7 @@
 
 .superwrap {
   position: fixed;
-  bottom: 0;
+  top: 10%;
   right: 0;
   width: 100%;
   padding: 1.5rem 2rem;
@@ -62,11 +62,11 @@
 @keyframes appear {
   from {
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateX(100%);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 @keyframes countdown {

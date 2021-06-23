@@ -2,7 +2,7 @@
 
 import useToggle from '@/hooks/useToggle';
 import clsx from 'clsx';
-import { forwardRef } from 'react';
+import { forwardRef, useEffect } from 'react';
 import { Search } from '../Icons';
 import Typography, { TypographyVariants } from '../Typography';
 import styles from './styles.module.css';
@@ -24,7 +24,11 @@ const Input = forwardRef(
   ) => {
     const toggleFocus = useToggle(false);
 
-    const { disabled } = { ...others };
+    const { disabled, defaultValue } = { ...others };
+
+    useEffect(() => {
+      if (defaultValue && defaultValue !== '') toggleFocus.setActive();
+    }, [defaultValue, toggleFocus]);
 
     return (
       <div className={className}>

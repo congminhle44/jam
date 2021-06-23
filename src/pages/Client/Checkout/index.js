@@ -43,7 +43,7 @@ const Checkout = () => {
             variant: AlertVariants.Error,
             children:
               err.response &&
-              `${err.response.data.message}, we will automatically bring you back to hompage in 5s`,
+              `${err.response.data.message}, you will be back to homepage in 5s`,
           },
         });
         setTimeout(() => {

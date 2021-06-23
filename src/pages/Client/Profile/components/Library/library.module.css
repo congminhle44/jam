@@ -3,10 +3,14 @@
 .container {
   margin-top: 2rem;
   max-width: 45.5rem;
-  margin: 2rem auto 0 auto;
+  margin: 2rem auto;
 }
 
 .title {
   color: var(--text);
   margin-bottom: 1.5rem;
+}
+
+.empty {
+  color: var(--text);
 }

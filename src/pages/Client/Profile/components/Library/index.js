@@ -36,7 +36,15 @@ const Library = ({
       <Typography className={styles.title} variant={TypographyVariants.Title3}>
         <FormattedMessage id='profile.title' />
       </Typography>
-      <div className={styles.list}>{renderLibraryItems()}</div>
+      <div className={styles.list}>
+        {userLibrary && userLibrary.length > 0 ? (
+          renderLibraryItems()
+        ) : (
+          <Typography className={styles.empty} variant={TypographyVariants.H6}>
+            You didn't have any course
+          </Typography>
+        )}
+      </div>
     </div>
   );
 };
