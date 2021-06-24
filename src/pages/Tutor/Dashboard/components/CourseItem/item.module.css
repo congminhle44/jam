@@ -1,0 +1,27 @@
+/** @format */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 0 4px var(--grey-4);
+  background-color: var(--bg-sub);
+  color: var(--text);
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+.container:last-child {
+  margin-bottom: 0;
+}
+
+.infoTitle {
+  color: var(--grey-7);
+  margin-bottom: 0.75rem;
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+}

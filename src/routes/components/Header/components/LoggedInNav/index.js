@@ -66,7 +66,7 @@ const LoggedInNav = ({
             </Typography>
           </Link>
           {userInfo.userType === 'tutor' && (
-            <Link to='/tutor/dashboard' className={styles.menuItem}>
+            <a href='/tutor/dashboard' className={styles.menuItem}>
               <div className={styles.icon}>
                 <Swap />
                 {wishlistItems && wishlistItems.length > 0 && (
@@ -78,7 +78,7 @@ const LoggedInNav = ({
                 variant={TypographyVariants.Body1}>
                 Switch to tutor
               </Typography>
-            </Link>
+            </a>
           )}
           <Link to='/cart' className={styles.menuItem}>
             <div className={styles.icon}>

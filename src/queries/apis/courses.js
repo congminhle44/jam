@@ -23,6 +23,17 @@ export const getDetailCourse = async (key) => {
   return data;
 };
 
+export const getTutorCourses = async (key) => {
+  const { url, method } = config.apis.getTutorCourse;
+  const { page, limit, keyword } = key && key.queryKey[1];
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+    params: { page, limit, keyword },
+  });
+  return data;
+};
+
 export const getCommentsInCourse = async (key) => {
   const { url, method } = config.apis.getCommentsInCourse;
   const { id } = key && key.queryKey[1];
@@ -84,6 +95,16 @@ export const deleteWishlist = async (requestBody) => {
 
 export const addCourseToCart = async (requestBody) => {
   const { url, method } = config.apis.addItemToCart;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+    data: requestBody,
+  });
+  return data;
+};
+
+export const createCourse = async (requestBody) => {
+  const { url, method } = config.apis.createCourse;
   const { data } = await axios({
     url: `${config.app.apiHost}${url}`,
     method: method,

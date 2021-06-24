@@ -1,0 +1,75 @@
+/** @format */
+
+.container {
+  position: relative;
+}
+
+.ava {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 12rem;
+  background-color: var(--bg-sub);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 4px var(--grey-4);
+  padding: 1rem;
+  visibility: hidden;
+  transform: translate(30%, -50%) scale(0);
+  transition: all 0.3s ease;
+}
+.menu.show {
+  visibility: visible;
+  transform: translate(0, 0) scale(1);
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+  cursor: pointer;
+}
+.link:nth-child(4) {
+  margin-bottom: 0;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.lang {
+  margin-top: 1.25rem;
+}
+.langList {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.langItem {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.langItem:first-child {
+  margin-right: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .link:nth-child(2) {
+    display: none;
+  }
+  .lang {
+    display: none;
+  }
+}

@@ -17,6 +17,8 @@ import {
   getWishlist,
   addWishlist,
   deleteWishlist,
+  getTutorCourses,
+  createCourse,
 } from '../apis/courses';
 import { handleError } from '@/helpers/requests';
 import useMakeMutation from '@/hooks/useMakeMutation';
@@ -28,6 +30,11 @@ export const usePublicCourses = (page, limit, keyword) =>
 
 export const useCourseDetails = (id, userId) =>
   useQuery(['courseDetails', { id, userId }], getDetailCourse, {
+    onError: handleError,
+  });
+
+export const useTutorCourses = (page, limit, keyword) =>
+  useQuery(['courseTutor', { page, limit, keyword }], getTutorCourses, {
     onError: handleError,
   });
 
@@ -53,6 +60,11 @@ export const useGetWishlist = () =>
 
 export const useWishlist = () => {
   const { mutation } = useMakeMutation(addWishlist);
+  return mutation;
+};
+
+export const useCreateCourse = () => {
+  const { mutation } = useMakeMutation(createCourse);
   return mutation;
 };
 
