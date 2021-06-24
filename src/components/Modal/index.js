@@ -10,7 +10,15 @@ import Typography, { TypographyVariants } from '../Typography';
 
 import styles from './modal.module.css';
 
-const Modal = ({ header, body, okText, isOpen, onClose, onOk }) => {
+const Modal = ({
+  header,
+  children,
+  okText,
+  isOpen,
+  onClose,
+  onOk,
+  ...others
+}) => {
   const [mountDownTarget, setMountDownTarget] = useState(null);
 
   useEffect(() => {
@@ -48,12 +56,14 @@ const Modal = ({ header, body, okText, isOpen, onClose, onOk }) => {
           className={styles.overlay}
           onClick={handleOverlayClick}
           onMouseDown={handleOverlayMouseDown}>
-          <div className={styles.container}>
+          <div className={styles.container} {...others}>
             <div className={styles.header}>
               <Typography variant={TypographyVariants.H5}>{header}</Typography>
             </div>
             <div className={styles.body}>
-              <Typography variant={TypographyVariants.Body1}>{body}</Typography>
+              <Typography variant={TypographyVariants.Body1}>
+                {children}
+              </Typography>
             </div>
             <div className={styles.footer}>
               <div className={styles.cancel}>

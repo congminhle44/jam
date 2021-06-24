@@ -1,0 +1,46 @@
+/** @format */
+
+.container {
+  max-width: var(--maxwidth-mobile);
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.container,
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brandDetail {
+  margin-left: 1.3125rem;
+  color: var(--text);
+}
+
+.switch {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 1.5rem 0;
+  }
+  .user {
+    display: flex;
+    align-items: center;
+  }
+  .switch {
+    margin-right: 1.5rem;
+    display: block;
+  }
+  .link {
+    color: var(--text);
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: var(--maxwidth-desktop);
+  }
+}

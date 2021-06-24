@@ -20,7 +20,7 @@
   box-shadow: 0 0 2px transparent;
 }
 .container.text {
-  height: 23.5rem;
+  height: 15.75rem;
 }
 
 .searchIco {
@@ -34,6 +34,7 @@
 .input {
   width: 100%;
   height: 100%;
+  resize: none;
   background-color: transparent;
   border: none;
   padding: 0.875rem 1.5rem;
@@ -72,7 +73,7 @@
   transition: all 0.3s ease;
 }
 .label.text {
-  height: 12%;
+  height: 15.5%;
 }
 .label.focus {
   font-size: 0.75rem;

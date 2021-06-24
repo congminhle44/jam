@@ -1,0 +1,14 @@
+/** @format */
+
+.container {
+  max-width: 51.875rem;
+  margin: 1.5rem auto 0 auto;
+}
+
+.title {
+  color: var(--text);
+}
+
+.list {
+  margin-top: 1rem;
+}

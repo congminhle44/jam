@@ -35,6 +35,7 @@ const config = {
     about: '/about',
     oauthRedirect: '/oauth/redirect',
     wishlist: '/wish',
+    tutorDashboard: '/tutor/dashboard',
   },
   apis: {
     getCategories: {
@@ -155,6 +156,14 @@ const config = {
     changePassword: {
       url: '/users/changePassword',
       method: 'PATCH',
+    },
+    getTutorCourse: {
+      url: '/courses/tutor/g',
+      method: 'get',
+    },
+    createCourse: {
+      url: '/courses',
+      method: 'POST',
     },
   },
 };

@@ -9,6 +9,7 @@ import ProtectedClientRoute, { protectedRoutes } from './protectedClient';
 import Spinner from '@/components/Spinner';
 import Notfound from '@/pages/Client/Notfound';
 import ProtectedClientLesson, { clientLessonRoutes } from './lesson';
+import TutorRoute, { tutorRoutes } from './tutor';
 
 const Routes = () => (
   <Suspense fallback={<Spinner />}>
@@ -21,6 +22,9 @@ const Routes = () => (
       ))}
       {clientLessonRoutes.map((route, index) => (
         <ProtectedClientLesson key={index} {...route} />
+      ))}
+      {tutorRoutes.map((route, index) => (
+        <TutorRoute key={index} {...route} />
       ))}
       <Route component={Notfound} />
     </Switch>

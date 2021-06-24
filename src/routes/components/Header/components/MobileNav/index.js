@@ -70,7 +70,6 @@ const MobileNav = ({
                 />
               </div>
             </div>
-
             <div className={styles.navlist}>
               {userInfo && (
                 <>
@@ -89,6 +88,17 @@ const MobileNav = ({
                       <Right />
                     </div>
                   </NavLink>
+
+                  {userInfo.userType === 'tutor' && (
+                    <a href='/tutor/dashboard' className={styles.navitem}>
+                      <Typography variant={TypographyVariants.Body1}>
+                        Switch to tutor
+                      </Typography>
+                      <div className={styles.right}>
+                        <Right />
+                      </div>
+                    </a>
+                  )}
                   <NavLink to='/wish' className={styles.navitem}>
                     <Typography variant={TypographyVariants.Body1}>
                       <FormattedMessage id='header.wish' />
