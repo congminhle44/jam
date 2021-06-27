@@ -37,7 +37,7 @@ const CreateCourseForm = ({
         {...register('courseName', {
           required: true,
           minLength: 8,
-          maxLength: 80,
+          maxLength: 50,
         })}
         error={errors.courseName?.message}
       />

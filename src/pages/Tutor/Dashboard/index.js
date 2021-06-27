@@ -1,16 +1,18 @@
 /** @format */
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { showModalAtom } from '@/store/modal';
+import { useHistory } from 'react-router';
+import { useAtom } from 'jotai';
 
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
 import { useCreateCourse, useTutorCourses } from '@/queries/hooks/courses';
 import CourseList from './components/CourseLIst';
 
-import styles from './dashboard.module.css';
 import Notfound from '@/pages/Client/Notfound';
-import { useAtom } from 'jotai';
 import CreateCourseModal from './components/CreateCourseModal';
-import { useHistory } from 'react-router';
+
+import styles from './dashboard.module.css';
+
 const TutorDashboard = () => {
   const history = useHistory();
   const { mutateAsync: createCourse } = useCreateCourse();

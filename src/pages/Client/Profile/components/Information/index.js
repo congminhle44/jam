@@ -4,7 +4,6 @@ import { useHistory } from 'react-router';
 
 import Alert, { AlertVariants } from '@/components/Alert';
 import { Edit } from '@/components/Icons';
-import Input from '@/components/Input';
 import Typography, { TypographyVariants } from '@/components/Typography';
 import { showAlertAtom } from '@/store/alert';
 
@@ -47,7 +46,7 @@ const Information = ({ uploadAvatar, userInfo, refetUserProfile }) => {
       <div className={styles.avaWrap}>
         <img className={styles.avatar} src={userInfo?.avatar} alt='avatar' />
         <div className={styles.overlay}>
-          <Input onChange={handleUploadAvatar} type='file' />
+          <input onChange={handleUploadAvatar} accept='image/*' type='file' />
         </div>
       </div>
       <div className={styles.info}>

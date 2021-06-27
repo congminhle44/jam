@@ -1,0 +1,12 @@
+/** @format */
+
+.container {
+  padding: 1rem 1.5rem;
+  background-color: var(--bg-sub);
+  box-shadow: 0 0 4px var(--grey-4);
+}
+
+.title {
+  color: var(--text);
+  margin-bottom: 1rem;
+}
