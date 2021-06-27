@@ -3,18 +3,38 @@ import { useAtom } from 'jotai';
 
 import Brand from '@/assets/Images/Brand.png';
 import Typography, { TypographyVariants } from '@/components/Typography';
-import { userAtom } from '@/store/login';
+import { removeUserInfoAtom, userAtom } from '@/store/login';
 
 import styles from './header.module.css';
 import User from './components/User';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useLogout } from '@/queries/hooks/users';
+import { removeTokenAtom } from '@/store/token';
+import { removeRefreshTokenAtom } from '@/store/refreshToken';
 
 const TutorHeader = () => {
+  const history = useHistory();
+
   const [userInfo] = useAtom(userAtom);
+  const { mutateAsync: logoutRemoveRefreshToken } = useLogout();
+  const [, removeUserInfo] = useAtom(removeUserInfoAtom);
+  const [, removeUserToken] = useAtom(removeTokenAtom);
+  const [, removeUserRefreshToken] = useAtom(removeRefreshTokenAtom);
+
+  const handleLogout = () => {
+    logoutRemoveRefreshToken({
+      refreshToken: JSON.parse(localStorage.getItem('rid')),
+    }).then(() => {
+      removeUserInfo();
+      removeUserToken();
+      removeUserRefreshToken();
+      history.push('/');
+    });
+  };
 
   return (
     <div className={styles.container}>
-      <div className={styles.brand}>
+      <Link to='/tutor/dashboard' className={styles.brand}>
         <img className={styles.img} src={Brand} alt='brand' />
         <div className={styles.brandDetail}>
           <Typography
@@ -28,7 +48,7 @@ const TutorHeader = () => {
             Tutor
           </Typography>
         </div>
-      </div>
+      </Link>
       <div className={styles.user}>
         <Link to='/' className={styles.link}>
           <Typography
@@ -37,7 +57,7 @@ const TutorHeader = () => {
             Switch to client
           </Typography>
         </Link>
-        <User userInfo={userInfo} />
+        <User handleLogout={handleLogout} userInfo={userInfo} />
       </div>
     </div>
   );

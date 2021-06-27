@@ -10,7 +10,7 @@ const CourseItem = ({ course, lastItem }) => {
 
   return (
     <div
-      onClick={() => history.push(`/tutor/course/${course._id}`)}
+      onClick={() => history.push(`/tutor/course/${course._id}/lessons`)}
       ref={lastItem}
       className={styles.container}>
       <div className={styles.info}>

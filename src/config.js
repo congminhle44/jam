@@ -36,6 +36,7 @@ const config = {
     oauthRedirect: '/oauth/redirect',
     wishlist: '/wish',
     tutorDashboard: '/tutor/dashboard',
+    tutorLesson: '/tutor/course/:id/lessons',
   },
   apis: {
     getCategories: {
@@ -164,6 +165,26 @@ const config = {
     createCourse: {
       url: '/courses',
       method: 'POST',
+    },
+    tutorLessons: {
+      url: (id) => `/courses/${id}/lessons/tutor`,
+      method: 'GET',
+    },
+    editThumbs: {
+      url: (id) => `/courses/${id}/thumbs/upload`,
+      method: 'PATCH',
+    },
+    addLesson: {
+      url: (id) => `/courses/${id}/lessons`,
+      method: 'POST',
+    },
+    deleteLesson: {
+      url: (courseId, lessonId) => `/courses/${courseId}/lessons/${lessonId}`,
+      method: 'DELETE',
+    },
+    updateLesson: {
+      url: (id) => `/courses/lesson/${id}`,
+      method: 'PUT',
     },
   },
 };

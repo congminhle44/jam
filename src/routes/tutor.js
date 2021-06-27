@@ -38,6 +38,11 @@ export const tutorRoutes = [
     exact: true,
     component: lazy(() => import('@/pages/Tutor/Dashboard')),
   },
+  {
+    path: config.paths.tutorLesson,
+    exact: true,
+    component: lazy(() => import('@/pages/Tutor/Lessons')),
+  },
 ];
 
 export default TutorRoute;

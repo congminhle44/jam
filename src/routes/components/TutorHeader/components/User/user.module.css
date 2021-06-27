@@ -23,7 +23,7 @@
   padding: 1rem;
   visibility: hidden;
   transform: translate(30%, -50%) scale(0);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 .menu.show {
   visibility: visible;

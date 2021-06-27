@@ -1,0 +1,52 @@
+/** @format */
+
+.container {
+  background-color: var(--bg);
+  padding: 1rem 1.5rem;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+.container:last-child {
+  margin-bottom: 0;
+}
+
+.right {
+  display: flex;
+  margin-top: 1rem;
+  color: var(--grey-7);
+}
+
+.time {
+  margin-top: 0.875rem;
+}
+
+.watch {
+  margin-top: 0.5rem;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.edit {
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+.delete {
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .right {
+    display: block;
+    text-align: right;
+  }
+
+  .edit {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+}

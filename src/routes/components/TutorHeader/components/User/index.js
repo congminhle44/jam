@@ -21,7 +21,7 @@ import { setLangAtom } from '@/store/lang';
 
 import styles from './user.module.css';
 
-const User = ({ userInfo }) => {
+const User = ({ userInfo, handleLogout }) => {
   const containerRef = useRef();
   const toggleMenu = useToggle();
   const [, setLang] = useAtom(setLangAtom);
@@ -83,7 +83,7 @@ const User = ({ userInfo }) => {
             Theme mode
           </Typography>
         </div>
-        <div className={styles.link}>
+        <div onClick={handleLogout} className={styles.link}>
           <div className={styles.icon}>
             <Logout />
           </div>

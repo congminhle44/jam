@@ -11,9 +11,15 @@
   color: var(--text);
   cursor: pointer;
   margin-bottom: 1.5rem;
+  transition: all 0.3s;
 }
 .container:last-child {
   margin-bottom: 0;
+}
+
+.container:hover {
+  transform: scale(1.125);
+  box-shadow: 0 0 2px var(--grey-4);
 }
 
 .infoTitle {

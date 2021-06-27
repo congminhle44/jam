@@ -40,6 +40,7 @@ const CreateCourseModal = ({ onClose, onSubmit, ...others }) => {
     <Modal
       onOk={handleSubmit(onCreate)}
       onClose={onClose}
+      okText='Create'
       {...others}
       header='Create new course'>
       <CreateCourseForm

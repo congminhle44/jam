@@ -19,6 +19,11 @@ import {
   deleteWishlist,
   getTutorCourses,
   createCourse,
+  getTutorLessons,
+  uploadThumbs,
+  createLesson,
+  deleteLesson,
+  updateLesson,
 } from '../apis/courses';
 import { handleError } from '@/helpers/requests';
 import useMakeMutation from '@/hooks/useMakeMutation';
@@ -30,6 +35,11 @@ export const usePublicCourses = (page, limit, keyword) =>
 
 export const useCourseDetails = (id, userId) =>
   useQuery(['courseDetails', { id, userId }], getDetailCourse, {
+    onError: handleError,
+  });
+
+export const useTutorLessons = (id) =>
+  useQuery(['tutorLessons', { id }], getTutorLessons, {
     onError: handleError,
   });
 
@@ -60,6 +70,26 @@ export const useGetWishlist = () =>
 
 export const useWishlist = () => {
   const { mutation } = useMakeMutation(addWishlist);
+  return mutation;
+};
+
+export const useThumbnail = () => {
+  const { mutation } = useMakeMutation(uploadThumbs);
+  return mutation;
+};
+
+export const useNewLesson = () => {
+  const { mutation } = useMakeMutation(createLesson);
+  return mutation;
+};
+
+export const useDeleteLesson = () => {
+  const { mutation } = useMakeMutation(deleteLesson);
+  return mutation;
+};
+
+export const useUpdateLesson = () => {
+  const { mutation } = useMakeMutation(updateLesson);
   return mutation;
 };
 

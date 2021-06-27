@@ -23,6 +23,16 @@ export const getDetailCourse = async (key) => {
   return data;
 };
 
+export const getTutorLessons = async (key) => {
+  const { url, method } = config.apis.tutorLessons;
+  const { id } = key && key.queryKey[1];
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url(id)}`,
+    method: method,
+  });
+  return data;
+};
+
 export const getTutorCourses = async (key) => {
   const { url, method } = config.apis.getTutorCourse;
   const { page, limit, keyword } = key && key.queryKey[1];
@@ -93,6 +103,16 @@ export const deleteWishlist = async (requestBody) => {
   return data;
 };
 
+export const deleteLesson = async (requestBody) => {
+  const { url, method } = config.apis.deleteLesson;
+  const { courseId, lessonId } = requestBody;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url(courseId, lessonId)}`,
+    method: method,
+  });
+  return data;
+};
+
 export const addCourseToCart = async (requestBody) => {
   const { url, method } = config.apis.addItemToCart;
   const { data } = await axios({
@@ -103,12 +123,57 @@ export const addCourseToCart = async (requestBody) => {
   return data;
 };
 
+export const updateLesson = async (requestBody) => {
+  const { url, method } = config.apis.updateLesson;
+  const formData = new FormData();
+  for (let item in requestBody) {
+    formData.append(item, requestBody[item]);
+  }
+
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url(requestBody.id)}`,
+    method: method,
+    data: formData,
+  });
+  return data;
+};
+
 export const createCourse = async (requestBody) => {
   const { url, method } = config.apis.createCourse;
   const { data } = await axios({
     url: `${config.app.apiHost}${url}`,
     method: method,
     data: requestBody,
+  });
+  return data;
+};
+
+export const uploadThumbs = async (requestBody) => {
+  const { url, method } = config.apis.editThumbs;
+  const formData = new FormData();
+  for (let item in requestBody) {
+    formData.append(item, requestBody[item]);
+  }
+
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url(requestBody.id)}`,
+    method: method,
+    data: formData,
+  });
+  return data;
+};
+
+export const createLesson = async (requestBody) => {
+  const { url, method } = config.apis.addLesson;
+  const formData = new FormData();
+  for (let item in requestBody) {
+    formData.append(item, requestBody[item]);
+  }
+
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url(requestBody.id)}`,
+    method: method,
+    data: formData,
   });
   return data;
 };
