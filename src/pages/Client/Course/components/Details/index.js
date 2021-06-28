@@ -17,7 +17,7 @@ const CourseInfoDetail = ({
     <div className={styles.container}>
       <div className={styles.description}>
         {!isCourseLoading ? (
-          <ReactMarkdown>
+          <ReactMarkdown className={styles.markdown}>
             {courseInfo && courseInfo.courseDescription}
           </ReactMarkdown>
         ) : (

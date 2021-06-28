@@ -60,7 +60,7 @@ const User = ({ userInfo, handleLogout }) => {
           <Typography
             className={styles.profile}
             variant={TypographyVariants.Body1}>
-            Profile
+            <FormattedMessage id='header.profile' />
           </Typography>
         </Link>
         <Link className={styles.link} to='/'>
@@ -70,7 +70,7 @@ const User = ({ userInfo, handleLogout }) => {
           <Typography
             className={styles.profile}
             variant={TypographyVariants.Body1}>
-            Switch to client
+            <FormattedMessage id='header.switchClient' />
           </Typography>
         </Link>
         <div onClick={toggleTheme} className={styles.link}>
@@ -80,7 +80,7 @@ const User = ({ userInfo, handleLogout }) => {
           <Typography
             className={styles.profile}
             variant={TypographyVariants.Body1}>
-            Theme mode
+            <FormattedMessage id='header.theme' />
           </Typography>
         </div>
         <div onClick={handleLogout} className={styles.link}>
@@ -90,7 +90,7 @@ const User = ({ userInfo, handleLogout }) => {
           <Typography
             className={styles.profile}
             variant={TypographyVariants.Body1}>
-            Logout
+            <FormattedMessage id='common.logout' />
           </Typography>
         </div>
         <div className={styles.lang}>

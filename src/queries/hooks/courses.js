@@ -24,6 +24,9 @@ import {
   createLesson,
   deleteLesson,
   updateLesson,
+  updateCourse,
+  publicCourse,
+  deleteCourse,
 } from '../apis/courses';
 import { handleError } from '@/helpers/requests';
 import useMakeMutation from '@/hooks/useMakeMutation';
@@ -80,6 +83,21 @@ export const useThumbnail = () => {
 
 export const useNewLesson = () => {
   const { mutation } = useMakeMutation(createLesson);
+  return mutation;
+};
+
+export const useDeleteCourse = () => {
+  const { mutation } = useMakeMutation(deleteCourse);
+  return mutation;
+};
+
+export const useUpdateCourse = () => {
+  const { mutation } = useMakeMutation(updateCourse);
+  return mutation;
+};
+
+export const usePublicCourse = () => {
+  const { mutation } = useMakeMutation(publicCourse);
   return mutation;
 };
 

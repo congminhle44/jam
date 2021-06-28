@@ -9,6 +9,7 @@ import Overlay from '../Overlay';
 import Typography, { TypographyVariants } from '../Typography';
 
 import styles from './modal.module.css';
+import { FormattedMessage } from 'react-intl';
 
 const Modal = ({
   header,
@@ -71,7 +72,7 @@ const Modal = ({
                   onClick={onClose}
                   variant={ButtonVariants.Outline}
                   size={ButtonSizes.Small}>
-                  Cancel
+                  <FormattedMessage id='common.cancel' />
                 </Button>
               </div>
               <div className={styles.done}>

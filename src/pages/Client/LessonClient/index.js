@@ -21,6 +21,7 @@ const LessonClient = ({ match }) => {
   return (
     <div className={styles.container}>
       <Lessons
+        lessonId={lessonId}
         updateProcess={updateProcess}
         courseId={courseId}
         lessonsInfo={lessonsInfo}

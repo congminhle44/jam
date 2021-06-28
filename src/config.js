@@ -37,6 +37,7 @@ const config = {
     wishlist: '/wish',
     tutorDashboard: '/tutor/dashboard',
     tutorLesson: '/tutor/course/:id/lessons',
+    tutorCourseSetting: '/tutor/course/:id/settings',
   },
   apis: {
     getCategories: {
@@ -185,6 +186,18 @@ const config = {
     updateLesson: {
       url: (id) => `/courses/lesson/${id}`,
       method: 'PUT',
+    },
+    updateCourse: {
+      url: (id) => `/courses/${id}`,
+      method: 'PUT',
+    },
+    publicCourse: {
+      url: '/courses/public',
+      method: 'PATCH',
+    },
+    deleteCourse: {
+      url: (id) => `/courses/${id}`,
+      method: 'DELETE',
     },
   },
 };

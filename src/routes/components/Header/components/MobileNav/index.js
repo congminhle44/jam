@@ -92,7 +92,7 @@ const MobileNav = ({
                   {userInfo.userType === 'tutor' && (
                     <a href='/tutor/dashboard' className={styles.navitem}>
                       <Typography variant={TypographyVariants.Body1}>
-                        Switch to tutor
+                        <FormattedMessage id='header.switchTutor' />
                       </Typography>
                       <div className={styles.right}>
                         <Right />

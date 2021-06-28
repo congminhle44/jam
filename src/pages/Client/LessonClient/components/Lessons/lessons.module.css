@@ -20,6 +20,9 @@
 .lesson:last-child {
   margin-bottom: 0;
 }
+.lesson.active {
+  color: var(--primary);
+}
 
 .name {
   width: 100%;
@@ -36,7 +39,6 @@
 
 @media (min-width: 1024px) {
   .container {
-    box-shadow: inset -1px 0px 0px var(--grey-4);
     display: block;
     width: 30%;
     height: 90vh;

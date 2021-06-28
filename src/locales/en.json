@@ -4,6 +4,10 @@
     "common.vietnam":"Vietnamese",
     "common.logout":"Logout",
     "common.hi":"Hi",
+    "common.update":"Update",
+  "common.cancel":"Cancel",
+  "common.create":"Create",
+  "common.delete":"Delete",
 
 
     "header.about":"About Us",
@@ -12,6 +16,9 @@
     "header.basket":"Your Basket",
     "header.profile":"Profile",
     "header.wish":"Your wishlist",
+    "header.theme":"Theme mode",
+    "header.switchClient":"Switch to client",
+    "header.switchTutor":"Switch to tutor",
 
     "banner.title":"welcome to jam academy",
     "banner.description":"Your future is depending on what you've learnt today",
@@ -103,5 +110,35 @@
 
     "wish.title":"Your wishlist",
     "wish.remove":"Remove",
-    "wish.empty":"You don't have any wish"
+    "wish.empty":"You don't have any wish",
+
+    "tutor.dashboard.create":"Create new course",
+    "tutor.dashboard.courses":"Your courses",
+    "tutor.dashboard.courseTitle":"Course",
+
+    "tutor.course.lesson":"lessons",
+    "tutor.course.nav.lesson":"Lessons",
+    "tutor.course.nav.setting":"Settings",
+    "tutor.modal.add.title":"Add new lesson",
+    "tutor.course.lesson.create":"Create new lesson",
+    "tutor.course.lesson.all":"All lessons",
+    "tutor.course.lesson.createdat":"Created at",
+    "tutor.course.lesson.watch":"Watch your video",
+    "tutor.course.lesson.edit":"Edit",
+    "tutor.course.setting.info":"Information",
+    "tutor.course.setting.preview":"Preview",
+    "tutor.course.setting.danger":"Danger Zone",
+    "tutor.course.setting.delete.title":"Delete this course",
+    "tutor.course.setting.public.title":"Public this course",
+    "tutor.course.setting.delete.description":"One you delete, there will be no turning back",
+    "tutor.course.setting.public.description":"This course will be published to student",
+    "tutor.course.setting.public.button":"Public",
+    "tutor.course.setting.unpublic.button":"Unpublic",
+    "tutor.course.modal.edit.title":"Edit lesson",
+    "tutor.course.modal.delete.title":"Delete lesson",
+    "tutor.setting.modal.delete.title":"Delete course",
+    "tutor.setting.modal.delete.content":"Are you sure you want to delete",
+    "tutor.setting.modal.public.title":"Public course",
+    "tutor.setting.modal.unpublic.content":"Are you sure you want to unpublic",
+    "tutor.setting.modal.public.content":"Are you sure you want to public"
 }

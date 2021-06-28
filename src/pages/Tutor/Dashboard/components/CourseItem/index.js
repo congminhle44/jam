@@ -4,6 +4,7 @@ import { useHistory } from 'react-router';
 import { Right } from '@/components/Icons';
 import Typography, { TypographyVariants } from '@/components/Typography';
 import styles from './item.module.css';
+import { FormattedMessage } from 'react-intl';
 
 const CourseItem = ({ course, lastItem }) => {
   const history = useHistory();
@@ -17,7 +18,7 @@ const CourseItem = ({ course, lastItem }) => {
         <Typography
           className={styles.infoTitle}
           variant={TypographyVariants.Body2}>
-          Course
+          <FormattedMessage id='tutor.dashboard.courseTitle' />
         </Typography>
         <Typography
           className={styles.infoName}

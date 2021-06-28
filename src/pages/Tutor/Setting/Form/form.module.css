@@ -1,0 +1,20 @@
+/** @format */
+
+.container {
+  margin-top: 1rem;
+}
+
+.name {
+  margin-bottom: 1.5rem;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.preview {
+  margin-right: 0.5rem;
+}

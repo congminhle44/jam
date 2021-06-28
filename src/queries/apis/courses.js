@@ -113,6 +113,16 @@ export const deleteLesson = async (requestBody) => {
   return data;
 };
 
+export const deleteCourse = async (requestBody) => {
+  const { url, method } = config.apis.deleteCourse;
+  const { id } = requestBody;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url(id)}`,
+    method: method,
+  });
+  return data;
+};
+
 export const addCourseToCart = async (requestBody) => {
   const { url, method } = config.apis.addItemToCart;
   const { data } = await axios({
@@ -140,6 +150,26 @@ export const updateLesson = async (requestBody) => {
 
 export const createCourse = async (requestBody) => {
   const { url, method } = config.apis.createCourse;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+    data: requestBody,
+  });
+  return data;
+};
+
+export const updateCourse = async (requestBody) => {
+  const { url, method } = config.apis.updateCourse;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url(requestBody.id)}`,
+    method: method,
+    data: requestBody,
+  });
+  return data;
+};
+
+export const publicCourse = async (requestBody) => {
+  const { url, method } = config.apis.publicCourse;
   const { data } = await axios({
     url: `${config.app.apiHost}${url}`,
     method: method,
