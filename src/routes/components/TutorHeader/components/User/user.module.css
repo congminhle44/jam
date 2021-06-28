@@ -24,6 +24,7 @@
   visibility: hidden;
   transform: translate(30%, -50%) scale(0);
   transition: all 0.2s ease;
+  z-index: 2000;
 }
 .menu.show {
   visibility: visible;

@@ -7,7 +7,7 @@ import ClientRoute, { clientRoutes } from '@/routes/client';
 import ProtectedClientRoute, { protectedRoutes } from './protectedClient';
 
 import Spinner from '@/components/Spinner';
-import Notfound from '@/pages/Client/Notfound';
+import Notfound from '@/pages/Notfound';
 import ProtectedClientLesson, { clientLessonRoutes } from './lesson';
 import TutorRoute, { tutorRoutes } from './tutor';
 

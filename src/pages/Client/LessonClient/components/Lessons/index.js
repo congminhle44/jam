@@ -6,8 +6,9 @@ import { useHistory } from 'react-router';
 import { Right } from '@/components/Icons';
 import Typography, { TypographyVariants } from '@/components/Typography';
 import styles from './lessons.module.css';
+import clsx from 'clsx';
 
-const Lessons = ({ updateProcess, courseId, lessonsInfo }) => {
+const Lessons = ({ updateProcess, courseId, lessonsInfo, lessonId }) => {
   const history = useHistory();
   const lessonsWrap = useRef();
 
@@ -28,7 +29,10 @@ const Lessons = ({ updateProcess, courseId, lessonsInfo }) => {
           <div
             onClick={() => handleSwitchLesson(info)}
             key={info._id}
-            className={styles.lesson}>
+            className={clsx(
+              styles.lesson,
+              lessonId === info._id && styles.active
+            )}>
             <Typography
               className={styles.name}
               variant={TypographyVariants.Body1}>

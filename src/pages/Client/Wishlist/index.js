@@ -86,9 +86,10 @@ const Wishlist = () => {
   return (
     <div className={styles.container}>
       <Typography className={styles.title} variant={TypographyVariants.H5}>
-        <FormattedMessage id='wish.title' /> ({wishItems && wishItems.length})
+        <FormattedMessage id='wish.title' /> ({wishItems ? wishItems.length : 0}
+        )
       </Typography>
-      {wishItems.length > 0 ? (
+      {wishItems && wishItems.length > 0 ? (
         handleRenderWishItems()
       ) : (
         <Typography className={styles.empty} variant={TypographyVariants.H6}>

@@ -1,6 +1,7 @@
 /** @format */
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
 import Typography, { TypographyVariants } from '@/components/Typography';
+import { FormattedMessage } from 'react-intl';
 
 import styles from './header.module.css';
 
@@ -34,16 +35,19 @@ const Header = ({
           <Typography
             className={styles.lessonsAmount}
             variant={TypographyVariants.Body1}>
-            {courseInfo.lessonsAmount} lessons
+            {courseInfo.lessonsAmount}{' '}
+            <FormattedMessage id='tutor.course.lesson' />
           </Typography>
         </div>
-        <Button
-          onClick={handleRenderCreateLessonModal}
-          className={styles.button}
-          variant={ButtonVariants.Solid}
-          size={ButtonSizes.Small}>
-          Add Lesson
-        </Button>
+        {!courseInfo.isPublished && (
+          <Button
+            onClick={handleRenderCreateLessonModal}
+            className={styles.button}
+            variant={ButtonVariants.Solid}
+            size={ButtonSizes.Small}>
+            <FormattedMessage id='tutor.course.lesson.create' />
+          </Button>
+        )}
       </div>
     </div>
   );

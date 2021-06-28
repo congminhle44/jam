@@ -8,7 +8,7 @@ import { userAtom } from '@/store/login';
 
 import config from '@/config';
 
-import Notfound from '@/pages/Client/Notfound';
+import Notfound from '@/pages/Notfound';
 import TutorLayout from './layout/tutor';
 
 const TutorRoute = ({ component: Component, withProps, ...others }) => {
@@ -42,6 +42,11 @@ export const tutorRoutes = [
     path: config.paths.tutorLesson,
     exact: true,
     component: lazy(() => import('@/pages/Tutor/Lessons')),
+  },
+  {
+    path: config.paths.tutorCourseSetting,
+    exact: true,
+    component: lazy(() => import('@/pages/Tutor/Setting')),
   },
 ];
 

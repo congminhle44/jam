@@ -8,7 +8,7 @@ import { userAtom } from '@/store/login';
 
 import config from '@/config';
 
-import Notfound from '@/pages/Client/Notfound';
+import Notfound from '@/pages/Notfound';
 import ClientLessonLayout from './layout/lesson';
 
 const ProtectedClientLesson = ({

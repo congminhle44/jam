@@ -1,6 +1,7 @@
 /** @format */
 
 import Typography, { TypographyVariants } from '@/components/Typography';
+import { FormattedMessage } from 'react-intl';
 import Skeleton from 'react-loading-skeleton';
 import CourseItem from '../CourseItem';
 
@@ -20,7 +21,7 @@ const CourseList = ({ courses, lastItem, isTutorCoursesLoading }) => {
   return (
     <div className={styles.container}>
       <Typography className={styles.title} variant={TypographyVariants.Title2}>
-        Your courses
+        <FormattedMessage id='tutor.dashboard.courses' />
       </Typography>
       <div className={styles.list}>
         {renderCourses()}

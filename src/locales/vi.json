@@ -4,6 +4,10 @@
   "common.vietnam":"Tiếng Việt",
   "common.logout":"Đăng xuất",
   "common.hi":"Xin chào",
+  "common.update":"Cập nhật",
+  "common.delete":"Xóa",
+  "common.cancel":"Hủy",
+  "common.create":"Tạo",
 
   "header.about":"Về chúng tôi",
   "header.categories":"Thể loại",
@@ -11,6 +15,9 @@
   "header.basket":"Giỏ hàng của bạn",
   "header.profile":"Thông tin tài khoản",
   "header.wish":"Danh sách yêu thích của bạn",
+  "header.theme":"Chế độ chủ đề",
+  "header.switchClient":"Chuyển sang Client",
+  "header.switchTutor":"Chuyển sang Tutor",
 
   "banner.title":"Chào mừng bạn đến với Jam academy",
   "banner.description":"Tương lai của bạn phụ thuộc vào những gì bạn đã học được vào ngày hôm nay",
@@ -100,6 +107,35 @@
 
     "wish.title":"Danh sách yêu thích của bạn",
     "wish.remove":"Xóa",
-    "wish.empty":"Bạn chưa yêu thích khóa học nào"
+    "wish.empty":"Bạn chưa yêu thích khóa học nào",
 
+    "tutor.dashboard.create":"Tạo khóa học mới",
+    "tutor.dashboard.courses":"Khóa học của bạn",
+    "tutor.dashboard.courseTitle":"Khóa học",
+
+    "tutor.course.lesson":"bài giảng",
+    "tutor.course.nav.lesson":"Bài giảng",
+    "tutor.course.nav.setting":"Cài đặt",
+    "tutor.modal.add.title":"Thêm bài giảng",
+    "tutor.course.lesson.create":"Tạo bài giảng",
+    "tutor.course.lesson.all":"Tất cả bài giảng",
+    "tutor.course.lesson.createdat":"Được tạo vào",
+    "tutor.course.lesson.watch":"Xem video của bạn",
+    "tutor.course.lesson.edit":"Chỉnh sửa",
+    "tutor.course.setting.info":"Thông tin",
+    "tutor.course.setting.preview":"Xem trước",
+    "tutor.course.setting.danger":"Vùng nguy hiểm",
+    "tutor.course.setting.delete.title":"Xóa khóa học",
+    "tutor.course.setting.public.title":"Công khai khóa học",
+    "tutor.course.setting.delete.description":"Khi đã xóa thì các bạn không thể quay lại",
+    "tutor.course.setting.public.description":"Khóa học này sẽ được công khai với học viên",
+    "tutor.course.setting.public.button":"Công khai",
+    "tutor.course.setting.unpublic.button":"Hủy công khai",
+    "tutor.course.modal.edit.title":"Cập nhật bài giảng",
+    "tutor.course.modal.delete.title":"Xóa bài giảng",
+    "tutor.setting.modal.delete.title":"Xóa khóa học",
+    "tutor.setting.modal.delete.content":"Bạn có chắc muốn xóa",
+    "tutor.setting.modal.public.title":"Công khai khóa học",
+    "tutor.setting.modal.public.content":"Bạn có chắc muốn công khai",
+    "tutor.setting.modal.unpublic.content":"Bạn có chắc muốn hủy công khai"
 }

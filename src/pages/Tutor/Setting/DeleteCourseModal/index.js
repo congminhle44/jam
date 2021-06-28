@@ -2,9 +2,9 @@
 import Modal from '@/components/Modal';
 import { FormattedMessage } from 'react-intl';
 
-const DeleteLessonModal = ({ onClose, onSubmit, lessonInfo, ...others }) => {
+const DeleteCourseModal = ({ onClose, onSubmit, courseData, ...others }) => {
   const handleSubmit = () => {
-    onSubmit(lessonInfo._id).then(() => {
+    onSubmit().then(() => {
       onClose();
     });
   };
@@ -17,9 +17,9 @@ const DeleteLessonModal = ({ onClose, onSubmit, lessonInfo, ...others }) => {
       {...others}
       header={<FormattedMessage id='tutor.course.modal.delete.title' />}>
       <FormattedMessage id='tutor.setting.modal.delete.content' />{' '}
-      <b>"{lessonInfo && lessonInfo.title}"</b>?
+      <b>"{courseData && courseData.courseName}"</b>?
     </Modal>
   );
 };
 
-export default DeleteLessonModal;
+export default DeleteCourseModal;

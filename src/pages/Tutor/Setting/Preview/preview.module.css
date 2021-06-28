@@ -1,0 +1,16 @@
+/** @format */
+.container {
+  margin-top: 1rem;
+}
+
+.name {
+  margin-bottom: 1rem;
+}
+
+.title {
+  margin-bottom: 0.25rem;
+}
+
+.markdown {
+  white-space: pre-wrap;
+}

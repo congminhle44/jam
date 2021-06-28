@@ -76,7 +76,7 @@ const LoggedInNav = ({
               <Typography
                 className={styles.text}
                 variant={TypographyVariants.Body1}>
-                Switch to tutor
+                <FormattedMessage id='header.switchTutor' />
               </Typography>
             </a>
           )}

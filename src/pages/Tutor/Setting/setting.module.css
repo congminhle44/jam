@@ -1,0 +1,19 @@
+/** @format */
+
+.info,
+.danger {
+  width: 100%;
+  background-color: var(--bg-sub);
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 4px var(--grey-4);
+  color: var(--text);
+}
+
+.danger {
+  margin-top: 2rem;
+}
+
+.title {
+  color: var(--primary);
+}

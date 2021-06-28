@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import Modal from '@/components/Modal';
 import { errorSchema } from './errors';
 import EditLessonForm from '../EditLessonForm';
+import { FormattedMessage } from 'react-intl';
 
 const EditLessonModal = ({ onClose, onSubmit, lessonInfo, ...others }) => {
   const [source, setSource] = useState();
@@ -33,10 +34,10 @@ const EditLessonModal = ({ onClose, onSubmit, lessonInfo, ...others }) => {
   return (
     <Modal
       onOk={handleSubmit(handleEditLesson)}
-      okText='Update'
+      okText={<FormattedMessage id='common.update' />}
       onClose={onClose}
       {...others}
-      header='Edit lesson'>
+      header={<FormattedMessage id='tutor.course.modal.edit.title' />}>
       <EditLessonForm
         handleSetSource={handleSetSource}
         register={register}

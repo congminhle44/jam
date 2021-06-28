@@ -9,7 +9,7 @@ import { userAtom } from '@/store/login';
 import config from '@/config';
 
 import ClientLayout from './layout/client';
-import Notfound from '@/pages/Client/Notfound';
+import Notfound from '@/pages/Notfound';
 
 const ProtectedClientRoute = ({
   component: Component,

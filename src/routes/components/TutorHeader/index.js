@@ -11,6 +11,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useLogout } from '@/queries/hooks/users';
 import { removeTokenAtom } from '@/store/token';
 import { removeRefreshTokenAtom } from '@/store/refreshToken';
+import { FormattedMessage } from 'react-intl';
 
 const TutorHeader = () => {
   const history = useHistory();
@@ -54,7 +55,7 @@ const TutorHeader = () => {
           <Typography
             className={styles.switch}
             variant={TypographyVariants.Body1}>
-            Switch to client
+            <FormattedMessage id='header.switchClient' />
           </Typography>
         </Link>
         <User handleLogout={handleLogout} userInfo={userInfo} />
