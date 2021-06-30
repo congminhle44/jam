@@ -6,13 +6,12 @@ import Typography, { TypographyVariants } from '@/components/Typography';
 import styles from './item.module.css';
 import { FormattedMessage } from 'react-intl';
 
-const CourseItem = ({ course, lastItem }) => {
+const CourseItem = ({ course }) => {
   const history = useHistory();
 
   return (
     <div
       onClick={() => history.push(`/tutor/course/${course._id}/lessons`)}
-      ref={lastItem}
       className={styles.container}>
       <div className={styles.info}>
         <Typography

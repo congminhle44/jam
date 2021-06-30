@@ -1,0 +1,16 @@
+/** @format */
+
+.input {
+  height: 4.375rem;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.permission {
+  margin-left: 1.5rem;
+}

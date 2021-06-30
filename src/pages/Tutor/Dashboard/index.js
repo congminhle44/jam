@@ -1,5 +1,5 @@
 /** @format */
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { useAtom } from 'jotai';
 
@@ -19,42 +19,27 @@ import { FormattedMessage } from 'react-intl';
 
 const TutorDashboard = () => {
   const history = useHistory();
-  const { mutateAsync: createCourse } = useCreateCourse();
 
-  const [courses, setCourses] = useState([]);
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
+  const [courses, setCourses] = useState([]);
+
+  const { data: tutorCourses, error: getCourseError } = useTutorCourses(
+    page,
+    6,
+    ''
+  );
+  const { mutateAsync: createCourse } = useCreateCourse();
 
   const [, showModal] = useAtom(showModalAtom);
   const [, showAlert] = useAtom(showAlertAtom);
 
-  const {
-    data: tutorCourses,
-    isLoading: isTutorCoursesLoading,
-    error: getCourseError,
-  } = useTutorCourses(page, 6, '');
-
-  const options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 1.0,
-  };
-
-  const observer = useRef();
-
-  const lastItem = useCallback(
-    (node) => {
-      if (observer.current) observer.current.disconnect();
-      observer.current = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && courses.length < total) {
-          setPage(page + 1);
-        }
-      }, options);
-      if (node) observer.current.observe(node);
-    },
-    // eslint-disable-next-line
-    [observer, total, courses]
-  );
+  useEffect(() => {
+    if (tutorCourses) {
+      setCourses((oldCourses) => [...oldCourses, ...tutorCourses.data]);
+      setTotal(tutorCourses.total);
+    }
+  }, [tutorCourses]);
 
   const handleCreateCourse = (course) => {
     return createCourse(course)
@@ -88,13 +73,6 @@ const TutorDashboard = () => {
     });
   };
 
-  useEffect(() => {
-    if (tutorCourses) {
-      setCourses((oldCourses) => [...oldCourses, ...tutorCourses.data]);
-      setTotal(tutorCourses.total);
-    }
-  }, [tutorCourses]);
-
   return (
     <>
       {getCourseError ? (
@@ -110,9 +88,9 @@ const TutorDashboard = () => {
             </Button>
           </div>
           <CourseList
-            isTutorCoursesLoading={isTutorCoursesLoading}
             courses={courses}
-            lastItem={lastItem}
+            next={() => setPage(page + 1)}
+            total={total}
           />
         </div>
       )}

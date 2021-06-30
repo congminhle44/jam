@@ -38,6 +38,7 @@ const config = {
     tutorDashboard: '/tutor/dashboard',
     tutorLesson: '/tutor/course/:id/lessons',
     tutorCourseSetting: '/tutor/course/:id/settings',
+    adminLogin: '/admin/login',
   },
   apis: {
     getCategories: {
