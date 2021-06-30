@@ -114,18 +114,28 @@ const Lesson = ({ match }) => {
 
   const handleRenderLessons = () => {
     if (lessons) {
-      return lessons.map((lesson) => {
+      if (lessons.length > 0) {
+        return lessons.map((lesson) => {
+          return (
+            <LessonLItem
+              key={lesson._id}
+              courseDetail={courseDetail}
+              handleRenderUpdateLessonModal={handleRenderUpdateLessonModal}
+              handleRenderDeleteLessonModal={handleRenderDeleteLessonModal}
+              lesson={lesson}
+              addVideoSource={addVideoSource}
+            />
+          );
+        });
+      } else {
         return (
-          <LessonLItem
-            key={lesson._id}
-            courseDetail={courseDetail}
-            handleRenderUpdateLessonModal={handleRenderUpdateLessonModal}
-            handleRenderDeleteLessonModal={handleRenderDeleteLessonModal}
-            lesson={lesson}
-            addVideoSource={addVideoSource}
-          />
+          <Typography
+            className={styles.empty}
+            variant={TypographyVariants.Body1}>
+            This course haven't had any lessons yet
+          </Typography>
         );
-      });
+      }
     }
   };
 

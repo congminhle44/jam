@@ -35,7 +35,7 @@ const TutorHeader = () => {
 
   return (
     <div className={styles.container}>
-      <Link to='/tutor/dashboard' className={styles.brand}>
+      <a href='/tutor/dashboard' className={styles.brand}>
         <img className={styles.img} src={Brand} alt='brand' />
         <div className={styles.brandDetail}>
           <Typography
@@ -49,7 +49,7 @@ const TutorHeader = () => {
             Tutor
           </Typography>
         </div>
-      </Link>
+      </a>
       <div className={styles.user}>
         <Link to='/' className={styles.link}>
           <Typography

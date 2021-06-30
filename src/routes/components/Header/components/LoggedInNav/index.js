@@ -10,6 +10,7 @@ import { SlicedName } from '@/helpers/name';
 import styles from './style.module.css';
 import { useRef } from 'react';
 import useClickOutside from '@/hooks/useClickOutside';
+import { Fragment } from 'react';
 
 const LoggedInNav = ({
   userInfo,
@@ -52,19 +53,36 @@ const LoggedInNav = ({
               <FormattedMessage id='header.profile' />
             </Typography>
           </Link>
-          <Link to='/wish' className={styles.menuItem}>
-            <div className={styles.icon}>
-              <Heart />
-              {wishlistItems && wishlistItems.length > 0 && (
-                <div className={styles.amount}>{wishlistItems.length}</div>
-              )}
-            </div>
-            <Typography
-              className={styles.text}
-              variant={TypographyVariants.Body1}>
-              <FormattedMessage id='header.wish' />
-            </Typography>
-          </Link>
+          {userInfo.userType === 'student' && (
+            <Fragment>
+              <Link to='/wish' className={styles.menuItem}>
+                <div className={styles.icon}>
+                  <Heart />
+                  {wishlistItems && wishlistItems.length > 0 && (
+                    <div className={styles.amount}>{wishlistItems.length}</div>
+                  )}
+                </div>
+                <Typography
+                  className={styles.text}
+                  variant={TypographyVariants.Body1}>
+                  <FormattedMessage id='header.wish' />
+                </Typography>
+              </Link>
+              <Link to='/cart' className={styles.menuItem}>
+                <div className={styles.icon}>
+                  <Cart />
+                  {cartItems && cartItems.length > 0 && (
+                    <div className={styles.amount}>{cartItems.length}</div>
+                  )}
+                </div>
+                <Typography
+                  className={styles.text}
+                  variant={TypographyVariants.Body1}>
+                  <FormattedMessage id='header.basket' />
+                </Typography>
+              </Link>
+            </Fragment>
+          )}
           {userInfo.userType === 'tutor' && (
             <a href='/tutor/dashboard' className={styles.menuItem}>
               <div className={styles.icon}>
@@ -80,19 +98,6 @@ const LoggedInNav = ({
               </Typography>
             </a>
           )}
-          <Link to='/cart' className={styles.menuItem}>
-            <div className={styles.icon}>
-              <Cart />
-              {cartItems && cartItems.length > 0 && (
-                <div className={styles.amount}>{cartItems.length}</div>
-              )}
-            </div>
-            <Typography
-              className={styles.text}
-              variant={TypographyVariants.Body1}>
-              <FormattedMessage id='header.basket' />
-            </Typography>
-          </Link>
           <div onClick={logoutAction} className={styles.menuItem}>
             <div className={styles.icon}>
               <Logout />

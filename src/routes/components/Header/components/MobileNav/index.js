@@ -17,6 +17,7 @@ import { setLangAtom } from '@/store/lang';
 import { userAtom } from '@/store/login';
 import CategoriesMobile from '../CategoriesMobile';
 import useToggle from '@/hooks/useToggle';
+import { Fragment } from 'react';
 
 const MobileNav = ({
   isOpen,
@@ -99,30 +100,34 @@ const MobileNav = ({
                       </div>
                     </a>
                   )}
-                  <NavLink to='/wish' className={styles.navitem}>
-                    <Typography variant={TypographyVariants.Body1}>
-                      <FormattedMessage id='header.wish' />
-                    </Typography>
-                    <div className={styles.right}>
-                      <Typography
-                        className={styles.basketAmount}
-                        variant={TypographyVariants.Body2}>
-                        {wishlistItems && wishlistItems.length}
-                      </Typography>
-                    </div>
-                  </NavLink>
-                  <NavLink to='/cart' className={styles.navitem}>
-                    <Typography variant={TypographyVariants.Body1}>
-                      <FormattedMessage id='header.basket' />
-                    </Typography>
-                    <div className={styles.right}>
-                      <Typography
-                        className={styles.basketAmount}
-                        variant={TypographyVariants.Body2}>
-                        {cartItems && cartItems.length}
-                      </Typography>
-                    </div>
-                  </NavLink>
+                  {userInfo.userType === 'student' && (
+                    <Fragment>
+                      <NavLink to='/wish' className={styles.navitem}>
+                        <Typography variant={TypographyVariants.Body1}>
+                          <FormattedMessage id='header.wish' />
+                        </Typography>
+                        <div className={styles.right}>
+                          <Typography
+                            className={styles.basketAmount}
+                            variant={TypographyVariants.Body2}>
+                            {wishlistItems && wishlistItems.length}
+                          </Typography>
+                        </div>
+                      </NavLink>
+                      <NavLink to='/cart' className={styles.navitem}>
+                        <Typography variant={TypographyVariants.Body1}>
+                          <FormattedMessage id='header.basket' />
+                        </Typography>
+                        <div className={styles.right}>
+                          <Typography
+                            className={styles.basketAmount}
+                            variant={TypographyVariants.Body2}>
+                            {cartItems && cartItems.length}
+                          </Typography>
+                        </div>
+                      </NavLink>
+                    </Fragment>
+                  )}
                 </>
               )}
               <div onClick={showCategory.setActive} className={styles.navitem}>

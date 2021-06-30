@@ -127,7 +127,9 @@ const CourseSetting = ({ match }) => {
           )}
         </div>
         <div className={styles.danger}>
-          <Typography className={styles.title} variant={TypographyVariants.H6}>
+          <Typography
+            className={styles.dangerTitle}
+            variant={TypographyVariants.H6}>
             <FormattedMessage id='tutor.course.setting.danger' />
           </Typography>
           <DangerZone
