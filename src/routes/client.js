@@ -6,17 +6,29 @@ import { Route } from 'react-router';
 import config from '@/config';
 
 import ClientLayout from './layout/client';
+import { useAtom } from 'jotai';
+import { userAtom } from '@/store/login';
+import { Redirect } from 'react-router-dom';
+import { Fragment } from 'react';
 
 const ClientRoute = ({ component: Component, withProps, ...others }) => {
+  const [userInfo] = useAtom(userAtom);
+
   return (
-    <Route
-      {...others}
-      render={(childProps) => (
-        <ClientLayout>
-          <Component {...childProps} {...withProps} />
-        </ClientLayout>
+    <Fragment>
+      {userInfo.userType === 'admin' ? (
+        <Redirect to='/admin/dashboard' />
+      ) : (
+        <Route
+          {...others}
+          render={(childProps) => (
+            <ClientLayout>
+              <Component {...childProps} {...withProps} />
+            </ClientLayout>
+          )}
+        />
       )}
-    />
+    </Fragment>
   );
 };
 

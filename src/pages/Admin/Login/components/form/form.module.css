@@ -2,13 +2,14 @@
 
 .input {
   height: 4.375rem;
+  margin-top: 1rem;
 }
 
 .control {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 0.5rem;
+  margin-top: 2rem;
 }
 
 .permission {

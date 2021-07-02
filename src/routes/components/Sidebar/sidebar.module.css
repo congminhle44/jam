@@ -1,0 +1,14 @@
+/** @format */
+
+.container {
+  padding: 4.1875rem 1.5rem;
+  box-shadow: inset -1px 0px 0px var(--grey-5);
+  min-height: 100vh;
+}
+
+.img {
+  display: block;
+  margin: 0 auto 1rem auto;
+  width: 4.5rem;
+  height: 4.5rem;
+}

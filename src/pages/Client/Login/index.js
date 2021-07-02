@@ -39,25 +39,35 @@ const Login = () => {
       password: user.password,
     })
       .then((data) => {
-        if (purchaseItems.length > 0) {
-          history.push('/cart/checkout');
+        if (data.data.userType === 'admin') {
+          showAlert({
+            component: AlertLogin,
+            props: {
+              variant: AlertVariants.Warning,
+              children: 'You should login at admin login form',
+            },
+          });
         } else {
-          history.push('/');
-        }
-        showAlert({
-          component: AlertLogin,
-          props: {
-            variant: AlertVariants.Success,
-            children: 'Login success',
-          },
-        });
+          if (purchaseItems.length > 0) {
+            history.push('/cart/checkout');
+          } else {
+            history.push('/');
+          }
+          showAlert({
+            component: AlertLogin,
+            props: {
+              variant: AlertVariants.Success,
+              children: 'Login success',
+            },
+          });
 
-        // Save information and token to localstorage and store to use
-        addUserInfo(data.data);
-        addUserToken(data.accessToken);
-        addRefreshToken(data.refreshToken);
-        // This remove will run when user register success and login
-        removeEmail();
+          // Save information and token to localstorage and store to use
+          addUserInfo(data.data);
+          addUserToken(data.accessToken);
+          addRefreshToken(data.refreshToken);
+          // This remove will run when user register success and login
+          removeEmail();
+        }
       })
       .catch((err) => {
         showAlert({

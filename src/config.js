@@ -39,6 +39,8 @@ const config = {
     tutorLesson: '/tutor/course/:id/lessons',
     tutorCourseSetting: '/tutor/course/:id/settings',
     adminLogin: '/admin/login',
+    adminDashboard: '/admin/dashboard',
+    adminUser: '/admin/users',
   },
   apis: {
     getCategories: {
@@ -198,6 +200,14 @@ const config = {
     },
     deleteCourse: {
       url: (id) => `/courses/${id}`,
+      method: 'DELETE',
+    },
+    getUsers: {
+      url: '/users',
+      method: 'GET',
+    },
+    deleteUser: {
+      url: (id) => `/users/user_id=${id}`,
       method: 'DELETE',
     },
   },

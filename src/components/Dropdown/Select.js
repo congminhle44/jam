@@ -9,7 +9,13 @@ import clsx from 'clsx';
 import useClickOutside from '@/hooks/useClickOutside';
 import parseValueToName from './utils';
 
-const Select = ({ children, placeholder, currentOption, ...others }) => {
+const Select = ({
+  children,
+  placeholder,
+  currentOption,
+  className,
+  ...others
+}) => {
   const wrapperRef = useRef();
 
   const isFocus = useToggle(false);
@@ -19,7 +25,11 @@ const Select = ({ children, placeholder, currentOption, ...others }) => {
     <div ref={wrapperRef} className={styles.wrapper} {...others}>
       <div
         onClick={() => isFocus.toggle()}
-        className={clsx(styles.container, isFocus.active && styles.focus)}>
+        className={clsx(
+          styles.container,
+          isFocus.active && styles.focus,
+          className
+        )}>
         <Typography variant={TypographyVariants.Body1}>
           {!currentOption
             ? placeholder
