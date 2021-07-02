@@ -62,6 +62,17 @@ export const getCartItem = async () => {
   return data;
 };
 
+export const getUsers = async (key) => {
+  const { url, method } = config.apis.getUsers;
+  const { page, limit, keyword, role } = key && key.queryKey[1];
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+    params: { page, limit, keyword, role },
+  });
+  return data;
+};
+
 export const getUserInfo = async () => {
   const { url, method } = config.apis.getProfile;
   const { data } = await axios({
@@ -121,6 +132,15 @@ export const removeRefreshTokenApi = async (requestBody) => {
     url: `${config.app.apiHost}${url}`,
     method: method,
     data: requestBody,
+  });
+  return data;
+};
+
+export const deleteUser = async (requestBody) => {
+  const { url, method } = config.apis.deleteUser;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url(requestBody.id)}`,
+    method: method,
   });
   return data;
 };

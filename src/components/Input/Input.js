@@ -88,11 +88,13 @@ const Input = forwardRef(
           )}
         </div>
 
-        <Typography
-          variant={TypographyVariants.Label1}
-          className={styles.error}>
-          {error}
-        </Typography>
+        {error && (
+          <Typography
+            variant={TypographyVariants.Label1}
+            className={styles.error}>
+            {error}
+          </Typography>
+        )}
       </div>
     );
   }

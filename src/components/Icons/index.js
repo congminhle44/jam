@@ -30,3 +30,5 @@ export { default as Heart } from './Heart';
 export { default as Edit } from './Edit';
 export { default as ErrorIco } from './ErrorIco';
 export { default as Swap } from './Swap';
+export { default as User } from './User';
+export { default as Delete } from './Delete';

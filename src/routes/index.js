@@ -10,6 +10,7 @@ import Spinner from '@/components/Spinner';
 import ProtectedClientLesson, { clientLessonRoutes } from './lesson';
 import TutorRoute, { tutorRoutes } from './tutor';
 import config from '@/config';
+import AdminRoute, { adminRoutes } from './admin';
 
 const Notfound = lazy(() => import('@/pages/Notfound'));
 const AdminLogin = lazy(() => import('@/pages/Admin/Login'));
@@ -28,6 +29,9 @@ const Routes = () => (
       ))}
       {tutorRoutes.map((route, index) => (
         <TutorRoute key={index} {...route} />
+      ))}
+      {adminRoutes.map((route, index) => (
+        <AdminRoute key={index} {...route} />
       ))}
       <Route path={config.paths.adminLogin} exact component={AdminLogin} />
       <Route component={Notfound} />

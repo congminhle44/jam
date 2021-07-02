@@ -1,0 +1,24 @@
+/** @format */
+
+.container {
+  display: flex;
+  align-items: center;
+  color: var(--grey-3);
+  padding: 1rem 0.25rem;
+  min-width: 11.3125rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.container.active {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.name {
+  margin-left: 1rem;
+}

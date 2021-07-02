@@ -6,10 +6,12 @@ import useMakeMutation from '@/hooks/useMakeMutation';
 import { handleError } from '@/helpers/requests';
 import {
   changePassword,
+  deleteUser,
   getCartItem,
   getLearningProcess,
   getUserInfo,
   getUserLibrary,
+  getUsers,
   login,
   register,
   removeRefreshTokenApi,
@@ -43,8 +45,18 @@ export const useGetCartItem = () =>
     onError: handleError,
   });
 
+export const useGetUsers = (page, limit, keyword, role) =>
+  useQuery(['getUser', { page, limit, keyword, role }], getUsers, {
+    onError: handleError,
+  });
+
 export const useLogout = () => {
   const { mutation } = useMakeMutation(removeRefreshTokenApi);
+  return mutation;
+};
+
+export const useDeleteUser = () => {
+  const { mutation } = useMakeMutation(deleteUser);
   return mutation;
 };
 
