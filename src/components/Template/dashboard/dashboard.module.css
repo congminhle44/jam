@@ -10,16 +10,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 2.625rem;
 }
 
 .content {
   min-height: 60vh;
   position: relative;
   margin: 0 auto;
-  margin-top: 2.625rem;
-  margin-bottom: 3.1875rem;
+  margin-bottom: 2.5rem;
   padding: 1.625rem 1.5rem;
-  padding-bottom: 4rem;
   border-radius: 1.5rem;
   background-color: var(--white);
 }

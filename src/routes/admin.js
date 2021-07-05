@@ -43,6 +43,11 @@ export const adminRoutes = [
     exact: true,
     component: lazy(() => import('@/pages/Admin/Users')),
   },
+  {
+    path: config.paths.adminCategory,
+    exact: true,
+    component: lazy(() => import('@/pages/Admin/Categories')),
+  },
 ];
 
 export default AdminRoute;

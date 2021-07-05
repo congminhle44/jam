@@ -12,7 +12,7 @@ const CategoryItem = ({ data }) => {
 
   const renderCategoryCard = () => {
     if (data) {
-      return data.map((data) => {
+      return data.data.map((data) => {
         const redirectToCategoryDetail = () => {
           history.push(`/category/${data._id}`);
         };

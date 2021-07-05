@@ -35,3 +35,41 @@ export const getCourseByCategory = async (key) => {
     return data;
   }
 };
+
+export const deleteCategory = async (requestBody) => {
+  const { url, method } = config.apis.deleteCategory;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url(requestBody.id)}`,
+    method: method,
+    data: requestBody,
+  });
+  return data;
+};
+
+export const createCategory = async (requestBody) => {
+  const { url, method } = config.apis.createCategory;
+  const formData = new FormData();
+  for (let item in requestBody) {
+    formData.append(item, requestBody[item]);
+  }
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+    data: formData,
+  });
+  return data;
+};
+
+export const updateCategory = async (requestBody) => {
+  const { url, method } = config.apis.updateCategory;
+  const formData = new FormData();
+  for (let item in requestBody) {
+    formData.append(item, requestBody[item]);
+  }
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url(requestBody.id)}`,
+    method: method,
+    data: formData,
+  });
+  return data;
+};

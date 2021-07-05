@@ -26,7 +26,7 @@ const UserHead = ({ role, setRole, setKeyword }) => {
         search
         placeholder='Search user name'
       />
-      <Select className currentOption={role}>
+      <Select currentOption={role}>
         <Option onChoose={handleSelectOption} value=''>
           All roles
         </Option>

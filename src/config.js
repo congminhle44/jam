@@ -41,6 +41,7 @@ const config = {
     adminLogin: '/admin/login',
     adminDashboard: '/admin/dashboard',
     adminUser: '/admin/users',
+    adminCategory: '/admin/categories',
   },
   apis: {
     getCategories: {
@@ -155,7 +156,11 @@ const config = {
       method: 'POST',
     },
     updateProfile: {
-      url: '/users',
+      url: '/users/profile',
+      method: 'PUT',
+    },
+    updateUser: {
+      url: (id) => `/users/${id}`,
       method: 'PUT',
     },
     changePassword: {
@@ -209,6 +214,22 @@ const config = {
     deleteUser: {
       url: (id) => `/users/user_id=${id}`,
       method: 'DELETE',
+    },
+    createUser: {
+      url: '/users',
+      method: 'POST',
+    },
+    deleteCategory: {
+      url: (id) => `/categories/${id}`,
+      method: 'DELETE',
+    },
+    createCategory: {
+      url: '/categories',
+      method: 'POST',
+    },
+    updateCategory: {
+      url: (id) => `/categories/${id}`,
+      method: 'PUT',
     },
   },
 };

@@ -12,7 +12,7 @@ const CategoriesHeaderDesktop = ({ hideList }) => {
 
   const renderCategories = () => {
     if (categories) {
-      return categories.map((category) => {
+      return categories.data.map((category) => {
         return (
           <Link
             to={`/category/${category._id}`}

@@ -1,0 +1,50 @@
+/** @format */
+.container {
+  margin-top: 2rem;
+}
+
+.rowHead {
+  box-shadow: inset 0px -1px 0px #e4e4e4;
+}
+
+.title {
+  text-align: left;
+  padding: 0.5rem 2rem;
+  color: var(--grey-3);
+}
+.title:first-child {
+  width: 100%;
+}
+.title:last-child {
+  text-align: center;
+}
+
+.row {
+  box-shadow: inset 0px -1px 0px var(--grey-5);
+}
+.row:last-child {
+  box-shadow: none;
+}
+
+.content {
+  padding: 1.25rem 2rem;
+}
+
+.content:last-child {
+  display: flex;
+  align-items: center;
+}
+
+.email {
+  margin-top: 0.5rem;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--grey-3);
+  cursor: pointer;
+}
+.icon:first-child {
+  margin-right: 1rem;
+}

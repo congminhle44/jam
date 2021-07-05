@@ -4,54 +4,50 @@ import Alert, { AlertVariants } from '@/components/Alert';
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
 import DashboardTemplate from '@/components/Template/dashboard';
 import {
-  useCreateUser,
-  useDeleteUser,
-  useGetUsers,
-  useUpdateUser,
-} from '@/queries/hooks/users';
+  useCategories,
+  useCreateCategory,
+  useDeleteCategory,
+  useUpdateCategory,
+} from '@/queries/hooks/categories';
 import { showAlertAtom } from '@/store/alert';
 import { showModalAtom } from '@/store/modal';
 import { useAtom } from 'jotai';
 import { useState } from 'react';
-import CreateUserModal from './components/CreateUserModal';
-import DeleteUserModal from './components/DeleteUserModal';
-import UserHead from './components/Head';
-import UserTable from './components/Table';
-import UpdateUserModal from './components/UpdateUserModal';
 
-import styles from './user.module.css';
+import styles from './category.module.css';
+import CreateCategoryModal from './components/CreateCategoryModal';
+import DeleteCategoryModal from './components/DeleteCategoryModal';
+import CategoryHead from './components/Head';
+import CategoryTable from './components/Table';
+import UpdateCategoryModal from './components/UpdateCategoryModal';
 
-const UserManage = () => {
+const Categories = () => {
   const [page, setPage] = useState(1);
-  const [keyword, setKeyword] = useState('');
-  const [role, setRole] = useState('');
-
   const limit = 6;
-
-  const { data: users, refetch: refetchUsers } = useGetUsers(
-    page,
-    limit,
-    keyword,
-    role
-  );
-  const { mutateAsync: deleteUser } = useDeleteUser();
-  const { mutateAsync: createUser } = useCreateUser();
-  const { mutateAsync: updateUser } = useUpdateUser();
+  const [keyword, setKeyword] = useState('');
 
   const [, showModal] = useAtom(showModalAtom);
   const [, showAlert] = useAtom(showAlertAtom);
 
-  const setNewRole = (role) => setRole(role);
+  const { data: categories, refetch: refetchCategories } = useCategories(
+    page,
+    limit,
+    '',
+    keyword
+  );
+  const { mutateAsync: deleteCategory } = useDeleteCategory();
+  const { mutateAsync: createCategory } = useCreateCategory();
+  const { mutateAsync: updateCategory } = useUpdateCategory();
 
-  const handleDeleteUser = (id) => {
-    return deleteUser({ id })
+  const handleDeleteCategory = (id) => {
+    return deleteCategory({ id })
       .then((result) => {
-        refetchUsers();
+        refetchCategories();
         showAlert({
           component: Alert,
           props: {
             variant: AlertVariants.Success,
-            children: `${result.fullName} was deleted successfully`,
+            children: `${result.categoryName} was deleted`,
           },
         });
       })
@@ -66,15 +62,15 @@ const UserManage = () => {
       });
   };
 
-  const handleCreateUser = (data) => {
-    return createUser(data)
+  const handleCreateCategory = (data) => {
+    return createCategory(data)
       .then((result) => {
-        refetchUsers();
+        refetchCategories();
         showAlert({
           component: Alert,
           props: {
             variant: AlertVariants.Success,
-            children: `${result.fullName} was created!`,
+            children: `${result.categoryName} was created`,
           },
         });
       })
@@ -89,15 +85,15 @@ const UserManage = () => {
       });
   };
 
-  const handleUpdatUser = (data) => {
-    return updateUser(data)
+  const handleUpdateCategory = (data) => {
+    return updateCategory(data)
       .then((result) => {
-        refetchUsers();
+        refetchCategories();
         showAlert({
           component: Alert,
           props: {
             variant: AlertVariants.Success,
-            children: `${result.fullName} was updated!`,
+            children: `${result.categoryName} was updated`,
           },
         });
       })
@@ -112,42 +108,42 @@ const UserManage = () => {
       });
   };
 
-  const handleShowDeleteModal = (user) => {
+  const handleShowDeleteModal = (category) => {
     showModal({
-      component: DeleteUserModal,
+      component: DeleteCategoryModal,
       props: {
-        userInfo: user,
-        onSubmit: handleDeleteUser,
+        onSubmit: handleDeleteCategory,
+        category,
       },
     });
   };
 
   const handleShowCreateModal = () => {
     showModal({
-      component: CreateUserModal,
+      component: CreateCategoryModal,
       props: {
-        onSubmit: handleCreateUser,
+        onSubmit: handleCreateCategory,
       },
     });
   };
 
-  const handleShowUpdateModal = (user) => {
+  const handleShowUpdateModal = (category) => {
     showModal({
-      component: UpdateUserModal,
+      component: UpdateCategoryModal,
       props: {
-        onSubmit: handleUpdatUser,
-        userInfo: user,
+        onSubmit: handleUpdateCategory,
+        category,
       },
     });
   };
 
   return (
     <DashboardTemplate
-      head='Users'
-      total={users && users.total}
+      head='Categories'
+      total={categories && categories.total}
+      limit={limit}
       currentPage={page}
       setPage={setPage}
-      limit={limit}
       button={
         <Button
           onClick={handleShowCreateModal}
@@ -157,15 +153,15 @@ const UserManage = () => {
         </Button>
       }>
       <div className={styles.container}>
-        <UserHead setKeyword={setKeyword} role={role} setRole={setNewRole} />
-        <UserTable
+        <CategoryHead setKeyword={setKeyword} />
+        <CategoryTable
           handleShowUpdateModal={handleShowUpdateModal}
           handleShowDeleteModal={handleShowDeleteModal}
-          users={users}
+          categories={categories}
         />
       </div>
     </DashboardTemplate>
   );
 };
 
-export default UserManage;
+export default Categories;
