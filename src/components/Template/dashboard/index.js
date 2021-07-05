@@ -17,6 +17,8 @@ const DashboardTemplate = ({
   total,
   limit,
   setPage,
+  className,
+  ...others
 }) => {
   const pageNumbers = [];
   const pageRef = useRef();
@@ -56,13 +58,15 @@ const DashboardTemplate = ({
   };
 
   return (
-    <div className={styles.template}>
-      <div className={styles.head}>
-        <div className={styles.title}>
-          <Typography variant={TypographyVariants.H3}>{head}</Typography>
+    <div className={clsx(styles.template, className)} {...others}>
+      {head && button && (
+        <div className={styles.head}>
+          <div className={styles.title}>
+            <Typography variant={TypographyVariants.H3}>{head}</Typography>
+          </div>
+          <div className={styles.button}>{button}</div>
         </div>
-        <div className={styles.button}>{button}</div>
-      </div>
+      )}
       <div className={clsx(styles.content, ghost && styles.ghost)}>
         {children}
         <div className={styles.pageList}>

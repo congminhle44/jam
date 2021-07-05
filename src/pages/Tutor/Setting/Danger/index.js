@@ -12,27 +12,6 @@ const DangerZone = ({
 }) => {
   return (
     <div className={styles.container}>
-      <div className={styles.delete}>
-        <div className={styles.left}>
-          <Typography
-            className={styles.title}
-            variant={TypographyVariants.Title2}>
-            <FormattedMessage id='tutor.course.setting.delete.title' />
-          </Typography>
-          <Typography
-            className={styles.description}
-            variant={TypographyVariants.Label1}>
-            <FormattedMessage id='tutor.course.setting.delete.description' />
-          </Typography>
-        </div>
-        <Button
-          disabled={courseData && courseData.isPublished}
-          variant={ButtonVariants.Outline}
-          onClick={handleRenderDeleteCourseModal}
-          size={ButtonSizes.Small}>
-          <FormattedMessage id='common.delete' />
-        </Button>
-      </div>
       <div className={styles.public}>
         <div className={styles.left}>
           <Typography
@@ -55,6 +34,27 @@ const DangerZone = ({
           ) : (
             <FormattedMessage id='tutor.course.setting.public.button' />
           )}
+        </Button>
+      </div>
+      <div className={styles.delete}>
+        <div className={styles.left}>
+          <Typography
+            className={styles.title}
+            variant={TypographyVariants.Title2}>
+            <FormattedMessage id='tutor.course.setting.delete.title' />
+          </Typography>
+          <Typography
+            className={styles.description}
+            variant={TypographyVariants.Label1}>
+            <FormattedMessage id='tutor.course.setting.delete.description' />
+          </Typography>
+        </div>
+        <Button
+          disabled={courseData && courseData.isPublished}
+          variant={ButtonVariants.Outline}
+          onClick={handleRenderDeleteCourseModal}
+          size={ButtonSizes.Small}>
+          <FormattedMessage id='common.delete' />
         </Button>
       </div>
     </div>

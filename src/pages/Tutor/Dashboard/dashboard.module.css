@@ -1,5 +1,9 @@
 /** @format */
 
+.template {
+  margin: 0;
+}
+
 .container {
   width: 100%;
   min-height: 65vh;

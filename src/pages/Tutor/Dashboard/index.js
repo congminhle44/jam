@@ -16,30 +16,23 @@ import CreateCourseModal from './components/CreateCourseModal';
 import styles from './dashboard.module.css';
 import Alert, { AlertVariants } from '@/components/Alert';
 import { FormattedMessage } from 'react-intl';
+import DashboardTemplate from '@/components/Template/dashboard';
 
 const TutorDashboard = () => {
   const history = useHistory();
 
   const [page, setPage] = useState(1);
-  const [total, setTotal] = useState(0);
-  const [courses, setCourses] = useState([]);
+  const limit = 6;
 
   const { data: tutorCourses, error: getCourseError } = useTutorCourses(
     page,
-    6,
+    limit,
     ''
   );
   const { mutateAsync: createCourse } = useCreateCourse();
 
   const [, showModal] = useAtom(showModalAtom);
   const [, showAlert] = useAtom(showAlertAtom);
-
-  useEffect(() => {
-    if (tutorCourses) {
-      setCourses((oldCourses) => [...oldCourses, ...tutorCourses.data]);
-      setTotal(tutorCourses.total);
-    }
-  }, [tutorCourses]);
 
   const handleCreateCourse = (course) => {
     return createCourse(course)
@@ -79,19 +72,23 @@ const TutorDashboard = () => {
         <Notfound />
       ) : (
         <div className={styles.container}>
-          <div className={styles.button}>
-            <Button
-              onClick={handleShowModal}
-              variant={ButtonVariants.Solid}
-              size={ButtonSizes.Standard}>
-              <FormattedMessage id='tutor.dashboard.create' />
-            </Button>
-          </div>
-          <CourseList
-            courses={courses}
-            next={() => setPage(page + 1)}
-            total={total}
-          />
+          <DashboardTemplate
+            className={styles.template}
+            setPage={setPage}
+            total={tutorCourses && tutorCourses.total}
+            limit={limit}
+            currentPage={page}
+            ghost>
+            <div className={styles.button}>
+              <Button
+                onClick={handleShowModal}
+                variant={ButtonVariants.Solid}
+                size={ButtonSizes.Standard}>
+                <FormattedMessage id='tutor.dashboard.create' />
+              </Button>
+            </div>
+            <CourseList courses={tutorCourses && tutorCourses.data} />
+          </DashboardTemplate>
         </div>
       )}
     </>

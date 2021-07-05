@@ -8,7 +8,7 @@ const CategoryButton = ({ data }) => {
 
   const renderButton = () => {
     if (data) {
-      return data.map((data) => {
+      return data.data.map((data) => {
         const redirectToCategoryDetail = () => {
           history.push(`/category/${data._id}`);
         };

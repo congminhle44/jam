@@ -6,6 +6,7 @@ import useMakeMutation from '@/hooks/useMakeMutation';
 import { handleError } from '@/helpers/requests';
 import {
   changePassword,
+  createUser,
   deleteUser,
   getCartItem,
   getLearningProcess,
@@ -16,6 +17,7 @@ import {
   register,
   removeRefreshTokenApi,
   updateLearningProcess,
+  updateProfile,
   updateUser,
   uploadAvatar,
 } from '../apis/users';
@@ -26,6 +28,11 @@ export const useLogin = () => {
 };
 
 export const useUpdateProfile = () => {
+  const { mutation } = useMakeMutation(updateProfile);
+  return mutation;
+};
+
+export const useUpdateUser = () => {
   const { mutation } = useMakeMutation(updateUser);
   return mutation;
 };
@@ -57,6 +64,11 @@ export const useLogout = () => {
 
 export const useDeleteUser = () => {
   const { mutation } = useMakeMutation(deleteUser);
+  return mutation;
+};
+
+export const useCreateUser = () => {
+  const { mutation } = useMakeMutation(createUser);
   return mutation;
 };
 

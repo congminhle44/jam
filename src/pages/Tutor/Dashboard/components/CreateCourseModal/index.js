@@ -22,7 +22,7 @@ const CreateCourseModal = ({ onClose, onSubmit, ...others }) => {
   const { data: categories } = useCategories(1, '', '', '');
 
   useEffect(() => {
-    if (categories) setCategory(categories[0].categoryID);
+    if (categories) setCategory(categories.data[0].categoryID);
   }, [categories]);
 
   const onCreate = (data) => {

@@ -58,7 +58,7 @@ const CourseTab = ({ categories, categoryLoading }) => {
   } = useCourseByCategory(tab, userInfo._id);
 
   useEffect(() => {
-    if (categories) setTab(categories[0].categoryID);
+    if (categories) setTab(categories.data[0].categoryID);
   }, [categories]);
 
   const [value, setValue] = useState(0);
@@ -69,7 +69,7 @@ const CourseTab = ({ categories, categoryLoading }) => {
 
   const renderCategoriesTab = () => {
     if (categories) {
-      return categories.map((category, index) => {
+      return categories.data.map((category, index) => {
         return (
           <Tab
             key={index}

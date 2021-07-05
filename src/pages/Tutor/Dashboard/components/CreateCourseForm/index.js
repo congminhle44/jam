@@ -15,7 +15,7 @@ const CreateCourseForm = ({
 }) => {
   const handleRenderCoursetype = () => {
     if (categories) {
-      return categories.map((category) => {
+      return categories.data.map((category) => {
         return (
           <Option
             key={category._id}

@@ -23,10 +23,20 @@ export const register = async (requestBody) => {
   return data;
 };
 
-export const updateUser = async (requestBody) => {
+export const updateProfile = async (requestBody) => {
   const { url, method } = config.apis.updateProfile;
   const { data } = await axios({
     url: `${config.app.apiHost}${url}`,
+    method: method,
+    data: requestBody,
+  });
+  return data;
+};
+
+export const updateUser = async (requestBody) => {
+  const { url, method } = config.apis.updateUser;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url(requestBody.id)}`,
     method: method,
     data: requestBody,
   });
@@ -141,6 +151,16 @@ export const deleteUser = async (requestBody) => {
   const { data } = await axios({
     url: `${config.app.apiHost}${url(requestBody.id)}`,
     method: method,
+  });
+  return data;
+};
+
+export const createUser = async (requestBody) => {
+  const { url, method } = config.apis.createUser;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+    data: requestBody,
   });
   return data;
 };
