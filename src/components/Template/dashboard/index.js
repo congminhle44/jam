@@ -41,7 +41,7 @@ const DashboardTemplate = ({
         40.75 * (totalPages - 5)
       }px)`;
     }
-  }, [currentPage, pageRef]);
+  }, [currentPage, pageRef, totalPages]);
 
   const renderPages = () => {
     return pageNumbers.map((page) => {
@@ -59,7 +59,7 @@ const DashboardTemplate = ({
 
   return (
     <div className={clsx(styles.template, className)} {...others}>
-      {head && button && (
+      {head && (
         <div className={styles.head}>
           <div className={styles.title}>
             <Typography variant={TypographyVariants.H3}>{head}</Typography>

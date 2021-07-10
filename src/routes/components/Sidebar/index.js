@@ -1,7 +1,7 @@
 /** @format */
 
 import Brand from '@/assets/Images/Brand.png';
-import { Category, Logout, Profile, User } from '@/components/Icons';
+import { Briefcase, Category, Logout, Profile, User } from '@/components/Icons';
 import { useLogout } from '@/queries/hooks/users';
 import { removeUserInfoAtom, userAtom } from '@/store/login';
 import { removeRefreshTokenAtom } from '@/store/refreshToken';
@@ -42,6 +42,9 @@ const Sidebar = () => {
         <Navitem suffix={<Profile />}>{userInfo.fullName}</Navitem>
         <Navitem isLink path='/admin/categories' suffix={<Category />}>
           Categories
+        </Navitem>
+        <Navitem isLink path='/admin/courses' suffix={<Briefcase />}>
+          Courses
         </Navitem>
         <Navitem isLink path='/admin/users' suffix={<User />}>
           Users

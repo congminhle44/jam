@@ -38,8 +38,7 @@
 .options {
   position: absolute;
   top: 100%;
-  left: 0;
-  width: 100%;
+  right: 0;
   background-color: var(--white);
   border-radius: 0.5rem;
   box-shadow: 1px 1px 8px var(--grey-4);

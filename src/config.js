@@ -42,6 +42,7 @@ const config = {
     adminDashboard: '/admin/dashboard',
     adminUser: '/admin/users',
     adminCategory: '/admin/categories',
+    adminCourse: '/admin/courses',
   },
   apis: {
     getCategories: {
@@ -230,6 +231,10 @@ const config = {
     updateCategory: {
       url: (id) => `/categories/${id}`,
       method: 'PUT',
+    },
+    getCourses: {
+      url: '/courses',
+      method: 'GET',
     },
   },
 };

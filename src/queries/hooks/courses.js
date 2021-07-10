@@ -27,12 +27,18 @@ import {
   updateCourse,
   publicCourse,
   deleteCourse,
+  getAllCourses,
 } from '../apis/courses';
 import { handleError } from '@/helpers/requests';
 import useMakeMutation from '@/hooks/useMakeMutation';
 
+export const useCourses = (page, limit, keyword, category) =>
+  useQuery(['courses', { page, limit, keyword, category }], getAllCourses, {
+    onError: handleError,
+  });
+
 export const usePublicCourses = (page, limit, keyword) =>
-  useQuery(['courses', { page, limit, keyword }], getPublicCourses, {
+  useQuery(['publicCourses', { page, limit, keyword }], getPublicCourses, {
     onError: handleError,
   });
 

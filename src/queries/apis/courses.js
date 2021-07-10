@@ -3,6 +3,17 @@ import axios from 'axios';
 
 import config from '@/config';
 
+export const getAllCourses = async (key) => {
+  const { url, method } = config.apis.getCourses;
+  const { page, limit, keyword, category } = key && key.queryKey[1];
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+    params: { page, limit, keyword, category },
+  });
+  return data;
+};
+
 export const getPublicCourses = async (key) => {
   const { url, method } = config.apis.getPublicCourses;
   const { page, limit, keyword } = key && key.queryKey[1];

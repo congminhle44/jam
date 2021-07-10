@@ -1,5 +1,5 @@
 /** @format */
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { useAtom } from 'jotai';
 
