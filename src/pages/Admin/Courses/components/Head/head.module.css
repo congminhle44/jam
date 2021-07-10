@@ -1,0 +1,11 @@
+/** @format */
+
+.head {
+  display: flex;
+  align-items: center;
+}
+
+.search {
+  width: 86%;
+  margin-right: 2rem;
+}

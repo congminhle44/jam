@@ -25,7 +25,7 @@ const AdminLogin = () => {
   const handleLogin = (user) => {
     return login(user)
       .then((result) => {
-        if (result.data.userType == 'admin') {
+        if (result.data.userType === 'admin') {
           setUserData(result.data);
           setUserToken(result.accessToken);
           setUserRefresh(result.refreshToken);
