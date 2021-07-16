@@ -88,6 +88,16 @@ export const clientRoutes = [
     exact: false,
     component: lazy(() => import('@/pages/Client/OauthRedirect')),
   },
+  {
+    path: config.paths.forgotPassword,
+    exact: false,
+    component: lazy(() => import('@/pages/Client/ForgotPassword')),
+  },
+  {
+    path: config.paths.resetPassword,
+    exact: false,
+    component: lazy(() => import('@/pages/Client/ResetPassword')),
+  },
 ];
 
 export default ClientRoute;
