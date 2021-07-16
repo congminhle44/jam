@@ -16,6 +16,8 @@ import {
   login,
   register,
   removeRefreshTokenApi,
+  resetPassword,
+  sendRecoverPasswordMail,
   updateLearningProcess,
   updateProfile,
   updateUser,
@@ -24,6 +26,16 @@ import {
 
 export const useLogin = () => {
   const { mutation } = useMakeMutation(login);
+  return mutation;
+};
+
+export const useRecoverMail = () => {
+  const { mutation } = useMakeMutation(sendRecoverPasswordMail);
+  return mutation;
+};
+
+export const useResetPassword = () => {
+  const { mutation } = useMakeMutation(resetPassword);
   return mutation;
 };
 

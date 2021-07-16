@@ -43,6 +43,31 @@ export const updateUser = async (requestBody) => {
   return data;
 };
 
+export const resetPassword = async (requestBody) => {
+  const { url, method } = config.apis.resetPassword;
+  const axiosInstance = axios.create({
+    headers: {
+      token: requestBody.token,
+    },
+  });
+  const { data } = await axiosInstance({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+    data: requestBody,
+  });
+  return data;
+};
+
+export const sendRecoverPasswordMail = async (requestBody) => {
+  const { url, method } = config.apis.sendRecoverPasswordMail;
+  const { data } = await axios({
+    url: `${config.app.apiHost}${url}`,
+    method: method,
+    data: requestBody,
+  });
+  return data;
+};
+
 export const changePassword = async (requestBody) => {
   const { url, method } = config.apis.changePassword;
   const { data } = await axios({

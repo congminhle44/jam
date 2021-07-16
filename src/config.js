@@ -43,6 +43,8 @@ const config = {
     adminUser: '/admin/users',
     adminCategory: '/admin/categories',
     adminCourse: '/admin/courses',
+    forgotPassword: '/forgot-password',
+    resetPassword: '/reset-password',
   },
   apis: {
     getCategories: {
@@ -235,6 +237,18 @@ const config = {
     getCourses: {
       url: '/courses',
       method: 'GET',
+    },
+    downloadLessons: {
+      url: (id) => `/courses/download/${id}`,
+      method: 'GET',
+    },
+    sendRecoverPasswordMail: {
+      url: '/users/recover',
+      method: 'POST',
+    },
+    resetPassword: {
+      url: '/users/recoverPassword',
+      method: 'PATCH',
     },
   },
 };

@@ -2,7 +2,6 @@
 
 export const courseSettings = (courses) => ({
   dots: false,
-  infinite: true,
   speed: 500,
   // If the item in courses array is equal or less than 1 will return 1 to prevent render 2 lines of items if there is only 1 item
   slidesToShow:

@@ -2,10 +2,17 @@
 
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
 import Typography, { TypographyVariants } from '@/components/Typography';
+import config from '@/config';
 import { FormattedMessage } from 'react-intl';
 import styles from './detail.module.css';
 
 const LibItemDetail = ({ processData, handleRedirectUser, course }) => {
+  const handleDownloadLessons = () => {
+    window.open(
+      `${config.app.apiHost}${config.apis.downloadLessons.url(course._id)}`
+    );
+  };
+
   return (
     <>
       {processData && (
@@ -32,7 +39,7 @@ const LibItemDetail = ({ processData, handleRedirectUser, course }) => {
                     : course.lesson
                 )
               }
-              variant={ButtonVariants.Outline}
+              variant={ButtonVariants.Solid}
               size={ButtonSizes.Small}>
               {Object.keys(processData).length > 0 ? (
                 <FormattedMessage id='profile.course.resume' />
@@ -40,6 +47,16 @@ const LibItemDetail = ({ processData, handleRedirectUser, course }) => {
                 <FormattedMessage id='profile.course.start' />
               )}{' '}
               <FormattedMessage id='profile.course.learn' />
+            </Button>
+            <Button
+              onClick={handleDownloadLessons}
+              disabled={course && !course.canLearn}
+              className={styles.download}
+              data-toggle='tooltip'
+              title='Learn offline to avoid the lost connection between your learning process'
+              variant={ButtonVariants.Outline}
+              size={ButtonSizes.Small}>
+              Download
             </Button>
           </div>
         </div>
