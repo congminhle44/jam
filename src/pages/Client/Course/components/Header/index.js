@@ -8,13 +8,86 @@ import Typography, { TypographyVariants } from '@/components/Typography';
 import RateStar from '@/components/Rating';
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
 import { FormattedMessage } from 'react-intl';
+import { SolidHeart } from '@/components/Icons';
+import clsx from 'clsx';
+import { useHistory } from 'react-router-dom';
+import {
+  useGetWishlist,
+  useRemoveWishlist,
+  useWishlist,
+} from '@/queries/hooks/courses';
+import Alert, { AlertVariants } from '@/components/Alert';
+import { showAlertAtom } from '@/store/alert';
+import { userAtom } from '@/store/login';
+import { useAtom } from 'jotai';
 
 const CourseHeader = ({
   courseInfo,
+  refetchCourseInfo,
   isCourseLoading,
   handleAddItemToCart,
   addItemToCheckout,
 }) => {
+  const history = useHistory();
+  const [, showAlert] = useAtom(showAlertAtom);
+  const [userInfo] = useAtom(userAtom);
+
+  const { refetch: refetchWishlist } = useGetWishlist();
+  const { mutateAsync: addItemToWishlist } = useWishlist();
+  const { mutateAsync: removeItemFromWishlist } = useRemoveWishlist();
+
+  const handleAddItemToWishlist = (courseId) => {
+    if (userInfo) {
+      return addItemToWishlist({ courseId })
+        .then((result) => {
+          showAlert({
+            component: Alert,
+            props: {
+              variant: AlertVariants.Success,
+              children: result.message,
+            },
+          });
+          refetchWishlist();
+          refetchCourseInfo();
+        })
+        .catch((err) => {
+          showAlert({
+            component: Alert,
+            props: {
+              variant: AlertVariants.Warning,
+              children: err.response && err.response.data.message,
+            },
+          });
+        });
+    } else {
+      history.push('/login');
+    }
+  };
+
+  const handleRemoveItemFromWishlist = (courseId) => {
+    return removeItemFromWishlist({ courseId })
+      .then((result) => {
+        showAlert({
+          component: Alert,
+          props: {
+            variant: AlertVariants.Success,
+            children: result.message,
+          },
+        });
+        refetchWishlist();
+        refetchCourseInfo();
+      })
+      .catch((err) => {
+        showAlert({
+          component: Alert,
+          props: {
+            variant: AlertVariants.Error,
+            children: err.response && err.response.data.message,
+          },
+        });
+      });
+  };
+
   return (
     <div className={styles.container}>
       {isCourseLoading ? (
@@ -28,34 +101,50 @@ const CourseHeader = ({
         />
       )}
       <div className={styles.info}>
-        {isCourseLoading ? (
-          <Skeleton
-            style={{ display: 'block' }}
-            className={styles.title}
-            width={100}
-            height={20}
-          />
-        ) : (
-          <Typography
-            className={styles.title}
-            variant={TypographyVariants.Title2}>
-            {courseInfo && courseInfo.courseName}
-          </Typography>
-        )}
-        {isCourseLoading ? (
-          <Skeleton
-            style={{ display: 'block' }}
-            className={styles.author}
-            width={150}
-            height={20}
-          />
-        ) : (
-          <Typography
-            className={styles.author}
-            variant={TypographyVariants.Body1}>
-            {courseInfo && courseInfo.personCreated.fullName}
-          </Typography>
-        )}
+        <div className={styles.infoHeader}>
+          <div className={styles.titleInfo}>
+            {isCourseLoading ? (
+              <Skeleton
+                style={{ display: 'block' }}
+                className={styles.title}
+                width={100}
+                height={20}
+              />
+            ) : (
+              <Typography
+                className={styles.title}
+                variant={TypographyVariants.Title2}>
+                {courseInfo && courseInfo.courseName}
+              </Typography>
+            )}
+            {isCourseLoading ? (
+              <Skeleton
+                style={{ display: 'block' }}
+                className={styles.author}
+                width={150}
+                height={20}
+              />
+            ) : (
+              <Typography
+                className={styles.author}
+                variant={TypographyVariants.Body1}>
+                {courseInfo && courseInfo.personCreated.fullName}
+              </Typography>
+            )}
+          </div>
+          <div
+            className={clsx(
+              styles.wish,
+              courseInfo && courseInfo.isWished && styles.active
+            )}
+            onClick={() =>
+              courseInfo && courseInfo.isWished
+                ? handleRemoveItemFromWishlist(courseInfo._id)
+                : handleAddItemToWishlist(courseInfo._id)
+            }>
+            <SolidHeart />
+          </div>
+        </div>
         {courseInfo && (
           <RateStar
             readOnly

@@ -2,7 +2,6 @@
 
 import clsx from 'clsx';
 import { useHistory } from 'react-router';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { FormattedMessage } from 'react-intl';
 import Slider from 'react-slick';
 
@@ -16,7 +15,7 @@ import { useAtom } from 'jotai';
 
 import { courseSettings } from './courseSettings';
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
-import { Heart } from '@/components/Icons';
+import { Cart, Heart } from '@/components/Icons';
 import {
   useCartItem,
   useGetWishlist,
@@ -133,57 +132,71 @@ const CourseTabs = ({ isLoading, courses, refetchCourse }) => {
                 styles.card,
                 courses.length === 1 && styles.full
               )}>
-              <LazyLoadImage
-                effect='blur'
-                height={220}
-                className={styles.img}
-                onError={(e) => {
-                  e.target.src = `${ErrorImg}`;
-                }}
-                src={course.courseImage}
-                alt={course.courseName}
-              />
-              <div className={styles.information}>
-                <Typography
-                  className={styles.name}
-                  variant={TypographyVariants.Body2}>
-                  {course.courseName}
-                </Typography>
-                <Typography
-                  className={styles.author}
-                  variant={TypographyVariants.Label1}>
-                  {course.personCreated.fullName}
-                </Typography>
-                <RateStar
-                  readOnly
-                  showRateInText
-                  value={course.averageRate}
-                  amount={course.amountOfComments}
+              <div className={styles.imgWrap}>
+                <img
+                  className={styles.img}
+                  onError={(e) => {
+                    e.target.src = `${ErrorImg}`;
+                  }}
+                  src={course.courseImage}
+                  alt={course.courseName}
                 />
-                <Typography
-                  className={styles.price}
-                  variant={TypographyVariants.Paragraph2}>
-                  ${course.cost}
-                </Typography>
+
+                <div className={styles.control}>
+                  <Button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleAddItemToCart(course._id);
+                    }}
+                    className={styles.button}
+                    variant={ButtonVariants.Solid}
+                    size={ButtonSizes.Small}
+                    suffix={<Cart />}>
+                    Add to cart
+                  </Button>
+                  <div
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      course.isWished
+                        ? handleRemoveItemFromWishlist(course._id)
+                        : handleAddItemToWishlist(course._id);
+                    }}
+                    className={clsx(
+                      styles.wish,
+                      course.isWished && styles.wished
+                    )}>
+                    <div className={styles.heart}>
+                      <Heart />
+                    </div>
+                    <Typography variant={TypographyVariants.Body1}>
+                      Add to wish
+                    </Typography>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className={styles.control}>
-              <Button
-                onClick={() => handleAddItemToCart(course._id)}
-                className={styles.button}
-                variant={ButtonVariants.Solid}
-                size={ButtonSizes.Small}>
-                Add to cart
-              </Button>
-              <div
-                onClick={() => {
-                  course.isWished
-                    ? handleRemoveItemFromWishlist(course._id)
-                    : handleAddItemToWishlist(course._id);
-                }}
-                className={clsx(styles.wish, course.isWished && styles.wished)}>
-                <div className={styles.heart}>
-                  <Heart />
+              <div className={styles.content}>
+                <div className={styles.information}>
+                  <Typography
+                    className={styles.name}
+                    variant={TypographyVariants.Body2}>
+                    {course.courseName}
+                  </Typography>
+                  <Typography
+                    className={styles.author}
+                    variant={TypographyVariants.Label1}>
+                    {course.personCreated.fullName}
+                  </Typography>
+                  <RateStar
+                    readOnly
+                    showRateInText
+                    value={course.averageRate}
+                    amount={course.amountOfComments}
+                  />
+                  <Typography
+                    className={styles.price}
+                    variant={TypographyVariants.Paragraph2}>
+                    ${course.cost}
+                  </Typography>
                 </div>
               </div>
             </div>

@@ -129,6 +129,7 @@ const CourseDetails = ({ match }) => {
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <CourseHeader
+            refetchCourseInfo={refetchCourseInfo}
             addItemToCheckout={handleCheckout}
             handleAddItemToCart={handleAddItemToCart}
             isCourseLoading={isCourseLoading}

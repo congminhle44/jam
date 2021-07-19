@@ -18,6 +18,21 @@
   color: var(--text);
 }
 
+.infoHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wish {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+.wish.active {
+  color: var(--primary);
+}
+
 .title {
   margin-bottom: 0.5rem;
 }
