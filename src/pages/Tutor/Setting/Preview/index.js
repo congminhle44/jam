@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import styles from './preview.module.css';
 
 const CoursePreview = ({ courseData }) => {
+  console.log(courseData);
   return (
     <div className={styles.container}>
       <div className={styles.name}>
@@ -21,6 +22,14 @@ const CoursePreview = ({ courseData }) => {
         </Typography>
         <ReactMarkdown className={styles.markdown}>
           {courseData.courseDescription}
+        </ReactMarkdown>
+      </div>
+      <div className={styles.description}>
+        <Typography className={styles.title} variant={TypographyVariants.Body2}>
+          Price
+        </Typography>
+        <ReactMarkdown className={styles.markdown}>
+          {courseData.cost.toString()}
         </ReactMarkdown>
       </div>
     </div>

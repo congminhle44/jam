@@ -24,6 +24,7 @@ const CourseUpdateForm = ({
   const defaultData = {
     courseName: courseData.courseName,
     courseDescription: courseData.courseDescription,
+    cost: courseData.cost,
   };
 
   const {
@@ -37,6 +38,7 @@ const CourseUpdateForm = ({
   });
   const courseName = getValues('courseName');
   const courseDescription = getValues('courseDescription');
+  const cost = getValues('cost');
 
   const handleUpdateInformation = (data) => {
     return updateCourseInformation({ ...data, id: paramId })
@@ -66,7 +68,7 @@ const CourseUpdateForm = ({
       onSubmit={handleSubmit(handleUpdateInformation)}
       className={styles.container}>
       {isPreview ? (
-        <CoursePreview courseData={{ courseName, courseDescription }} />
+        <CoursePreview courseData={{ courseName, courseDescription, cost }} />
       ) : (
         <Fragment>
           <Input
@@ -87,6 +89,16 @@ const CourseUpdateForm = ({
               maxLength: 500,
             })}
             error={errors.courseDescription?.message}
+          />
+          <Input
+            className={styles.description}
+            placeholder='Type course price'
+            {...register('cost', {
+              required: true,
+              minLength: 3,
+              maxLength: 4,
+            })}
+            error={errors.cost?.message}
           />
         </Fragment>
       )}

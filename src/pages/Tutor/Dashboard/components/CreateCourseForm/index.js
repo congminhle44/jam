@@ -39,6 +39,7 @@ const CreateCourseForm = ({
           minLength: 8,
           maxLength: 50,
         })}
+        required
         error={errors.courseName?.message}
       />
       <Input
@@ -50,6 +51,17 @@ const CreateCourseForm = ({
           maxLength: 500,
         })}
         error={errors.courseDescription?.message}
+      />
+      <Input
+        className={styles.description}
+        label='Cost'
+        placeholder='Type course description'
+        {...register('cost', {
+          required: true,
+          minLength: 3,
+          maxLength: 4,
+        })}
+        error={errors.cost?.message}
       />
       {categories && (
         <Select currentOption={category}>{handleRenderCoursetype()}</Select>
