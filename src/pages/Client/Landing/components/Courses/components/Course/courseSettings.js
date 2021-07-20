@@ -29,6 +29,7 @@ export const courseSettings = (courses) => ({
     {
       breakpoint: 680,
       settings: {
+        draggable: true,
         slidesToShow: 1,
         slidesToScroll: 1,
       },
