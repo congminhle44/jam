@@ -110,6 +110,18 @@ a {
   opacity: 1;
 }
 
+.slick-prev,
+.slick-next {
+  width: 2rem !important;
+  height: 2rem !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 2rem !important;
+  color: var(--text) !important;
+}
+
 /* Material custom */
 .MuiPaper-elevation4 {
   box-shadow: none !important;
