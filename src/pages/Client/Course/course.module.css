@@ -28,6 +28,17 @@
   z-index: -1;
 }
 
+.videoWrap {
+  margin-top: 4.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video {
+  width: 50rem;
+  height: 35rem;
+}
+
 .description {
   white-space: pre-wrap;
 }

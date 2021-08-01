@@ -8,7 +8,7 @@ import Typography, { TypographyVariants } from '@/components/Typography';
 import RateStar from '@/components/Rating';
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
 import { FormattedMessage } from 'react-intl';
-import { SolidHeart } from '@/components/Icons';
+import { Play, SolidHeart } from '@/components/Icons';
 import clsx from 'clsx';
 import { useHistory } from 'react-router-dom';
 import {
@@ -27,6 +27,7 @@ const CourseHeader = ({
   isCourseLoading,
   handleAddItemToCart,
   addItemToCheckout,
+  showVideo,
 }) => {
   const history = useHistory();
   const [, showAlert] = useAtom(showAlertAtom);
@@ -90,16 +91,27 @@ const CourseHeader = ({
 
   return (
     <div className={styles.container}>
-      {isCourseLoading ? (
-        <Skeleton width={240} height={240} />
-      ) : (
-        <img
-          className={styles.thumb}
-          src={courseInfo && courseInfo.courseImage}
-          onError={(e) => (e.target.src = `${ErrorImg}`)}
-          alt={courseInfo && courseInfo.courseName}
-        />
-      )}
+      <div className={styles.imgWrap}>
+        {isCourseLoading ? (
+          <Skeleton width={240} height={240} />
+        ) : (
+          <img
+            className={styles.thumb}
+            src={courseInfo && courseInfo.courseImage}
+            onError={(e) => (e.target.src = `${ErrorImg}`)}
+            alt={courseInfo && courseInfo.courseName}
+          />
+        )}
+        <div className={styles.overlay}>
+          <div
+            data-toggle='tooltip'
+            title={'Watch demo video'}
+            onClick={showVideo}
+            className={styles.play}>
+            <Play />
+          </div>
+        </div>
+      </div>
       <div className={styles.info}>
         <div className={styles.infoHeader}>
           <div className={styles.titleInfo}>

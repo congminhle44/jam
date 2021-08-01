@@ -22,12 +22,13 @@ const TutorDashboard = () => {
   const history = useHistory();
 
   const [page, setPage] = useState(1);
+  const [keyword, setKeyword] = useState('');
   const limit = 6;
 
   const { data: tutorCourses, error: getCourseError } = useTutorCourses(
     page,
     limit,
-    ''
+    keyword
   );
   const { mutateAsync: createCourse } = useCreateCourse();
 
@@ -87,7 +88,10 @@ const TutorDashboard = () => {
                 <FormattedMessage id='tutor.dashboard.create' />
               </Button>
             </div>
-            <CourseList courses={tutorCourses && tutorCourses.data} />
+            <CourseList
+              setKeyword={setKeyword}
+              courses={tutorCourses && tutorCourses.data}
+            />
           </DashboardTemplate>
         </div>
       )}

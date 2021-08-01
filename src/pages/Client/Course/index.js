@@ -1,5 +1,5 @@
 /** @format */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { useAtom } from 'jotai';
 import { useHistory } from 'react-router';
@@ -10,6 +10,7 @@ import { addCheckoutItemsAtom } from '@/store/checkout';
 import { userAtom } from '@/store/login';
 
 import { AlertVariants } from '@/components/Alert';
+import Overlay from '@/components/Overlay';
 
 import {
   useCartItem,
@@ -28,6 +29,7 @@ import Typography, { TypographyVariants } from '@/components/Typography';
 
 import ErrorImg from '@/assets/Images/Image-error.jpg';
 import styles from './course.module.css';
+import { disableScroll, enableScroll } from '@/helpers/behaviours';
 
 const CourseDetails = ({ match }) => {
   const id = match.params.id;
@@ -35,6 +37,7 @@ const CourseDetails = ({ match }) => {
   const history = useHistory();
   const intl = useIntl();
 
+  const [showVideo, setShowVideo] = useState(false);
   const [comment, setComment] = useState({
     content: '',
     rate: 5,
@@ -55,6 +58,14 @@ const CourseDetails = ({ match }) => {
   const { refetch: refetchCartList } = useGetCartItem();
 
   const { mutateAsync: uploadComment } = useComment();
+
+  useEffect(() => {
+    if (showVideo) {
+      disableScroll();
+    } else {
+      enableScroll();
+    }
+  }, [showVideo]);
 
   const handleComment = (e) => {
     e.preventDefault();
@@ -120,6 +131,17 @@ const CourseDetails = ({ match }) => {
 
   return (
     <div className={styles.superWrap}>
+      {showVideo && (
+        <Overlay
+          onClick={() => setShowVideo(false)}
+          className={styles.videoWrap}>
+          <video
+            src={courseInfo && courseInfo.demoVideo}
+            className={styles.video}
+            controls
+          />
+        </Overlay>
+      )}
       <img
         className={styles.cover}
         src={courseInfo && courseInfo.courseImage}
@@ -129,13 +151,14 @@ const CourseDetails = ({ match }) => {
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <CourseHeader
+            showVideo={() => setShowVideo(true)}
             refetchCourseInfo={refetchCourseInfo}
             addItemToCheckout={handleCheckout}
             handleAddItemToCart={handleAddItemToCart}
             isCourseLoading={isCourseLoading}
             courseInfo={courseInfo}
           />
-          <div>
+          <div style={{ width: '100%' }}>
             <CourseInfoDetail
               refetchComment={refetchComment}
               userInfo={userInfo}
