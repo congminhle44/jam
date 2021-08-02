@@ -29,6 +29,7 @@ const LibItemDetail = ({ processData, handleRedirectUser, course }) => {
           <div className={styles.button}>
             <Button
               data-toggle='tooltip'
+              className={styles.learn}
               title={!course.canLearn && 'No lesson found in this course'}
               disabled={course && !course.canLearn}
               onClick={() =>

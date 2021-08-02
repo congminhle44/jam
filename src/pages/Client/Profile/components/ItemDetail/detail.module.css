@@ -10,12 +10,23 @@
 }
 
 .button {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
   margin-top: 1.5rem;
 }
 
+.learn,
 .download {
-  margin-left: 1rem;
+  width: 100%;
+}
+
+.download {
+  margin-top: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+  }
 }

@@ -137,6 +137,7 @@ const CourseDetails = ({ match }) => {
           className={styles.videoWrap}>
           <video
             src={courseInfo && courseInfo.demoVideo}
+            onClick={(e) => e.stopPropagation()}
             className={styles.video}
             controls
           />
