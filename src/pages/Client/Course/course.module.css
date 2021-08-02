@@ -34,8 +34,8 @@
   justify-content: center;
 }
 .video {
-  width: 50rem;
-  height: 35rem;
+  width: 90%;
+  height: 50%;
 }
 
 .description {
@@ -76,6 +76,13 @@
   }
   .wrapper {
     display: flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .video {
+    width: 70%;
+    height: 70%;
   }
 }
 
