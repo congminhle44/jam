@@ -29,4 +29,14 @@
     justify-content: flex-end;
     margin-top: 1.5rem;
   }
+
+  .learn,
+  .download {
+    width: fit-content;
+  }
+
+  .download {
+    margin-top: 0;
+    margin-left: 0.75rem;
+  }
 }

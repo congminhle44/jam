@@ -51,7 +51,7 @@ const ChangePassword = () => {
           </Typography>
           <ul>
             <li className={styles.noteItem}>
-              Password must have at least 6 characters
+              Password must have at least 8 characters
             </li>
             <li className={styles.noteItem}>
               Use a mix of upper and lower case characters

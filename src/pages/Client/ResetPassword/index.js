@@ -24,7 +24,7 @@ const ResetPassword = () => {
   const [, showAlert] = useAtom(showAlertAtom);
 
   const errorSchema = yup.object().shape({
-    password: yup.string().required().min(6).max(80),
+    password: yup.string().required().min(8).max(80),
   });
 
   const {

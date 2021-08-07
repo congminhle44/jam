@@ -46,6 +46,16 @@ const Form = ({ userInfo, updateUser }) => {
         })}
         error={errors.description?.message}
       />
+      <Input
+        className={styles.input}
+        defaultValue={userInfo && userInfo.address}
+        placeholder='Your short description'
+        label='Address'
+        {...register('address', {
+          maxLength: 80,
+        })}
+        error={errors.address?.message}
+      />
       <div className={styles.button}>
         <Button
           type='submit'

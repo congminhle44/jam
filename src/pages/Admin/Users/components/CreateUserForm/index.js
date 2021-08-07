@@ -27,7 +27,7 @@ const CreateUserForm = ({ role, handleSelectOption, errors, register }) => {
         placeholder='Type user fullname'
         {...register('fullName', {
           required: true,
-          minLength: 8,
+          minLength: 6,
           maxLength: 80,
         })}
         error={errors.fullName?.message}
