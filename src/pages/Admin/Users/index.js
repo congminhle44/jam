@@ -44,8 +44,10 @@ const UserManage = () => {
   const setNewRole = (role) => setRole(role);
 
   const handleDeleteUser = (id) => {
+    // Call delete user hook that was declared
     return deleteUser({ id })
       .then((result) => {
+        // If success, it will refetch the list of users and show success alert
         refetchUsers();
         showAlert({
           component: Alert,
@@ -56,6 +58,7 @@ const UserManage = () => {
         });
       })
       .catch((err) => {
+        // If error, it will show error alert include the message was sent from server
         showAlert({
           component: Alert,
           props: {
@@ -67,8 +70,10 @@ const UserManage = () => {
   };
 
   const handleCreateUser = (data) => {
+    // Call create user hook that was declared
     return createUser(data)
       .then((result) => {
+        // If success, it will refetch the list of users and show success alert
         refetchUsers();
         showAlert({
           component: Alert,
@@ -79,6 +84,7 @@ const UserManage = () => {
         });
       })
       .catch((err) => {
+        // If error, it will show error alert include the message was sent from server
         showAlert({
           component: Alert,
           props: {

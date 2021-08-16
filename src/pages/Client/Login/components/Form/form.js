@@ -11,6 +11,7 @@ import { errorSchema } from './errors';
 import styles from './form.module.css';
 
 const Form = ({ handleLogin, getRegisteredEmail }) => {
+  // Declare react hook form to handle form validation for us
   const {
     register,
     handleSubmit,

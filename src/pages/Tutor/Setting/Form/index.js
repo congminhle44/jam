@@ -9,7 +9,6 @@ import CoursePreview from '../Preview';
 import { errorSchema } from './errors';
 
 import styles from './form.module.css';
-import Alert, { AlertVariants } from '@/components/Alert';
 import { FormattedMessage } from 'react-intl';
 
 const CourseUpdateForm = ({
@@ -17,9 +16,6 @@ const CourseUpdateForm = ({
   handleTogglePreview,
   isPreview,
   updateCourseInformation,
-  paramId,
-  refetchCourseDetail,
-  showAlert,
 }) => {
   const defaultData = {
     courseName: courseData.courseName,
@@ -40,33 +36,18 @@ const CourseUpdateForm = ({
   const courseDescription = getValues('courseDescription');
   const cost = getValues('cost');
 
-  const handleUpdateInformation = (data) => {
-    return updateCourseInformation({ ...data, id: paramId })
-      .then(() => {
-        refetchCourseDetail();
-        showAlert({
-          component: Alert,
-          props: {
-            variant: AlertVariants.Success,
-            children: 'Information saved!',
-          },
-        });
-      })
-      .catch((err) => {
-        showAlert({
-          component: Alert,
-          props: {
-            variant: AlertVariants.Error,
-            children: err.response && err.response.data.message,
-          },
-        });
-      });
+  const onSubmit = (data) => {
+    const { courseName, courseDescription, cost } = data;
+    let trimData = {
+      courseName: courseName.trim(),
+      courseDescription: courseDescription.trim(),
+      cost,
+    };
+    updateCourseInformation(trimData);
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(handleUpdateInformation)}
-      className={styles.container}>
+    <form onSubmit={handleSubmit(onSubmit)} className={styles.container}>
       {isPreview ? (
         <CoursePreview courseData={{ courseName, courseDescription, cost }} />
       ) : (

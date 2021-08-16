@@ -24,7 +24,7 @@ const Header = ({
           alt={courseInfo.courseName}
         />
         <div className={styles.changeThumb}>
-          <input onChange={handleChangeImage} type='file' />
+          <input onChange={handleChangeImage} type='file' accept='image/*' />
         </div>
       </div>
       <div className={styles.right}>

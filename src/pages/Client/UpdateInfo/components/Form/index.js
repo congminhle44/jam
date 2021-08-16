@@ -18,6 +18,7 @@ const Form = ({ userInfo, updateUser }) => {
   });
 
   const onSubmit = (data) => {
+    Object.keys(data).map((key) => (data[key] = data[key].trim()));
     updateUser(data);
   };
 

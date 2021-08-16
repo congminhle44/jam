@@ -64,6 +64,29 @@ const CourseSetting = ({ match }) => {
       });
   };
 
+  const handleUpdateInformation = (data) => {
+    return updateCourseInformation({ ...data, id })
+      .then(() => {
+        refetchCourseDetail();
+        showAlert({
+          component: Alert,
+          props: {
+            variant: AlertVariants.Success,
+            children: 'Information saved!',
+          },
+        });
+      })
+      .catch((err) => {
+        showAlert({
+          component: Alert,
+          props: {
+            variant: AlertVariants.Error,
+            children: err.response && err.response.data.message,
+          },
+        });
+      });
+  };
+
   const handleDeleteCourse = () => {
     return deleteCourse({ id })
       .then((result) => {
@@ -116,8 +139,7 @@ const CourseSetting = ({ match }) => {
           </Typography>
           {courseData && (
             <CourseUpdateForm
-              updateCourseInformation={updateCourseInformation}
-              paramId={id}
+              updateCourseInformation={handleUpdateInformation}
               showAlert={showAlert}
               refetchCourseDetail={refetchCourseDetail}
               isPreview={preview.active}

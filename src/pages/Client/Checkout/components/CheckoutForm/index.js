@@ -29,7 +29,9 @@ const CheckoutForm = ({ handleCheckout, total, checkoutItems }) => {
   };
 
   const handleSubmit = (e) => {
+    // Prevent page refresh
     e.preventDefault();
+    // Create payment method to submit to backend
     stripe
       .createPaymentMethod({
         type: 'card',

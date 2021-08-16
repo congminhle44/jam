@@ -31,6 +31,7 @@ const Signup = () => {
   const handleRegister = (user) => {
     return signupUser(user)
       .then((result) => {
+        // If user successfully registered, system will save their email and redirect to login page with the entered email input
         registeredEmail(result.email);
         history.push('/login');
         showAlert({

@@ -58,9 +58,10 @@ const CreateCourseForm = ({
         placeholder='Type course description'
         {...register('cost', {
           required: true,
-          minLength: 3,
-          maxLength: 4,
+          min: 50,
+          max: 500,
         })}
+        defaultValue='50'
         error={errors.cost?.message}
       />
       {categories && (

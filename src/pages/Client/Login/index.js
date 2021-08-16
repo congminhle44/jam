@@ -31,6 +31,7 @@ const Login = () => {
     if (userLocal) history.push('/');
   }, [history, userLocal]);
 
+  // Declare login action request
   const { mutateAsync: userLogin } = useLogin();
 
   const handleLogin = (user) => {
@@ -39,6 +40,7 @@ const Login = () => {
       password: user.password,
     })
       .then((data) => {
+        // If account is an admin it will tell them to login at their right route
         if (data.data.userType === 'admin') {
           showAlert({
             component: AlertLogin,
@@ -48,6 +50,7 @@ const Login = () => {
             },
           });
         } else {
+          // If not it will login as normal
           if (purchaseItems.length > 0) {
             history.push('/cart/checkout');
           } else {

@@ -30,7 +30,7 @@ const UpdateInfo = () => {
         showAlert({
           component: Alert,
           props: {
-            variant: AlertVariants.Success,
+            variant: AlertVariants.Error,
             children: err.response && err.response.data.message,
           },
         })
