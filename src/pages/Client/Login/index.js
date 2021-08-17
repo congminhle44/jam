@@ -56,13 +56,6 @@ const Login = () => {
           } else {
             history.push('/');
           }
-          showAlert({
-            component: AlertLogin,
-            props: {
-              variant: AlertVariants.Success,
-              children: 'Login success',
-            },
-          });
 
           // Save information and token to localstorage and store to use
           addUserInfo(data.data);

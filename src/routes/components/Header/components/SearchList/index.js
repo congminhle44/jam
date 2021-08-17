@@ -31,7 +31,7 @@ const SearchList = ({ courses, isLoading }) => {
         return (
           <Typography
             className={styles.notfound}
-            variant={TypographyVariants.Label1}>
+            variant={TypographyVariants.Body1}>
             There is no course
           </Typography>
         );
