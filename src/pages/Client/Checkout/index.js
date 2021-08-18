@@ -5,6 +5,7 @@ import config from '@/config';
 import { useCheckout, useMomoRedirect } from '@/queries/hooks/courses';
 import { showAlertAtom } from '@/store/alert';
 import { derivedCheckoutItemsAtom } from '@/store/checkout';
+import { userAtom } from '@/store/login';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { useAtom } from 'jotai';
@@ -20,6 +21,7 @@ const Checkout = () => {
 
   const [checkoutItems] = useAtom(derivedCheckoutItemsAtom);
   const [, showAlert] = useAtom(showAlertAtom);
+  const [userInfo] = useAtom(userAtom);
 
   const { mutateAsync: checkout } = useCheckout();
   const { mutateAsync: momoRedirect } = useMomoRedirect();
@@ -55,18 +57,22 @@ const Checkout = () => {
   return (
     <>
       {checkoutItems.length > 0 ? (
-        <div className={styles.container}>
-          <Elements stripe={stripePromise}>
-            <div className={styles.wrapper}>
-              <Main
-                momoRedirect={momoRedirect}
-                handleCheckout={handleCheckout}
-                checkoutItems={checkoutItems}
-              />
-              <Summary checkoutItems={checkoutItems} />
-            </div>
-          </Elements>
-        </div>
+        userInfo.userType === 'tutor' ? (
+          <Redirect to='/' />
+        ) : (
+          <div className={styles.container}>
+            <Elements stripe={stripePromise}>
+              <div className={styles.wrapper}>
+                <Main
+                  momoRedirect={momoRedirect}
+                  handleCheckout={handleCheckout}
+                  checkoutItems={checkoutItems}
+                />
+                <Summary checkoutItems={checkoutItems} />
+              </div>
+            </Elements>
+          </div>
+        )
       ) : (
         <Redirect to='/' />
       )}

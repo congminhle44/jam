@@ -91,113 +91,115 @@ const CourseHeader = ({
 
   return (
     <div className={styles.container}>
-      <div className={styles.imgWrap}>
-        {isCourseLoading ? (
-          <Skeleton width={240} height={240} />
-        ) : (
-          <img
-            className={styles.thumb}
-            src={courseInfo && courseInfo.courseImage}
-            onError={(e) => (e.target.src = `${ErrorImg}`)}
-            alt={courseInfo && courseInfo.courseName}
-          />
-        )}
-        <div className={styles.overlay}>
-          <div
-            data-toggle='tooltip'
-            title={'Watch demo video'}
-            onClick={showVideo}
-            className={styles.play}>
-            <Play />
-          </div>
-        </div>
-      </div>
-      <div className={styles.info}>
-        <div className={styles.infoHeader}>
-          <div className={styles.titleInfo}>
-            {isCourseLoading ? (
-              <Skeleton
-                style={{ display: 'block' }}
-                className={styles.title}
-                width={100}
-                height={20}
-              />
-            ) : (
-              <Typography
-                className={styles.title}
-                variant={TypographyVariants.Title2}>
-                {courseInfo && courseInfo.courseName}
-              </Typography>
-            )}
-            {isCourseLoading ? (
-              <Skeleton
-                style={{ display: 'block' }}
-                className={styles.author}
-                width={150}
-                height={20}
-              />
-            ) : (
-              <Typography
-                className={styles.author}
-                variant={TypographyVariants.Body1}>
-                {courseInfo && courseInfo.personCreated.fullName}
-              </Typography>
-            )}
-          </div>
-          {userInfo.userType !== 'tutor' && (
-            <div
-              className={clsx(
-                styles.wish,
-                courseInfo && courseInfo.isWished && styles.active
-              )}
-              onClick={() =>
-                courseInfo && courseInfo.isWished
-                  ? handleRemoveItemFromWishlist(courseInfo._id)
-                  : handleAddItemToWishlist(courseInfo._id)
-              }>
-              <SolidHeart />
-            </div>
+      <div className={styles.wrapper}>
+        <div className={styles.imgWrap}>
+          {isCourseLoading ? (
+            <Skeleton width={240} height={240} />
+          ) : (
+            <img
+              className={styles.thumb}
+              src={courseInfo && courseInfo.courseImage}
+              onError={(e) => (e.target.src = `${ErrorImg}`)}
+              alt={courseInfo && courseInfo.courseName}
+            />
           )}
+          <div className={styles.overlay}>
+            <div
+              data-toggle='tooltip'
+              title={'Watch demo video'}
+              onClick={showVideo}
+              className={styles.play}>
+              <Play />
+            </div>
+          </div>
         </div>
-        {courseInfo && (
-          <RateStar
-            readOnly
-            showRateInText
-            value={courseInfo && courseInfo.averageRate}
-            amount={courseInfo && courseInfo.amountOfComments}
-          />
-        )}
-        <Typography className={styles.price} variant={TypographyVariants.H5}>
-          ${courseInfo && courseInfo.cost}
-        </Typography>
-      </div>
-      <div className={styles.control}>
-        <Button
-          onClick={() => handleAddItemToCart(courseInfo._id)}
-          className={styles.cart}
-          variant={ButtonVariants.Solid}
-          size={ButtonSizes.Standard}
-          disabled={userInfo.userType === 'tutor'}
-          title={
-            userInfo.userType === 'tutor'
-              ? 'You do not have permission'
-              : 'Add this course to cart'
-          }>
-          <FormattedMessage id='course.cart' />
-        </Button>
-        <Button
-          onClick={() => addItemToCheckout(courseInfo)}
-          className={styles.purchase}
-          variant={ButtonVariants.Outline}
-          size={ButtonSizes.Standard}
-          disabled={userInfo.userType === 'tutor'}
-          title={
-            userInfo.userType === 'tutor'
-              ? 'You do not have permission'
-              : 'Purhcase this course now'
-          }>
-          <FormattedMessage id='course.purchase' />
-        </Button>
+        <div className={styles.info}>
+          <div className={styles.infoHeader}>
+            <div className={styles.titleInfo}>
+              {isCourseLoading ? (
+                <Skeleton
+                  style={{ display: 'block' }}
+                  className={styles.title}
+                  width={100}
+                  height={20}
+                />
+              ) : (
+                <Typography
+                  className={styles.title}
+                  variant={TypographyVariants.Title2}>
+                  {courseInfo && courseInfo.courseName}
+                </Typography>
+              )}
+              {isCourseLoading ? (
+                <Skeleton
+                  style={{ display: 'block' }}
+                  className={styles.author}
+                  width={150}
+                  height={20}
+                />
+              ) : (
+                <Typography
+                  className={styles.author}
+                  variant={TypographyVariants.Body1}>
+                  {courseInfo && courseInfo.personCreated.fullName}
+                </Typography>
+              )}
+            </div>
+            {userInfo.userType !== 'tutor' && (
+              <div
+                className={clsx(
+                  styles.wish,
+                  courseInfo && courseInfo.isWished && styles.active
+                )}
+                onClick={() =>
+                  courseInfo && courseInfo.isWished
+                    ? handleRemoveItemFromWishlist(courseInfo._id)
+                    : handleAddItemToWishlist(courseInfo._id)
+                }>
+                <SolidHeart />
+              </div>
+            )}
+          </div>
+          {courseInfo && (
+            <RateStar
+              readOnly
+              showRateInText
+              value={courseInfo && courseInfo.averageRate}
+              amount={courseInfo && courseInfo.amountOfComments}
+            />
+          )}
+          <Typography className={styles.price} variant={TypographyVariants.H5}>
+            ${courseInfo && courseInfo.cost}
+          </Typography>
+        </div>
+        <div className={styles.control}>
+          <Button
+            onClick={() => handleAddItemToCart(courseInfo._id)}
+            className={styles.cart}
+            variant={ButtonVariants.Solid}
+            size={ButtonSizes.Standard}
+            disabled={userInfo.userType === 'tutor'}
+            title={
+              userInfo.userType === 'tutor'
+                ? 'You do not have permission'
+                : 'Add this course to cart'
+            }>
+            <FormattedMessage id='course.cart' />
+          </Button>
+          <Button
+            onClick={() => addItemToCheckout(courseInfo)}
+            className={styles.purchase}
+            variant={ButtonVariants.Outline}
+            size={ButtonSizes.Standard}
+            disabled={userInfo.userType === 'tutor'}
+            title={
+              userInfo.userType === 'tutor'
+                ? 'You do not have permission'
+                : 'Purhcase this course now'
+            }>
+            <FormattedMessage id='course.purchase' />
+          </Button>
+        </div>
       </div>
     </div>
   );
