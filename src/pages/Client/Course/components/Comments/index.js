@@ -9,20 +9,28 @@ import styles from './comments.module.css';
 
 const Comments = ({ comments }) => {
   const wrapperRef = useRef();
+  const itemRef = useRef();
 
   useEffect(() => {
     const ps = new PerfectScrollbar(wrapperRef.current);
     ps.update();
   }, [wrapperRef]);
 
+  useEffect(() => {
+    if (itemRef.current && comments) {
+      wrapperRef.current.scrollTop =
+        itemRef.current.getBoundingClientRect().height * comments.length;
+    }
+  }, [comments]);
+
   const renderComments = () => {
     if (comments) {
       return comments.map((comment) => {
         const yy = new Date(comment.createdAt).getFullYear();
-        const mm = new Date(comment.createdAt).getMonth();
+        const mm = new Date(comment.createdAt).getMonth() + 1;
         const dd = new Date(comment.createdAt).getDate();
         return (
-          <div key={comment._id} className={styles.item}>
+          <div ref={itemRef} key={comment._id} className={styles.item}>
             <img
               className={styles.avatar}
               src={comment.author.avatar}

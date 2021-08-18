@@ -144,18 +144,20 @@ const CourseHeader = ({
               </Typography>
             )}
           </div>
-          <div
-            className={clsx(
-              styles.wish,
-              courseInfo && courseInfo.isWished && styles.active
-            )}
-            onClick={() =>
-              courseInfo && courseInfo.isWished
-                ? handleRemoveItemFromWishlist(courseInfo._id)
-                : handleAddItemToWishlist(courseInfo._id)
-            }>
-            <SolidHeart />
-          </div>
+          {userInfo.userType !== 'tutor' && (
+            <div
+              className={clsx(
+                styles.wish,
+                courseInfo && courseInfo.isWished && styles.active
+              )}
+              onClick={() =>
+                courseInfo && courseInfo.isWished
+                  ? handleRemoveItemFromWishlist(courseInfo._id)
+                  : handleAddItemToWishlist(courseInfo._id)
+              }>
+              <SolidHeart />
+            </div>
+          )}
         </div>
         {courseInfo && (
           <RateStar
@@ -174,14 +176,26 @@ const CourseHeader = ({
           onClick={() => handleAddItemToCart(courseInfo._id)}
           className={styles.cart}
           variant={ButtonVariants.Solid}
-          size={ButtonSizes.Standard}>
+          size={ButtonSizes.Standard}
+          disabled={userInfo.userType === 'tutor'}
+          title={
+            userInfo.userType === 'tutor'
+              ? 'You do not have permission'
+              : 'Add this course to cart'
+          }>
           <FormattedMessage id='course.cart' />
         </Button>
         <Button
           onClick={() => addItemToCheckout(courseInfo)}
           className={styles.purchase}
           variant={ButtonVariants.Outline}
-          size={ButtonSizes.Standard}>
+          size={ButtonSizes.Standard}
+          disabled={userInfo.userType === 'tutor'}
+          title={
+            userInfo.userType === 'tutor'
+              ? 'You do not have permission'
+              : 'Purhcase this course now'
+          }>
           <FormattedMessage id='course.purchase' />
         </Button>
       </div>
