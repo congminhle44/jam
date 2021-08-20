@@ -43,7 +43,7 @@ const CheckoutSuccess = () => {
         <Typography
           className={styles.thank}
           variant={TypographyVariants.Title1}>
-          <FormattedMessage id='checkout.error.notify' />
+          <FormattedMessage id='checkout.error.thank' />
         </Typography>
         <Button
           onClick={handleRedirectToHome}
