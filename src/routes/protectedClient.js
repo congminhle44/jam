@@ -3,6 +3,7 @@
 import { useAtom } from 'jotai';
 import { lazy } from 'react';
 import { Route } from 'react-router';
+import ReactGA from 'react-ga';
 
 import { userAtom } from '@/store/login';
 
@@ -23,11 +24,14 @@ const ProtectedClientRoute = ({
       {userInfo ? (
         <Route
           {...others}
-          render={(childProps) => (
-            <ClientLayout>
-              <Component {...childProps} {...withProps} />
-            </ClientLayout>
-          )}
+          render={(childProps) => {
+            ReactGA.pageview(childProps.location.pathname);
+            return (
+              <ClientLayout>
+                <Component {...childProps} {...withProps} />
+              </ClientLayout>
+            );
+          }}
         />
       ) : (
         <Notfound />

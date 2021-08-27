@@ -1,6 +1,7 @@
 /** @format */
 import { Router } from 'react-router';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import ReactGA from 'react-ga';
 
 import NetWorkProvider from './providers/NetworkProvider';
 import AlertProvider from './providers/AlertProvider';
@@ -16,6 +17,9 @@ import { useAtom } from 'jotai';
 import { langAtom } from '@/store/lang';
 
 function App() {
+  const TRACKING_ID = 'UA-186184116-1';
+  ReactGA.initialize(TRACKING_ID);
+
   const [language] = useAtom(langAtom);
 
   const queryClient = new QueryClient({
