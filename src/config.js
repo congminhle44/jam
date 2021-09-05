@@ -239,7 +239,7 @@ const config = {
       method: 'GET',
     },
     downloadLessons: {
-      url: (id) => `/courses/download/${id}`,
+      url: (id, userId) => `/courses/download/${id}/${userId}`,
       method: 'GET',
     },
     sendRecoverPasswordMail: {

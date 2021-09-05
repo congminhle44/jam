@@ -3,13 +3,20 @@
 import Button, { ButtonSizes, ButtonVariants } from '@/components/Button';
 import Typography, { TypographyVariants } from '@/components/Typography';
 import config from '@/config';
+import { userAtom } from '@/store/login';
+import { useAtom } from 'jotai';
 import { FormattedMessage } from 'react-intl';
 import styles from './detail.module.css';
 
 const LibItemDetail = ({ processData, handleRedirectUser, course }) => {
+  const [userInfo] = useAtom(userAtom);
+
   const handleDownloadLessons = () => {
     window.open(
-      `${config.app.apiHost}${config.apis.downloadLessons.url(course._id)}`
+      `${config.app.apiHost}${config.apis.downloadLessons.url(
+        course._id,
+        userInfo._id
+      )}`
     );
   };
 
