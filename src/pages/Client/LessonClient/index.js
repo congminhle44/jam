@@ -15,7 +15,8 @@ const LessonClient = ({ match }) => {
 
   const { mutateAsync: updateProcess } = useUpdateLearningProcess();
 
-  const { data: lessonsInfo } = useLessonInCourseStudent(courseId);
+  const { data: lessonsInfo, isLoading: isLessonsLoading } =
+    useLessonInCourseStudent(courseId);
   const { data: lessonSource } = useLessonSource(lessonId);
 
   return (
@@ -23,6 +24,7 @@ const LessonClient = ({ match }) => {
       <Lessons
         lessonId={lessonId}
         updateProcess={updateProcess}
+        isLessonsLoading={isLessonsLoading}
         courseId={courseId}
         lessonsInfo={lessonsInfo}
       />

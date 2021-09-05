@@ -7,8 +7,15 @@ import { Right } from '@/components/Icons';
 import Typography, { TypographyVariants } from '@/components/Typography';
 import styles from './lessons.module.css';
 import clsx from 'clsx';
+import Skeleton from 'react-loading-skeleton';
 
-const Lessons = ({ updateProcess, courseId, lessonsInfo, lessonId }) => {
+const Lessons = ({
+  updateProcess,
+  courseId,
+  lessonsInfo,
+  lessonId,
+  isLessonsLoading,
+}) => {
   const history = useHistory();
   const lessonsWrap = useRef();
 
@@ -49,7 +56,13 @@ const Lessons = ({ updateProcess, courseId, lessonsInfo, lessonId }) => {
 
   return (
     <div ref={lessonsWrap} className={styles.container}>
-      {handleRenderLessonsInfo()}
+      {isLessonsLoading ? (
+        <div style={{ fontSize: 20, lineHeight: 2 }}>
+          <Skeleton width='100%' height={72} count={2} />
+        </div>
+      ) : (
+        handleRenderLessonsInfo()
+      )}
     </div>
   );
 };
