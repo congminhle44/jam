@@ -5,9 +5,9 @@
     "common.logout":"Logout",
     "common.hi":"Hi",
     "common.update":"Update",
-  "common.cancel":"Cancel",
-  "common.create":"Create",
-  "common.delete":"Delete",
+    "common.cancel":"Cancel",
+    "common.create":"Create",
+    "common.delete":"Delete",
 
 
     "header.about":"About Us",

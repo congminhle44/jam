@@ -7,6 +7,7 @@ import RateStar from '@/components/Rating';
 import ErrorImg from '@/assets/Images/Image-error.jpg';
 
 import styles from './item.module.css';
+import ReactMarkdown from 'react-markdown';
 
 const CategoryItems = ({ course }) => {
   return (
@@ -29,7 +30,7 @@ const CategoryItems = ({ course }) => {
           <Typography
             className={styles.description}
             variant={TypographyVariants.Body1}>
-            {course.courseDescription}
+            <ReactMarkdown>{course.courseDescription}</ReactMarkdown>
           </Typography>
           <Typography
             className={styles.author}
