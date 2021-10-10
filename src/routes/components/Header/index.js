@@ -8,7 +8,7 @@ import { debounce } from 'lodash';
 import useToggle from '@/hooks/useToggle';
 
 import { DesktopNav, HeaderFeature, MobileMenu, MobileNav } from './components';
-import { removeUserInfoAtom } from '@/store/login';
+import { removeUserInfoAtom, userAtom } from '@/store/login';
 
 import styles from './header.module.css';
 import { useGetWishlist, usePublicCourses } from '@/queries/hooks/courses';
@@ -22,6 +22,7 @@ const Header = () => {
   const history = useHistory();
   const [keyword, setKeyword] = useState('');
 
+  const [userInfo] = useAtom(userAtom);
   const [, removeUserInfo] = useAtom(removeUserInfoAtom);
   const [, removeUserToken] = useAtom(removeTokenAtom);
   const [, removeUserRefreshToken] = useAtom(removeRefreshTokenAtom);
@@ -32,8 +33,8 @@ const Header = () => {
   const showSearchInput = useToggle(false);
 
   const { data: courses, isLoading } = usePublicCourses('', '', keyword);
-  const { data: wishlistItems } = useGetWishlist();
-  const { data: cartItems } = useGetCartItem();
+  const { data: wishlistItems } = useGetWishlist(userInfo);
+  const { data: cartItems } = useGetCartItem(userInfo);
   const { mutateAsync: logoutRemoveRefreshToken } = useLogout();
 
   useEffect(() => {

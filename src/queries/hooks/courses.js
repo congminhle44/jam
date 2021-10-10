@@ -72,8 +72,8 @@ export const useLessonSource = (id) =>
     onError: handleError,
   });
 
-export const useGetWishlist = () =>
-  useQuery(['getWishlist'], getWishlist, {
+export const useGetWishlist = (userInfo) =>
+  useQuery(['getWishlist'], userInfo && getWishlist, {
     onError: handleError,
   });
 

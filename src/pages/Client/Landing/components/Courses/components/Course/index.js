@@ -205,7 +205,9 @@ const CourseTabs = ({ isLoading, courses, refetchCourse }) => {
       });
     } else {
       return (
-        <Typography variant={TypographyVariants.Body1}>
+        <Typography
+          className={styles.notfound}
+          variant={TypographyVariants.Body1}>
           <FormattedMessage id='courses.notfound' />
         </Typography>
       );

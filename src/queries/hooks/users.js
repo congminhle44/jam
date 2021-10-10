@@ -59,8 +59,8 @@ export const useRegister = () => {
   return mutation;
 };
 
-export const useGetCartItem = () =>
-  useQuery(['cartItem'], getCartItem, {
+export const useGetCartItem = (userInfo) =>
+  useQuery(['cartItem'], userInfo && getCartItem, {
     onError: handleError,
   });
 

@@ -99,4 +99,7 @@
   .card {
     margin: 0.875rem;
   }
+  .notfound {
+    white-space: nowrap;
+  }
 }
