@@ -9,7 +9,7 @@
   background-color: var(--bg-sub);
   border-radius: 0.5rem;
   box-shadow: 0 0 4px var(--grey-4);
-  padding: 1rem;
+  padding: 1rem 0.75rem;
   color: var(--text);
   height: 5.1875rem;
   overflow: hidden;
@@ -23,6 +23,7 @@
   align-items: center;
   justify-content: space-between;
   padding-bottom: 1rem;
+  cursor: pointer;
 }
 
 .up {
@@ -50,21 +51,17 @@
     position: sticky;
     top: 15%;
     left: 0;
+    max-width: 20rem;
     height: 100%;
     padding: 0;
-    margin-left: 1rem;
   }
-
+  .head {
+    cursor: auto;
+  }
   .container {
     height: fit-content;
   }
   .up {
     display: none;
-  }
-}
-
-@media (min-width: 1024px) {
-  .wrapper {
-    margin-left: 1.5rem;
   }
 }

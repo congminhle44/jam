@@ -60,7 +60,7 @@ export const useRegister = () => {
 };
 
 export const useGetCartItem = (userInfo) =>
-  useQuery(['cartItem'], userInfo && getCartItem, {
+  useQuery(['cartItem', { userInfo }], getCartItem, {
     onError: handleError,
   });
 

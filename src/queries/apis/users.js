@@ -88,13 +88,16 @@ export const updateLearningProcess = async (requestBody) => {
   return data;
 };
 
-export const getCartItem = async () => {
-  const { url, method } = config.apis.getUserCart;
-  const { data } = await axios({
-    url: `${config.app.apiHost}${url}`,
-    method: method,
-  });
-  return data;
+export const getCartItem = async (key) => {
+  const { userInfo } = key && key.queryKey[1];
+  if (userInfo) {
+    const { url, method } = config.apis.getUserCart;
+    const { data } = await axios({
+      url: `${config.app.apiHost}${url}`,
+      method: method,
+    });
+    return data;
+  }
 };
 
 export const getUsers = async (key) => {

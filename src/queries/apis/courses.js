@@ -85,13 +85,16 @@ export const getLessonSource = async (key) => {
   return data;
 };
 
-export const getWishlist = async () => {
-  const { url, method } = config.apis.getWishlist;
-  const { data } = await axios({
-    url: `${config.app.apiHost}${url}`,
-    method: method,
-  });
-  return data;
+export const getWishlist = async (key) => {
+  const { userInfo } = key && key.queryKey[1];
+  if (userInfo) {
+    const { url, method } = config.apis.getWishlist;
+    const { data } = await axios({
+      url: `${config.app.apiHost}${url}`,
+      method: method,
+    });
+    return data;
+  }
 };
 
 export const addWishlist = async (requestBody) => {

@@ -33,7 +33,7 @@ const CourseHeader = ({
   const [, showAlert] = useAtom(showAlertAtom);
   const [userInfo] = useAtom(userAtom);
 
-  const { refetch: refetchWishlist } = useGetWishlist();
+  const { refetch: refetchWishlist } = useGetWishlist(userInfo);
   const { mutateAsync: addItemToWishlist } = useWishlist();
   const { mutateAsync: removeItemFromWishlist } = useRemoveWishlist();
 

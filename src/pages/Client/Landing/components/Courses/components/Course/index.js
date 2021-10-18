@@ -33,8 +33,8 @@ const CourseTabs = ({ isLoading, courses, refetchCourse }) => {
   const [, showAlert] = useAtom(showAlertAtom);
   const [userInfo] = useAtom(userAtom);
 
-  const { refetch: refetchCartList } = useGetCartItem();
-  const { refetch: refetchWishlist } = useGetWishlist();
+  const { refetch: refetchCartList } = useGetCartItem(userInfo);
+  const { refetch: refetchWishlist } = useGetWishlist(userInfo);
   const { mutateAsync: addItemToCart } = useCartItem();
   const { mutateAsync: addItemToWishlist } = useWishlist();
   const { mutateAsync: removeItemFromWishlist } = useRemoveWishlist();

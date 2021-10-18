@@ -5,21 +5,22 @@ import Typography, { TypographyVariants } from '@/components/Typography';
 import { useRemoveCartItem } from '@/queries/hooks/courses';
 import { useGetCartItem } from '@/queries/hooks/users';
 import { showAlertAtom } from '@/store/alert';
-import { derivedTokenAtom } from '@/store/token';
+import { userAtom } from '@/store/login';
 import { useAtom } from 'jotai';
 import { FormattedMessage } from 'react-intl';
+import ReactMarkdown from 'react-markdown';
 
 import styles from './item.module.css';
 
 const CartItem = ({ cartItem }) => {
-  const [userToken] = useAtom(derivedTokenAtom);
+  const [userInfo] = useAtom(userAtom);
   const [, showAlert] = useAtom(showAlertAtom);
 
-  const { refetch: refetchUserCart } = useGetCartItem(userToken);
-  const { mutateAsync: removeItem } = useRemoveCartItem(userToken);
+  const { refetch: refetchUserCart } = useGetCartItem(userInfo);
+  const { mutateAsync: removeItem } = useRemoveCartItem();
 
   const handleRemoveItemFromCart = (courseId) => {
-    return removeItem({ courseId, token: userToken })
+    return removeItem({ courseId })
       .then((result) => {
         showAlert({
           component: Alert,
@@ -50,7 +51,7 @@ const CartItem = ({ cartItem }) => {
           <Typography
             className={styles.description}
             variant={TypographyVariants.Label1}>
-            {cartItem.courseDescription}
+            <ReactMarkdown>{cartItem.courseDescription}</ReactMarkdown>
           </Typography>
         </div>
         <div className={styles.right}>

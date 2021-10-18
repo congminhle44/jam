@@ -55,7 +55,7 @@ const CourseDetails = ({ match }) => {
   const { data: courseComments, refetch: refetchComment } =
     useCommentsInCourse(id);
   const { mutateAsync: addItemToCart } = useCartItem();
-  const { refetch: refetchCartList } = useGetCartItem();
+  const { refetch: refetchCartList } = useGetCartItem(userInfo);
 
   const { mutateAsync: uploadComment } = useComment();
 

@@ -8,6 +8,7 @@ import { Cart } from '@/components/Icons';
 import Typography, { TypographyVariants } from '@/components/Typography';
 import styles from './item.module.css';
 import { FormattedMessage } from 'react-intl';
+import ReactMarkdown from 'react-markdown';
 
 const Wishitem = ({ wishInfo, handleRemoveWishItem, handleAddItemToCart }) => {
   const history = useHistory();
@@ -29,9 +30,9 @@ const Wishitem = ({ wishInfo, handleRemoveWishItem, handleAddItemToCart }) => {
               {wishInfo.courseName}
             </Typography>
             <Typography
-              className={styles.category}
+              className={styles.description}
               variant={TypographyVariants.Body1}>
-              {wishInfo.courseType}
+              <ReactMarkdown>{wishInfo.courseDescription}</ReactMarkdown>
             </Typography>
             <div onClick={() => handleRemoveWishItem(wishInfo._id)}>
               <Typography
@@ -42,11 +43,6 @@ const Wishitem = ({ wishInfo, handleRemoveWishItem, handleAddItemToCart }) => {
             </div>
           </div>
         </div>
-        <Typography
-          className={styles.description}
-          variant={TypographyVariants.Body1}>
-          {wishInfo.courseDescription}
-        </Typography>
       </div>
       <Button
         className={styles.cart}

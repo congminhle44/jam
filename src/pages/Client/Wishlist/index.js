@@ -9,16 +9,19 @@ import {
 } from '@/queries/hooks/courses';
 import { useGetCartItem } from '@/queries/hooks/users';
 import { showAlertAtom } from '@/store/alert';
+import { userAtom } from '@/store/login';
 import { useAtom } from 'jotai';
 import { FormattedMessage } from 'react-intl';
 import Wishitem from './components/item';
 import styles from './wish.module.css';
 
 const Wishlist = () => {
-  const { data: wishItems, refetch: refetchWishlist } = useGetWishlist();
+  const [userInfo] = useAtom(userAtom);
+  const { data: wishItems, refetch: refetchWishlist } =
+    useGetWishlist(userInfo);
   const { mutateAsync: removeWishItem } = useRemoveWishlist();
   const { mutateAsync: addItemToCart } = useCartItem();
-  const { refetch: refetchCartItem } = useGetCartItem();
+  const { refetch: refetchCartItem } = useGetCartItem(userInfo);
 
   const [, showAlert] = useAtom(showAlertAtom);
 

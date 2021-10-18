@@ -21,14 +21,14 @@
 }
 
 .thumb {
-  width: 5rem;
+  width: 6rem;
   margin-right: 1.25rem;
   border-radius: 0.5rem;
 }
 
 .name {
   width: 100%;
-  height: 2.8125rem;
+  max-height: 3rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -42,13 +42,20 @@
   margin: 0 0 0.125rem 0;
 }
 
-.description {
-  display: none;
-}
-
 .remove {
   width: fit-content;
   cursor: pointer;
+}
+
+.description {
+  height: 2.8125rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0.25rem;
+  white-space: normal;
 }
 
 .cart {
@@ -62,14 +69,5 @@
   }
   .category {
     margin-top: 0.25rem;
-  }
-  .description {
-    height: 2.8125rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: normal;
   }
 }
