@@ -10,7 +10,7 @@ import { addNewRefreshTokenAtom } from '@/store/refreshToken';
 import { addNewTokenAtom } from '@/store/token';
 import { useAtom } from 'jotai';
 import { useHistory } from 'react-router-dom';
-import AdminLoginForm from './components/Form';
+import AdminLoginForm from './components/form';
 import styles from './login.module.css';
 
 const AdminLogin = () => {
